@@ -1,0 +1,179 @@
+{
+  "schemaVersion": 1,
+  "generatedAt": "2026-10-10T07:24:03.927Z",
+  "status": "automated-pass",
+  "environment": {
+    "node": "v24.14.0",
+    "platform": "darwin",
+    "architecture": "arm64",
+    "browser": "156.0.8078.4"
+  },
+  "sources": [
+    {
+      "file": "app.js",
+      "sha256": "71ab41accb438b216b72e70cfd9e4fc0801e00576f0ef7d794efa094e52206de"
+    },
+    {
+      "file": "index.html",
+      "sha256": "67b45b0267a2abb89bb67e0457e1828085845d1304aec70a88c4f93c16e11012"
+    },
+    {
+      "file": "media/waves-flow.svg",
+      "sha256": "a04e32e48ca90698c17a0325d4bdf209ce7c0bd741ebe4d01a4517c697ff6cad"
+    },
+    {
+      "file": "media/waves-rise.svg",
+      "sha256": "3d44181236383895ff77eaa05931c6e0e12c3c3c49e35ef412516cbd11512855"
+    },
+    {
+      "file": "media/waves.svg",
+      "sha256": "3b326e65ead2d1928c7f462653bffeca82bae2ac3b2e68cd4d7306a918fd4e6e"
+    },
+    {
+      "file": "project.json",
+      "sha256": "222c95626482fb367e6af90fe3ba26e4cb648dfff0534c92e3809ac05e214a65"
+    },
+    {
+      "file": "style.css",
+      "sha256": "806bf124653cf5715909dc84e71f47ab6bc7d583eae4257a71c31af01c37b465"
+    }
+  ],
+  "limitations": [
+    "Range rectangles are not exact glyph outlines.",
+    "Occlusion sampling is heuristic; masks, transparency and pointer-events:none require visual review.",
+    "CSS font names do not prove glyph coverage or actual fallback face.",
+    "No OCR, translation, reference fidelity, rights or store acceptance check."
+  ],
+  "visualReview": {
+    "scope": "All 12 demo cells reviewed in the generated contact sheet for text bounds, ordering, RTL layout and distinct motion phases.",
+    "status": "demo-layout-reviewed",
+    "limits": "Not native-speaker translation approval, actual font-face verification, pixel fidelity to NextNote, or store approval."
+  },
+  "results": [
+    {
+      "locale": "en-US",
+      "device": "iphone",
+      "slide": "capture",
+      "file": "en-US/iphone/01-capture.png",
+      "width": 1284,
+      "height": 2778,
+      "sha256": "4d549a277c83ccfaea19247f99b5ff010836513bb13abb6ae4033e840cf8ed43",
+      "issues": []
+    },
+    {
+      "locale": "en-US",
+      "device": "iphone",
+      "slide": "motion",
+      "file": "en-US/iphone/02-motion.png",
+      "width": 1284,
+      "height": 2778,
+      "sha256": "e681d0cc374d2666e8e696064676bba779a6d8c2ef7ec5e22fc49e3565c68961",
+      "issues": []
+    },
+    {
+      "locale": "en-US",
+      "device": "ipad",
+      "slide": "capture",
+      "file": "en-US/ipad/01-capture.png",
+      "width": 2048,
+      "height": 2732,
+      "sha256": "d20148b7c9ede2bd36c18f70b2da32e145374a011f2ebba7409345625d4db5b3",
+      "issues": []
+    },
+    {
+      "locale": "en-US",
+      "device": "ipad",
+      "slide": "motion",
+      "file": "en-US/ipad/02-motion.png",
+      "width": 2048,
+      "height": 2732,
+      "sha256": "469e47652255c1cf5436f941675693a36e02ef38a110008fce6ae57ced48829a",
+      "issues": []
+    },
+    {
+      "locale": "zh-Hans",
+      "device": "iphone",
+      "slide": "capture",
+      "file": "zh-Hans/iphone/01-capture.png",
+      "width": 1284,
+      "height": 2778,
+      "sha256": "032a80f8d82d2dedf704707efafa175f38063a69f3e4c8e4009ff4dc6edc4d11",
+      "issues": []
+    },
+    {
+      "locale": "zh-Hans",
+      "device": "iphone",
+      "slide": "motion",
+      "file": "zh-Hans/iphone/02-motion.png",
+      "width": 1284,
+      "height": 2778,
+      "sha256": "49c55647459cca2b816ffdbcd11e5af8a4686d4ecd3780169ad3a9cd5201a1d4",
+      "issues": []
+    },
+    {
+      "locale": "zh-Hans",
+      "device": "ipad",
+      "slide": "capture",
+      "file": "zh-Hans/ipad/01-capture.png",
+      "width": 2048,
+      "height": 2732,
+      "sha256": "7b2b5af71d53d56bbff3608ec069c0fb7694596895be27ee6fc3eccf324b24c0",
+      "issues": []
+    },
+    {
+      "locale": "zh-Hans",
+      "device": "ipad",
+      "slide": "motion",
+      "file": "zh-Hans/ipad/02-motion.png",
+      "width": 2048,
+      "height": 2732,
+      "sha256": "566cb0cea15ec6a721f7af857a2d06841c5d0e2f4fee3d522274d61fd4515e6c",
+      "issues": []
+    },
+    {
+      "locale": "ar",
+      "device": "iphone",
+      "slide": "capture",
+      "file": "ar/iphone/01-capture.png",
+      "width": 1284,
+      "height": 2778,
+      "sha256": "f3c3af51d7729a39a14922e2a0b4dacb3e7ee4671b84ac8525066907507f81d8",
+      "issues": []
+    },
+    {
+      "locale": "ar",
+      "device": "iphone",
+      "slide": "motion",
+      "file": "ar/iphone/02-motion.png",
+      "width": 1284,
+      "height": 2778,
+      "sha256": "f5d15a8a4dbdfc1c85902817beb431a9f60ff00972859c67321d838ef51974e3",
+      "issues": []
+    },
+    {
+      "locale": "ar",
+      "device": "ipad",
+      "slide": "capture",
+      "file": "ar/ipad/01-capture.png",
+      "width": 2048,
+      "height": 2732,
+      "sha256": "310db76ef617a629f3cae89ade9e85b41e1b144d05ad535d4c3b67cf5a03b6d5",
+      "issues": []
+    },
+    {
+      "locale": "ar",
+      "device": "ipad",
+      "slide": "motion",
+      "file": "ar/ipad/02-motion.png",
+      "width": 2048,
+      "height": 2732,
+      "sha256": "bced9fe00dd9844c6571433b357dab9c91b05f0300fe08f726892e1bd43b8dde",
+      "issues": []
+    }
+  ],
+  "tests": {
+    "unit": 11,
+    "browser": 3,
+    "passed": 14
+  }
+}

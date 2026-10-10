@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  />
+  <title>Store cover studio</title
+  ><link rel="stylesheet" href="style.css" />
+  <body>
+    <nav>
+      <strong>Cover studio</strong
+      ><label
+        >Language
+        <select id="locale"></select></label
+      ><label
+        >Device
+        <select id="device"></select></label
+      ><label
+        >Story
+        <select id="slide"></select></label
+      ><span>Synthetic demo • replace with your app</span>
+    </nav>
+    <main>
+      <article id="cover">
+        <div id="brand" data-text-box><span data-text></span></div>
+        <header>
+          <div id="headline" data-text-box><h1 data-text></h1></div>
+          <div id="support" data-text-box><p data-text></p></div>
+        </header>
+        <section id="device-art">
+          <div class="camera"></div>
+          <div class="screen">
+            <div id="uiTitle" data-text-box><h2 data-text></h2></div>
+            <img id="art" alt="Illustrated waves" />
+            <div id="uiBody" data-text-box><p data-text></p></div>
+            <div class="line"></div>
+            <div class="line short"></div>
+          </div>
+        </section>
+        <div class="orb" aria-hidden="true"></div>
+      </article>
+    </main>
+    <script type="module" src="app.js"></script>
+  </body>
+</html>

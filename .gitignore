@@ -1,0 +1,10 @@
+node_modules/
+exports/
+.test-output/
+.venv/
+.DS_Store
+.env
+.env.*
+*.pem
+*.p8
+*.key

@@ -1,0 +1,20 @@
+{
+  "name": "app-store-cover-generator",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Editable store-cover skill and reproducible browser export toolkit",
+  "engines": {
+    "node": ">=22"
+  },
+  "scripts": {
+    "test": "node --test tests/*.test.mjs",
+    "test:browser": "node --test tests/*.browser.mjs",
+    "demo": "node scripts/serve.mjs assets/starter"
+  },
+  "dependencies": {
+    "playwright": "1.64.0",
+    "pngjs": "7.0.0"
+  },
+  "license": "MIT"
+}

@@ -1,0 +1,94 @@
+{
+  "schemaVersion": 1,
+  "app": "Papertrail demo",
+  "minTextScale": 0.8,
+  "locales": [
+    {
+      "id": "en-US",
+      "direction": "ltr"
+    },
+    {
+      "id": "zh-Hans",
+      "direction": "ltr"
+    },
+    {
+      "id": "ar",
+      "direction": "rtl"
+    }
+  ],
+  "devices": [
+    {
+      "id": "iphone",
+      "kind": "phone",
+      "width": 1284,
+      "height": 2778
+    },
+    {
+      "id": "ipad",
+      "kind": "tablet",
+      "width": 2048,
+      "height": 2732
+    }
+  ],
+  "slides": [
+    {
+      "id": "capture",
+      "art": {
+        "shared": "media/waves.svg"
+      },
+      "provenance": "Original vector illustration; synthetic demo UI, not a product capture.",
+      "copy": {
+        "en-US": {
+          "headline": "A thought today.\nA story tomorrow.",
+          "support": "A quiet place for your next idea.",
+          "uiTitle": "Weekend ideas",
+          "uiBody": "Save a small observation. Give it room to grow."
+        },
+        "zh-Hans": {
+          "headline": "灵感来了\n随手记下",
+          "support": "给每一个新想法，留一个位置。",
+          "uiTitle": "周末的灵感",
+          "uiBody": "记录一个小小的发现，让灵感慢慢生长。"
+        },
+        "ar": {
+          "headline": "فكرة اليوم\nحكاية الغد",
+          "support": "مكان هادئ لفكرتك القادمة.",
+          "uiTitle": "أفكار نهاية الأسبوع",
+          "uiBody": "احفظ ملاحظة صغيرة وامنحها مساحة لتنمو."
+        }
+      }
+    },
+    {
+      "id": "motion",
+      "art": {
+        "shared": "media/waves.svg"
+      },
+      "provenance": "Original vector illustration; synthetic demo UI, not a product capture.",
+      "copy": {
+        "en-US": {
+          "headline": "A little motion.\nA lot of personality.",
+          "support": "Illustrated waves bring the page to life.",
+          "uiTitle": "A fresh perspective",
+          "uiBody": "Find a rhythm that feels like you."
+        },
+        "zh-Hans": {
+          "headline": "一点动态\n让笔记生动起来",
+          "support": "用起伏的波浪，装点每一篇笔记。",
+          "uiTitle": "新的视角",
+          "uiBody": "找到属于自己的节奏。"
+        },
+        "ar": {
+          "headline": "قليل من الحركة\nكثير من الشخصية",
+          "support": "أمواج مرسومة تضفي الحياة على الصفحة.",
+          "uiTitle": "منظور جديد",
+          "uiBody": "اعثر على إيقاع يشبهك."
+        }
+      },
+      "phases": [
+        "media/waves.svg",
+        "media/waves-rise.svg",
+        "media/waves-flow.svg"
+      ]
+    }
+  ]
+}

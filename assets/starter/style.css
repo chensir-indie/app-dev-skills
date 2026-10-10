@@ -1,0 +1,216 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: #dfe9ef;
+  font-family: Arial, "Noto Sans", sans-serif;
+  color: #162b40;
+}
+nav {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  flex-wrap: wrap;
+  padding: 18px;
+  background: white;
+  font-size: 14px;
+}
+nav span {
+  color: #526777;
+}
+select {
+  margin-inline-start: 8px;
+  padding: 6px;
+}
+main {
+  padding: 24px;
+  display: flex;
+  justify-content: center;
+}
+#cover {
+  position: relative;
+  width: var(--w);
+  height: var(--h);
+  overflow: hidden;
+  background: linear-gradient(155deg, #f7fbff 0%, #e7f5fa 60%, #cbe5f5 100%);
+  container-type: inline-size;
+  isolation: isolate;
+}
+#brand {
+  position: absolute;
+  top: 5%;
+  left: 8%;
+  width: 84%;
+  height: 4%;
+  font-size: 3.7cqw;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+header {
+  position: absolute;
+  top: 12%;
+  left: 8%;
+  width: 84%;
+  height: 16%;
+}
+#headline {
+  height: 72%;
+  font-size: 8cqw;
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.045em;
+}
+#support {
+  height: 28%;
+  padding-top: 2%;
+  font-size: 3.5cqw;
+  line-height: 1.4;
+  color: #4c6575;
+}
+h1,
+h2,
+p {
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  margin: 0;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+}
+#device-art {
+  position: absolute;
+  left: 12%;
+  top: 32.5%;
+  width: 76%;
+  height: 76.5%;
+  border: 1.2cqw solid #203346;
+  border-radius: 8cqw;
+  background: #fff;
+  box-shadow: 2cqw 3cqw 5cqw #28516a35;
+  transform: rotate(-4deg);
+}
+.camera {
+  width: 25%;
+  height: 2cqw;
+  background: #203346;
+  border-radius: 2cqw;
+  margin: 3% auto;
+}
+.screen {
+  padding: 9% 7%;
+}
+#uiTitle {
+  font-size: 5cqw;
+  font-weight: 700;
+  height: 10cqw;
+  line-height: 1.15;
+}
+#art {
+  width: 100%;
+  height: 39cqw;
+  object-fit: cover;
+  border-radius: 3cqw;
+  margin: 3cqw 0 5cqw;
+}
+#uiBody {
+  font-size: 3.7cqw;
+  line-height: 1.55;
+  height: 20cqw;
+}
+.line {
+  height: 1.6cqw;
+  width: 90%;
+  margin-top: 4cqw;
+  border-radius: 2cqw;
+  background: #eaf0f4;
+}
+.short {
+  width: 65%;
+}
+.orb {
+  position: absolute;
+  right: -8%;
+  top: 31%;
+  width: 20%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 30%, white, #a6dff2 50%, #659cc5);
+  box-shadow: 0 1cqw 4cqw #599bb545;
+  z-index: -1;
+}
+.tablet header {
+  height: 20%;
+}
+.tablet #headline {
+  font-size: 6.8cqw;
+}
+.tablet #support {
+  font-size: 2.8cqw;
+}
+.tablet #device-art {
+  left: 8%;
+  width: 84%;
+  height: 64%;
+  top: 40%;
+  border-radius: 5cqw;
+  border-width: 0.8cqw;
+  transform: rotate(-2deg);
+}
+.tablet #uiTitle {
+  font-size: 4cqw;
+  height: 6cqw;
+}
+.tablet #art {
+  height: 26cqw;
+}
+.tablet #uiBody {
+  font-size: 2.8cqw;
+  height: 14cqw;
+}
+.tablet .camera {
+  width: 1.2cqw;
+  height: 1.2cqw;
+}
+.tablet .screen {
+  padding: 3% 8%;
+}
+body.export nav {
+  display: none;
+}
+body.export main {
+  padding: 0;
+  display: block;
+}
+body.export {
+  background: white;
+}
+[data-text-box] {
+  overflow: hidden;
+}
+[data-text] {
+  display: block;
+}
+
+.phases {
+  position: absolute;
+  left: 5%;
+  top: 78%;
+  width: 90%;
+  display: flex;
+  gap: 3%;
+  padding: 4%;
+  border: 1px solid white;
+  border-radius: 4cqw;
+  background: #f5fcffed;
+  box-shadow: 0 2cqw 5cqw #28516a30;
+}
+.phases img {
+  width: 31.33%;
+  border-radius: 1.3cqw;
+  aspect-ratio: 1.5;
+  object-fit: cover;
+}
+.tablet .phases {
+  top: 82%;
+}
