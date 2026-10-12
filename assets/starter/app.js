@@ -15,7 +15,9 @@ for (const [key, list] of [
   for (const item of list) {
     const option = document.createElement("option");
     option.value = item.id;
-    option.textContent = item.id;
+    option.textContent = key === 'locale'
+      ? `${new Intl.DisplayNames([item.id], {type:'language'}).of(item.id)} · ${item.id}`
+      : item.id;
     select.append(option);
   }
   const requested = params.get(key);
@@ -33,6 +35,9 @@ const device = project.devices.find((x) => x.id === selects.device.value);
 const slide = project.slides.find((x) => x.id === selects.slide.value);
 const copy = slide.copy[locale.id];
 if (!copy) throw new Error("Missing localized copy");
+document.getElementById('project-status').textContent =
+  `${project.locales.length} languages/regions` +
+  (project.demo ? ' · Demo translations: draft' : '');
 document.documentElement.lang = locale.id;
 document.documentElement.dir = locale.direction;
 const cover = document.getElementById("cover");

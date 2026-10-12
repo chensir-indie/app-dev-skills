@@ -15,3 +15,23 @@ Scope: locale catalog/tooling, script-aware typography, skill description, and E
 | final-script-native-export | 8 | automated-pass | `3f237844b07f0ca0fbabcf95eeabbd3a3280bc84ee3d9d54333ba784d1ff95b6` |
 
 Export artifacts remain Git-ignored. Each manifest records source hashes and browser/OS metadata; `visualReview` remains `pending`. System-font availability differs across machines. All production translations, raster UI language, fonts and approved-reference fidelity still need review for the actual app.
+
+## Complete translated demo follow-up — 2026-10-12
+
+The runnable demo now includes explicit draft copy for all 50 catalog locales, across two stories and phone/tablet canvases. The original three-locale starter remains available for small projects; `npm run demo` and `init.mjs --locales app-store` use the full set. Product locale expansion still leaves missing translations blank.
+
+- `npm run check`: 32 unit tests and 13 browser tests passed. The new browser matrix checks all 200 cells at native dimensions, exact copy, language/direction, and layout constraints.
+- Native export and `verify.mjs`: all 200 PNG cells passed dimensions, opacity, nonblank content, hashes, and layout checks.
+- The first full-copy run exposed two Telugu tablet headline overflows. Increasing the tablet header box from 20% to 21% resolved both while preserving the 0.80 text scale floor.
+- Inspected all 100 locale/device contact sheets as ten overview mosaics, plus larger Arabic, Gujarati, Kannada, Japanese, Telugu and Urdu tablet exports. This is layout review, not native-speaker approval.
+- Browser platform-font inspection found nonempty font records for all 50 demo headlines and no LastResort font on this macOS machine. This does not guarantee font availability on other systems.
+- The export manifest intentionally retains `visualReview: pending`: demo inspection does not approve production translations or fidelity against a real product reference.
+
+| Local evidence under `.test-output/` | Purpose |
+| --- | --- |
+| all-locales-final-check.log | Passing unit and browser checks |
+| all-locales-export-v2/ | 200 native exports and 100 contact sheets |
+| all-locales-review/ | Ten inspected overview mosaics |
+| global-demo-fonts.json | Browser-reported headline font records |
+
+Manifest SHA-256: `52793814468dd5dcc03d17ec85fac58b6cf66cb8ce8dc4f349fd7cef6ddb9fe4`. Export artifacts remain Git-ignored. Bundled translations are drafts; production copy requires review.

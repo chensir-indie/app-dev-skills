@@ -8,7 +8,7 @@ Use this skill when an AI concept looks good but the web version loses its typog
 
 ![Original demo artwork with synthetic UI](docs/demo-contact.png)
 
-This is the bundled demo with fictional branding and synthetic UI. Use your own app name, features, captures and visual direction. Slide count, device sizes, languages, palette and typography are project choices; the demo is not a required style.
+This image shows three sample locales from the demo; `npm run demo` opens all 50. Branding and UI are fictional. Use your own app name, features, captures and visual direction. Slide count, device sizes, languages, palette and typography are project choices; the demo is not a required style.
 
 ## Install
 
@@ -73,11 +73,13 @@ Generated art is optional. The toolkit does not call a paid API, translate your 
 
 ## Languages and regions
 
+[Browse the complete demo language list](docs/demo-locales.md).
+
 The [catalog](assets/locales/app-store.json) covers the **50 language/region options** on [Apple's localization page](https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations/) checked on October 12, 2026. Regional variants remain separate: `en-US`/`en-GB`, `fr-FR`/`fr-CA`, `pt-BR`/`pt-PT`, and simplified/traditional Chinese.
 
 Custom BCP 47 tags such as `fa-IR` and `sw-KE` are accepted for local cover projects. A custom tag is not proof of an App Store upload slot. Countries, storefronts and languages are different concepts; choose the locales enabled for your app.
 
-The starter ships **three translated demo locales**, not 50 finished translations. Expanding a project creates empty copy fields while preserving existing text. Fill them explicitly; the exporter rejects missing translations instead of substituting English. Fonts are selected by script, but you must supply and inspect licensed fonts for your actual content. See [localization and font guidance](references/localization.md).
+The full demo includes **explicit sample copy for all 50 locales**. Run `npm run demo` to browse them, or initialize a persistent copy with `node scripts/init.mjs /tmp/my-covers --locales app-store`. Use `--locales ja,fr-CA,ur-PK` for a smaller selection. Without this option, initialization keeps the lightweight three-locale starter. Demo translations are drafts, not approved marketing copy for your product. Expanding an existing product project with `locales.mjs add` still leaves new fields empty and preserves existing text; it never inserts demo copy or silently substitutes English. Fonts are selected by script, but you must supply and inspect licensed fonts for your actual content. See [localization and font guidance](references/localization.md).
 
 ## Run the toolkit yourself
 
@@ -88,17 +90,19 @@ git clone https://github.com/chensir-indie/app-store-cover-generator.git
 cd app-store-cover-generator
 npm ci
 npx playwright install chromium
-node scripts/init.mjs /tmp/my-covers
+node scripts/init.mjs /tmp/my-covers --locales app-store
 node scripts/serve.mjs /tmp/my-covers
 ```
 
-Open the printed local URL. Edit the copied `project.json`, `style.css` and `media/` assets. Stop the preview with Ctrl+C when finished. Linux may need `npx playwright install --with-deps chromium`.
+For a temporary preview with all 50 locales, run `npm run demo` after installing dependencies; Ctrl+C removes its temporary project. Language choices show their native names and region codes.
 
-To add all store locales—or a selected list—to a **new** project copy:
+For a persistent project, open the printed local URL. Edit the copied `project.json`, `style.css` and `media/` assets. Stop the preview with Ctrl+C when finished. Linux may need `npx playwright install --with-deps chromium`.
+
+For an existing **product project**, add all store locales—or a selected list—to a **new** copy (replace `/path/to/product-covers` with your project):
 
 ```sh
 node scripts/locales.mjs list
-node scripts/locales.mjs add /tmp/my-covers /tmp/my-global-covers app-store
+node scripts/locales.mjs add /path/to/product-covers /tmp/my-global-covers app-store
 # Alternative: use ja,fr-FR,ar-SA,fa-IR instead of app-store.
 # Fill the empty translations in /tmp/my-global-covers/project.json, then:
 node scripts/locales.mjs check /tmp/my-global-covers
@@ -106,7 +110,7 @@ node scripts/export.mjs /tmp/my-global-covers /tmp/my-global-covers-output-01
 node scripts/verify.mjs /tmp/my-global-covers-output-01
 ```
 
-For the unchanged three-language demo, export `/tmp/my-covers` directly. Initialization and export refuse to overwrite existing directories. Each export needs a fresh output directory outside the source project.
+For the complete 50-locale demo, export `/tmp/my-covers` directly (200 PNGs: 50 locales × 2 devices × 2 slides). Initialization and export refuse to overwrite existing directories. Each export needs a fresh output directory outside the source project.
 
 An `automated-pass` still leaves `visualReview: pending`. Use `node scripts/review.mjs init OUTPUT REVIEW.json` to create the pending checklist, inspect and fill every cell, then run `node scripts/review.mjs check OUTPUT REVIEW.json`. This checks completeness and binds the record to that export; it does not judge the images for you. Inspect every contact sheet and native PNG. The starter uses system fonts, so different operating systems can produce different pixels; pin licensed local fonts for production. Device dimensions must match [Apple's current screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications).
 

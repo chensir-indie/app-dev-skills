@@ -22,6 +22,7 @@ nav span {
 select {
   margin-inline-start: 8px;
   padding: 6px;
+  max-width: min(320px, 65vw);
 }
 main {
   padding: 24px;
@@ -142,7 +143,8 @@ p {
   z-index: -1;
 }
 .tablet header {
-  height: 20%;
+  /* Two lines of tall joining-script glyphs must fit above the 0.80 floor. */
+  height: 21%;
 }
 .tablet #headline {
   font-size: 6.8cqw;

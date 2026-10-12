@@ -13,6 +13,8 @@ node scripts/locales.mjs add /path/to/project /path/to/new-project app-store
 node scripts/locales.mjs check /path/to/new-project
 ```
 
+For **sample previews**, `npm run demo` exposes all 50 presets with native-language names and region codes. `node scripts/init.mjs NEW_PROJECT --locales app-store` saves that demo; pass a comma-separated preset list to select a subset. The explicit translations in [demo-copy.json](../assets/locales/demo-copy.json) are drafts. Regional English and French demo wording is intentionally shared in separate records. A custom tag without demo copy is rejected by this demo initializer; use the product expansion command above and provide its translation.
+
 Expansion adds locales without deleting existing ones, never overwrites existing copy, and leaves new fields empty. It copies the entire trusted source project to a fresh directory; keep exports and secrets outside that source. The check reports every missing locale/slide/field and exits nonzero until the whole project validates. It checks completeness, not translation accuracy. Ask the agent to draft localized benefit copy from the approved source, then review it before export. Identical regional wording must be an explicit choice, never an automatic fallback.
 
 The shared locale helper uses `Intl.Locale` to determine script and reading direction, including explicit script variants such as `pa-Arab` and `ar-Latn`. Unsupported scripts can use a locale's optional `fontFamilies` array plus local `@font-face` declarations. Tags can be syntactically valid without the installed fonts covering their glyphs; no claim is made that every writing system is verified.

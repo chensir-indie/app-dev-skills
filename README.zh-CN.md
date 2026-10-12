@@ -8,7 +8,7 @@
 
 ![原创素材与虚构 UI 示例](docs/demo-contact.png)
 
-这是使用虚构品牌和示意界面的可运行示例。使用时传入自己的应用名称、真实功能、截图和视觉方向；页数、设备尺寸、语言、配色与字体都由具体项目决定，不绑定某个应用或固定风格。
+上图选取了三种语言展示；运行 `npm run demo` 可查看全部 50 个语言区域。品牌和界面均为虚构示例。使用时传入自己的应用名称、真实功能、截图和视觉方向；页数、设备尺寸、语言、配色与字体都由具体项目决定，不绑定某个应用或固定风格。
 
 ## 安装
 
@@ -73,11 +73,13 @@ npx skills@latest update app-store-cover-generator
 
 ## 语言与地区
 
+[查看完整示例语言清单](docs/demo-locales.md)（含本地语言名称与地区代码）。
+
 [内置清单](assets/locales/app-store.json)覆盖截至 **2026 年 10 月 12 日** [Apple 本地化页面](https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations/)列出的 **50 个语言区域**。`en-US` 与 `en-GB`、`fr-FR` 与 `fr-CA`、巴西与葡萄牙葡语、简体与繁体中文都保留独立输出。
 
 本地封面项目还支持 `fa-IR`、`sw-KE` 等自定义 BCP 47 标签。自定义语言不等于 App Store 接受对应上传槽位。国家、商店地区与语言不是一一对应关系，应选择应用实际启用的语言。
 
-模板附带的是**三种语言的示例文案**，不是五十种已完成的翻译。扩展语言会保留已有文案，为新增语言创建空字段；补齐后才能导出，缺失内容不会悄悄回退成英文。字体按文字系统选择，但生产素材仍需提供有授权的字体并检查实际字形。参见[本地化与字体说明](references/localization.md)。
+完整示例已包含 **50 个语言区域的独立文案**。运行 `npm run demo` 可逐一预览；用 `node scripts/init.mjs /tmp/my-covers --locales app-store` 创建可编辑副本，或用 `--locales ja,fr-CA,ur-PK` 选择部分语言。不传该选项时保留轻量的三语言模板。示例翻译是草稿，并非你的产品已审定的营销文案。为已有产品项目运行 `locales.mjs add` 时，仍会保留原文案并为新增语言留空，不会自动填入示例内容或回退成英文。字体按文字系统选择，但生产素材仍需提供有授权的字体并检查实际字形。参见[本地化与字体说明](references/localization.md)。
 
 ## 独立运行工具
 
@@ -88,17 +90,19 @@ git clone https://github.com/chensir-indie/app-store-cover-generator.git
 cd app-store-cover-generator
 npm ci
 npx playwright install chromium
-node scripts/init.mjs /tmp/my-covers
+node scripts/init.mjs /tmp/my-covers --locales app-store
 node scripts/serve.mjs /tmp/my-covers
 ```
 
-打开输出的本地地址，编辑复制出的 `project.json`、`style.css` 与 `media/`。预览结束后按 Ctrl+C。Linux 可能需要 `npx playwright install --with-deps chromium`。
+安装依赖后，运行 `npm run demo` 可直接查看全部 50 个语言区域；语言选项显示本地名称和地区代码，按 Ctrl+C 后清理临时项目。
 
-把所有商店语言，或指定语言列表，添加到一个**新的项目副本**：
+使用可编辑副本时，打开输出的本地地址，编辑复制出的 `project.json`、`style.css` 与 `media/`。预览结束后按 Ctrl+C。Linux 可能需要 `npx playwright install --with-deps chromium`。
+
+为已有的**产品项目**添加所有商店语言或指定语言列表，生成一个**新副本**（将 `/path/to/product-covers` 换成实际项目目录）：
 
 ```sh
 node scripts/locales.mjs list
-node scripts/locales.mjs add /tmp/my-covers /tmp/my-global-covers app-store
+node scripts/locales.mjs add /path/to/product-covers /tmp/my-global-covers app-store
 # 也可把 app-store 换成 ja,fr-FR,ar-SA,fa-IR。
 # 补齐 /tmp/my-global-covers/project.json 中的空文案后：
 node scripts/locales.mjs check /tmp/my-global-covers
@@ -106,7 +110,7 @@ node scripts/export.mjs /tmp/my-global-covers /tmp/my-global-covers-output-01
 node scripts/verify.mjs /tmp/my-global-covers-output-01
 ```
 
-只体验三语言示例时，直接导出 `/tmp/my-covers` 即可。初始化和导出都拒绝覆盖已有目录；每次导出使用源项目以外的新目录。
+完整示例可直接导出 `/tmp/my-covers`，得到 50 个语言区域 × 2 种设备 × 2 张封面的 200 张 PNG。初始化和导出都拒绝覆盖已有目录；每次导出使用源项目以外的新目录。
 
 即使状态为 `automated-pass`，仍保留 `visualReview: pending`。用 `node scripts/review.mjs init OUTPUT REVIEW.json` 创建待复核记录，逐格查看总览图和原尺寸 PNG 后填写，再运行 `node scripts/review.mjs check OUTPUT REVIEW.json`。它校验记录完整性和导出哈希绑定，不能代替视觉判断。模板使用系统字体，跨操作系统可能存在像素差异；生产导出应固定有授权的本地字体。尺寸须符合 [Apple 当前截图规格](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications)。
 

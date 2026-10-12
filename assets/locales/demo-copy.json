@@ -1,0 +1,707 @@
+{
+  "translationReview": "draft",
+  "purpose": "Generic demo copy only; review translations before product use.",
+  "regionalCopyDecision": "English regional versions and French regional versions intentionally share this neutral demo wording. Every locale has explicit fields; there is no runtime fallback.",
+  "copy": {
+    "ar-SA": {
+      "capture": {
+        "headline": "ابدأ من هنا\nواكتشف المزيد",
+        "support": "اجمع كل ما تحتاجه في مكان واحد.",
+        "uiTitle": "مساحتك",
+        "uiBody": "امنح ما يهمك مساحة أكبر."
+      },
+      "motion": {
+        "headline": "قليل من الحركة\nكثير من الشخصية",
+        "support": "أمواج مرسومة تضفي الحياة على الصفحة.",
+        "uiTitle": "منظور جديد",
+        "uiBody": "اعثر على إيقاع يشبهك."
+      }
+    },
+    "bn-BD": {
+      "capture": {
+        "headline": "এখানেই শুরু\nআরও আবিষ্কার",
+        "support": "প্রয়োজনীয় সবকিছু এক জায়গায়।",
+        "uiTitle": "আপনার জায়গা",
+        "uiBody": "যা গুরুত্বপূর্ণ, তার জন্য জায়গা রাখুন।"
+      },
+      "motion": {
+        "headline": "একটু গতি\nনিজস্ব ছন্দ",
+        "support": "ঢেউয়ের সঙ্গে বদলায় দৃশ্য।",
+        "uiTitle": "নতুন দৃষ্টিভঙ্গি",
+        "uiBody": "নিজের ছন্দ খুঁজে নিন।"
+      }
+    },
+    "ca": {
+      "capture": {
+        "headline": "Comença aquí.\nDescobreix més.",
+        "support": "Tot el que necessites, en un sol lloc.",
+        "uiTitle": "El teu espai",
+        "uiBody": "Fes lloc al que t’importa."
+      },
+      "motion": {
+        "headline": "Una mica de ritme.\nMolt de caràcter.",
+        "support": "Les onades donen vida a la pàgina.",
+        "uiTitle": "Una nova mirada",
+        "uiBody": "Troba el teu propi ritme."
+      }
+    },
+    "cs": {
+      "capture": {
+        "headline": "Začněte tady.\nObjevujte dál.",
+        "support": "Vše důležité na jednom místě.",
+        "uiTitle": "Váš prostor",
+        "uiBody": "Dejte prostor tomu, na čem záleží."
+      },
+      "motion": {
+        "headline": "Trocha pohybu.\nVíce osobitosti.",
+        "support": "Vlny oživí každou stránku.",
+        "uiTitle": "Nový pohled",
+        "uiBody": "Najděte svůj vlastní rytmus."
+      }
+    },
+    "da": {
+      "capture": {
+        "headline": "Start her.\nOpdag mere.",
+        "support": "Alt det vigtige samlet ét sted.",
+        "uiTitle": "Dit rum",
+        "uiBody": "Giv plads til det, der betyder noget."
+      },
+      "motion": {
+        "headline": "Lidt bevægelse.\nMere personlighed.",
+        "support": "Bølger giver siden liv.",
+        "uiTitle": "Et nyt perspektiv",
+        "uiBody": "Find din egen rytme."
+      }
+    },
+    "de-DE": {
+      "capture": {
+        "headline": "Hier starten.\nMehr entdecken.",
+        "support": "Alles Wichtige an einem Ort.",
+        "uiTitle": "Dein Bereich",
+        "uiBody": "Schaffe Platz für das, was dir wichtig ist."
+      },
+      "motion": {
+        "headline": "Etwas Bewegung.\nViel Charakter.",
+        "support": "Wellen bringen Leben auf die Seite.",
+        "uiTitle": "Ein neuer Blick",
+        "uiBody": "Finde deinen eigenen Rhythmus."
+      }
+    },
+    "el": {
+      "capture": {
+        "headline": "Ξεκίνα εδώ.\nΑνακάλυψε κι άλλα.",
+        "support": "Όλα όσα χρειάζεσαι σε ένα μέρος.",
+        "uiTitle": "Ο χώρος σου",
+        "uiBody": "Δώσε χώρο σε όσα έχουν σημασία."
+      },
+      "motion": {
+        "headline": "Λίγη κίνηση.\nΠολύς χαρακτήρας.",
+        "support": "Τα κύματα ζωντανεύουν τη σελίδα.",
+        "uiTitle": "Μια νέα ματιά",
+        "uiBody": "Βρες τον δικό σου ρυθμό."
+      }
+    },
+    "en-AU": {
+      "capture": {
+        "headline": "Start here.\nDiscover more.",
+        "support": "Bring your essentials together.",
+        "uiTitle": "Your workspace",
+        "uiBody": "Make room for what matters to you."
+      },
+      "motion": {
+        "headline": "A little motion.\nA lot of personality.",
+        "support": "Illustrated waves bring the page to life.",
+        "uiTitle": "A fresh perspective",
+        "uiBody": "Find a rhythm that feels like you."
+      }
+    },
+    "en-CA": {
+      "capture": {
+        "headline": "Start here.\nDiscover more.",
+        "support": "Bring your essentials together.",
+        "uiTitle": "Your workspace",
+        "uiBody": "Make room for what matters to you."
+      },
+      "motion": {
+        "headline": "A little motion.\nA lot of personality.",
+        "support": "Illustrated waves bring the page to life.",
+        "uiTitle": "A fresh perspective",
+        "uiBody": "Find a rhythm that feels like you."
+      }
+    },
+    "en-GB": {
+      "capture": {
+        "headline": "Start here.\nDiscover more.",
+        "support": "Bring your essentials together.",
+        "uiTitle": "Your workspace",
+        "uiBody": "Make room for what matters to you."
+      },
+      "motion": {
+        "headline": "A little motion.\nA lot of personality.",
+        "support": "Illustrated waves bring the page to life.",
+        "uiTitle": "A fresh perspective",
+        "uiBody": "Find a rhythm that feels like you."
+      }
+    },
+    "en-US": {
+      "capture": {
+        "headline": "Start here.\nDiscover more.",
+        "support": "Bring your essentials together.",
+        "uiTitle": "Your workspace",
+        "uiBody": "Make room for what matters to you."
+      },
+      "motion": {
+        "headline": "A little motion.\nA lot of personality.",
+        "support": "Illustrated waves bring the page to life.",
+        "uiTitle": "A fresh perspective",
+        "uiBody": "Find a rhythm that feels like you."
+      }
+    },
+    "es-ES": {
+      "capture": {
+        "headline": "Empieza aquí.\nDescubre más.",
+        "support": "Todo lo esencial en un solo lugar.",
+        "uiTitle": "Tu espacio",
+        "uiBody": "Haz sitio para lo que te importa."
+      },
+      "motion": {
+        "headline": "Algo de movimiento.\nMucho carácter.",
+        "support": "Las olas dan vida a la página.",
+        "uiTitle": "Una nueva mirada",
+        "uiBody": "Encuentra tu propio ritmo."
+      }
+    },
+    "es-MX": {
+      "capture": {
+        "headline": "Empieza aquí.\nDescubre más.",
+        "support": "Todo lo esencial en un solo lugar.",
+        "uiTitle": "Tu espacio",
+        "uiBody": "Haz espacio para lo que te importa."
+      },
+      "motion": {
+        "headline": "Un poco de ritmo.\nMucho carácter.",
+        "support": "Las olas dan vida a la página.",
+        "uiTitle": "Una nueva mirada",
+        "uiBody": "Encuentra tu propio ritmo."
+      }
+    },
+    "fi": {
+      "capture": {
+        "headline": "Aloita tästä.\nLöydä lisää.",
+        "support": "Kaikki tärkeä yhdessä paikassa.",
+        "uiTitle": "Oma tilasi",
+        "uiBody": "Anna tilaa tärkeille asioille."
+      },
+      "motion": {
+        "headline": "Hieman liikettä.\nPaljon luonnetta.",
+        "support": "Aallot herättävät sivun eloon.",
+        "uiTitle": "Uusi näkökulma",
+        "uiBody": "Löydä oma rytmisi."
+      }
+    },
+    "fr-CA": {
+      "capture": {
+        "headline": "Commencez ici.\nDécouvrez plus.",
+        "support": "L’essentiel, au même endroit.",
+        "uiTitle": "Votre espace",
+        "uiBody": "Faites de la place à ce qui compte."
+      },
+      "motion": {
+        "headline": "Un peu de mouvement.\nBeaucoup de style.",
+        "support": "Les vagues donnent vie à la page.",
+        "uiTitle": "Un nouveau regard",
+        "uiBody": "Trouvez votre propre rythme."
+      }
+    },
+    "fr-FR": {
+      "capture": {
+        "headline": "Commencez ici.\nDécouvrez plus.",
+        "support": "L’essentiel, au même endroit.",
+        "uiTitle": "Votre espace",
+        "uiBody": "Faites de la place à ce qui compte."
+      },
+      "motion": {
+        "headline": "Un peu de mouvement.\nBeaucoup de style.",
+        "support": "Les vagues donnent vie à la page.",
+        "uiTitle": "Un nouveau regard",
+        "uiBody": "Trouvez votre propre rythme."
+      }
+    },
+    "gu-IN": {
+      "capture": {
+        "headline": "અહીંથી શરૂ કરો\nવધુ શોધો",
+        "support": "જરૂરી બધું એક જ જગ્યાએ.",
+        "uiTitle": "તમારી જગ્યા",
+        "uiBody": "મહત્વની બાબતો માટે જગ્યા બનાવો."
+      },
+      "motion": {
+        "headline": "થોડી હલચલ\nપોતાની ઓળખ",
+        "support": "તરંગો પાનાને જીવંત બનાવે છે.",
+        "uiTitle": "નવો દૃષ્ટિકોણ",
+        "uiBody": "તમારી પોતાની લય શોધો."
+      }
+    },
+    "he": {
+      "capture": {
+        "headline": "מתחילים כאן\nמגלים יותר",
+        "support": "כל מה שצריך במקום אחד.",
+        "uiTitle": "המרחב שלך",
+        "uiBody": "מפנים מקום למה שחשוב לך."
+      },
+      "motion": {
+        "headline": "קצת תנועה\nהרבה אופי",
+        "support": "הגלים מפיחים חיים בעמוד.",
+        "uiTitle": "מבט חדש",
+        "uiBody": "מוצאים את הקצב האישי."
+      }
+    },
+    "hi": {
+      "capture": {
+        "headline": "यहाँ से शुरू करें\nऔर भी खोजें",
+        "support": "ज़रूरी चीज़ें एक ही जगह।",
+        "uiTitle": "आपकी जगह",
+        "uiBody": "जो ज़रूरी है, उसे जगह दें।"
+      },
+      "motion": {
+        "headline": "थोड़ी हलचल\nअपनी पहचान",
+        "support": "लहरों से पन्ने में जान आए।",
+        "uiTitle": "एक नया नज़रिया",
+        "uiBody": "अपनी लय खोजें।"
+      }
+    },
+    "hr": {
+      "capture": {
+        "headline": "Počnite ovdje.\nOtkrijte više.",
+        "support": "Sve važno na jednom mjestu.",
+        "uiTitle": "Vaš prostor",
+        "uiBody": "Napravite mjesta za ono što vam je važno."
+      },
+      "motion": {
+        "headline": "Malo pokreta.\nPuno osobnosti.",
+        "support": "Valovi oživljavaju stranicu.",
+        "uiTitle": "Novi pogled",
+        "uiBody": "Pronađite vlastiti ritam."
+      }
+    },
+    "hu": {
+      "capture": {
+        "headline": "Kezdd itt.\nFedezz fel többet.",
+        "support": "Minden fontos dolog egy helyen.",
+        "uiTitle": "Saját tered",
+        "uiBody": "Adj helyet annak, ami számít."
+      },
+      "motion": {
+        "headline": "Egy kis mozgás.\nSok egyéniség.",
+        "support": "A hullámok életre keltik az oldalt.",
+        "uiTitle": "Új nézőpont",
+        "uiBody": "Találd meg a saját ritmusod."
+      }
+    },
+    "id": {
+      "capture": {
+        "headline": "Mulai di sini.\nTemukan lebih.",
+        "support": "Semua yang penting di satu tempat.",
+        "uiTitle": "Ruangmu",
+        "uiBody": "Beri ruang untuk hal yang berarti."
+      },
+      "motion": {
+        "headline": "Sedikit gerak.\nBanyak karakter.",
+        "support": "Gelombang menghidupkan halaman.",
+        "uiTitle": "Sudut pandang baru",
+        "uiBody": "Temukan iramamu sendiri."
+      }
+    },
+    "it": {
+      "capture": {
+        "headline": "Inizia da qui.\nScopri di più.",
+        "support": "Tutto l’essenziale in un unico posto.",
+        "uiTitle": "Il tuo spazio",
+        "uiBody": "Fai spazio a ciò che conta per te."
+      },
+      "motion": {
+        "headline": "Un po’ di movimento.\nTanto carattere.",
+        "support": "Le onde danno vita alla pagina.",
+        "uiTitle": "Un nuovo sguardo",
+        "uiBody": "Trova il tuo ritmo."
+      }
+    },
+    "ja": {
+      "capture": {
+        "headline": "ここから始める\nもっと見つかる",
+        "support": "大切なものを、ひとつの場所に。",
+        "uiTitle": "あなたのスペース",
+        "uiBody": "大切なことのために、ゆとりを。"
+      },
+      "motion": {
+        "headline": "小さな動き\n自分らしい表情",
+        "support": "波の動きで、ページに彩りを。",
+        "uiTitle": "新しい視点",
+        "uiBody": "自分らしいリズムを見つけよう。"
+      }
+    },
+    "kn-IN": {
+      "capture": {
+        "headline": "ಇಲ್ಲಿಂದ ಆರಂಭಿಸಿ\nಇನ್ನಷ್ಟು ಅನ್ವೇಷಿಸಿ",
+        "support": "ಅಗತ್ಯವಿರುವುದೆಲ್ಲ ಒಂದೇ ಕಡೆ.",
+        "uiTitle": "ನಿಮ್ಮ ಜಾಗ",
+        "uiBody": "ಮುಖ್ಯವಾದುದಕ್ಕೆ ಜಾಗ ನೀಡಿ."
+      },
+      "motion": {
+        "headline": "ಸ್ವಲ್ಪ ಚಲನೆ\nವಿಶಿಷ್ಟ ಶೈಲಿ",
+        "support": "ಅಲೆಗಳು ಪುಟಕ್ಕೆ ಜೀವ ತುಂಬುತ್ತವೆ.",
+        "uiTitle": "ಹೊಸ ದೃಷ್ಟಿಕೋನ",
+        "uiBody": "ನಿಮ್ಮದೇ ಲಯವನ್ನು ಕಂಡುಕೊಳ್ಳಿ."
+      }
+    },
+    "ko": {
+      "capture": {
+        "headline": "여기서 시작\n더 많이 발견",
+        "support": "필요한 모든 것을 한곳에.",
+        "uiTitle": "나만의 공간",
+        "uiBody": "소중한 것을 위한 여유를 만드세요."
+      },
+      "motion": {
+        "headline": "작은 움직임\n나만의 개성",
+        "support": "물결로 페이지에 생기를 더해요.",
+        "uiTitle": "새로운 시선",
+        "uiBody": "나만의 리듬을 찾아보세요."
+      }
+    },
+    "ml-IN": {
+      "capture": {
+        "headline": "ഇവിടെ തുടങ്ങാം\nകൂടുതൽ അറിയാം",
+        "support": "ആവശ്യമുള്ളതെല്ലാം ഒരിടത്ത്.",
+        "uiTitle": "നിങ്ങളുടെ ഇടം",
+        "uiBody": "പ്രധാനപ്പെട്ടതിന് ഇടം നൽകൂ."
+      },
+      "motion": {
+        "headline": "ചെറിയ ചലനം\nസ്വന്തം ശൈലി",
+        "support": "തിരകൾ പേജിന് ജീവൻ നൽകുന്നു.",
+        "uiTitle": "പുതിയ കാഴ്ചപ്പാട്",
+        "uiBody": "സ്വന്തം താളം കണ്ടെത്തൂ."
+      }
+    },
+    "mr-IN": {
+      "capture": {
+        "headline": "इथून सुरुवात करा\nआणखी शोधा",
+        "support": "गरजेच्या गोष्टी एकाच ठिकाणी.",
+        "uiTitle": "तुमची जागा",
+        "uiBody": "महत्त्वाच्या गोष्टींसाठी जागा ठेवा."
+      },
+      "motion": {
+        "headline": "थोडी हालचाल\nस्वतःची ओळख",
+        "support": "लाटांनी पानाला जिवंतपणा येतो.",
+        "uiTitle": "नवा दृष्टिकोन",
+        "uiBody": "तुमची स्वतःची लय शोधा."
+      }
+    },
+    "ms": {
+      "capture": {
+        "headline": "Mula di sini.\nTerokai lagi.",
+        "support": "Semua yang penting di satu tempat.",
+        "uiTitle": "Ruang anda",
+        "uiBody": "Sediakan ruang untuk perkara bermakna."
+      },
+      "motion": {
+        "headline": "Sedikit gerakan.\nBanyak karakter.",
+        "support": "Ombak menghidupkan halaman.",
+        "uiTitle": "Perspektif baharu",
+        "uiBody": "Temui rentak anda sendiri."
+      }
+    },
+    "nl-NL": {
+      "capture": {
+        "headline": "Begin hier.\nOntdek meer.",
+        "support": "Alles wat telt op één plek.",
+        "uiTitle": "Jouw ruimte",
+        "uiBody": "Maak ruimte voor wat jij belangrijk vindt."
+      },
+      "motion": {
+        "headline": "Een beetje beweging.\nVeel karakter.",
+        "support": "Golven brengen de pagina tot leven.",
+        "uiTitle": "Een frisse blik",
+        "uiBody": "Vind je eigen ritme."
+      }
+    },
+    "no": {
+      "capture": {
+        "headline": "Start her.\nOppdag mer.",
+        "support": "Alt det viktige samlet på ett sted.",
+        "uiTitle": "Ditt rom",
+        "uiBody": "Gi plass til det som betyr noe."
+      },
+      "motion": {
+        "headline": "Litt bevegelse.\nMye personlighet.",
+        "support": "Bølger gir siden liv.",
+        "uiTitle": "Et nytt perspektiv",
+        "uiBody": "Finn din egen rytme."
+      }
+    },
+    "or-IN": {
+      "capture": {
+        "headline": "ଏଠାରୁ ଆରମ୍ଭ\nଆହୁରି ଖୋଜନ୍ତୁ",
+        "support": "ଆବଶ୍ୟକ ସବୁ ଗୋଟିଏ ସ୍ଥାନରେ।",
+        "uiTitle": "ଆପଣଙ୍କ ସ୍ଥାନ",
+        "uiBody": "ଗୁରୁତ୍ୱପୂର୍ଣ୍ଣ କଥା ପାଇଁ ସ୍ଥାନ ରଖନ୍ତୁ।"
+      },
+      "motion": {
+        "headline": "ଟିକିଏ ଗତି\nନିଜର ଶୈଳୀ",
+        "support": "ତରଙ୍ଗ ପୃଷ୍ଠାକୁ ଜୀବନ୍ତ କରେ।",
+        "uiTitle": "ନୂଆ ଦୃଷ୍ଟିକୋଣ",
+        "uiBody": "ନିଜର ଲୟ ଖୋଜନ୍ତୁ।"
+      }
+    },
+    "pa-IN": {
+      "capture": {
+        "headline": "ਇੱਥੋਂ ਸ਼ੁਰੂ ਕਰੋ\nਹੋਰ ਖੋਜੋ",
+        "support": "ਲੋੜੀਂਦੀ ਹਰ ਚੀਜ਼ ਇੱਕ ਥਾਂ।",
+        "uiTitle": "ਤੁਹਾਡੀ ਥਾਂ",
+        "uiBody": "ਜ਼ਰੂਰੀ ਗੱਲਾਂ ਲਈ ਥਾਂ ਬਣਾਓ।"
+      },
+      "motion": {
+        "headline": "ਥੋੜ੍ਹੀ ਹਿਲਜੁਲ\nਆਪਣੀ ਪਛਾਣ",
+        "support": "ਲਹਿਰਾਂ ਪੰਨੇ ਵਿੱਚ ਜਾਨ ਪਾਉਂਦੀਆਂ ਹਨ।",
+        "uiTitle": "ਨਵਾਂ ਨਜ਼ਰੀਆ",
+        "uiBody": "ਆਪਣੀ ਲੈਅ ਲੱਭੋ।"
+      }
+    },
+    "pl": {
+      "capture": {
+        "headline": "Zacznij tutaj.\nOdkryj więcej.",
+        "support": "Wszystko, co ważne, w jednym miejscu.",
+        "uiTitle": "Twoja przestrzeń",
+        "uiBody": "Zrób miejsce na to, co ma znaczenie."
+      },
+      "motion": {
+        "headline": "Trochę ruchu.\nDużo charakteru.",
+        "support": "Fale ożywiają stronę.",
+        "uiTitle": "Nowe spojrzenie",
+        "uiBody": "Znajdź swój własny rytm."
+      }
+    },
+    "pt-BR": {
+      "capture": {
+        "headline": "Comece aqui.\nDescubra mais.",
+        "support": "Tudo o que importa em um só lugar.",
+        "uiTitle": "Seu espaço",
+        "uiBody": "Dê espaço ao que é importante para você."
+      },
+      "motion": {
+        "headline": "Um pouco de movimento.\nMuito estilo.",
+        "support": "As ondas dão vida à página.",
+        "uiTitle": "Um novo olhar",
+        "uiBody": "Encontre seu próprio ritmo."
+      }
+    },
+    "pt-PT": {
+      "capture": {
+        "headline": "Comece aqui.\nDescubra mais.",
+        "support": "Tudo o que importa num só lugar.",
+        "uiTitle": "O seu espaço",
+        "uiBody": "Dê espaço ao que é importante para si."
+      },
+      "motion": {
+        "headline": "Um pouco de movimento.\nMuito estilo.",
+        "support": "As ondas dão vida à página.",
+        "uiTitle": "Um novo olhar",
+        "uiBody": "Encontre o seu próprio ritmo."
+      }
+    },
+    "ro": {
+      "capture": {
+        "headline": "Începe aici.\nDescoperă mai mult.",
+        "support": "Tot ce contează, într-un singur loc.",
+        "uiTitle": "Spațiul tău",
+        "uiBody": "Fă loc lucrurilor importante pentru tine."
+      },
+      "motion": {
+        "headline": "Puțină mișcare.\nMult caracter.",
+        "support": "Valurile dau viață paginii.",
+        "uiTitle": "O nouă perspectivă",
+        "uiBody": "Găsește-ți propriul ritm."
+      }
+    },
+    "ru": {
+      "capture": {
+        "headline": "Начните здесь.\nОткройте больше.",
+        "support": "Всё важное в одном месте.",
+        "uiTitle": "Ваше пространство",
+        "uiBody": "Освободите место для важного."
+      },
+      "motion": {
+        "headline": "Немного движения.\nМного характера.",
+        "support": "Волны оживляют страницу.",
+        "uiTitle": "Новый взгляд",
+        "uiBody": "Найдите свой ритм."
+      }
+    },
+    "sk": {
+      "capture": {
+        "headline": "Začnite tu.\nObjavujte viac.",
+        "support": "Všetko dôležité na jednom mieste.",
+        "uiTitle": "Váš priestor",
+        "uiBody": "Urobte miesto tomu, na čom záleží."
+      },
+      "motion": {
+        "headline": "Trochu pohybu.\nViac osobitosti.",
+        "support": "Vlny oživia stránku.",
+        "uiTitle": "Nový pohľad",
+        "uiBody": "Nájdite svoj vlastný rytmus."
+      }
+    },
+    "sl-SI": {
+      "capture": {
+        "headline": "Začnite tukaj.\nOdkrijte več.",
+        "support": "Vse pomembno na enem mestu.",
+        "uiTitle": "Vaš prostor",
+        "uiBody": "Ustvarite prostor za to, kar vam je pomembno."
+      },
+      "motion": {
+        "headline": "Malo gibanja.\nVeliko značaja.",
+        "support": "Valovi oživijo stran.",
+        "uiTitle": "Nov pogled",
+        "uiBody": "Poiščite svoj ritem."
+      }
+    },
+    "sv": {
+      "capture": {
+        "headline": "Börja här.\nUpptäck mer.",
+        "support": "Allt det viktiga på ett ställe.",
+        "uiTitle": "Ditt utrymme",
+        "uiBody": "Ge plats åt det som betyder något."
+      },
+      "motion": {
+        "headline": "Lite rörelse.\nMycket personlighet.",
+        "support": "Vågor ger sidan liv.",
+        "uiTitle": "Ett nytt perspektiv",
+        "uiBody": "Hitta din egen rytm."
+      }
+    },
+    "ta-IN": {
+      "capture": {
+        "headline": "இங்கே தொடங்கு\nமேலும் கண்டறி",
+        "support": "தேவையானவை ஒரே இடத்தில்.",
+        "uiTitle": "உங்கள் இடம்",
+        "uiBody": "முக்கியமானவற்றுக்கு இடம் கொடுங்கள்."
+      },
+      "motion": {
+        "headline": "சிறு அசைவு\nதனித்துவம்",
+        "support": "அலைகள் பக்கத்திற்கு உயிரூட்டும்.",
+        "uiTitle": "புதிய பார்வை",
+        "uiBody": "உங்கள் தாளத்தைக் கண்டறியுங்கள்."
+      }
+    },
+    "te-IN": {
+      "capture": {
+        "headline": "ఇక్కడే మొదలు\nమరింత తెలుసుకోండి",
+        "support": "అవసరమైనవన్నీ ఒకే చోట.",
+        "uiTitle": "మీ స్థలం",
+        "uiBody": "ముఖ్యమైన వాటికి చోటివ్వండి."
+      },
+      "motion": {
+        "headline": "చిన్న కదలిక\nమీ ప్రత్యేకత",
+        "support": "అలలు పేజీకి జీవం పోస్తాయి.",
+        "uiTitle": "కొత్త దృక్పథం",
+        "uiBody": "మీ లయను కనుగొనండి."
+      }
+    },
+    "th": {
+      "capture": {
+        "headline": "เริ่มต้นที่นี่\nค้นพบได้อีก",
+        "support": "รวมสิ่งสำคัญไว้ในที่เดียว",
+        "uiTitle": "พื้นที่ของคุณ",
+        "uiBody": "ให้พื้นที่กับสิ่งที่มีความหมาย"
+      },
+      "motion": {
+        "headline": "ขยับเพียงนิด\nเติมความเป็นคุณ",
+        "support": "คลื่นช่วยเติมชีวิตให้หน้าจอ",
+        "uiTitle": "มุมมองใหม่",
+        "uiBody": "ค้นหาจังหวะที่เป็นคุณ"
+      }
+    },
+    "tr": {
+      "capture": {
+        "headline": "Buradan başla.\nDaha çok keşfet.",
+        "support": "Önemli olan her şey bir arada.",
+        "uiTitle": "Senin alanın",
+        "uiBody": "Senin için önemli olana yer aç."
+      },
+      "motion": {
+        "headline": "Biraz hareket.\nBolca karakter.",
+        "support": "Dalgalar sayfaya hayat verir.",
+        "uiTitle": "Yeni bir bakış",
+        "uiBody": "Kendi ritmini bul."
+      }
+    },
+    "uk": {
+      "capture": {
+        "headline": "Почніть тут.\nВідкрийте більше.",
+        "support": "Усе важливе в одному місці.",
+        "uiTitle": "Ваш простір",
+        "uiBody": "Звільніть місце для важливого."
+      },
+      "motion": {
+        "headline": "Трохи руху.\nБагато характеру.",
+        "support": "Хвилі оживляють сторінку.",
+        "uiTitle": "Новий погляд",
+        "uiBody": "Знайдіть власний ритм."
+      }
+    },
+    "ur-PK": {
+      "capture": {
+        "headline": "یہاں سے شروع کریں\nمزید دریافت کریں",
+        "support": "ضروری چیزیں ایک ہی جگہ۔",
+        "uiTitle": "آپ کی جگہ",
+        "uiBody": "اہم چیزوں کے لیے جگہ بنائیں۔"
+      },
+      "motion": {
+        "headline": "تھوڑی سی حرکت\nاپنا انداز",
+        "support": "لہریں صفحے میں جان ڈالتی ہیں۔",
+        "uiTitle": "نیا زاویہ",
+        "uiBody": "اپنی لے تلاش کریں۔"
+      }
+    },
+    "vi": {
+      "capture": {
+        "headline": "Bắt đầu tại đây.\nKhám phá thêm.",
+        "support": "Mọi điều cần thiết ở cùng một nơi.",
+        "uiTitle": "Không gian của bạn",
+        "uiBody": "Dành chỗ cho điều bạn trân trọng."
+      },
+      "motion": {
+        "headline": "Chút chuyển động.\nĐậm nét riêng.",
+        "support": "Sóng làm trang thêm sống động.",
+        "uiTitle": "Góc nhìn mới",
+        "uiBody": "Tìm nhịp điệu của riêng bạn."
+      }
+    },
+    "zh-Hans": {
+      "capture": {
+        "headline": "从这里开始\n发现更多可能",
+        "support": "把常用内容汇聚到一起。",
+        "uiTitle": "专属空间",
+        "uiBody": "为重要的内容，留出更多空间。"
+      },
+      "motion": {
+        "headline": "一点动态\n多一份个性",
+        "support": "用起伏的波浪，演示连续变化。",
+        "uiTitle": "新的视角",
+        "uiBody": "找到属于自己的节奏。"
+      }
+    },
+    "zh-Hant": {
+      "capture": {
+        "headline": "從這裡開始\n發現更多可能",
+        "support": "把常用內容匯聚在一起。",
+        "uiTitle": "專屬空間",
+        "uiBody": "為重要的內容，留出更多空間。"
+      },
+      "motion": {
+        "headline": "一點動態\n多一份個性",
+        "support": "用起伏的波浪，呈現連續變化。",
+        "uiTitle": "新的視角",
+        "uiBody": "找到屬於自己的節奏。"
+      }
+    }
+  }
+}

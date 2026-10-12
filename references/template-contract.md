@@ -65,3 +65,9 @@ Run these commands from the skill/repository directory. To customize, edit the c
 `locale/device/01-semantic-id.png`, one contact sheet per locale/device, and manifest.json. The manifest records project copy, input file hashes, per-cell text checks, PNG dimensions/SHA-256, browser metadata, contact sheet hashes, limitations and `visualReview: pending`. A changed PNG or missing/duplicate/extra matrix cell fails verification. A valid manifest is local integrity evidence, not a signature or a remote-store receipt.
 
 The verifier checks an export against its own manifest, not a trusted external signature or the current source tree. Source changes require a fresh export. Review records bind to the entire manifest hash, so any export change invalidates an earlier review.
+
+## Full-language demo
+
+`npm run demo` serves a temporary project with all 50 App Store locale presets; Ctrl+C closes the server and removes the temporary files. `node scripts/init.mjs NEW_PROJECT --locales app-store` creates a persistent copy. A selected comma-separated preset list is also accepted. Without `--locales`, the initializer keeps the lightweight three-locale selection.
+
+The optional `demo` metadata labels sample copy as draft and records intentional regional wording reuse. It is informational; it grants no translation approval. Real product expansion continues to use `locales.mjs add` and leaves missing translations empty.
