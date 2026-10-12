@@ -2,13 +2,13 @@
 
 [English](README.md) · [Skill 指令](SKILL.md)
 
-**把参考图和真实 App 截图，变成可编辑、可本地化、可批量导出的商店封面。**
+**面向不同产品的开源通用 Skill：把参考图和真实 App 截图，变成可编辑、可本地化、可批量导出的商店封面。**
 
 适用于“AI 概念图很好看，网页实现却在字体、间距和细节上走样”，以及“设计定稿后，需要扩展到多语言、多设备”的场景。先对齐一张主视觉，再复用排版，导出并检查完整封面组。
 
 ![原创素材与虚构 UI 示例](docs/demo-contact.png)
 
-这是附带的可运行示例，不是实际产品截图，也不是所有产品必须采用的风格。[查看 NextNote 案例](references/nextnote-case-study.md)。
+这是使用虚构品牌和示意界面的可运行示例。使用时传入自己的应用名称、真实功能、截图和视觉方向；页数、设备尺寸、语言、配色与字体都由具体项目决定，不绑定某个应用或固定风格。
 
 ## 安装
 
@@ -51,7 +51,7 @@ npx skills@latest update app-store-cover-generator
 
 附上参考图和真实 App 截图，然后告诉 agent：
 
-> 使用 $app-store-cover-generator，根据这些截图和参考图制作六张 App Store 封面。先在相同尺寸下对齐一张主视觉，再扩展到 en-US、zh-Hans、ja、ar-SA 和指定的 iPhone/iPad 槽位。标题保持可编辑，检查溢出和动态细节，导出完整封面组，停在本地交付阶段。
+> 使用 $app-store-cover-generator，根据这些截图和参考图制作六张 App Store 封面。先在相同尺寸下对齐一张主视觉，再扩展到 en-US、zh-Hans、ja、ar-SA 和指定的 iPhone/iPad 槽位。标题保持可编辑，检查溢出和功能呈现细节，导出完整封面组，停在本地交付阶段。
 
 检查已有设计：
 

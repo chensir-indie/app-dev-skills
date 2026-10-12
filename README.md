@@ -2,13 +2,13 @@
 
 [简体中文](README.zh-CN.md) · [Skill instructions](SKILL.md)
 
-**Turn a visual reference and your app screenshots into editable, multilingual App Store covers.**
+**A product-agnostic, open-source skill for creating editable, multilingual App Store covers.**
 
 Use this skill when an AI concept looks good but the web version loses its typography, spacing or detail—or when a finished design needs to work across languages and devices. Match one master, keep the words editable, then export and check the whole set.
 
 ![Original demo artwork with synthetic UI](docs/demo-contact.png)
 
-This is the bundled demo, not a real app capture or a required visual style. [See the NextNote case study](references/nextnote-case-study.md).
+This is the bundled demo with fictional branding and synthetic UI. Use your own app name, features, captures and visual direction. Slide count, device sizes, languages, palette and typography are project choices; the demo is not a required style.
 
 ## Install
 
@@ -51,7 +51,7 @@ If the skill does not appear, check the installer's destination and open a new a
 
 Attach a visual reference and real app screenshots, then ask your agent:
 
-> Use $app-store-cover-generator. Create six App Store covers from these screenshots and this reference. First match one master at the same size. Then localize it for en-US, zh-Hans, ja and ar-SA in my iPhone and iPad slots. Keep headings editable, check text overflow and motion details, and export the complete set. Stop before uploading.
+> Use $app-store-cover-generator. Create six App Store covers from these screenshots and this reference. First match one master at the same size. Then localize it for en-US, zh-Hans, ja and ar-SA in my iPhone and iPad slots. Keep headings editable, check text overflow and feature details, and export the complete set. Stop before uploading.
 
 For an existing design:
 

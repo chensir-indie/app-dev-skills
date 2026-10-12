@@ -47,7 +47,7 @@
   "visualReview": {
     "scope": "All 12 demo cells reviewed in the generated contact sheet for text bounds, ordering, RTL layout and distinct motion phases.",
     "status": "demo-layout-reviewed",
-    "limits": "Not native-speaker translation approval, actual font-face verification, pixel fidelity to NextNote, or store approval."
+    "limits": "Not native-speaker translation approval, actual font-face verification, pixel fidelity to a supplied visual reference, or store approval."
   },
   "results": [
     {

@@ -9,4 +9,4 @@ Runtime dependencies (installed separately through npm):
 
 Chromium installed by Playwright carries its own licenses. Demo fonts are supplied by the host operating system and are not redistributed by this repository. Consult package LICENSE files for dependency terms.
 
-Apple/App Store, OpenAI/Codex, AskMATT and NextNote names are used descriptively. External linked images and trademarks retain their owners' rights. The MIT license does not grant rights in assets you add to a copied project.
+Third-party product and service names are used descriptively. External linked images and trademarks retain their owners' rights. The MIT license does not grant rights in assets you add to a copied project.

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "app": "Papertrail demo",
+  "app": "Demo App",
   "minTextScale": 0.8,
   "locales": [
     {
@@ -39,22 +39,22 @@
       "provenance": "Original vector illustration; synthetic demo UI, not a product capture.",
       "copy": {
         "en-US": {
-          "headline": "A thought today.\nA story tomorrow.",
-          "support": "A quiet place for your next idea.",
-          "uiTitle": "Weekend ideas",
-          "uiBody": "Save a small observation. Give it room to grow."
+          "headline": "Start here.\nDiscover more.",
+          "support": "Bring your essentials together.",
+          "uiTitle": "Your workspace",
+          "uiBody": "Make room for what matters to you."
         },
         "zh-Hans": {
-          "headline": "灵感来了\n随手记下",
-          "support": "给每一个新想法，留一个位置。",
-          "uiTitle": "周末的灵感",
-          "uiBody": "记录一个小小的发现，让灵感慢慢生长。"
+          "headline": "从这里开始\n发现更多可能",
+          "support": "把常用内容汇聚到一起。",
+          "uiTitle": "专属空间",
+          "uiBody": "为重要的内容，留出更多空间。"
         },
         "ar-SA": {
-          "headline": "فكرة اليوم\nحكاية الغد",
-          "support": "مكان هادئ لفكرتك القادمة.",
-          "uiTitle": "أفكار نهاية الأسبوع",
-          "uiBody": "احفظ ملاحظة صغيرة وامنحها مساحة لتنمو."
+          "headline": "ابدأ من هنا\nواكتشف المزيد",
+          "support": "اجمع كل ما تحتاجه في مكان واحد.",
+          "uiTitle": "مساحتك",
+          "uiBody": "امنح ما يهمك مساحة أكبر."
         }
       }
     },
@@ -72,8 +72,8 @@
           "uiBody": "Find a rhythm that feels like you."
         },
         "zh-Hans": {
-          "headline": "一点动态\n让笔记生动起来",
-          "support": "用起伏的波浪，装点每一篇笔记。",
+          "headline": "一点动态\n多一份个性",
+          "support": "用起伏的波浪，演示连续变化。",
           "uiTitle": "新的视角",
           "uiBody": "找到属于自己的节奏。"
         },
