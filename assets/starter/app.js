@@ -1,4 +1,5 @@
 import { localeInfo, fontStack } from "./locale.js";
+import { textFields, defaultTextFields } from "./text.js";
 const project = await (await fetch("project.json")).json();
 const params = new URLSearchParams(location.search);
 const isExport = params.has("export");
@@ -65,9 +66,15 @@ cover.style.setProperty(
 cover.dataset.locale = locale.id;
 cover.dataset.device = device.id;
 cover.dataset.slide = slide.id;
-for (const field of ["headline", "support", "uiTitle", "uiBody"])
-  document.querySelector(`#${field} [data-text]`).textContent = copy[field];
-document.querySelector("#brand [data-text]").textContent = project.app;
+const fields = textFields(project);
+for (const field of defaultTextFields) {
+  if (fields.includes(field))
+    document.querySelector(`#${field} [data-text]`).textContent = copy[field];
+  else document.getElementById(field)?.remove();
+}
+if (slide.showBrand ?? project.showBrand ?? true)
+  document.querySelector("#brand [data-text]").textContent = project.app;
+else document.getElementById("brand")?.remove();
 document.getElementById("art").src = slide.art[locale.id] ?? slide.art.shared;
 if (slide.phases) {
   const strip = document.createElement("div");

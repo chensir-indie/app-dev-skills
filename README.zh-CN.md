@@ -108,7 +108,7 @@ node scripts/verify.mjs /tmp/my-global-covers-output-01
 
 只体验三语言示例时，直接导出 `/tmp/my-covers` 即可。初始化和导出都拒绝覆盖已有目录；每次导出使用源项目以外的新目录。
 
-即使状态为 `automated-pass`，仍保留 `visualReview: pending`，需要逐格检查总览图和原尺寸 PNG。模板使用系统字体，跨操作系统可能存在像素差异；生产导出应固定有授权的本地字体。尺寸须符合 [Apple 当前截图规格](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications)。
+即使状态为 `automated-pass`，仍保留 `visualReview: pending`。用 `node scripts/review.mjs init OUTPUT REVIEW.json` 创建待复核记录，逐格查看总览图和原尺寸 PNG 后填写，再运行 `node scripts/review.mjs check OUTPUT REVIEW.json`。它校验记录完整性和导出哈希绑定，不能代替视觉判断。模板使用系统字体，跨操作系统可能存在像素差异；生产导出应固定有授权的本地字体。尺寸须符合 [Apple 当前截图规格](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications)。
 
 ## 文档与开发
 
@@ -119,8 +119,7 @@ node scripts/verify.mjs /tmp/my-global-covers-output-01
 - [商店交付边界](references/delivery.md)
 
 ```sh
-npm test
-npm run test:browser
+npm run check
 ```
 
 贡献方式见 [CONTRIBUTING.md](CONTRIBUTING.md)。CI 只验证工具，不打包或发布 App。描述和安装指引的组织方式参考了 [mattpocock/skills](https://github.com/mattpocock/skills)。

@@ -3,7 +3,10 @@ import { createHash } from "node:crypto";
 export const sha256 = (data) => createHash("sha256").update(data).digest("hex");
 export function inspectPNG(data, width, height) {
   const png = PNG.sync.read(data, { checkCRC: true });
-  if (png.width !== width || png.height !== height)
+  if (
+    (width !== undefined && png.width !== width) ||
+    (height !== undefined && png.height !== height)
+  )
     throw new Error("PNG dimensions differ from expected matrix");
   let nonuniform = false;
   const first = [...png.data.subarray(0, 3)];

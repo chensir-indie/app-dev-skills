@@ -6,7 +6,7 @@ export const catalog = JSON.parse(
     "utf8",
   ),
 );
-export const copyFields = ["headline", "support", "uiTitle", "uiBody"];
+import { textFields } from "../assets/starter/text.js";
 export function selectLocales(selection) {
   const ids =
     selection === "app-store"
@@ -26,7 +26,7 @@ export function addLocales(project, selection) {
     for (const slide of p.slides) {
       slide.copy ??= {};
       slide.copy[locale.id] ??= Object.fromEntries(
-        copyFields.map((key) => [key, ""]),
+        textFields(p).map((key) => [key, ""]),
       );
     }
   }
@@ -36,7 +36,7 @@ export function coverage(project) {
   const missing = [];
   for (const locale of project.locales)
     for (const slide of project.slides)
-      for (const field of copyFields)
+      for (const field of textFields(project))
         if (
           typeof slide.copy?.[locale.id]?.[field] !== "string" ||
           !slide.copy[locale.id][field].trim()

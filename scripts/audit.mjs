@@ -1,7 +1,38 @@
 // Browser-side geometry checks. These are conservative heuristics, not OCR or pixel fidelity.
-export function auditCover(minScale) {
+export function auditCover(config) {
+  const minScale = typeof config === "number" ? config : config.minScale;
+  const fields =
+    typeof config === "number"
+      ? ["headline", "support", "uiTitle", "uiBody"]
+      : config.fields;
   const issues = [];
   const cover = document.querySelector("#cover");
+  if (!cover) return { issues: [{ reason: "missing-cover" }], texts: [] };
+  for (const id of fields) {
+    const boxes = cover.querySelectorAll(`#${id}[data-text-box]`);
+    if (
+      boxes.length !== 1 ||
+      boxes[0].querySelectorAll("[data-text]").length !== 1
+    )
+      issues.push({ id, reason: "missing-required-text-box" });
+  }
+  const invisible = (el) => {
+    const css = getComputedStyle(el);
+    // Chromium returns computed rgb/rgba for ordinary text fill. Complex paints still need visual review.
+    const fill = css.webkitTextFillColor || css.color;
+    if (fill === "transparent" || /^rgba\(.*,[\s]*0(?:\.0+)?\)$/.test(fill))
+      return true;
+    for (let node = el; node; node = node.parentElement) {
+      const style = getComputedStyle(node);
+      if (
+        Number(style.opacity) === 0 ||
+        style.visibility === "hidden" ||
+        style.display === "none"
+      )
+        return true;
+    }
+    return false;
+  };
   const rect = (r) => ({
     left: r.left,
     top: r.top,
@@ -35,12 +66,7 @@ export function auditCover(minScale) {
     const rects = [...range.getClientRects()].filter(
       (r) => r.width > 0 && r.height > 0,
     );
-    if (
-      !rects.length ||
-      getComputedStyle(el).visibility === "hidden" ||
-      getComputedStyle(el).display === "none"
-    )
-      add("invisible-text");
+    if (!rects.length || invisible(el)) add("invisible-text");
     for (const r of rects) {
       if (outside(r, cover.getBoundingClientRect())) add("outside-canvas");
       for (
@@ -96,6 +122,8 @@ export function auditCover(minScale) {
   for (const img of cover.querySelectorAll("img"))
     if (!img.complete || !img.naturalWidth)
       issues.push({ id: img.id, reason: "missing-image" });
+  if ([...document.fonts].some((font) => font.status === "error"))
+    issues.push({ reason: "font-load-error" });
   if (document.fonts.status !== "loaded")
     issues.push({ reason: "fonts-not-ready" });
   if (!texts.length) issues.push({ reason: "no-audited-text" });

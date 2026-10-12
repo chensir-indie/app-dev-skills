@@ -1,4 +1,5 @@
 import { localeInfo } from "../assets/starter/locale.js";
+import { textFields } from "../assets/starter/text.js";
 const slug = /^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$/;
 export function cells(project) {
   return project.locales.flatMap((locale) =>
@@ -15,6 +16,8 @@ export function cells(project) {
   );
 }
 export function validateProject(p) {
+  if (!p || typeof p !== "object") throw new Error("Project must be an object");
+  const fields = textFields(p);
   const errors = [];
   const assert = (ok, msg) => {
     if (!ok) errors.push(msg);
@@ -32,9 +35,19 @@ export function validateProject(p) {
       ids.every((id) => typeof id === "string" && slug.test(id)),
       `${key}: invalid id`,
     );
-    assert(new Set(ids).size === ids.length, `${key}: duplicate ids`);
+    assert(
+      new Set(ids.map((id) => String(id).toLowerCase())).size === ids.length,
+      `${key}: duplicate ids (case-insensitive)`,
+    );
   }
   if (errors.length) throw new Error(errors.join("\n"));
+  const sheetNames = p.locales.flatMap((l) =>
+    p.devices.map((d) => `contact-${l.id}-${d.id}.png`.toLowerCase()),
+  );
+  assert(
+    new Set(sheetNames).size === sheetNames.length,
+    "Contact sheet filename collision; use unambiguous device IDs",
+  );
   assert(
     Number.isFinite(p.minTextScale) &&
       p.minTextScale >= 0.6 &&
@@ -73,12 +86,16 @@ export function validateProject(p) {
       `${d.id}: invalid dimensions`,
     );
   }
+  for (const item of [p, ...p.slides])
+    if (item.showBrand !== undefined)
+      assert(typeof item.showBrand === "boolean", "showBrand must be boolean");
   for (const s of p.slides)
     if (s.phases !== undefined)
       assert(
         Array.isArray(s.phases) &&
           s.phases.length >= 2 &&
           s.phases.length <= 4 &&
+          new Set(s.phases).size === s.phases.length &&
           s.phases.every(
             (x) =>
               typeof x === "string" &&
@@ -90,7 +107,7 @@ export function validateProject(p) {
   for (const s of p.slides)
     for (const l of p.locales) {
       const c = s.copy?.[l.id];
-      for (const field of ["headline", "support", "uiTitle", "uiBody"])
+      for (const field of fields)
         assert(
           typeof c?.[field] === "string" && c[field].trim(),
           `${s.id}/${l.id}: missing ${field}`,

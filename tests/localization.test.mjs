@@ -113,7 +113,7 @@ test("locale CLI copies safely, reports missing fields, and rejects overwrite an
         ["scripts/locales.mjs", "add", source, join(tmp, "alias/nested"), "ja"],
         { cwd: repo },
       ),
-      /outside source/,
+      /outside .*source/,
     );
     await writeFile(join(tmp, "private.txt"), "untouched");
     await symlink(join(tmp, "private.txt"), join(source, "unsafe.txt"));

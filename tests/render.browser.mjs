@@ -21,8 +21,9 @@ const run = promisify(execFile),
   repo = fileURLToPath(new URL("../", import.meta.url));
 test("browser detects clipping, occlusion, collision and missing images", async () => {
   const server = await serve(path.join(repo, "assets/starter"));
-  const browser = await chromium.launch();
+  let browser;
   try {
+    browser = await chromium.launch();
     const page = await browser.newPage({
       viewport: { width: 1284, height: 2778 },
     });
@@ -79,7 +80,7 @@ test("browser detects clipping, occlusion, collision and missing images", async 
       ),
     );
   } finally {
-    await browser.close();
+    await browser?.close();
     await server.close();
   }
 });
@@ -145,6 +146,61 @@ test("full multilingual matrix exports, refuses overwrite, detects tampering and
     m.results[0].sha256 = "wrong";
     await writeFile(manifestPath, JSON.stringify(m));
     await assert.rejects(verify(out), /hash mismatch/);
+    await writeFile(manifestPath, original);
+    for (const [mutate, message] of [
+      [(m) => (m.schemaVersion = 99), /manifest structure/],
+      [(m) => (m.sources = []), /source hash/],
+      [(m) => (m.visualReview = "approved"), /separate bound review/],
+      [(m) => (m.results[0].texts = []), /text audit/],
+      [
+        (m) => (m.sourceIssues = [{ reason: "source-changed-during-export" }]),
+        /source audit/,
+      ],
+    ]) {
+      const malformed = JSON.parse(original);
+      mutate(malformed);
+      await writeFile(manifestPath, JSON.stringify(malformed));
+      await assert.rejects(verify(out), message);
+    }
+    await writeFile(manifestPath, original);
+    const reviewPath = path.join(tmp, "review.json");
+    await run(
+      process.execPath,
+      ["scripts/review.mjs", "init", out, reviewPath],
+      { cwd: repo },
+    );
+    await assert.rejects(
+      run(process.execPath, ["scripts/review.mjs", "init", out, reviewPath], {
+        cwd: repo,
+      }),
+      /EEXIST/,
+    );
+    await assert.rejects(
+      run(process.execPath, ["scripts/review.mjs", "check", out, reviewPath], {
+        cwd: repo,
+      }),
+      /unresolved review/,
+    );
+    const review = JSON.parse(await readFile(reviewPath, "utf8"));
+    review.reviewer = "Test fixture";
+    review.reviewedAt = new Date().toISOString();
+    for (const cell of [review.referenceComparison, ...review.cells]) {
+      cell.status = "pass";
+      cell.notes = "Synthetic test record, not a real visual review";
+    }
+    await writeFile(reviewPath, JSON.stringify(review));
+    await run(
+      process.execPath,
+      ["scripts/review.mjs", "check", out, reviewPath],
+      { cwd: repo },
+    );
+    await writeFile(manifestPath, original + "\n");
+    await assert.rejects(
+      run(process.execPath, ["scripts/review.mjs", "check", out, reviewPath], {
+        cwd: repo,
+      }),
+      /stale/,
+    );
     // A route that silently renders English for Chinese must not pass a file-count audit.
     p.locales = p.locales.filter((x) => x.id === "zh-Hans");
     p.devices = p.devices.slice(0, 1);
@@ -226,8 +282,9 @@ test("every store locale renders both device layouts with its own lang, directio
   }
   await writeFile(path.join(root, "project.json"), JSON.stringify(p));
   const server = await serve(root);
-  const browser = await chromium.launch();
+  let browser;
   try {
+    browser = await chromium.launch();
     const page = await browser.newPage();
     for (const locale of p.locales)
       for (const device of p.devices) {
@@ -258,7 +315,7 @@ test("every store locale renders both device layouts with its own lang, directio
         );
       }
   } finally {
-    await browser.close();
+    await browser?.close();
     await server.close();
     await rm(tmp, { recursive: true, force: true });
   }

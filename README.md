@@ -108,7 +108,7 @@ node scripts/verify.mjs /tmp/my-global-covers-output-01
 
 For the unchanged three-language demo, export `/tmp/my-covers` directly. Initialization and export refuse to overwrite existing directories. Each export needs a fresh output directory outside the source project.
 
-An `automated-pass` still leaves `visualReview: pending`. Inspect every contact sheet and native PNG. The starter uses system fonts, so different operating systems can produce different pixels; pin licensed local fonts for production. Device dimensions must match [Apple's current screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications).
+An `automated-pass` still leaves `visualReview: pending`. Use `node scripts/review.mjs init OUTPUT REVIEW.json` to create the pending checklist, inspect and fill every cell, then run `node scripts/review.mjs check OUTPUT REVIEW.json`. This checks completeness and binds the record to that export; it does not judge the images for you. Inspect every contact sheet and native PNG. The starter uses system fonts, so different operating systems can produce different pixels; pin licensed local fonts for production. Device dimensions must match [Apple's current screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications).
 
 ## Reference and development
 
@@ -119,8 +119,7 @@ An `automated-pass` still leaves `visualReview: pending`. Inspect every contact 
 - [Store handoff boundaries](references/delivery.md)
 
 ```sh
-npm test
-npm run test:browser
+npm run check
 ```
 
 See [CONTRIBUTING.md](CONTRIBUTING.md). CI tests the toolkit; it does not package or release an app. The description and installation structure take inspiration from [mattpocock/skills](https://github.com/mattpocock/skills).

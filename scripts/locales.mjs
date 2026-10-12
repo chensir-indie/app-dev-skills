@@ -1,12 +1,6 @@
-import {
-  cp,
-  mkdir,
-  readFile,
-  writeFile,
-  realpath,
-  readdir,
-} from "node:fs/promises";
+import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
+import { outsideSource, sourceSnapshot } from "./files.mjs";
 import { catalog, addLocales, coverage } from "./localization.mjs";
 import { localeInfo } from "../assets/starter/locale.js";
 import { validateProject } from "./contract.mjs";
@@ -30,21 +24,8 @@ if (command === "list" && !root) {
   console.log(JSON.stringify(coverage(p), null, 2));
   validateProject(p); // Complete copy alone cannot hide a bad locale or direction.
 } else if (command === "add" && root && output && selection && !extra.length) {
-  const source = await realpath(root);
-  const target = path.join(
-    await realpath(path.dirname(path.resolve(output))),
-    path.basename(output),
-  );
-  if (target === source || target.startsWith(source + path.sep))
-    throw new Error("New project must be outside source");
-  async function rejectSymlinks(dir) {
-    for (const entry of await readdir(dir, { withFileTypes: true })) {
-      if (entry.isSymbolicLink())
-        throw new Error("Source symlinks are unsupported");
-      if (entry.isDirectory()) await rejectSymlinks(path.join(dir, entry.name));
-    }
-  }
-  await rejectSymlinks(source);
+  const { source, target } = await outsideSource(root, output);
+  await sourceSnapshot(source);
   const p = addLocales(
     JSON.parse(await readFile(path.join(source, "project.json"), "utf8")),
     selection,

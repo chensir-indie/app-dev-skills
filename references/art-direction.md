@@ -26,6 +26,24 @@ For animated emoji: maintain character identity while varying pose/expression. P
 
 > Keep {approved components}. Correct only {observed defect}: increase {element} from {ratio A} to {ratio B}, move {element} by {normalized amount}, adjust {material/light}. Retain empty typography regions. Do not change camera angle, UI content or palette elsewhere.
 
+## Choose how to rebuild
+
+Record one mode in the project brief:
+
+- **pixel_locked:** preserve approved art pixels; place editable text in the reserved areas. This requires a usable text-free plate; an AI concept with baked-in headings is not a ready multilingual template.
+- **layered_rebuild:** rebuild geometry, text, frames and panels as editable layers, with real captures and measured layout.
+- **hybrid:** combine generated cutouts/materials with web layout and real captures. Record which layers remain raster.
+
+Use the simplest mode that preserves the approved visual quality and editability. The bundled starter is an engineering demo, not evidence of reference matching. When its flat frame, generic orb or repeated layout does not match the reference, replace those elements deliberately instead of treating a passing export as design completion.
+
+## Design completion checks
+
+For the master, save an equal-width reference/render comparison and record the title-to-canvas ratio, text box and device bounds, top inset, title-to-device gap, camera angle and crop. Record the actual font/weight and script-specific leading. A baseline observation is enough when the reference cannot be measured exactly; label estimates.
+
+For the series, check consistent base type and margin tokens, a distinct benefit on each slide, deliberate brand-lockup placement, and the real feature detail that supports each claim. Dynamic covers need distinct visible phases; emoji need expressive poses. Inspect images at native size and thumbnail scale. Rewriting long localized copy comes before shrinking it; inspect the manifest's text scales across all slides to catch one conspicuously small heading.
+
+Completion means every comparison category is addressed with evidence or a stated difference. Ask the user only when a missing creative decision changes the outcome; record existing approvals without asking again. The visual reviewer can be the agent if it actually inspects the images, but must not invent a human approval.
+
 ## Iteration rule
 
 Compare one master and the rendered HTML at equal display width. Check in order: composition, headline size/weight, device proportions, depth/material, foreground details. Fix one category per iteration; update shared tokens. Log what remains different. Do not regenerate every localized poster to fix one shared art defect.

@@ -64,3 +64,50 @@ test("PNG checks dimensions, uniform content, alpha and corrupted bytes", () => 
   assert.throws(() => inspectPNG(PNG.sync.write(p), 2, 2), /transparent/);
   assert.throws(() => inspectPNG(Buffer.from("not a png"), 2, 2));
 });
+
+test("rejects case-colliding IDs and ambiguous contact-sheet names", () => {
+  let p = structuredClone(fixture);
+  p.devices.push({ ...p.devices[0], id: "IPHONE" });
+  assert.throws(() => validateProject(p), /case-insensitive/);
+  p = structuredClone(fixture);
+  p.locales = [
+    { id: "en", direction: "ltr" },
+    { id: "en-US", direction: "ltr" },
+  ];
+  p.devices = [
+    { ...p.devices[0], id: "US-phone" },
+    { ...p.devices[0], id: "phone" },
+  ];
+  for (const slide of p.slides) slide.copy.en = slide.copy["en-US"];
+  assert.throws(() => validateProject(p), /filename collision/);
+});
+test("motion phases require different paths and different file contents", async () => {
+  const { checkAssets } = await import("../scripts/files.mjs");
+  const p = structuredClone(fixture);
+  p.slides[1].phases[1] = p.slides[1].phases[0];
+  assert.throws(() => validateProject(p), /phases/);
+  const sources = [
+    "media/waves.svg",
+    "media/waves-rise.svg",
+    "media/waves-flow.svg",
+  ].map((file) => ({ file, sha256: "same" }));
+  assert.throws(() => checkAssets(fixture, sources), /identical/);
+  assert.throws(() => checkAssets(fixture, []), /missing art/);
+});
+
+test("declared text fields control translation requirements without disabling headline checks", () => {
+  const p = structuredClone(fixture);
+  p.textFields = ["headline", "support"];
+  p.showBrand = false;
+  for (const slide of p.slides)
+    for (const copy of Object.values(slide.copy)) {
+      delete copy.uiTitle;
+      delete copy.uiBody;
+    }
+  assert.equal(validateProject(p), p);
+  p.textFields = [];
+  assert.throws(() => validateProject(p), /textFields/);
+  p.textFields = ["headline"];
+  p.showBrand = "false";
+  assert.throws(() => validateProject(p), /showBrand/);
+});

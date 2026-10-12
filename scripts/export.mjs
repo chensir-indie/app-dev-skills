@@ -1,37 +1,27 @@
-import { readFile, writeFile, mkdir, readdir } from "node:fs/promises";
+import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
 import { chromium } from "playwright";
 import { serve } from "./server.mjs";
 import { validateProject, cells } from "./contract.mjs";
 import { auditCover } from "./audit.mjs";
 import { inspectPNG, sha256 } from "./png.mjs";
+import { outsideSource, sourceSnapshot, checkAssets } from "./files.mjs";
+import { textFields, auditedFields } from "../assets/starter/text.js";
 const [rootArg, outArg] = process.argv.slice(2);
 if (!rootArg || !outArg)
   throw new Error(
     "Usage: node scripts/export.mjs PROJECT NEW_OUTPUT_DIRECTORY",
   );
-const root = path.resolve(rootArg),
-  out = path.resolve(outArg);
-const p = validateProject(
-  JSON.parse(await readFile(path.join(root, "project.json"), "utf8")),
-);
-const sources = [];
-async function sourceTree(dir) {
-  for (const e of await readdir(dir, { withFileTypes: true })) {
-    const file = path.join(dir, e.name);
-    if (e.isSymbolicLink()) throw new Error("Source symlinks are unsupported");
-    if (e.isDirectory()) await sourceTree(file);
-    else
-      sources.push({
-        file: path.relative(root, file).split(path.sep).join("/"),
-        sha256: sha256(await readFile(file)),
-      });
-  }
-}
-if (out === root || out.startsWith(root + path.sep))
-  throw new Error("Output must be outside the source project");
-await sourceTree(root);
-sources.sort((a, b) => a.file.localeCompare(b.file));
+const { source: root, target: out } = await outsideSource(rootArg, outArg);
+const projectBytes = await readFile(path.join(root, "project.json"));
+const p = validateProject(JSON.parse(projectBytes));
+const sources = await sourceSnapshot(root);
+if (
+  sources.find((x) => x.file === "project.json")?.sha256 !==
+  sha256(projectBytes)
+)
+  throw new Error("Source changed before export");
+checkAssets(p, sources);
 await mkdir(out); // Preserve previous runs; no overwrite flag.
 const server = await serve(root);
 let browser;
@@ -42,6 +32,7 @@ const report = {
   visualReview: "pending",
   project: p,
   sources,
+  sourceIssues: [],
   results: [],
   contactSheets: [],
   limitations: [
@@ -65,19 +56,45 @@ try {
     timezoneId: "UTC",
     colorScheme: "light",
     reducedMotion: "reduce",
+    serviceWorkers: "block",
   });
   const page = await context.newPage();
-  let runtimeErrors = [];
+  let runtimeErrors = [],
+    networkIssues = [];
   page.on("pageerror", (error) => runtimeErrors.push(error.message));
-  await page.route("**/*", (route) => {
+  const requestLabel = (request) => {
+    const url = new URL(request.url());
+    return url.origin === server.url
+      ? url.pathname
+      : `${url.protocol}//${url.host}${url.pathname}`;
+  };
+  context.on("response", (response) => {
+    if (response.status() >= 400)
+      networkIssues.push({
+        reason: "http-error",
+        asset: requestLabel(response.request()),
+        status: response.status(),
+      });
+  });
+  context.on("requestfailed", (request) =>
+    networkIssues.push({
+      reason: "request-failed",
+      asset: requestLabel(request),
+    }),
+  );
+  await context.route("**/*", (route) => {
     const url = new URL(route.request().url());
-    return url.origin === server.url ||
-      ["data:", "blob:"].includes(url.protocol)
-      ? route.continue()
-      : route.abort();
+    if (url.origin === server.url || ["data:", "blob:"].includes(url.protocol))
+      return route.continue();
+    networkIssues.push({
+      reason: "external-request",
+      asset: requestLabel(route.request()),
+    });
+    return route.abort();
   });
   for (const cell of cells(p)) {
     runtimeErrors = [];
+    networkIssues = [];
     const result = { ...cell, issues: [] };
     report.results.push(result);
     try {
@@ -91,19 +108,28 @@ try {
         {},
         { timeout: 10000 },
       );
-      const audit = await page.evaluate(auditCover, p.minTextScale);
-      Object.assign(result, audit);
-      const rendered = await page.evaluate(() => ({
-        identity: { ...document.querySelector("#cover").dataset },
-        lang: document.documentElement.lang,
-        direction: document.documentElement.dir,
-        copy: Object.fromEntries(
-          ["headline", "support", "uiTitle", "uiBody"].map((key) => [
-            key,
-            document.querySelector(`#${key} [data-text]`)?.textContent,
-          ]),
+      const audit = await page.evaluate(auditCover, {
+        minScale: p.minTextScale,
+        fields: auditedFields(
+          p,
+          p.slides.find((x) => x.id === cell.slide),
         ),
-      }));
+      });
+      Object.assign(result, audit);
+      const rendered = await page.evaluate(
+        (fields) => ({
+          identity: { ...document.querySelector("#cover").dataset },
+          lang: document.documentElement.lang,
+          direction: document.documentElement.dir,
+          copy: Object.fromEntries(
+            fields.map((key) => [
+              key,
+              document.querySelector(`#${key} [data-text]`)?.textContent,
+            ]),
+          ),
+        }),
+        textFields(p),
+      );
       for (const key of ["locale", "device", "slide"])
         if (rendered.identity[key] !== cell[key])
           result.issues.push({ reason: "wrong-rendered-identity", key });
@@ -119,12 +145,6 @@ try {
       for (const key of Object.keys(rendered.copy))
         if (rendered.copy[key] !== expectedCopy[key])
           result.issues.push({ reason: "wrong-rendered-copy", key });
-      result.issues.push(
-        ...runtimeErrors.map((message) => ({
-          reason: "runtime-error",
-          message,
-        })),
-      );
       const file = path.join(out, cell.file);
       await mkdir(path.dirname(file), { recursive: true });
       const data = await page.locator("#cover").screenshot({
@@ -136,6 +156,10 @@ try {
     } catch (error) {
       result.issues.push({ reason: "render-failed", message: error.message });
     }
+    result.issues.push(
+      ...networkIssues,
+      ...runtimeErrors.map((message) => ({ reason: "runtime-error", message })),
+    );
     console.log(`${cell.file}: ${result.issues.length ? "FAIL" : "PASS"}`);
   }
   // Independent sheet page uses rendered PNGs, so it cannot substitute for native export checks.
@@ -172,9 +196,14 @@ try {
         sha256: sha256(await readFile(path.join(out, file))),
       });
     }
-  report.status = report.results.every((x) => x.issues.length === 0)
-    ? "automated-pass"
-    : "automated-fail";
+  const finalSources = await sourceSnapshot(root);
+  if (JSON.stringify(finalSources) !== JSON.stringify(sources))
+    report.sourceIssues.push({ reason: "source-changed-during-export" });
+  report.status =
+    !report.sourceIssues.length &&
+    report.results.every((x) => x.issues.length === 0)
+      ? "automated-pass"
+      : "automated-fail";
 } catch (error) {
   report.error = error.message;
   process.exitCode = 1;
