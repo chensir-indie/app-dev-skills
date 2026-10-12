@@ -38,6 +38,8 @@ main {
   isolation: isolate;
 }
 #brand {
+  font-family: Arial, "Noto Sans", sans-serif;
+  line-height: 1.5;
   position: absolute;
   top: 5%;
   left: 8%;
@@ -58,14 +60,14 @@ header {
   height: 72%;
   font-size: 8cqw;
   font-weight: 700;
-  line-height: 1.2;
-  letter-spacing: -0.045em;
+  line-height: var(--headline-leading, 1.2);
+  letter-spacing: var(--headline-tracking, -0.045em);
 }
 #support {
   height: 28%;
   padding-top: 2%;
   font-size: 3.5cqw;
-  line-height: 1.4;
+  line-height: var(--support-leading, 1.4);
   color: #4c6575;
 }
 h1,
@@ -104,7 +106,7 @@ p {
   font-size: 5cqw;
   font-weight: 700;
   height: 10cqw;
-  line-height: 1.15;
+  line-height: var(--ui-title-leading, 1.15);
 }
 #art {
   width: 100%;
@@ -115,7 +117,7 @@ p {
 }
 #uiBody {
   font-size: 3.7cqw;
-  line-height: 1.55;
+  line-height: var(--body-leading, 1.55);
   height: 20cqw;
 }
 .line {
@@ -213,4 +215,8 @@ body.export {
 }
 .tablet .phases {
   top: 82%;
+}
+
+[data-text] {
+  unicode-bidi: plaintext;
 }

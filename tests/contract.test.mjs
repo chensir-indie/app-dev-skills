@@ -14,13 +14,17 @@ test("matrix preserves locale/device/semantic story identity", () => {
   const p = validateProject(structuredClone(fixture));
   assert.equal(cells(p).length, 12);
   assert.equal(cells(p)[0].file, "en-US/iphone/01-capture.png");
-  assert.equal(cells(p).at(-1).file, "ar/ipad/02-motion.png");
+  assert.equal(cells(p).at(-1).file, "ar-SA/ipad/02-motion.png");
 });
 for (const [name, mutate, pattern] of [
-  ["missing locale", (p) => delete p.slides[0].copy.ar, /missing headline/],
+  [
+    "missing locale",
+    (p) => delete p.slides[0].copy["ar-SA"],
+    /missing headline/,
+  ],
   [
     "blank copy",
-    (p) => (p.slides[0].copy.ar.headline = " "),
+    (p) => (p.slides[0].copy["ar-SA"].headline = " "),
     /missing headline/,
   ],
   ["duplicate slide", (p) => (p.slides[1].id = "capture"), /duplicate ids/],

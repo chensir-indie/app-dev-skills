@@ -1,6 +1,6 @@
 ---
 name: app-store-cover-generator
-description: Build editable, multilingual App Store screenshot covers from a visual reference and app captures, using generated art plus a web template. Use for screenshot storytelling, reference matching, localization, typography audits, and repeatable exports.
+description: Create editable App Store screenshot covers from a visual reference and real app captures. Use when the user wants to match an AI cover design, reuse it as a web template, localize covers across languages and devices, or fix inconsistent typography and text overflow.
 metadata:
   short-description: Generate and verify editable multilingual store covers
 ---
@@ -30,8 +30,6 @@ Build one representative cover and compare it at the **same rendered dimensions*
 
 Generate only the difficult art layers. Keep translated titles out of generated pixels. Place real app captures into frames without changing feature claims. Record which pixels are captures, illustrations or composites. Motion posters need visibly different phases or expressive poses; a static repeated thumbnail does not show motion. Read [localization.md](references/localization.md) before expanding the language set.
 
-If the user asks for AskMATT, discover whether an actual callable integration exists and what it supports. Use only its documented capabilities. If unavailable, state this and continue with the available image-generation and browser tools; never fabricate provider output or require this optional service.
-
 ## Implement and run
 
 The bundled [starter](assets/starter/index.html) is a small working baseline, not the mandatory final style. Copy it to a project before customization. See [template-contract.md](references/template-contract.md) for the data shape and extension points.
@@ -49,6 +47,8 @@ node scripts/verify.mjs /path/to/new-output
 ```
 
 The initializer and exporter refuse to overwrite existing directories. The server binds to loopback and serves only the selected project. Exports reject network assets for reproducibility; store approved local artwork/fonts with provenance. The starter contains original demo SVG art and explicit synthetic UI, not NextNote source code or a shipped-app capture.
+
+For global coverage, use `node scripts/locales.mjs list` and `node scripts/locales.mjs add PROJECT NEW_PROJECT app-store` (or a comma-separated BCP 47 list). This preserves existing text and leaves new translations empty. Fill them, then run `node scripts/locales.mjs check PROJECT`. The catalog has 50 store locale presets; custom tags are local rendering targets, not assumed upload slots. Read [localization.md](references/localization.md) for regional variants, fonts and RTL.
 
 Keep one story order, explicit copy for every locale and no silent English fallback. Keep title/support text in fixed boxes. Use one base typographic token per device and a reviewed locale adjustment when necessary; rewrite long copy before shrinking. The example 0.60 scale floor is a design guardrail, not an Apple rule. Read [quality-gates.md](references/quality-gates.md) for exact automated coverage and its limits.
 

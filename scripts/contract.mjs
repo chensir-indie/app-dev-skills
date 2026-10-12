@@ -1,3 +1,4 @@
+import { localeInfo } from "../assets/starter/locale.js";
 const slug = /^[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*$/;
 export function cells(project) {
   return project.locales.flatMap((locale) =>
@@ -40,11 +41,26 @@ export function validateProject(p) {
       p.minTextScale <= 1,
     "minTextScale must be within 0.60..1",
   );
-  for (const l of p.locales)
-    assert(
-      ["ltr", "rtl"].includes(l.direction),
-      `${l.id}: direction must be ltr or rtl`,
-    );
+  for (const l of p.locales) {
+    try {
+      const info = localeInfo(l.id);
+      assert(
+        l.direction === info.direction,
+        `${l.id}: direction must be ${info.direction}`,
+      );
+    } catch (error) {
+      errors.push(error.message);
+    }
+    if (l.fontFamilies !== undefined)
+      assert(
+        Array.isArray(l.fontFamilies) &&
+          l.fontFamilies.length > 0 &&
+          l.fontFamilies.every(
+            (x) => typeof x === "string" && x.trim() && !/[;{}\\\n\r]/.test(x),
+          ),
+        `${l.id}: invalid fontFamilies`,
+      );
+  }
   for (const d of p.devices) {
     assert(
       ["phone", "tablet"].includes(d.kind),

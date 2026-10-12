@@ -1,3 +1,4 @@
+import { localeInfo, fontStack } from "./locale.js";
 const project = await (await fetch("project.json")).json();
 const params = new URLSearchParams(location.search);
 const isExport = params.has("export");
@@ -35,6 +36,24 @@ document.documentElement.lang = locale.id;
 document.documentElement.dir = locale.direction;
 const cover = document.getElementById("cover");
 cover.className = device.kind;
+const typography = localeInfo(locale.id);
+cover.style.fontFamily = fontStack(
+  locale.fontFamilies ?? typography.fontFamilies,
+);
+cover.style.setProperty("--headline-tracking", typography.tracking);
+cover.style.setProperty("--headline-leading", typography.leading);
+cover.style.setProperty(
+  "--ui-title-leading",
+  typography.leading === "1.2" ? "1.15" : typography.leading,
+);
+cover.style.setProperty(
+  "--support-leading",
+  String(Math.max(1.4, Number(typography.leading))),
+);
+cover.style.setProperty(
+  "--body-leading",
+  String(Math.max(1.55, Number(typography.leading))),
+);
 cover.style.setProperty(
   "--w",
   `${isExport ? device.width : Math.min(420, innerWidth - 48)}px`,

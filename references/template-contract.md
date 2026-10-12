@@ -4,17 +4,17 @@
 
 See [project.json](../assets/starter/project.json) for a complete example.
 
-| Field                 | Meaning                                                                           |
-| --------------------- | --------------------------------------------------------------------------------- |
-| app                   | Display label; plain text                                                         |
-| minTextScale          | 0.60–1 inclusive; project design minimum                                          |
-| locales               | Unique IDs and direction ltr/rtl                                                  |
-| devices               | Unique ID, kind phone/tablet, integer width/height (320–5000)                     |
-| slides                | Ordered, unique semantic IDs                                                      |
-| slides[].copy[locale] | Nonempty headline, support, uiTitle, uiBody; newline is an intentional line break |
-| slides[].art          | shared local media path, optionally overridden by locale ID                       |
-| slides[].phases       | Optional 2–4 local art paths for distinct static motion phases                    |
-| slides[].provenance   | Capture/illustration source and permissions note                                  |
+| Field                 | Meaning                                                                               |
+| --------------------- | ------------------------------------------------------------------------------------- |
+| app                   | Display label; plain text                                                             |
+| minTextScale          | 0.60–1 inclusive; project design minimum                                              |
+| locales               | Canonical BCP 47 base IDs and matching direction ltr/rtl; optional fontFamilies array |
+| devices               | Unique ID, kind phone/tablet, integer width/height (320–5000)                         |
+| slides                | Ordered, unique semantic IDs                                                          |
+| slides[].copy[locale] | Nonempty headline, support, uiTitle, uiBody; newline is an intentional line break     |
+| slides[].art          | shared local media path, optionally overridden by locale ID                           |
+| slides[].phases       | Optional 2–4 local art paths for distinct static motion phases                        |
+| slides[].provenance   | Capture/illustration source and permissions note                                      |
 
 The validator checks the executable starter contract, **not** store size eligibility. Device IDs and dimensions are configuration, not universally valid Apple slots. Confirm the current destination before using them. The demo uses portrait canvases; redesign the layout for landscape or other platforms before export.
 
@@ -32,6 +32,8 @@ To use an existing Next/React template, adapt its export route and selectors or 
 npm ci
 npx playwright install chromium
 node scripts/init.mjs /tmp/my-covers
+node scripts/locales.mjs list
+node scripts/locales.mjs check /tmp/my-covers
 node scripts/serve.mjs /tmp/my-covers
 node scripts/export.mjs /tmp/my-covers /tmp/my-covers-output-01
 node scripts/verify.mjs /tmp/my-covers-output-01

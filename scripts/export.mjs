@@ -95,6 +95,8 @@ try {
       Object.assign(result, audit);
       const rendered = await page.evaluate(() => ({
         identity: { ...document.querySelector("#cover").dataset },
+        lang: document.documentElement.lang,
+        direction: document.documentElement.dir,
         copy: Object.fromEntries(
           ["headline", "support", "uiTitle", "uiBody"].map((key) => [
             key,
@@ -105,6 +107,12 @@ try {
       for (const key of ["locale", "device", "slide"])
         if (rendered.identity[key] !== cell[key])
           result.issues.push({ reason: "wrong-rendered-identity", key });
+      const expectedLocale = p.locales.find((x) => x.id === cell.locale);
+      if (
+        rendered.lang !== cell.locale ||
+        rendered.direction !== expectedLocale.direction
+      )
+        result.issues.push({ reason: "wrong-rendered-language-direction" });
       const expectedCopy = p.slides.find((x) => x.id === cell.slide).copy[
         cell.locale
       ];
@@ -119,13 +127,11 @@ try {
       );
       const file = path.join(out, cell.file);
       await mkdir(path.dirname(file), { recursive: true });
-      const data = await page
-        .locator("#cover")
-        .screenshot({
-          path: file,
-          animations: "disabled",
-          omitBackground: false,
-        });
+      const data = await page.locator("#cover").screenshot({
+        path: file,
+        animations: "disabled",
+        omitBackground: false,
+      });
       Object.assign(result, inspectPNG(data, cell.width, cell.height));
     } catch (error) {
       result.issues.push({ reason: "render-failed", message: error.message });

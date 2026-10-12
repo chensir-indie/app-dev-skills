@@ -1,78 +1,130 @@
 # App Store Cover Generator
 
-[简体中文](README.zh-CN.md) · [Agent instructions](SKILL.md)
+[简体中文](README.zh-CN.md) · [Skill instructions](SKILL.md)
 
-A reusable Codex skill and small working toolkit for **AI artwork + editable web layouts + multilingual screenshot exports**.
+**Turn a visual reference and your app screenshots into editable, multilingual App Store covers.**
 
-AI can produce a convincing concept, but baked-in text, inconsistent font sizing and expensive per-language regeneration make it hard to ship. This skill assigns each part a clear owner: generated art for material and composition, HTML/CSS for copy and geometry, browser checks for repeatable quality evidence.
+Use this skill when an AI concept looks good but the web version loses its typography, spacing or detail—or when a finished design needs to work across languages and devices. Match one master, keep the words editable, then export and check the whole set.
 
-![Synthetic demo contact sheet](docs/demo-contact.png)
+![Original demo artwork with synthetic UI](docs/demo-contact.png)
 
-The preview is original demo art with synthetic UI. It is not a real product capture or the final visual style required for your app. [See the original NextNote example](https://x.com/NextNote_App/status/2100984993619366199).
+This is the bundled demo, not a real app capture or a required visual style. [See the NextNote case study](references/nextnote-case-study.md).
 
-## What is included
+## Install
 
-- Reference decomposition and editable-layer prompt recipes.
-- Typography, localization, RTL and motion-feature guidance.
-- A working HTML/CSS/JS starter with 3 locales, 2 devices and 2 slides.
-- Safe local preview, fresh-directory initialization and batch PNG export.
-- Geometry/overflow checks, exact matrix verification, SHA-256 manifests and contact sheets.
-- Honest visual-review and store/publication boundaries.
-- Unit and real-browser failure tests.
+Use the [Skills CLI](https://github.com/vercel-labs/skills) from your project directory:
 
-There is no paid API requirement. AskMATT and image-generation tools are optional integrations supplied by your agent environment. No undocumented provider API, store uploader or automatic social publisher is included.
+```sh
+npx skills@latest add chensir-indie/app-store-cover-generator --skill app-store-cover-generator
+```
 
-## Install as a Codex skill
+Choose your coding agent when prompted. Installation is project-local by default; add `-g` to make it available across projects. For global Codex installation:
 
-Clone into a **new** skill directory:
+```sh
+npx skills@latest add chensir-indie/app-store-cover-generator --skill app-store-cover-generator -a codex -g
+```
+
+Use one installation method per agent and scope. If you already cloned this skill manually, update that copy instead of installing a duplicate. Installing the skill adds instructions and supporting files; it does not install Chromium or call an image-generation service.
+
+<details>
+<summary>Manual Codex installation</summary>
+
+Clone into a new directory. Preserve any existing local edits first.
 
 ```sh
 git clone https://github.com/chensir-indie/app-store-cover-generator.git ~/.codex/skills/app-store-cover-generator
 ```
 
-If this path already exists, back it up or merge intentionally; do not delete an existing local skill blindly. Start a new Codex task if the skill is not discovered immediately, then ask:
+For a clean clone, update with `git -C ~/.codex/skills/app-store-cover-generator pull --ff-only`. If you customized the files, review and merge updates intentionally.
 
-> Use $app-store-cover-generator. Match this reference with my real app screenshots. Build six covers in English, Chinese and Japanese for the iPhone and iPad slots I specify. Keep text editable, show one master before expanding, audit every locale and export the matrix. Stop before uploading.
+</details>
 
-Agent-specific tools are not required to run the included standalone demo.
-
-## Run the toolkit
-
-Requirements: Node.js 22+, npm and a Playwright Chromium installation. Linux may need OS browser dependencies (`npx playwright install --with-deps chromium`).
+For a Skills CLI installation, update with:
 
 ```sh
+npx skills@latest update app-store-cover-generator
+```
+
+If the skill does not appear, check the installer's destination and open a new agent session. Do not install a second copy as a workaround.
+
+## Try it
+
+Attach a visual reference and real app screenshots, then ask your agent:
+
+> Use $app-store-cover-generator. Create six App Store covers from these screenshots and this reference. First match one master at the same size. Then localize it for en-US, zh-Hans, ja and ar-SA in my iPhone and iPad slots. Keep headings editable, check text overflow and motion details, and export the complete set. Stop before uploading.
+
+For an existing design:
+
+> Use $app-store-cover-generator to audit my cover project. Check font consistency, clipped text and missing translations across every locale and device. Fix the affected covers while preserving the approved design.
+
+Provide your app's actual features, intended slide order and target dimensions when available. The agent should reuse existing assets and ask only about missing decisions that matter.
+
+## What you get
+
+| Need                  | How the skill helps                                                                 |
+| --------------------- | ----------------------------------------------------------------------------------- |
+| Match an AI reference | Measure type, spacing, crop and materials; generate difficult art layers separately |
+| Reuse the design      | Editable HTML/CSS, explicit copy and one canonical slide order                      |
+| Localize covers       | 50 App Store locale presets, custom BCP 47 tags, script-aware font stacks and RTL   |
+| Catch broken layouts  | Native-size export, overflow/collision checks and exact rendered-copy checks        |
+| Review the whole set  | Individual PNGs, locale/device contact sheets and a hash manifest                   |
+
+Generated art is optional. The toolkit does not call a paid API, translate your product automatically, upload to a store or publish social posts. Use whichever image tool your agent actually provides. Automated checks do not establish visual fidelity, translation quality or store approval.
+
+## Languages and regions
+
+The [catalog](assets/locales/app-store.json) covers the **50 language/region options** on [Apple's localization page](https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations/) checked on October 12, 2026. Regional variants remain separate: `en-US`/`en-GB`, `fr-FR`/`fr-CA`, `pt-BR`/`pt-PT`, and simplified/traditional Chinese.
+
+Custom BCP 47 tags such as `fa-IR` and `sw-KE` are accepted for local cover projects. A custom tag is not proof of an App Store upload slot. Countries, storefronts and languages are different concepts; choose the locales enabled for your app.
+
+The starter ships **three translated demo locales**, not 50 finished translations. Expanding a project creates empty copy fields while preserving existing text. Fill them explicitly; the exporter rejects missing translations instead of substituting English. Fonts are selected by script, but you must supply and inspect licensed fonts for your actual content. See [localization and font guidance](references/localization.md).
+
+## Run the toolkit yourself
+
+Requirements: Node.js 22+, npm, and Playwright Chromium. These steps use a separate working clone; choose a new directory name if it already exists.
+
+```sh
+git clone https://github.com/chensir-indie/app-store-cover-generator.git
+cd app-store-cover-generator
 npm ci
 npx playwright install chromium
 node scripts/init.mjs /tmp/my-covers
 node scripts/serve.mjs /tmp/my-covers
-# Open the printed loopback URL. Edit /tmp/my-covers/project.json and style.css.
-node scripts/export.mjs /tmp/my-covers /tmp/my-covers-output-01
-node scripts/verify.mjs /tmp/my-covers-output-01
 ```
 
-Outputs contain individual PNGs, locale/device contact sheets and manifest.json. Every run needs a fresh output directory outside the source tree. `automated-pass` still leaves `visualReview: pending`.
+Open the printed local URL. Edit the copied `project.json`, `style.css` and `media/` assets. Stop the preview with Ctrl+C when finished. Linux may need `npx playwright install --with-deps chromium`.
 
-Supply your own licensed fonts and real screenshots for production. The demo uses system fonts, so cross-OS pixel identity is not promised. Supported dimensions in the schema are safety bounds, not an App Store eligibility table. Confirm [Apple's current screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications) for your app.
+To add all store locales—or a selected list—to a **new** project copy:
 
-## Customize
+```sh
+node scripts/locales.mjs list
+node scripts/locales.mjs add /tmp/my-covers /tmp/my-global-covers app-store
+# Alternative: use ja,fr-FR,ar-SA,fa-IR instead of app-store.
+# Fill the empty translations in /tmp/my-global-covers/project.json, then:
+node scripts/locales.mjs check /tmp/my-global-covers
+node scripts/export.mjs /tmp/my-global-covers /tmp/my-global-covers-output-01
+node scripts/verify.mjs /tmp/my-global-covers-output-01
+```
 
-1. Freeze your customer benefit, real feature set, story order and locale/device slots.
-2. Adapt the copied starter or reuse an existing web template using the [rendering contract](references/template-contract.md).
-3. Put rights-cleared assets/fonts in media/ and provide every locale's copy explicitly.
-4. Match one master at equal reference/render size, then expand the matrix.
-5. Export, inspect every contact-sheet cell and review native PNGs. Record visual approval separately.
+For the unchanged three-language demo, export `/tmp/my-covers` directly. Initialization and export refuse to overwrite existing directories. Each export needs a fresh output directory outside the source project.
 
-Read [prompt recipes](references/art-direction.md), [localization](references/localization.md) and [quality limits](references/quality-gates.md).
+An `automated-pass` still leaves `visualReview: pending`. Inspect every contact sheet and native PNG. The starter uses system fonts, so different operating systems can produce different pixels; pin licensed local fonts for production. Device dimensions must match [Apple's current screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications).
 
-## Development
+## Reference and development
+
+- [Art direction and prompts](references/art-direction.md)
+- [Localization, typography and motion](references/localization.md)
+- [Project schema and rendering contract](references/template-contract.md)
+- [Quality checks and limitations](references/quality-gates.md)
+- [Store handoff boundaries](references/delivery.md)
 
 ```sh
 npm test
 npm run test:browser
 ```
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for scoped changes and failure-oriented tests. GitHub CI runs tests only; it never packages apps, uploads store assets or publishes posts.
+See [CONTRIBUTING.md](CONTRIBUTING.md). CI tests the toolkit; it does not package or release an app. The description and installation structure take inspiration from [mattpocock/skills](https://github.com/mattpocock/skills).
 
-## License and attribution
+## License
 
-MIT for the code, documentation and original demo SVG in this repository. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md). External NextNote screenshots and trademarks are not included in that grant. Bring assets you have permission to use. No Apple, OpenAI, AskMATT or NextNote endorsement is implied.
+MIT for this repository's code, documentation and original demo SVG. External app screenshots, trademarks and third-party fonts retain their own rights. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).

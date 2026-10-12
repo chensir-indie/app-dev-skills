@@ -156,6 +156,7 @@ test("full multilingual matrix exports, refuses overwrite, detects tampering and
       "const copy = slide.copy[locale.id]",
       'const copy = slide.copy["en-US"]',
     );
+    app += '\ndocument.documentElement.dir = "rtl";\n';
     await writeFile(appPath, app);
     const badOut = path.join(tmp, "wrong-language");
     await assert.rejects(
@@ -169,7 +170,96 @@ test("full multilingual matrix exports, refuses overwrite, detects tampering and
     assert.ok(
       failed.results[0].issues.some((x) => x.reason === "wrong-rendered-copy"),
     );
+    assert.ok(
+      failed.results[0].issues.some(
+        (x) => x.reason === "wrong-rendered-language-direction",
+      ),
+    );
   } finally {
+    await rm(tmp, { recursive: true, force: true });
+  }
+});
+
+test("every store locale renders both device layouts with its own lang, direction and script sample", async () => {
+  const { selectLocales } = await import("../scripts/localization.mjs");
+  const { localeInfo } = await import("../assets/starter/locale.js");
+  const tmp = await mkdtemp(path.join(os.tmpdir(), "cover-world-"));
+  const root = path.join(tmp, "project");
+  await cp(path.join(repo, "assets/starter"), root, { recursive: true });
+  const p = JSON.parse(await readFile(path.join(root, "project.json"), "utf8"));
+  p.locales = selectLocales("app-store");
+  p.slides = p.slides.slice(0, 1);
+  p.devices = [
+    { id: "phone", kind: "phone", width: 1284, height: 2778 },
+    { id: "tablet", kind: "tablet", width: 2048, height: 2732 },
+  ];
+  const samples = {
+    Arab: "فكرة جديدة",
+    Hebr: "רעיון חדש",
+    Hans: "记录灵感",
+    Hant: "記錄靈感",
+    Jpan: "新しいアイデア",
+    Kore: "새로운 생각",
+    Deva: "नया विचार",
+    Beng: "নতুন ভাবনা",
+    Gujr: "નવો વિચાર",
+    Guru: "ਨਵਾਂ ਵਿਚਾਰ",
+    Knda: "ಹೊಸ ಆಲೋಚನೆ",
+    Mlym: "പുതിയ ആശയം",
+    Orya: "ନୂଆ ଚିନ୍ତା",
+    Taml: "புதிய சிந்தனை",
+    Telu: "కొత్త ఆలోచన",
+    Thai: "ความคิดใหม่",
+    Cyrl: "Новая идея",
+    Grek: "Νέα ιδέα",
+    Latn: "Une idée nouvelle",
+  };
+  for (const locale of p.locales) {
+    const sample = samples[localeInfo(locale.id).script];
+    assert.ok(sample, locale.id);
+    p.slides[0].copy[locale.id] = {
+      headline: sample,
+      support: sample,
+      uiTitle: sample,
+      uiBody: sample,
+    };
+  }
+  await writeFile(path.join(root, "project.json"), JSON.stringify(p));
+  const server = await serve(root);
+  const browser = await chromium.launch();
+  try {
+    const page = await browser.newPage();
+    for (const locale of p.locales)
+      for (const device of p.devices) {
+        await page.setViewportSize({
+          width: device.width,
+          height: device.height,
+        });
+        await page.goto(
+          `${server.url}/?locale=${locale.id}&device=${device.id}&export=1`,
+        );
+        await page.waitForFunction(() => window.coverReady);
+        const rendered = await page.evaluate(() => ({
+          lang: document.documentElement.lang,
+          dir: document.documentElement.dir,
+          font: getComputedStyle(document.querySelector("#cover")).fontFamily,
+          copy: document.querySelector("#headline [data-text]").textContent,
+        }));
+        assert.equal(rendered.lang, locale.id);
+        assert.equal(rendered.dir, locale.direction);
+        assert.equal(rendered.copy, p.slides[0].copy[locale.id].headline);
+        assert.ok(
+          rendered.font.includes(localeInfo(locale.id).fontFamilies[0]),
+        );
+        assert.deepEqual(
+          (await page.evaluate(auditCover, p.minTextScale)).issues,
+          [],
+          `${locale.id}/${device.id}`,
+        );
+      }
+  } finally {
+    await browser.close();
+    await server.close();
     await rm(tmp, { recursive: true, force: true });
   }
 });
