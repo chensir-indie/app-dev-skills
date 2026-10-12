@@ -2,132 +2,76 @@
 
 [简体中文](README.zh-CN.md) · [Skill instructions](SKILL.md)
 
-**A product-agnostic, open-source skill for creating editable, multilingual App Store covers.**
+An open-source agent skill for creating editable, localized App Store screenshot covers from visual references and app screenshots.
 
-Use this skill when an AI concept looks good but the web version loses its typography, spacing or detail—or when a finished design needs to work across languages and devices. Match one master, keep the words editable, then export and check the whole set.
+The skill guides reference analysis, HTML/CSS implementation, localization, export and review. It works with the target app’s assets and visual direction; layout, branding, slide count, languages and device sizes are configurable.
 
-![Original demo artwork with synthetic UI](docs/demo-contact.png)
+## Capabilities
 
-This image shows three sample locales from the demo; `npm run demo` opens all 50. Branding and UI are fictional. Use your own app name, features, captures and visual direction. Slide count, device sizes, languages, palette and typography are project choices; the demo is not a required style.
+- **Reference-guided design:** translate typography, composition, spacing and visual layers into an editable cover project.
+- **Reusable templates:** separate content and assets from HTML/CSS layout, with a consistent slide order across outputs.
+- **Localization:** use App Store locale presets or custom BCP 47 tags, script-aware font stacks and right-to-left layouts.
+- **Batch export:** render native-size PNGs across configured languages, devices and slides, with contact sheets and a hash manifest.
+- **Validation:** check missing copy, text overflow, element collisions, asset loading and export integrity; retain separate visual review records.
+
+Deliverables include the editable project, exported images and review artifacts. Automated checks support human review of visual fidelity and translation quality. Image generation is optional and uses tools available to the agent; store upload is outside this skill’s scope.
 
 ## Install
 
-Use the [Skills CLI](https://github.com/vercel-labs/skills) from your project directory:
+Run the [Skills CLI](https://github.com/vercel-labs/skills) from your project directory:
 
 ```sh
 npx skills@latest add chensir-indie/app-store-cover-generator --skill app-store-cover-generator
 ```
 
-Choose your coding agent when prompted. Installation is project-local by default; add `-g` to make it available across projects. For global Codex installation:
+Choose your agent when prompted. Installation is project-local by default. For global Codex installation:
 
 ```sh
 npx skills@latest add chensir-indie/app-store-cover-generator --skill app-store-cover-generator -a codex -g
 ```
 
-Use one installation method per agent and scope. If you already cloned this skill manually, update that copy instead of installing a duplicate. Installing the skill adds instructions and supporting files; it does not install Chromium or call an image-generation service.
-
-<details>
-<summary>Manual Codex installation</summary>
-
-Clone into a new directory. Preserve any existing local edits first.
-
-```sh
-git clone https://github.com/chensir-indie/app-store-cover-generator.git ~/.codex/skills/app-store-cover-generator
-```
-
-For a clean clone, update with `git -C ~/.codex/skills/app-store-cover-generator pull --ff-only`. If you customized the files, review and merge updates intentionally.
-
-</details>
-
-For a Skills CLI installation, update with:
+Update a Skills CLI installation with:
 
 ```sh
 npx skills@latest update app-store-cover-generator
 ```
 
-If the skill does not appear, check the installer's destination and open a new agent session. Do not install a second copy as a workaround.
+<details>
+<summary>Manual Codex installation</summary>
 
-## Try it
-
-Attach a visual reference and real app screenshots, then ask your agent:
-
-> Use $app-store-cover-generator. Create six App Store covers from these screenshots and this reference. First match one master at the same size. Then localize it for en-US, zh-Hans, ja and ar-SA in my iPhone and iPad slots. Keep headings editable, check text overflow and feature details, and export the complete set. Stop before uploading.
-
-For an existing design:
-
-> Use $app-store-cover-generator to audit my cover project. Check font consistency, clipped text and missing translations across every locale and device. Fix the affected covers while preserving the approved design.
-
-Provide your app's actual features, intended slide order and target dimensions when available. The agent should reuse existing assets and ask only about missing decisions that matter.
-
-## What you get
-
-| Need                  | How the skill helps                                                                 |
-| --------------------- | ----------------------------------------------------------------------------------- |
-| Match an AI reference | Measure type, spacing, crop and materials; generate difficult art layers separately |
-| Reuse the design      | Editable HTML/CSS, explicit copy and one canonical slide order                      |
-| Localize covers       | 50 App Store locale presets, custom BCP 47 tags, script-aware font stacks and RTL   |
-| Catch broken layouts  | Native-size export, overflow/collision checks and exact rendered-copy checks        |
-| Review the whole set  | Individual PNGs, locale/device contact sheets and a hash manifest                   |
-
-Generated art is optional. The toolkit does not call a paid API, translate your product automatically, upload to a store or publish social posts. Use whichever image tool your agent actually provides. Automated checks do not establish visual fidelity, translation quality or store approval.
-
-## Languages and regions
-
-[Browse the complete demo language list](docs/demo-locales.md).
-
-The [catalog](assets/locales/app-store.json) covers the **50 language/region options** on [Apple's localization page](https://developer.apple.com/help/app-store-connect/reference/app-information/app-store-localizations/) checked on October 12, 2026. Regional variants remain separate: `en-US`/`en-GB`, `fr-FR`/`fr-CA`, `pt-BR`/`pt-PT`, and simplified/traditional Chinese.
-
-Custom BCP 47 tags such as `fa-IR` and `sw-KE` are accepted for local cover projects. A custom tag is not proof of an App Store upload slot. Countries, storefronts and languages are different concepts; choose the locales enabled for your app.
-
-The full demo includes **explicit sample copy for all 50 locales**. Run `npm run demo` to browse them, or initialize a persistent copy with `node scripts/init.mjs /tmp/my-covers --locales app-store`. Use `--locales ja,fr-CA,ur-PK` for a smaller selection. Without this option, initialization keeps the lightweight three-locale starter. Demo translations are drafts, not approved marketing copy for your product. Expanding an existing product project with `locales.mjs add` still leaves new fields empty and preserves existing text; it never inserts demo copy or silently substitutes English. Fonts are selected by script, but you must supply and inspect licensed fonts for your actual content. See [localization and font guidance](references/localization.md).
-
-## Run the toolkit yourself
-
-Requirements: Node.js 22+, npm, and Playwright Chromium. These steps use a separate working clone; choose a new directory name if it already exists.
+Clone into a new directory:
 
 ```sh
-git clone https://github.com/chensir-indie/app-store-cover-generator.git
-cd app-store-cover-generator
-npm ci
-npx playwright install chromium
-node scripts/init.mjs /tmp/my-covers --locales app-store
-node scripts/serve.mjs /tmp/my-covers
+git clone https://github.com/chensir-indie/app-store-cover-generator.git ~/.codex/skills/app-store-cover-generator
 ```
 
-For a temporary preview with all 50 locales, run `npm run demo` after installing dependencies; Ctrl+C removes its temporary project. Language choices show their native names and region codes.
+Update a clean clone with `git -C ~/.codex/skills/app-store-cover-generator pull --ff-only`. Preserve and review local edits before merging updates. Use one installation method per agent and scope.
 
-For a persistent project, open the printed local URL. Edit the copied `project.json`, `style.css` and `media/` assets. Stop the preview with Ctrl+C when finished. Linux may need `npx playwright install --with-deps chromium`.
+</details>
 
-For an existing **product project**, add all store locales—or a selected list—to a **new** copy (replace `/path/to/product-covers` with your project):
+Installation adds skill instructions and supporting files. Running the bundled rendering toolkit additionally requires Node.js 22+, npm and Playwright Chromium; setup commands are in the [toolkit guide](references/template-contract.md#commands). Open a new agent session if the installed skill is not yet available.
 
-```sh
-node scripts/locales.mjs list
-node scripts/locales.mjs add /path/to/product-covers /tmp/my-global-covers app-store
-# Alternative: use ja,fr-FR,ar-SA,fa-IR instead of app-store.
-# Fill the empty translations in /tmp/my-global-covers/project.json, then:
-node scripts/locales.mjs check /tmp/my-global-covers
-node scripts/export.mjs /tmp/my-global-covers /tmp/my-global-covers-output-01
-node scripts/verify.mjs /tmp/my-global-covers-output-01
-```
+## Use
 
-For the complete 50-locale demo, export `/tmp/my-covers` directly (200 PNGs: 50 locales × 2 devices × 2 slides). Initialization and export refuse to overwrite existing directories. Each export needs a fresh output directory outside the source project.
+Provide app screenshots, a visual reference, target languages and device dimensions, then ask your agent:
 
-An `automated-pass` still leaves `visualReview: pending`. Use `node scripts/review.mjs init OUTPUT REVIEW.json` to create the pending checklist, inspect and fill every cell, then run `node scripts/review.mjs check OUTPUT REVIEW.json`. This checks completeness and binds the record to that export; it does not judge the images for you. Inspect every contact sheet and native PNG. The starter uses system fonts, so different operating systems can produce different pixels; pin licensed local fonts for production. Device dimensions must match [Apple's current screenshot specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications).
+> Use $app-store-cover-generator to create App Store covers from these assets. Keep the design editable and export the configured language and device variants.
 
-## Reference and development
+For an existing project:
 
-- [Art direction and prompts](references/art-direction.md)
-- [Localization, typography and motion](references/localization.md)
-- [Project schema and rendering contract](references/template-contract.md)
-- [Quality checks and limitations](references/quality-gates.md)
-- [Store handoff boundaries](references/delivery.md)
+> Use $app-store-cover-generator to review this cover project and fix layout or localization issues while preserving its approved design.
 
-```sh
-npm run check
-```
+The agent uses [SKILL.md](SKILL.md) for the workflow and loads supporting references as needed.
 
-See [CONTRIBUTING.md](CONTRIBUTING.md). CI tests the toolkit; it does not package or release an app. The description and installation structure take inspiration from [mattpocock/skills](https://github.com/mattpocock/skills).
+## Documentation
+
+- [Art direction and reference analysis](references/art-direction.md)
+- [Localization and typography](references/localization.md)
+- [Project format, preview and export commands](references/template-contract.md)
+- [Quality checks and review](references/quality-gates.md)
+- [Delivery scope](references/delivery.md)
+- [Contributing and development](CONTRIBUTING.md)
 
 ## License
 
-MIT for this repository's code, documentation and original demo SVG. External app screenshots, trademarks and third-party fonts retain their own rights. See [LICENSE](LICENSE) and [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md).
+[MIT](LICENSE). External app screenshots, trademarks and third-party fonts retain their own rights; see [third-party notices](THIRD_PARTY_NOTICES.md).
