@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="460" viewBox="0 0 1440 460" role="img" aria-labelledby="title desc">
+<title id="title">App Dev Skills workflow</title><desc id="desc">Approved design to layered HTML, a separate app implementation step, then real app captures to localized store covers.</desc>
+<rect width="1440" height="460" rx="28" fill="#f4f3ed"/>
+<g font-family="Arial, sans-serif" fill="#193d34"><text x="54" y="67" font-size="19" letter-spacing="3">APP DEV SKILLS</text><text x="54" y="117" font-size="36" font-weight="700">Design with layers. Deliver with evidence.</text></g>
+<rect x="44" y="159" width="514" height="217" rx="24" fill="#dbe9df"/><rect x="885" y="159" width="511" height="217" rx="24" fill="#e4e6f0"/>
+<g font-family="Arial, sans-serif" fill="#193d34"><text x="68" y="193" font-size="15" font-weight="700">01 / LAYERED HTML PROTOTYPE</text><text x="909" y="193" font-size="15" font-weight="700">02 / APP STORE COVERS</text></g>
+<g fill="#fff"><rect x="68" y="217" width="190" height="108" rx="14"/><rect x="335" y="217" width="198" height="108" rx="14"/><rect x="909" y="217" width="190" height="108" rx="14"/><rect x="1174" y="217" width="198" height="108" rx="14"/></g>
+<rect x="600" y="217" width="240" height="108" rx="14" fill="none" stroke="#8b998d" stroke-width="2" stroke-dasharray="7 6"/>
+<g font-family="Arial, sans-serif" fill="#193d34" text-anchor="middle" font-size="21" font-weight="700"><text x="163" y="261">Design reference</text><text x="434" y="261">Editable HTML</text><text x="720" y="261">App implementation</text><text x="1004" y="261">Real captures</text><text x="1273" y="261">Store artwork</text></g>
+<g font-family="Arial, sans-serif" fill="#5a6962" text-anchor="middle" font-size="15"><text x="163" y="292">imagegen or screenshot</text><text x="434" y="292">DOM + CSS + SVG</text><text x="720" y="292">separate development step</text><text x="1004" y="292">your shipped app</text><text x="1273" y="292">locales × devices × slides</text></g>
+<g stroke="#58776a" stroke-width="2" fill="none"><path d="M275 270h40m-9-8 9 8-9 8M548 270h39m-9-8 9 8-9 8M851 270h40m-9-8 9 8-9 8M1114 270h40m-9-8 9 8-9 8"/></g>
+<g font-family="Arial, sans-serif" fill="#45675a" font-size="15"><text x="68" y="352">Measured geometry · screenshot diffs · interaction checks</text><text x="909" y="352">50 locale presets · RTL · export and review records</text><text x="54" y="419">Two independently installable skills. No automatic app implementation or store upload.</text></g></svg>
