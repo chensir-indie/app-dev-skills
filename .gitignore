@@ -5,6 +5,10 @@ exports/
 .DS_Store
 .env
 .env.*
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.coverage
 *.pem
 *.p8
 *.key

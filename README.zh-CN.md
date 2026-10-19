@@ -1,77 +1,70 @@
-# App Store 封面生成 Skill
+# App Dev Skills
 
-[English](README.md) · [Skill 指令](SKILL.md)
+[English](README.md)
 
-一个开源 Agent Skill，基于视觉参考和 App 截图，制作可编辑、可本地化的 App Store 截图封面。
+面向 App 开发的开源 Agent 技能合集：从设计参考图到可编辑原型，再到多语言商店封面。两个 skill 可单独安装、独立使用。
 
-提供参考分析、HTML/CSS 实现、本地化、导出和复核流程。使用目标应用的素材与视觉方向，布局、品牌展示、页数、语言和设备尺寸均可配置。
+## 包含的技能
 
-## 核心能力
+| Skill | 解决什么问题 | 交付什么 |
+| --- | --- | --- |
+| [image-to-layered-html-prototype](skills/image-to-layered-html-prototype/SKILL.md) | 将 imagegen 设计图或截图还原成分层页面 | 设计规范、HTML/CSS/SVG、独立素材、浏览器截图、局部差异报告、可选 Flutter 移交 |
+| [app-store-cover-generator](skills/app-store-cover-generator/SKILL.md) | 根据真实 App 截图制作商店宣传图 | 可编辑封面、多语言与设备尺寸导出、联系表、审查记录 |
 
-- **参考驱动设计**：分析字体、构图、间距与视觉图层，构建可编辑的封面项目。
-- **模板复用**：将文案、素材与 HTML/CSS 布局分离，各输出版本保持统一的页面顺序。
-- **多语言排版**：支持 App Store 语言区域预设、自定义 BCP 47 标签、按文字系统选择字体及从右到左排版。
-- **批量导出**：按配置的语言、设备和页面导出原尺寸 PNG，生成总览图与文件哈希清单。
-- **质量校验**：检查文案缺失、文字溢出、元素重叠、素材加载和导出完整性，并单独保留视觉复核记录。
-
-交付内容包括可编辑项目、导出图片和复核资料。自动检查辅助人工判断视觉还原度与翻译质量。图片生成是可选步骤，使用 Agent 可用的工具；商店上传不属于本 Skill 的范围。
+完整流程是：**设计参考 → 分层 HTML → App 实现 → 真实 App 截图 → 商店封面**。合集覆盖原型与商店素材两个阶段，原生 App 实现需另行执行；也可以直接使用其中一个技能。
 
 ## 安装
 
-在项目目录运行 [Skills CLI](https://github.com/vercel-labs/skills)：
+使用 [Skills CLI](https://github.com/vercel-labs/skills) 查看并安装：
 
 ```sh
-npx skills@latest add chensir-indie/app-store-cover-generator --skill app-store-cover-generator
+npx skills@latest add chensir-indie/app-dev-skills --list
+npx skills@latest add chensir-indie/app-dev-skills --skill image-to-layered-html-prototype --skill app-store-cover-generator
 ```
 
-按提示选择 Agent，默认安装到当前项目。如需全局安装到 Codex：
+按提示选择 Agent。全局安装到 Codex 时追加 `-a codex -g`；只装一个时保留对应的 `--skill`。技能安装不会自动安装运行工具所需的依赖。
 
-```sh
-npx skills@latest add chensir-indie/app-store-cover-generator --skill app-store-cover-generator -a codex -g
-```
-
-更新通过 Skills CLI 安装的副本：
-
-```sh
-npx skills@latest update app-store-cover-generator
-```
-
-<details>
-<summary>手动安装到 Codex</summary>
-
-克隆到尚不存在的目录：
-
-```sh
-git clone https://github.com/chensir-indie/app-store-cover-generator.git ~/.codex/skills/app-store-cover-generator
-```
-
-无本地修改时，用 `git -C ~/.codex/skills/app-store-cover-generator pull --ff-only` 更新。有本地修改时，先保留并审阅，再合并更新。同一个 Agent、同一个作用域选择一种安装方式。
-
-</details>
-
-安装会添加 Skill 指令与配套文件。运行附带的渲染工具还需要 Node.js 22+、npm 和 Playwright Chromium，安装命令见[工具指南](references/template-contract.md#commands)。如果尚未发现已安装的 Skill，可新开一个 Agent 会话。
+手动安装时，先克隆仓库，再把需要的 `skills/<技能名>` 整个目录复制到 Agent 的技能目录。Codex 通常使用 `~/.codex/skills/`；不要把仓库根目录作为一个 skill 安装。目标已存在时先保留并检查本地修改，不直接覆盖。完整命令见 [英文说明](README.md#install)。
 
 ## 使用
 
-提供 App 截图、视觉参考、目标语言和设备尺寸，然后告诉 Agent：
+```text
+用 $image-to-layered-html-prototype 把这些已认可设计图还原为可编辑 HTML。
+逐项匹配背景、异形背板、植物遮挡、字体、图标、按钮和选中态，
+提供真实浏览器截图与差异记录。
+```
 
-> 使用 $app-store-cover-generator，根据这些素材制作 App Store 封面。保持设计可编辑，并导出配置的语言和设备版本。
+```text
+用 $app-store-cover-generator，根据这些真实 App 截图和设计参考，
+制作指定语言、设备尺寸的商店封面，保留可编辑文字，验证后导出，不上传商店。
+```
 
-对于已有项目：
+图像生成使用 Agent 环境已有工具；已有参考时不需要额外生成 API。整张截图加透明按钮不能算分层 HTML，测试通过也不等于视觉完全一致或人工审查通过。
 
-> 使用 $app-store-cover-generator 检查这个封面项目，在保留已确认设计的基础上，修复排版或本地化问题。
+## 运行与验证
 
-Agent 根据 [SKILL.md](SKILL.md) 执行流程，并按需读取配套参考文档。
+需要 Node.js 22+、Python 3.9+、npm 与 Playwright Chromium。在仓库根目录运行：
 
-## 文档
+```sh
+npm ci
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r skills/image-to-layered-html-prototype/requirements.txt
+npx playwright install chromium
+npm run check
+```
 
-- [视觉方向与参考分析](references/art-direction.md)
-- [本地化与字体排版](references/localization.md)
-- [项目格式、预览与导出命令](references/template-contract.md)
-- [质量检查与复核](references/quality-gates.md)
-- [交付范围](references/delivery.md)
-- [贡献与开发](CONTRIBUTING.md)
+Linux 浏览器系统依赖使用 `npx playwright install --with-deps chromium` 安装。Windows 激活脚本是 `.venv\Scripts\Activate.ps1`，npm 中的测试命令要求 PATH 上有 `python3`。可选的 Swift/Vision OCR 脚本仅支持 macOS，核心校验不依赖它。
 
-## 许可
+- [分层 HTML 工具说明](skills/image-to-layered-html-prototype/README.zh-CN.md)
+- [商店封面工具说明](skills/app-store-cover-generator/README.zh-CN.md)
+- `npm run demo` 运行原有封面示例，示例 UI 为合成数据。
+- `npm run check` 检查安装结构、文档链接、两个技能的回归与浏览器行为；CI 不打包或发布 App。
 
-采用 [MIT](LICENSE) 许可。外部 App 截图、商标与第三方字体保留各自权利，详见[第三方说明](THIRD_PARTY_NOTICES.md)。
+## 从旧仓库迁移
+
+本仓库沿用 `app-store-cover-generator` 的 Git 历史。原技能名称与调用方式保持不变，代码位于 `skills/app-store-cover-generator/`。旧克隆请更新 remote，运行原工具时切换到该目录。曾将整个仓库安装成 skill 的用户需要迁移到对应子目录，迁移前保留本地修改。
+
+## 开源协议
+
+代码、文档与自有示例素材使用 [MIT](LICENSE)。外部 App 截图、字体、生成素材的使用权需另行确认；见 [第三方声明](THIRD_PARTY_NOTICES.md) 与 [贡献说明](CONTRIBUTING.md)。

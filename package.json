@@ -1,22 +1,16 @@
 {
-  "name": "app-store-cover-generator",
+  "name": "app-dev-skills",
   "version": "1.0.0",
   "private": true,
-  "type": "module",
-  "description": "Editable store-cover skill and reproducible browser export toolkit",
-  "engines": {
-    "node": ">=22"
-  },
+  "description": "Agent skills for editable app prototypes and localized store artwork",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "workspaces": ["skills/*"],
   "scripts": {
-    "test": "node --test tests/*.test.mjs",
-    "test:browser": "node --test tests/*.browser.mjs",
-    "demo": "node scripts/demo.mjs",
-    "check:docs": "node scripts/check-docs.mjs",
-    "check": "npm run check:docs && npm test && npm run test:browser"
-  },
-  "dependencies": {
-    "playwright": "1.64.0",
-    "pngjs": "7.0.0"
-  },
-  "license": "MIT"
+    "check:docs": "python3 scripts/check_collection.py && npm run check:docs -w app-store-cover-generator",
+    "test": "python3 -m unittest discover -s tests -p 'test_*.py' && npm test --workspaces",
+    "test:browser": "npm run test:browser --workspaces",
+    "check": "npm run check:docs && npm test && npm run test:browser",
+    "demo": "npm run demo -w app-store-cover-generator"
+  }
 }

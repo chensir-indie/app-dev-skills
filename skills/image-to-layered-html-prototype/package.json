@@ -1,0 +1,13 @@
+{
+  "name": "image-to-layered-html-prototype",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Layered HTML prototype capture and fidelity validation tools",
+  "license": "MIT",
+  "engines": { "node": ">=22" },
+  "scripts": {
+    "test": "python3 -m unittest discover -s scripts -p 'test_*.py'",
+    "test:browser": "node scripts/test_dom.cjs"
+  },
+  "dependencies": { "playwright": "1.64.0" }
+}

@@ -12,5 +12,9 @@ jobs:
           node-version: "22"
           cache: npm
       - run: npm ci
+      - run: python3 -m venv .venv
+      - run: .venv/bin/python -m pip install -r skills/image-to-layered-html-prototype/requirements.txt
       - run: npx playwright install --with-deps chromium
-      - run: npm run check
+      - run: |
+          . .venv/bin/activate
+          npm run check

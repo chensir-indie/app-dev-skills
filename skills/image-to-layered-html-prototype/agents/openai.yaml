@@ -1,0 +1,4 @@
+interface:
+  display_name: "Imagegen to Layered HTML"
+  short_description: "Build design systems and layered HTML from imagegen UI"
+  default_prompt: "Use $image-to-layered-html-prototype to turn approved imagegen designs into a measured design system and editable HTML/CSS/SVG pages, then verify real browser screenshots and interactions."
