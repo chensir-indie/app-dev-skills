@@ -91,7 +91,7 @@ imagegen-workflow 的入口和后续章节也同步标明三个终点；资产�
 
 ## 最终提交检查及其范围
 
-2026-10-20，按两项技能的提交范围，在隔离目录执行 `PLAYWRIGHT_CHANNEL=chrome npm run check`，退出状态为 0。环境 doctor、文档检查、158 项单元回归（集合 31、封面 44、原型 83）、13 项封面浏览器测试和原型 DOM 集成检查全部通过；两项技能的 `quick_validate.py` 与 `git diff --check` 也通过。原三技能工作区及竞品报告测试未计入本次结果。
+2026-10-20，按两项技能的提交范围，在隔离目录激活 Python 虚拟环境，执行 `PLAYWRIGHT_CHANNEL=chrome npm run check`，退出状态为 0。环境 doctor、文档检查、159 项单元回归（集合 31、封面 44、原型 84）、13 项封面浏览器测试和原型 DOM 集成检查全部通过；两项技能的 `quick_validate.py` 与 `git diff --check` 也通过。原型 doctor 回归显式覆盖未激活和已激活虚拟环境，分别要求创建环境和复用环境的修复指引。原三技能工作区及竞品报告测试未计入本次结果。
 
 此次保留的是三个封面浏览器测试文件四处 launch 对 `PLAYWRIGHT_CHANNEL` 的支持，默认仍用 Chromium，未削弱断言；竞品报告测试不提交。实际验证浏览器为已安装的 Chrome `155.0.8059.85`。默认 Chromium 缓存缺失，安装器曾返回 `ECONNRESET`；此次 Chrome 检查通过不代表该下载问题已解决。
 

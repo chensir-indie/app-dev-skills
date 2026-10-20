@@ -50,12 +50,27 @@ class DoctorTests(unittest.TestCase):
         self.assertIn('--scope', result.stdout)
 
     def test_missing_python_packages_suggest_isolated_repair(self):
-        with patch.object(doctor.importlib, 'import_module', side_effect=ImportError('missing test dependency')):
+        with patch.object(doctor.sys, 'prefix', '/test/base-python'), \
+                patch.object(doctor.sys, 'base_prefix', '/test/base-python'), \
+                patch.object(doctor.importlib, 'import_module', side_effect=ImportError('missing test dependency')):
             ready, output = self.output(doctor.check_python)
         self.assertFalse(ready)
         self.assertIn('[missing] Pillow', output)
         self.assertIn('[missing] PyYAML', output)
         self.assertIn('-m venv .venv', output)
+        self.assertIn('. .venv/bin/activate', output)
+        self.assertIn('pip install -r requirements.txt', output)
+
+    def test_missing_python_packages_repair_active_venv_without_recreating_it(self):
+        with patch.object(doctor.sys, 'prefix', '/test/active-venv'), \
+                patch.object(doctor.sys, 'base_prefix', '/test/base-python'), \
+                patch.object(doctor.importlib, 'import_module', side_effect=ImportError('missing test dependency')):
+            ready, output = self.output(doctor.check_python)
+        self.assertFalse(ready)
+        self.assertIn('[missing] Pillow', output)
+        self.assertIn('[missing] PyYAML', output)
+        self.assertNotIn('-m venv ', output)
+        self.assertNotIn('. .venv/bin/activate', output)
         self.assertIn('pip install -r requirements.txt', output)
 
     def test_python_scope_never_checks_browser(self):

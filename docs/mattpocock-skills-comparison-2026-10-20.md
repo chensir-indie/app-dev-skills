@@ -160,7 +160,7 @@
 
 ### 最终提交验证
 
-2026-10-20，在仅包含本次两项技能和公共工具改动的隔离提交目录执行 `PLAYWRIGHT_CHANNEL=chrome npm run check`，退出状态为 0。环境 doctor、文档检查、158 项单元回归（集合 31、封面 44、原型 83）、13 项封面浏览器测试和原型 DOM 集成检查全部通过；两项技能的 `quick_validate.py` 与 `git diff --check` 也通过。原三技能工作区的测试及竞品报告测试未计入本次结果。
+2026-10-20，在仅包含本次两项技能和公共工具改动的隔离提交目录激活 Python 虚拟环境，执行 `PLAYWRIGHT_CHANNEL=chrome npm run check`，退出状态为 0。环境 doctor、文档检查、159 项单元回归（集合 31、封面 44、原型 84）、13 项封面浏览器测试和原型 DOM 集成检查全部通过；两项技能的 `quick_validate.py` 与 `git diff --check` 也通过。原型 doctor 的回归分别模拟未激活和已激活虚拟环境，验证创建环境与复用环境两种修复指引，不再依赖运行测试的宿主环境。原三技能工作区的测试及竞品报告测试未计入本次结果。
 
 本报告的上游源码路径和行号锚点已在调查时对照固定提交核查，所有上游链接固定到同一 SHA。本次保留的浏览器选择修复仅涉及封面 [demo](../skills/app-store-cover-generator/tests/demo.browser.mjs)、[pipeline](../skills/app-store-cover-generator/tests/pipeline.browser.mjs)、[render](../skills/app-store-cover-generator/tests/render.browser.mjs) 三个文件四处启动，未删除断言。验证使用已安装的 Chrome `155.0.8059.85`；默认 Chromium 缓存缺失，安装器曾返回 `ECONNRESET`，因此本次结果不声称默认 Chromium 环境已修复。
 
