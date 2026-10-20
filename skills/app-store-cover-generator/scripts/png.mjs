@@ -1,5 +1,6 @@
-import { PNG } from "pngjs";
+import { loadDependency } from "./runtime.mjs";
 import { createHash } from "node:crypto";
+const { PNG } = await loadDependency("pngjs");
 export const sha256 = (data) => createHash("sha256").update(data).digest("hex");
 export function inspectPNG(data, width, height) {
   const png = PNG.sync.read(data, { checkCRC: true });

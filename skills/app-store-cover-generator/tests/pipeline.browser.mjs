@@ -60,7 +60,7 @@ for (const [name, mutate, reason] of [
     const server = await serve(path.join(repo, "assets/starter"));
     let browser;
     try {
-      browser = await chromium.launch();
+      browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined });
       const page = await browser.newPage({
         viewport: { width: 1284, height: 2778 },
       });

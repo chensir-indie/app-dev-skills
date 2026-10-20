@@ -2,6 +2,8 @@
 
 这份流程用于 `validate_prototype.py` 的视觉检查失败时。它不能保证任意扁平图都能逐像素还原；它要求先消除可修复的差异，并以同一套冻结标准复测。结构通过、可点击或总体 MAE 下降都不是视觉通过。
 
+已有 HTML 尚缺合同时，先保存原始源码与修改前截图。首次运行 `inventory_page.cjs` 需要 `index.html`、`reference/source.png` 和目标画板根元素的 `data-artboard`；只在现有根元素补属性，沿用已有布局，不重建 wrapper。盘点结果只描述实现，不能代替独立参考测量。
+
 ## 1. 先处理决定性素材
 
 在排版精修前检查占比大的主体、照片、纹理与装饰。把参考与候选素材并排看：叶片/物体数量、可见轮廓、孔洞、透视、光向、裁切、阴影和透明边缘。**语义相同不等于资产相同。** 找到同一次生成的独立素材时优先使用；否则按 [reconstruction.md](reconstruction.md) 用 imagegen 对参考做局部提取/编辑，保留未经修改的参考。若提取后的可见轮廓仍错，继续重建或换方法，不用另一个“差不多”的植物压过整页。
@@ -25,7 +27,7 @@ python3 scripts/compare_candidate.py \
 
 原图 SHA、尺寸、状态、具名角色 ROI 和 `design-tokens.json` 中的 `one_to_one` 阈值在调参前冻结；阈值还必须满足 [acceptance.md](acceptance.md) 的不可放宽上限。每轮先用 `capture_native.cjs` 从当前 HTML 重采截图、DOM 和哈希收据，再运行：
 
-批量草稿尚无合同的时候，不要只看 `validate_batch.py` 报出的第一个缺文件。先从每个 `reference/source.png` 所在目录冻结 `expected-pages.json`，运行 `scripts/triage_batch.py` 取得每页全部缺件、当前原生截图的全图 MAE 和最差局部块。报告中的 `nextAcceptanceCandidate` 优先指向合同和证据最接近完整的一页：先把这页做到严格通过，再切换下一页；避免把大量草稿同时留在缺合同阶段。选定页面后，视觉修复先看大面积高误差；接近全图上限的页面仍须建立细粒度 ROI，不能因全图 MAE 低而跳过文字、按钮和轮廓。补齐合同后转入下述冻结 ROI 诊断；triage 的分数不是验收成绩。
+批量草稿尚无合同时，先按下文「多页推进」运行分诊，补齐选定页面合同后转入冻结 ROI 诊断。triage 的分数不是验收成绩；全图 MAE 低也不能跳过文字、按钮和轮廓。
 
 ```sh
 python3 scripts/diagnose_visual.py /path/to/prototype --state <state-id> \
@@ -67,3 +69,27 @@ python3 scripts/compare_iteration.py /path/to/prototype --state <state-id> \
 对每个请求的页面和状态重新运行原生尺寸采集、DOM/图层证明、`diagnose_visual.py` 与严格 `validate_prototype.py`。ROI 并集至少覆盖 75% 原图，并以对应角色覆盖至少 80% 的文字、按钮、主体和重要面板/图标图层；全图及关键 ROI 都低于原先冻结的阈值和固定上限。打开原图、当前浏览器截图、叠加图、原始差异图和图层开关证明，逐项核对主体身份、背景、字形、轮廓、遮挡和控件，再按 [acceptance.md](acceptance.md) 将具体观察记录到 `manualReview.states[]`；六项任一未过就保持 `pending`。`--structure-only` 仅说明 HTML 图层合同有效。
 
 多页交付以逐页状态表收尾；一页失败不等于整批通过。若当前回合没有完成所有被请求页面，列出仍未通过的页面及各自最主要的差异，不以索引页或首个试点充当完成品。
+
+## 多页推进
+
+从全部参考图目录冻结 `expected-pages.json`（页面目录名数组）。基础稿尚无合同时运行：
+
+```sh
+python3 scripts/triage_batch.py /absolute/path/to/pages \
+  --expected-pages /absolute/path/to/pages/expected-pages.json \
+  --out /absolute/path/to/pages/visual-triage.json
+```
+
+它报告每页缺件、已有原生截图的全图 MAE 与最差局部块。默认可先把最接近完整的一页严格闭环，再推进下一页；`nextAcceptanceCandidate` 仅是建议，结合 `visualRepairOrder` 和用户优先级选择，不把某页缺素材变成整批停工条件。
+
+用户要求先铺齐时，用两阶段流程：第一阶段逐页建立独立可打开 HTML、可编辑 DOM 文字、语义按钮、独立素材与原生截图，检查图片加载、参考图不进入运行时、基础交互与尺寸，报告基础状态；第二阶段逐页补 tokens、源图测量、合同、具名 ROI 和严格验收。不能把页面可打开数量当作视觉通过数量。
+
+最终运行：
+
+```sh
+python3 scripts/validate_batch.py /absolute/path/to/pages \
+  --expected-pages /absolute/path/to/pages/expected-pages.json \
+  --out /absolute/path/to/pages/batch-acceptance.json
+```
+
+批量结果来自每页严格检查退出码；遗漏 HTML 或已有参考目录均失败。索引图、平均误差和首个试点不能替代逐页结果。记录仍未通过页面、主要差异和已尝试修复；关键受阻页保持 `pending`，继续其他可推进页，随后回访。

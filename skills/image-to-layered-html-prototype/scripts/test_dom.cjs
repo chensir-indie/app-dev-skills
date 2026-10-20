@@ -1,11 +1,12 @@
 // Integration smoke test with Playwright Chromium (or PLAYWRIGHT_CHANNEL).
 // node test_dom.cjs /absolute/path/to/node_modules/playwright
+const {getChromium, launchChromium} = require('./browser_runtime.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const assert = require('node:assert/strict');
-const {chromium} = require(process.argv[2] || 'playwright');
+const chromium = getChromium(process.argv[2] || 'playwright');
 (async () => {
-  const browser = await chromium.launch({channel: process.env.PLAYWRIGHT_CHANNEL || undefined, headless: true});
+  const browser = await launchChromium(chromium);
   try {
     const page = await browser.newPage({viewport:{width:400,height:500},deviceScaleFactor:1});
     await page.setContent('<main data-artboard style="position:relative;width:400px;height:500px"><h1 id="title">今日養護</h1><button id="action">識別</button><input id="name" value="龜背竹"><textarea id="note">Notes</textarea><select id="room"><option value="living">客廳</option><option value="balcony">陽台</option></select><svg id="panel" width="120" height="80"><path d="M0 40 Q20 0 50 0 L120 50 V80 H0Z" fill="green"/></svg></main>');

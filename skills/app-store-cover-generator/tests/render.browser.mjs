@@ -23,7 +23,7 @@ test("browser detects clipping, occlusion, collision and missing images", async 
   const server = await serve(path.join(repo, "assets/starter"));
   let browser;
   try {
-    browser = await chromium.launch();
+    browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined });
     const page = await browser.newPage({
       viewport: { width: 1284, height: 2778 },
     });
@@ -284,7 +284,7 @@ test("every store locale renders both device layouts with its own lang, directio
   const server = await serve(root);
   let browser;
   try {
-    browser = await chromium.launch();
+    browser = await chromium.launch({ channel: process.env.PLAYWRIGHT_CHANNEL || undefined });
     const page = await browser.newPage();
     for (const locale of p.locales)
       for (const device of p.devices) {

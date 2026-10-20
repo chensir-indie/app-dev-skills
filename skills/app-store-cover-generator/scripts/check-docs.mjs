@@ -1,3 +1,4 @@
+import "./runtime.mjs";
 // Narrow repository checks; not a general Markdown/YAML parser.
 import { readFile, readdir, access } from "node:fs/promises";
 import path from "node:path";

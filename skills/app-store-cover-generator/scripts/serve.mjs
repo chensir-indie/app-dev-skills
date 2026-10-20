@@ -1,3 +1,4 @@
+import "./runtime.mjs";
 import { serve } from "./server.mjs";
 if (!process.argv[2])
   throw new Error("Usage: node scripts/serve.mjs PROJECT_DIRECTORY");

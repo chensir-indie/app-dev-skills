@@ -1,6 +1,6 @@
 # Contributing
 
-Use Node 22 or newer and `npm ci`. Install Chromium, then run `npm run check` (documentation links/entry fields, unit tests and browser tests) before submitting executable changes. `npm test` and `npm run test:browser` remain available for focused iteration. Keep the lockfile current. Add a failing regression case for changed validation behavior rather than tests that match documentation wording.
+Run `sh scripts/doctor.sh` first; it reports missing Node 22+, npm, packages and browser requirements without installing them. In the collection source checkout, run `npm ci` at the collection root; in an independently installed skill, use `npm install` in this directory. Follow the doctor's browser repair, then run `npm run check` here (documentation links/entry fields, unit tests and browser tests) before submitting executable changes. See [environment setup](references/template-contract.md#environment-check-and-setup) for runtime and Linux-library support. `npm test` and `npm run test:browser` remain available for focused iteration. Keep the lockfile current. Add a failing regression case for changed validation behavior rather than tests that match documentation wording.
 
 Use original or redistribution-cleared fixtures. Never include credentials, real customer notes, private paths, screenshots containing personal data or private application source. Test only against local fixtures; do not publish to store/social accounts as part of tests.
 

@@ -41,24 +41,55 @@ The project exposes index.html with query parameters locale, device, slide and e
 
 To use an existing Next/React template, adapt its export route and selectors or port this small contract. Do not copy the demo's visual skin over an approved design. Native-size export uses deviceScaleFactor=1 so configured dimensions equal PNG dimensions. A reduced-motion context and disabled screenshot animations stabilize capture, but real animations must be deliberately frozen at a chosen frame.
 
-## Commands
+## Environment check and setup
+
+Run from the installed **skill directory**, not a generated cover project. For example, a global manual Codex installation lives at `~/.codex/skills/app-store-cover-generator`; other installers choose their own path. The bootstrap requires POSIX `sh` (macOS/Linux; use [WSL](https://learn.microsoft.com/windows/wsl/install) on Windows). It also works via an absolute path from any working directory:
 
 ```sh
-npm ci
-npx playwright install chromium
+sh scripts/doctor.sh
+# Check runtime and packages without launching the browser:
+sh scripts/doctor.sh --scope core
+```
+
+The doctor checks Node >=22, working npm, actual imports and required APIs of the declared packages, and (by default) a real headless browser launch with a local-page smoke check. Missing requirements return nonzero. `--scope core` skips browser readiness explicitly. No installation or configuration changes are performed. Running `doctor.mjs` directly bypasses the shell's runtime/npm checks; use `doctor.sh` as the public entrypoint.
+
+Follow the printed repair for your installation type:
+
+- **Missing Node/npm:** install or select Node 22+ with npm using the [Node.js installer](https://nodejs.org/en/download) or [npm setup guide](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm). Reopen the terminal/agent if its PATH has not refreshed. If package installation is unavailable, preserve the project and report the blocker; direction/prompt work can continue without rendering.
+- **Independently installed skill:** run `npm install` in this skill directory. Dependencies resolve relative to the skill, not the generated cover project.
+- **Collection source checkout:** run `npm ci` at the collection repository root. The doctor prints that exact path; keep the root lockfile authoritative.
+- **Missing bundled browser:** after package setup, run `npx --no-install playwright install chromium` in this skill directory. This intentional command downloads the browser matching the installed Playwright package.
+- **Missing Linux libraries:** review the reported library error and [Playwright OS dependency guidance](https://playwright.dev/docs/browsers#install-system-dependencies). The explicit repair is `npx --no-install playwright install-deps chromium`; it changes OS packages and may need administrator access. The doctor never executes it.
+
+To use an existing Google Chrome instead of bundled Chromium, select the same channel for the check **and** export:
+
+```sh
+PLAYWRIGHT_CHANNEL=chrome sh scripts/doctor.sh
+PLAYWRIGHT_CHANNEL=chrome node scripts/export.mjs /tmp/my-covers /tmp/my-covers-output-01
+```
+
+Chrome must already be installed. Without that environment variable (or with `PLAYWRIGHT_CHANNEL=chromium`), bundled Chromium is used. Other channel values fail with a correction. Environment success establishes local execution readiness, not cover quality or store eligibility.
+
+## Commands
+
+After the default doctor passes, run these commands from this skill directory:
+
+```sh
 node scripts/init.mjs /tmp/my-covers
 node scripts/locales.mjs list
 node scripts/locales.mjs check /tmp/my-covers
 node scripts/serve.mjs /tmp/my-covers
+# Open the printed loopback URL; Ctrl+C closes the preview. Edit the copied project.
 node scripts/export.mjs /tmp/my-covers /tmp/my-covers-output-01
 node scripts/verify.mjs /tmp/my-covers-output-01
 node scripts/review.mjs init /tmp/my-covers-output-01 /tmp/my-covers-review.json
-# Fill after visual inspection, then:
+# Fill only after visual inspection, then:
 node scripts/review.mjs check /tmp/my-covers-output-01 /tmp/my-covers-review.json
-npm run check
 ```
 
-Run these commands from the skill/repository directory. To customize, edit the copied project, not the installed skill assets. Output must be a fresh directory outside the source. Preflight failures stop before rendering; an interrupted rendering run can leave an incomplete manifest and should not be reused; inspect it, fix the cause and choose a new output directory.
+To customize, edit the copied project, not installed skill assets. Initializer/exporter refuse existing targets. The server binds to loopback and serves only the selected project. Output must be a fresh directory outside the source. Missing packages and browser-launch errors include repair commands; a browser-launch failure happens before output creation. Later rendering failures retain an incomplete report: inspect it, fix the cause and choose a new output directory. Source edits during export require a fresh export. External requests and failed local assets fail even when a browser fallback appears usable; store approved local artwork/fonts with provenance.
+
+For development checks, read [Contributing](../CONTRIBUTING.md).
 
 ## Output
 

@@ -3,11 +3,9 @@
 import argparse, json, sys
 from pathlib import Path
 
-try:
-    from PIL import Image, ImageChops, ImageStat
-except ImportError:
-    print("compare_screenshots.py requires Pillow; install it in the active workspace runtime", file=sys.stderr)
-    raise SystemExit(2)
+from runtime_support import ensure_pillow
+ensure_pillow()
+from PIL import Image, ImageChops, ImageStat
 
 def main() -> int:
     parser = argparse.ArgumentParser()

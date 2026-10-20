@@ -7,6 +7,8 @@ import math
 import os
 from pathlib import Path
 from urllib.parse import unquote, urlparse
+from runtime_support import ensure_pillow
+ensure_pillow()
 from PIL import Image, ImageChops, ImageColor, ImageStat
 from validate_manifest import validate, number
 from visual_metrics import normalized_edge_disagreement

@@ -1,3 +1,4 @@
+import "./runtime.mjs";
 import { cp, mkdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { outsideSource, sourceSnapshot } from "./files.mjs";

@@ -15,7 +15,7 @@ test('all translated demo cells fit native canvases and the picker exposes every
     const result=await createDemoProject(path.join(tmp,'project'),'app-store');
     const p=JSON.parse(await readFile(path.join(result.directory,'project.json'),'utf8'));
     server=await serve(result.directory);
-    browser=await chromium.launch();
+    browser=await chromium.launch({channel:process.env.PLAYWRIGHT_CHANNEL || undefined});
     const page=await browser.newPage();
     await page.goto(server.url);
     await page.waitForFunction(()=>window.coverReady);

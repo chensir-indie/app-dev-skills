@@ -9,6 +9,8 @@ import argparse
 import json
 from pathlib import Path
 
+from runtime_support import ensure_pillow
+ensure_pillow()
 from PIL import Image, ImageChops, ImageStat
 
 from visual_metrics import normalized_edge_disagreement

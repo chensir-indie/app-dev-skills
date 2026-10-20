@@ -1,5 +1,6 @@
 // Browser-observed implementation inventory. Never writes reference geometry or acceptance.
 // node inventory_page.cjs /absolute/path/to/page /absolute/path/to/playwright
+const {getChromium, launchChromium} = require('./browser_runtime.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
@@ -22,11 +23,11 @@ const pngSize = file => {
 };
 
 (async () => {
-  const {chromium} = require(playwright);
+  const chromium = getChromium(playwright);
   const {width, height} = pngSize(reference);
   const configPath = path.join(root, 'render-config.json');
   const config = fs.existsSync(configPath) ? JSON.parse(fs.readFileSync(configPath, 'utf8')) : {};
-  const browser = await chromium.launch({channel: process.env.PLAYWRIGHT_CHANNEL || undefined, headless: true});
+  const browser = await launchChromium(chromium);
   try {
     const page = await browser.newPage({viewport: {width, height}, deviceScaleFactor: 1,
       locale: config.locale || 'zh-TW', colorScheme: config.colorScheme || 'light',

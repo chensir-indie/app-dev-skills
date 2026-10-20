@@ -7,10 +7,12 @@
   "engines": { "node": ">=22" },
   "workspaces": ["skills/*"],
   "scripts": {
+    "list:skills": "python3 scripts/list_skills.py",
+    "doctor": "sh scripts/doctor.sh",
     "check:docs": "python3 scripts/check_collection.py && npm run check:docs -w app-store-cover-generator",
     "test": "python3 -m unittest discover -s tests -p 'test_*.py' && npm test --workspaces",
     "test:browser": "npm run test:browser --workspaces",
-    "check": "npm run check:docs && npm test && npm run test:browser",
+    "check": "npm run doctor && npm run check:docs && npm test && npm run test:browser",
     "demo": "npm run demo -w app-store-cover-generator"
   }
 }

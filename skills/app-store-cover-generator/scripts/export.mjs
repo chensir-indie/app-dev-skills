@@ -1,12 +1,13 @@
 import { readFile, writeFile, mkdir } from "node:fs/promises";
 import path from "node:path";
-import { chromium } from "playwright";
+import { loadDependency, launchBrowser } from "./runtime.mjs";
 import { serve } from "./server.mjs";
 import { validateProject, cells } from "./contract.mjs";
 import { auditCover } from "./audit.mjs";
 import { inspectPNG, sha256 } from "./png.mjs";
 import { outsideSource, sourceSnapshot, checkAssets } from "./files.mjs";
 import { textFields, auditedFields } from "../assets/starter/text.js";
+const { chromium } = await loadDependency("playwright");
 const [rootArg, outArg] = process.argv.slice(2);
 if (!rootArg || !outArg)
   throw new Error(
@@ -22,9 +23,15 @@ if (
 )
   throw new Error("Source changed before export");
 checkAssets(p, sources);
-await mkdir(out); // Preserve previous runs; no overwrite flag.
-const server = await serve(root);
-let browser;
+const browser = await launchBrowser(chromium);
+let server;
+try {
+  await mkdir(out); // Preserve previous runs; no overwrite flag.
+  server = await serve(root);
+} catch (error) {
+  await browser.close();
+  throw error;
+}
 const report = {
   schemaVersion: 1,
   generatedAt: new Date().toISOString(),
@@ -43,7 +50,6 @@ const report = {
   ],
 };
 try {
-  browser = await chromium.launch();
   report.environment = {
     node: process.version,
     platform: process.platform,

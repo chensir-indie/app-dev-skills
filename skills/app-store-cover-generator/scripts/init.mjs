@@ -1,3 +1,4 @@
+import "./runtime.mjs";
 import {createDemoProject} from './demo-project.mjs';
 const [target,flag,selection,...extra]=process.argv.slice(2);
 if(!target||extra.length||(flag!==undefined&&(flag!=='--locales'||!selection)))

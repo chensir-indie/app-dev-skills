@@ -4,6 +4,8 @@ import json
 import math
 import sys
 from pathlib import Path
+from runtime_support import ensure_python
+ensure_python()
 
 
 def number(value):

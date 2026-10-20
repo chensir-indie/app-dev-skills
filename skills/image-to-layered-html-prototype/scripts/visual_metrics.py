@@ -1,5 +1,7 @@
 """Shared visual measurements for strict validation and diagnostics."""
 
+from runtime_support import ensure_pillow
+ensure_pillow()
 from PIL import ImageChops, ImageFilter
 
 

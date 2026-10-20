@@ -1,4 +1,4 @@
 interface:
   display_name: "App Store Cover Generator"
-  short_description: "Match references, localize covers, and catch text overflow"
-  default_prompt: "Use $app-store-cover-generator to turn my app captures and visual reference into editable multilingual store covers, then audit and export the matrix."
+  short_description: "Build, localize, and audit App Store cover artwork"
+  default_prompt: "Use $app-store-cover-generator to create or refine App Store cover artwork from my captures and reference. Stop at the requested concept, focused fixes, or reviewed export matrix."

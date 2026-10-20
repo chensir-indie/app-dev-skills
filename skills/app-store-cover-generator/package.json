@@ -8,6 +8,7 @@
     "node": ">=22"
   },
   "scripts": {
+    "doctor": "sh scripts/doctor.sh",
     "test": "node --test tests/*.test.mjs",
     "test:browser": "node --test tests/*.browser.mjs",
     "demo": "node scripts/demo.mjs",

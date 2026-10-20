@@ -1,5 +1,6 @@
 // Capture one native-size state and bind its screenshot/DOM audit to current sources.
 // node capture_native.cjs /absolute/path/to/prototype /path/to/playwright [state-id]
+const {getChromium, launchChromium} = require('./browser_runtime.cjs');
 const fs = require('node:fs');
 const path = require('node:path');
 const crypto = require('node:crypto');
@@ -11,7 +12,7 @@ const stateId = process.argv[4] || 'home';
 if (!fs.existsSync(path.join(root, 'index.html'))) {
   throw new Error('Prototype directory with index.html required');
 }
-const {chromium} = require(playwright);
+const chromium = getChromium(playwright);
 const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 const sha = file => crypto.createHash('sha256').update(fs.readFileSync(file)).digest('hex');
 const sharedDirs = (read('render-config.json').sharedRuntimeDirs || []).map(entry => {
@@ -46,7 +47,7 @@ const walkRuntime = (folder, found=[]) => {
   const states = read('state-matrix.json');
   if (!states.some(state=>state.id===stateId)) throw new Error('Unknown state: '+stateId);
   const {width,height}=manifest.reference;
-  const browser=await chromium.launch({channel:process.env.PLAYWRIGHT_CHANNEL || undefined,headless:true});
+  const browser=await launchChromium(chromium);
   try {
     const page=await browser.newPage({viewport:{width,height},deviceScaleFactor:1});
     const url=pathToFileURL(path.join(root,'index.html')).href;
