@@ -13,7 +13,7 @@
 
 | 你现在有什么 | 技能与使用说明 | 交付什么 |
 | --- | --- | --- |
-| 待探索的设计问题、已认可截图或待修复的还原稿 | [Image to Layered HTML Prototype](skills/image-to-layered-html-prototype/README.zh-CN.md) · [Agent 指令](skills/image-to-layered-html-prototype/SKILL.md) | 按所选分支交付概念/提示词，或可编辑 HTML/CSS/SVG、素材、设计标准与浏览器对比 |
+| 待探索的设计问题、已认可截图或待评审/优化的页面 | [Image to Layered HTML Prototype](skills/image-to-layered-html-prototype/README.zh-CN.md) · [Agent 指令](skills/image-to-layered-html-prototype/SKILL.md) | 按所选分支交付概念/提示词、设计评审/优化，或可编辑 HTML/CSS/SVG、素材、设计标准与浏览器对比 |
 | 真实 App 截图、视觉参考、目标语言和尺寸 | [App Store Cover Generator](skills/app-store-cover-generator/README.zh-CN.md) · [Agent 指令](skills/app-store-cover-generator/SKILL.md) | 可编辑封面、语言 × 设备 × 页面 PNG 矩阵、联系表与哈希/审查记录 |
 
 ```text
@@ -102,6 +102,7 @@ sh scripts/doctor.sh
 - [贡献指南](CONTRIBUTING.md)：独立打包规则、测试和安全样例。
 - [工作流与交接](docs/workflows.zh-CN.md)：选择分支、判断完成、把证据带入下一阶段。
 - [范围](SCOPE.md)与[共用术语](GLOSSARY.md)：维护边界；[mattpocock/skills 对照报告](docs/mattpocock-skills-comparison-2026-10-20.md)记录来源、取舍和落地结果。
+- [原型设计质量评审](skills/image-to-layered-html-prototype/references/design-quality-review.md)：选择一套主规范，按层级、布局与排版改进，用真实截图评审，保留忠实复刻边界。
 - [原型设计标准](skills/image-to-layered-html-prototype/references/design-system.md)：几何、图层和组件合同。素材、字体缺失可能阻止逐像素一致，需要保留实际差异。
 - [封面本地化](skills/app-store-cover-generator/references/localization.md)：翻译、字体与 RTL。生成图片为可选能力，使用 Agent 环境已有工具及其访问条件。
 

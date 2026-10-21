@@ -1,6 +1,6 @@
 ---
 name: image-to-layered-html-prototype
-description: Rebuild approved app UI images as editable layered HTML/CSS/SVG, or repair an existing reconstruction with measured reference geometry and browser comparisons. Also supports UI direction and prompt-only requests, shared design systems, multi-page prototypes and optional Flutter handoff.
+description: Rebuild approved app UI images as editable layered HTML/CSS/SVG, or repair an existing reconstruction with measured reference geometry and browser comparisons. Also supports UI direction, scoped design critique and refinement, prompt-only requests, shared design systems, multi-page prototypes and optional Flutter handoff.
 ---
 
 # Image to Layered HTML Prototype
@@ -15,13 +15,16 @@ description: Rebuild approved app UI images as editable layered HTML/CSS/SVG, or
 | 要完整原型，只有产品方向 | 按 imagegen workflow 生成、查看并锁定正视 UI 图，再进入下述流程 | 分层 HTML 与逐页验收 |
 | 要完整原型，已有认可图片 | 直接锁定参考并测量，沿用已批准方向 | 分层 HTML 与逐页验收 |
 | 修复已有 HTML 和参考图 | 保留源码、素材与交互，先保存修改前截图并盘点，再补独立参考测量与必要合同 | 请求的修复、更新证据与实际验收状态 |
+| 评审或优化现有页面 | 按 [设计质量评审](references/design-quality-review.md) 查看页面、确定主规范并定位问题；仅评审不修改，已授权优化直接迭代 | 所请求的评审，或改进后的页面、前后截图与交互复核；不自动启动完整重建 |
 | 多页参考 | 冻结完整页面清单；默认逐页闭环，要求先铺齐时用下述两阶段流程 | 全部请求页面的逐页状态 |
+
+先区分**忠实复刻、主动优化、仅评审**。认可图与“一比一”默认走复刻；“优化”结合上下文判断是在修复还原偏差还是改设计，不据此解除已冻结约束。设计探索/主动优化先读 [设计质量评审](references/design-quality-review.md)；选主设计系统或可选工具时再读 [来源与适用边界](references/design-sources.md)。沿用项目已有规范，其他指南只补缺，不混搭几套组件外观。以下 1–5 步用于完整重建和相应修复；仅评审或局部优化按所选分支结束，不强制创建全套像素合同。
 
 若目标实际是商店封面，先阅读当前环境可用的 `app-store-cover-generator` 的 SKILL.md，再按目标指导。若需要竞品研究，先整理已有证据与待确认问题，再阅读当前环境可用的相关研究技能；未安装时说明适用范围即可，不把安装新工具作为继续工作的前提。
 
 执行依赖脚本前，在本 skill 目录运行 `sh scripts/doctor.sh`。仅做 Python 校验可用 `--scope python`，浏览器操作用 `--scope browser`；检查只读、不自动安装。缺项时按输出和 [环境支持](README.zh-CN.md#环境检查与安装) 修复重跑；保留草稿并继续独立设计工作，脚本与视觉验收保持 `pending`。纯方向或提示词任务无需渲染环境。
 
-已有 HTML 先保留原始源码与修改前截图，在现有目标画板根元素上补 `data-artboard` 属性（已有则沿用，不重建 wrapper），再做初始盘点，随后进入第 1 步补合同：
+进入重建或还原修复的已有 HTML，先保留原始源码与修改前截图，在现有目标画板根元素上补 `data-artboard` 属性（已有则沿用，不重建 wrapper），再做初始盘点，随后进入第 1 步补合同：
 
 ```sh
 node scripts/inventory_page.cjs /absolute/path/to/page
@@ -67,6 +70,8 @@ python3 scripts/diagnose_visual.py /absolute/path/to/prototype --state home
 保留当前源码对应的原图/实际并排、叠加、零阈值原始差异及图层开关证明。按失败 ROI 和最差局部块先修主体、背景、字体，再修细节；每轮只改一类因素，保留前图并比较回退。同类区域连续两轮无改善时换素材或测量/重建方法。
 
 ROI 并集至少覆盖原图 75%，对应角色 ROI 至少覆盖关键图层 80%；文字/按钮及占画面至少 1% 的层中心也须被覆盖。全图均值不能替代局部轮廓、文字和控件门槛，具体字段与固定上限以 acceptance 为准。
+
+截图生成后按 [设计质量评审](references/design-quality-review.md) 的适用检查查看层级、排版、图标/材质和边界状态；复刻偏差直接修，超出复刻范围的设计建议另列。质量评审不能代替冻结的像素门槛，可访问性检查也不等于视觉通过。
 
 完成条件：每个请求状态都有真实触发与当前截图证据，冻结数值门槛通过。人工查看原图、截图、叠加、原始差异和图层证明，在 `manualReview.states[]` 对素材身份、背景、字体、轮廓、层级与控件逐项记录具体观察；明显差异保留 `pending`。
 

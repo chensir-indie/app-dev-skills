@@ -13,7 +13,7 @@ A collection of independently installable **agent skills with runnable tools**. 
 
 | Your starting point | Skill and guide | What you receive |
 | --- | --- | --- |
-| A design question, approved screenshots or an existing reconstruction | [Image to Layered HTML Prototype](skills/image-to-layered-html-prototype/README.md) · [Agent instructions](skills/image-to-layered-html-prototype/SKILL.md) | A concept/prompt, or editable HTML/CSS/SVG with assets, design standards and browser comparisons, according to the requested branch |
+| A design question, approved screenshots or a page to review/refine | [Image to Layered HTML Prototype](skills/image-to-layered-html-prototype/README.md) · [Agent instructions](skills/image-to-layered-html-prototype/SKILL.md) | A concept/prompt, scoped design review/refinement, or editable HTML/CSS/SVG with assets, design standards and browser comparisons |
 | Real app captures, a visual reference, target languages and dimensions | [App Store Cover Generator](skills/app-store-cover-generator/README.md) · [Agent instructions](skills/app-store-cover-generator/SKILL.md) | Editable covers, a locale × device × slide PNG matrix, contact sheets and hash/review records |
 
 ```text
@@ -102,6 +102,7 @@ An actual toolkit export of the bundled original demo. Its app UI is synthetic a
 - [Contributing](CONTRIBUTING.md): packaging rules, tests and safe fixtures.
 - [Workflows and handoffs](docs/workflows.md): choose a branch, recognize completion and carry evidence into the next stage.
 - [Scope](SCOPE.md) and [shared terms](GLOSSARY.md): maintenance boundaries; the [mattpocock/skills comparison](docs/mattpocock-skills-comparison-2026-10-20.md) records the source, decisions and implementation.
+- [Prototype design quality review](skills/image-to-layered-html-prototype/references/design-quality-review.md): scoped critique and refinement using one primary design system, actual screenshots and explicit fidelity boundaries.
 - [Prototype design standards](skills/image-to-layered-html-prototype/references/design-system.md): geometry, layers and component contracts. Missing assets/fonts can prevent exact pixel identity; keep measured gaps visible.
 - [Cover localization](skills/app-store-cover-generator/references/localization.md): locale copy, fonts and RTL. Image generation is optional and uses the agent environment's tools and access conditions.
 

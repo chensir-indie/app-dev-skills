@@ -16,6 +16,14 @@ Turn approved UI images into editable HTML/CSS/SVG. Use this skill to rebuild a 
 
 For full reconstruction, deliverables include HTML/CSS/JS, separate assets, design tokens, geometry and typography tables, layer/asset manifests, interaction/state contracts, and real browser captures with diffs and review observations. Full screenshots remain comparison references; they do not replace editable UI.
 
+## Review and improve design quality
+
+Choose faithful reconstruction, active refinement or review only. Approved references stay locked during reconstruction; a review does not authorize editing. For authorized improvements, inspect the existing page, select one primary design system and work through hierarchy, layout, typography, icons/materials and relevant edge states. Keep shared tokens and compare actual before/after browser captures.
+
+[Design quality workflow](references/design-quality-review.md) provides the review sequence and evidence format. [Sources and optional tools](references/design-sources.md) explains how Impeccable, UI/UX Pro Max, Vercel guidelines and platform standards fit without requiring installation or mixing visual systems. This complements the existing pixel checks; it does not guarantee aesthetic quality or full accessibility conformance.
+
+> Use $image-to-layered-html-prototype to improve this existing HTML within its current design direction. First identify the largest hierarchy, layout and typography issues, then refine the shared components and show real before/after captures. Preserve any explicitly locked reference geometry.
+
 ## Install and invoke
 
 The Skills CLI installer requires Node.js 22.20+ and npm (the toolkit itself requires Node.js 22+):

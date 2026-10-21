@@ -1,4 +1,4 @@
 interface:
   display_name: "Image to Layered HTML"
-  short_description: "Rebuild app UI images or repair existing layered HTML"
-  default_prompt: "Use $image-to-layered-html-prototype for the requested UI directions/prompts, approved-image reconstruction, or existing HTML repairs. For HTML work, measure references independently and verify real browser captures and interactions."
+  short_description: "Rebuild, review and refine layered app UI prototypes"
+  default_prompt: "Use $image-to-layered-html-prototype for UI directions, faithful image reconstruction, or scoped HTML review and refinement; preserve approved references, follow one primary design system, and verify actual browser captures and interactions."
