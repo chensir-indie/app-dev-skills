@@ -11,7 +11,7 @@ Raster role is subject/photo/decoration/logo; never a screenshot of UI.
 Use asset for real local files; inline SVG/CSS is linked by selector, not an invented filesystem path.
 Include all visible text and controls, including dates, metrics, metadata, navigation labels, secondary actions and state labels.
 
-Text layer:
+Text layer (Traditional Chinese sample content; use the actual requested locale and copy):
 ```json
 {
   "id":"title","type":"text","selector":"#title","z":70,

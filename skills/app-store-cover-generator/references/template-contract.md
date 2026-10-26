@@ -43,7 +43,7 @@ To use an existing Next/React template, adapt its export route and selectors or 
 
 ## Environment check and setup
 
-Run from the installed **skill directory**, not a generated cover project. For example, a global manual Codex installation lives at `~/.codex/skills/app-store-cover-generator`; other installers choose their own path. The bootstrap requires POSIX `sh` (macOS/Linux; use [WSL](https://learn.microsoft.com/windows/wsl/install) on Windows). It also works via an absolute path from any working directory:
+Run from the **skill source directory**, not a generated cover project. In a linked Codex collection, this is `skills/app-store-cover-generator` inside the source checkout, exposed through `~/.agents/skills/app-dev-skills/app-store-cover-generator`. A single-skill link or another installer may use a different discovery path; see [installation](../README.md#install-and-invoke). The bootstrap requires POSIX `sh` (macOS/Linux; use [WSL](https://learn.microsoft.com/windows/wsl/install) on Windows). It also works via an absolute path from any working directory:
 
 ```sh
 sh scripts/doctor.sh

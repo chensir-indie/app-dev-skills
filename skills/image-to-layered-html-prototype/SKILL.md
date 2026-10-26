@@ -5,87 +5,87 @@ description: Rebuild approved app UI images as editable layered HTML/CSS/SVG, or
 
 # Image to Layered HTML Prototype
 
-按请求选择概念、完整重建或既有修复分支。完整重建交付可编辑、可交互、通过逐页视觉复核的 HTML 原型：文字用 DOM，控件用可见语义元素，背板用 CSS/SVG，照片和主体用独立资产。重建默认 `layered_rebuild`；“一比一”提高视觉要求，整屏贴图、UI 切片、Canvas 或透明热区不能替代分层实现。
+Choose the concept, full reconstruction or existing-page repair branch that matches the request. Full reconstruction delivers an editable, interactive HTML prototype with visual review for every page: DOM text, visible semantic controls, CSS/SVG backplates, and separate photo/subject assets. Reconstruction defaults to `layered_rebuild`. A one-to-one request raises the fidelity requirement; full-screen images, UI slices, Canvas or transparent hotspots cannot replace a layered implementation.
 
-## 选择起点
+## Choose the starting point
 
-| 用户目标与输入 | 从这里开始 | 完成边界 |
+| User goal and input | Start here | Completion boundary |
 | --- | --- | --- |
-| 仅要 UI 方向、提示词或参考图 | 按 [imagegen-workflow](references/imagegen-workflow.md) 交付所请求的方向、提示词或已查看的图 | 所请求的概念产物；不自动进入 HTML 重建 |
-| 要完整原型，只有产品方向 | 按 imagegen workflow 生成、查看并锁定正视 UI 图，再进入下述流程 | 分层 HTML 与逐页验收 |
-| 要完整原型，已有认可图片 | 直接锁定参考并测量，沿用已批准方向 | 分层 HTML 与逐页验收 |
-| 修复已有 HTML 和参考图 | 保留源码、素材与交互，先保存修改前截图并盘点，再补独立参考测量与必要合同 | 请求的修复、更新证据与实际验收状态 |
-| 评审或优化现有页面 | 按 [设计质量评审](references/design-quality-review.md) 查看页面、确定主规范并定位问题；仅评审不修改，已授权优化直接迭代 | 所请求的评审，或改进后的页面、前后截图与交互复核；不自动启动完整重建 |
-| 多页参考 | 冻结完整页面清单；默认逐页闭环，要求先铺齐时用下述两阶段流程 | 全部请求页面的逐页状态 |
+| UI directions, prompts or reference images only | Follow [imagegen-workflow](references/imagegen-workflow.md) to deliver the requested directions, prompts or inspected images | The requested concept artifact; no automatic HTML reconstruction |
+| Complete prototype with only a product direction | Generate, inspect and lock a front-facing UI image using the imagegen workflow, then continue below | Layered HTML with per-page acceptance |
+| Complete prototype with approved images | Lock and measure the references directly, preserving the approved direction | Layered HTML with per-page acceptance |
+| Repair existing HTML against reference images | Preserve source, assets and interactions; save before screenshots and inventory the implementation, then add independent reference measurements and necessary contracts | The requested repair, refreshed evidence and actual acceptance status |
+| Review or improve an existing page | Inspect it using [design quality review](references/design-quality-review.md), select the primary standard and identify issues; review-only does not edit, while authorized refinement proceeds directly | The requested review, or improved pages, before/after captures and interaction checks; no automatic full reconstruction |
+| Multiple page references | Freeze the complete page inventory; close the loop page by page by default, or use the two-stage process below when all drafts are requested first | Per-page status for every requested page |
 
-先区分**忠实复刻、主动优化、仅评审**。认可图与“一比一”默认走复刻；“优化”结合上下文判断是在修复还原偏差还是改设计，不据此解除已冻结约束。设计探索/主动优化先读 [设计质量评审](references/design-quality-review.md)；选主设计系统或可选工具时再读 [来源与适用边界](references/design-sources.md)。沿用项目已有规范，其他指南只补缺，不混搭几套组件外观。以下 1–5 步用于完整重建和相应修复；仅评审或局部优化按所选分支结束，不强制创建全套像素合同。
+Distinguish **faithful reconstruction, active refinement and review only**. Approved images and one-to-one requests default to reconstruction. Interpret “improve” in context: it may mean correcting reconstruction errors or changing the design, and does not itself unlock frozen constraints. For exploration or active refinement, read [design quality review](references/design-quality-review.md); when selecting the primary design system or optional tools, read [sources and applicability](references/design-sources.md). Preserve the project's existing standards; use other guidance to fill gaps rather than mixing several component styles. Steps 1–5 apply to full reconstruction and corresponding repairs. End review-only or local refinement at its requested endpoint without requiring a full pixel contract.
 
-若目标实际是商店封面，先阅读当前环境可用的 `app-store-cover-generator` 的 SKILL.md，再按目标指导。若需要竞品研究，先整理已有证据与待确认问题，再阅读当前环境可用的相关研究技能；未安装时说明适用范围即可，不把安装新工具作为继续工作的前提。
+If the real goal is store covers or competitor analysis, first read the actual `SKILL.md` for the available `app-store-cover-generator` or `app-competitor-analysis` skill and route by the goal. If unavailable, explain the relevant scope without making installation a prerequisite to useful work.
 
-执行依赖脚本前，在本 skill 目录运行 `sh scripts/doctor.sh`。仅做 Python 校验可用 `--scope python`，浏览器操作用 `--scope browser`；检查只读、不自动安装。缺项时按输出和 [环境支持](README.zh-CN.md#环境检查与安装) 修复重跑；保留草稿并继续独立设计工作，脚本与视觉验收保持 `pending`。纯方向或提示词任务无需渲染环境。
+Before dependency-backed scripts, run `sh scripts/doctor.sh` in this skill directory. Use `--scope python` for Python checks or `--scope browser` for browser operations; checks are read-only and do not install. Follow their output and [environment setup](README.md#environment-check-and-setup) to repair and rerun. Preserve drafts and continue independent design work while script and visual acceptance remain `pending`. Direction-only and prompt-only tasks do not require a rendering environment.
 
-进入重建或还原修复的已有 HTML，先保留原始源码与修改前截图，在现有目标画板根元素上补 `data-artboard` 属性（已有则沿用，不重建 wrapper），再做初始盘点，随后进入第 1 步补合同：
+For existing HTML entering reconstruction or fidelity repair, first preserve the original source and before screenshot. Add `data-artboard` to the existing target artboard root if absent, retaining its layout rather than creating another wrapper. Inventory it, then continue to step 1 to complete the contracts:
 
 ```sh
 node scripts/inventory_page.cjs /absolute/path/to/page
 ```
 
-它要求 `index.html`、`reference/source.png` 和目标根元素的 `[data-artboard]`，仅生成实现盘点与真实截图；不生成参考坐标、合同或验收结果。
+This requires `index.html`, `reference/source.png` and the target root's `[data-artboard]`. It produces implementation inventory and actual screenshots, not reference coordinates, contracts or acceptance results.
 
-## 1. 冻结参考与验收目标
+## 1. Freeze the reference and acceptance target
 
-保存原尺寸正视参考、SHA-256、页面/状态、语言和样例数据；细节裁图辅助测量，整图仍是基准。按 [render-contract](references/render-contract.md) 锁定图片像素、CSS 像素、DPR 与实际浏览器环境。
+Save the full-resolution, front-facing reference, SHA-256, page/state, language and fixture data. Detail crops aid measurement; the full image remains the baseline. Lock image pixels, CSS pixels, DPR and the actual browser environment using [render-contract](references/render-contract.md).
 
-按 [design-system](references/design-system.md) 建立本次所需的 tokens 与组件。**实现前**按 [acceptance](references/acceptance.md#one-to-one-visual-standard) 冻结 `one_to_one` 阈值和具名角色 ROI；保留不可放宽上限，不用放宽阈值、改基准或排除整块 UI 消除失败。
+Establish the required tokens and components using [design-system](references/design-system.md). **Before implementation**, freeze `one_to_one` limits and named role ROIs using [acceptance](references/acceptance.md#one-to-one-visual-standard). Preserve the non-relaxable ceilings; do not erase failures by loosening limits, changing the baseline or excluding major UI.
 
-完成条件：参考、状态和验收目标可追溯。多页从全部参考冻结 `expected-pages.json`，使遗漏页面也能被批量检查发现。
+Completion: the reference, state and acceptance target are traceable. For multiple pages, freeze `expected-pages.json` from all references so batch checks can detect omitted pages.
 
-## 2. 独立测量并建立合同
+## 2. Measure independently and establish contracts
 
-按 [reference-geometry](references/reference-geometry.md) 独立测源图，再与 DOM 对照；已有页面的初始盘点不能代替源图测量。文字、按钮、重要背板/图标的 `referenceBounds` 是源图推导的目标 layout box，`bounds` 是实现边界；文字可见字形另记 `referenceInkBounds`、方法和绑定原图 SHA 的证据。OCR ink box 不等于 CSS 行盒，DOM 自动值不属于源图实测。
+Measure the source image independently using [reference-geometry](references/reference-geometry.md), then compare with the DOM. The initial inventory of an existing page cannot replace source-image measurement. For text, buttons and important panels/icons, `referenceBounds` is the target layout box derived from the source image; `bounds` is the implementation box. Record text's visible glyphs separately as `referenceInkBounds`, with a method and evidence bound to the original SHA. OCR ink boxes are not CSS line boxes, and automatically copied DOM values are not source measurements.
 
-按 [geometry-contract](references/geometry-contract.md)、[typography-contract](references/typography-contract.md) 与 [layer-manifest](references/layer-manifest.md) 建立几何/字体表及唯一 selector，覆盖全部可见文字与控件。
+Use [geometry-contract](references/geometry-contract.md), [typography-contract](references/typography-contract.md) and [layer-manifest](references/layer-manifest.md) to establish geometry/typography tables and unique selectors covering all visible text and controls.
 
-完成条件：实现与参考测量来源明确，合同覆盖全部可见层。
+Completion: implementation and reference measurements have distinct, clear provenance, and contracts cover every visible layer.
 
-## 3. 重建素材与分层 HTML
+## 3. Reconstruct assets and layered HTML
 
-先按 [asset-audit](references/asset-audit.md) 与 [reconstruction](references/reconstruction.md) 校准关键主体、背景、字体和不规则轮廓，再按 [html-css-contract](references/html-css-contract.md) 实现独立图层及可见交互。优先原素材；缺失时提取或重建单个素材，记录来源与不确定性。`inferred` 不豁免视觉不合格，近似主体只能用于结构调试。
+Calibrate important subjects, backgrounds, fonts and irregular contours using [asset-audit](references/asset-audit.md) and [reconstruction](references/reconstruction.md), then implement independent layers and visible interactions using [html-css-contract](references/html-css-contract.md). Prefer original assets. If missing, extract or reconstruct a single asset and record provenance and uncertainty. `inferred` does not excuse a visible failure; approximate subjects are for structural debugging only.
 
-新素材放入真实 HTML，用同环境浏览器截图 A/B 核对全图和素材 ROI；无完整合同时用 `compare_candidate.py`，合同齐后用冻结 ROI 的 `compare_iteration.py`，细节见 [visual-convergence](references/visual-convergence.md)。A/B 改善不等于验收通过。
+Place new assets in the actual HTML and capture browser A/B comparisons in the same environment, checking the full image and asset ROIs. Without a complete contract, use `compare_candidate.py`; once contracts exist, use `compare_iteration.py` with frozen ROIs. See [visual-convergence](references/visual-convergence.md). An A/B improvement is not acceptance.
 
-完成条件：文字能修改，主体/背板/投影可独立隐藏，主交互有可见结果及返回/关闭；基准视口、小/大屏和长文案有适配证据。
+Completion: text can be edited, subject/backplate/shadow can be hidden independently, and primary interactions produce visible outcomes with return/close behavior. Keep adaptation evidence for the baseline, smaller/larger screens and long copy.
 
-## 4. 采集并收敛
+## 4. Capture and converge
 
-读取 [acceptance](references/acceptance.md) 采集规范与 [visual-convergence](references/visual-convergence.md) 修复循环。字体、图片解码后固定数据、时钟、滚动与动画，从当前源码采集截图、DOM 和哈希收据：
+Read the capture requirements in [acceptance](references/acceptance.md) and the repair loop in [visual-convergence](references/visual-convergence.md). After fonts load and images decode, fix data, clock, scrolling and animation, then capture screenshots, DOM and hash receipts from the current source:
 
 ```sh
 node scripts/capture_native.cjs /absolute/path/to/prototype playwright home
 python3 scripts/diagnose_visual.py /absolute/path/to/prototype --state home
 ```
 
-`state-id` 仅标记证据，**不会触发状态**。弹层、表单、选中项和路由须在同一浏览器会话真实操作并验证 landmark 后再采集。默认 `file://`、DPR=1；其他策略须按 render contract 明确实现，脚本不自动应用全部环境字段。
+`state-id` labels evidence; it **does not trigger the state**. Activate dialogs, forms, selections and routes in the same browser session, verify their landmarks, then capture. Defaults are `file://` and DPR=1. Implement other policies explicitly through the render contract; the script does not apply every environment field automatically.
 
-保留当前源码对应的原图/实际并排、叠加、零阈值原始差异及图层开关证明。按失败 ROI 和最差局部块先修主体、背景、字体，再修细节；每轮只改一类因素，保留前图并比较回退。同类区域连续两轮无改善时换素材或测量/重建方法。
+Retain current-source reference/actual pairs, overlays, threshold-0 raw diffs and layer-toggle proofs. Repair subject, background and fonts before detail, guided by failing ROIs and worst local blocks. Change one cause category per iteration; keep the before capture and compare regressions. If the same category fails to improve for two consecutive iterations, change the asset or measurement/reconstruction method.
 
-ROI 并集至少覆盖原图 75%，对应角色 ROI 至少覆盖关键图层 80%；文字/按钮及占画面至少 1% 的层中心也须被覆盖。全图均值不能替代局部轮廓、文字和控件门槛，具体字段与固定上限以 acceptance 为准。
+The ROI union must cover at least 75% of the reference, with matching-role ROIs covering at least 80% of key layers. Centers of text/buttons and layers occupying at least 1% of the page must also be covered. Full-image means cannot replace local contour, typography or control limits; use acceptance's exact fields and fixed ceilings.
 
-截图生成后按 [设计质量评审](references/design-quality-review.md) 的适用检查查看层级、排版、图标/材质和边界状态；复刻偏差直接修，超出复刻范围的设计建议另列。质量评审不能代替冻结的像素门槛，可访问性检查也不等于视觉通过。
+After capture, inspect hierarchy, typography, icons/materials and edge states using the applicable [design quality review](references/design-quality-review.md) checks. Fix fidelity errors directly and list out-of-scope design suggestions separately. Design review cannot replace frozen pixel limits, and accessibility checks do not establish visual acceptance.
 
-完成条件：每个请求状态都有真实触发与当前截图证据，冻结数值门槛通过。人工查看原图、截图、叠加、原始差异和图层证明，在 `manualReview.states[]` 对素材身份、背景、字体、轮廓、层级与控件逐项记录具体观察；明显差异保留 `pending`。
+Completion: every requested state has an actual trigger and current capture, and frozen numeric limits pass. Inspect reference, actual, overlay, raw diff and layer proofs; record concrete observations for asset identity, background, typography, contours, layering and controls in `manualReview.states[]`. Obvious mismatches remain `pending`.
 
-## 5. 逐页验收与交付
+## 5. Accept and deliver each page
 
 ```sh
 python3 scripts/validate_manifest.py /absolute/path/to/prototype/layer-manifest.json
 python3 scripts/validate_prototype.py /absolute/path/to/prototype
 ```
 
-严格校验与人工视觉复核都通过才记 `passed`。`--structure-only` 仅供诊断；文件存在、哈希收据和数值通过各自只证明其检查范围。报告结构可编辑、视觉还原、交互、适配四项证据，关键差异未清零时继续修复。确受素材/工具限制时列出具体缺失、尝试、误差和未过项。
+Mark `passed` only when strict validation and manual visual review both pass. `--structure-only` is diagnostic; file presence, hash receipts and numeric success each establish only their own scope. Report separate evidence for editability, visual fidelity, interactions and adaptation. Continue repairing unresolved critical differences. If assets/tools are a real limitation, list the exact missing items, attempts, errors and failed checks.
 
-多页每页执行同一门槛，任一页 `pending`，整批仍为 `pending`。批量检查和基础稿分诊见 [visual-convergence](references/visual-convergence.md#多页推进)。用户要求先铺齐时，先为全部参考交付独立 HTML、可编辑文字、语义控件、独立素材及原生截图，并核对资源/交互/尺寸；再逐页补合同、测量和严格验收。基础稿不能计为视觉通过，单页暂时受阻时继续其他可推进页面。
+Apply the same gate to every page. Any page `pending` leaves the batch `pending`. For batch checks and draft triage, see [multi-page progress](references/visual-convergence.md#multi-page-progress). When the user requests all drafts first, deliver separate HTML, editable text, semantic controls, independent assets and native-size captures for all references; check resources, interactions and dimensions. Then complete contracts, measurements and strict acceptance per page. A draft is not visual acceptance; continue other feasible pages while one page is temporarily blocked.
 
-按 [design-system](references/design-system.md) 与 [acceptance](references/acceptance.md) 交付源码、独立 assets、参考、tokens、manifests、render config、state matrix、测量表、交互图和 `evidence/`。需要 Flutter 移交时再读 [flutter-mapping](references/flutter-mapping.md)。
+Deliver source, separate assets, references, tokens, manifests, render configuration, state matrix, measurement tables, interaction map and `evidence/` following [design-system](references/design-system.md) and [acceptance](references/acceptance.md). Read [flutter-mapping](references/flutter-mapping.md) only for a requested Flutter handoff.
 
-后续交接引用现有文件，附目标/下一步、采用参考的路径与 SHA、页面/状态、源码入口和四项验收状态及未过项。原型截图保持原型身份；商店素材中的真实 App UI 需要另有实际 App 截图。
+For later handoff, link the existing files and include the goal/next action, chosen reference path/SHA, pages/states, source entrypoints, all four acceptance statuses and failed checks. Prototype captures remain prototype evidence; store materials depicting real app UI require separate actual-app captures.

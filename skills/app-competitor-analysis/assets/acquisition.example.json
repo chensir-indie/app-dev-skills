@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "scope": "Original fictional note-taking example; source URLs are illustrative, not acquired evidence.",
+  "products": [{"id":"notes", "identity":"example.notes"}],
+  "sources": [{"id":"help", "product_id":"notes", "kind":"official", "locator":"https://example.org/notes/help#export", "version":"unknown", "inspected":true, "context":"Synthetic fixture representing an inspected help section, not a live visit."}],
+  "gaps": [
+    {
+      "id":"export-contract", "product_id":"notes", "dimension":"interaction", "priority":"P1",
+      "question":"What export format does the publisher document?", "impact":"Determines intended portability.",
+      "proof":"stated_behavior", "target_version":"unknown", "closure_check":"Read the format and destination in the publisher help section.",
+      "state":"resolved", "attempts":[{"date":"2026-10-20", "channel":"official help", "locator":"https://example.org/notes/help#export", "outcome":"success", "note":"Synthetic inspection of export instructions.", "source_ids":["help"]}],
+      "source_ids":["help"], "resolution":"The fictional help declares plain-text export through the share sheet.", "remaining":"",
+      "report_updates":["notes.html#interaction; export node marked declared"], "next_action":""
+    },
+    {
+      "id":"export-runtime", "product_id":"notes", "dimension":"interaction", "priority":"P0",
+      "question":"Does the exported file preserve the complete note after interruption?", "impact":"Determines whether export can be relied on.",
+      "proof":"behavior", "target_version":"unknown", "closure_check":"Run export with an interruption and inspect the resulting file.",
+      "state":"queued", "attempts":[], "source_ids":[], "resolution":"", "remaining":"No runtime trace.",
+      "report_updates":[], "next_action":"Use an authorized test note in an available compatible app environment."
+    }
+  ]
+}

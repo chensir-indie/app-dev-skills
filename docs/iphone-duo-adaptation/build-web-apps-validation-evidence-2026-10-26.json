@@ -1,0 +1,435 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "scope": "English Duo Skill; preferred actual BUILD WEB APPS source workflow; isolated original fixture and independently reviewed browser output. Not real IMX/native/assistive-technology acceptance.",
+  "source": {
+    "head": "7b7ced4936748141801cb957a806dbd5df890334",
+    "dirty": true,
+    "tracked_scope_diff_sha256": "13bad15bd71172a777ab5869ceebe83f8ea793032bd84e80a62ca831edf4dd2a",
+    "note": "The checkout was already dirty; hashes identify checked state and do not attribute all prior changes to this task."
+  },
+  "builder": {
+    "package": "build-web-apps",
+    "version": "0.1.2",
+    "repository": "https://github.com/openai/plugins",
+    "revision": "0722921d5542fc593105c27bd52630babd8b8c2a",
+    "execution_mode": "Read-only official upstream instruction Skills; not an installed plugin",
+    "entrypoints": {
+      "skills/frontend-app-builder/SKILL.md": "9273de02827b29534be28fb2b37154c1571ac38b4e20d3ef5482b7e22af67394",
+      "skills/frontend-testing-debugging/SKILL.md": "03724620cf7e7de425b607a5492f572d867b1cf5d9c92c74bf50d057d7415e0b"
+    }
+  },
+  "catalog": {
+    "sha256": "f7006a24fc4fe3f45716fd5ddc1a3c8ff8e3ab94db4df7ac524f23c2df6d0d8d",
+    "general_rules": 66,
+    "sources": 40,
+    "prior_ids_preserved": 65,
+    "new_rule_ids": [
+      "WORKFLOW-BUILDER-001"
+    ],
+    "collection_statuses": {
+      "pending": 45,
+      "deferred": 21,
+      "verified_project_conventions": 2
+    },
+    "app_fixture_statuses": {
+      "verified_general": 32,
+      "deferred_native": 15,
+      "not_applicable": 19,
+      "verified_project_conventions": 10
+    }
+  },
+  "environment": {
+    "node": "v24.14.0",
+    "playwright": "1.64.0",
+    "chrome": "155.0.8059.86",
+    "os": "macOS",
+    "additional_manual_browser": "ChatGPT in-app browser through CUA",
+    "agent_history": "none for the completed generator and independent evaluator",
+    "model_override": null,
+    "reasoning_override": null,
+    "exact_inherited_model_identifier": "not exposed by evaluator interface"
+  },
+  "checks": {
+    "english_packaged_and_generated_text_files": 23,
+    "focused_tests_passed": 37,
+    "unit_checks_passed": 329,
+    "cover_browser_tests_passed": 13,
+    "prototype_dom": "pass",
+    "root_competitor_browser": {
+      "passed": 8,
+      "total": 9,
+      "status": "failed",
+      "failure": "Existing portrait-card bottom overflow -95.96875px at 1000px screen, tests/competitor_html.browser.cjs:69"
+    },
+    "codex_discovery": {
+      "canonical_enabled_entries": 6,
+      "duplicates": 0,
+      "errors": []
+    },
+    "generating_agent_grouped_browser_checks": 19,
+    "main_author_captures": 32,
+    "independent_browser_checks": {
+      "passed": 27,
+      "failed": 0,
+      "source_drift": false
+    },
+    "ledger_completion": "pass for actual fixture; collection ordinary check only",
+    "ledger_negative_faults_detected": 4,
+    "additional_faults_detected": [
+      "dead Save",
+      "missing stylesheet"
+    ],
+    "manual_iab_regression": "pass",
+    "visual_review": "generator, independent evaluator and parent inspected actual references and final captures"
+  },
+  "process_findings": {
+    "discarded_attempt": "Initial workflow-memory lookup before prototype; archived, then restarted from raw inputs",
+    "late_source_child": "Three foreign advisory files quarantined; generator disclosed filenames only, contents not used; self-fetched primary sources retained",
+    "late_rule_binding": "Initially incomplete per-rule/project handoff disclosed, completed and frozen before re-entering final construction/render QA; original chronology retained",
+    "output_repairs": [
+      "single-paragraph reading anchor",
+      "large-text navigation and status positioning",
+      "skip-link route/draft preservation"
+    ],
+    "test_and_capture_repairs": [
+      "native dialog Tab expectation corrected after minimal-browser control",
+      "supplemental capture viewport/timing corrected; overwritten original anomaly disclosed; replay labeled"
+    ],
+    "metadata_verification": "Original final metadata was already correct; later evidence-only verification addendum did not alter prototype source"
+  },
+  "prototype_code_frozen_at": "2026-10-26T03:06:00.777354Z",
+  "prototype_hashes": {
+    "prototype/index.html": "3f78f0b745297abedeec0358c60ed1248166acd534880b9cb53b28726047ecd0",
+    "prototype/styles.css": "ffc598a2a4b080fc0c812bbdaf3b4e1022e5e820454dbf117afdd9799bdd01b5",
+    "prototype/app.js": "9c0c924190d7e249bacd63668fefbeb9f4fdfb1fc96e5a3b7ecf6ad95d0549e1"
+  },
+  "generator_evidence_files_verified": 84,
+  "repository_files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "51cfe51c2d46e3c37bff932157d00ef4f3fed3580816a150de5e909101c2ec77"
+    },
+    {
+      "path": "README.md",
+      "sha256": "e29bd4463822860174930546ed51762d68b7db497cdb4e12c590474135c4e13d"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "sha256": "9174e951cc5aca5366bb36fef267edcd88d28abd35641f6fa9fee2f384e7134e"
+    },
+    {
+      "path": "SCOPE.md",
+      "sha256": "9d10b856b2085258c86d6f622008bd22721f5d78b5b2d985e9f61cfe83ce5d6d"
+    },
+    {
+      "path": "docs/iphone-duo-adaptation-build-web-apps-validation-2026-10-26.md",
+      "sha256": "3acdb4832053a83bc86449c1290fb9df6005d9bfee6ebe8f90f4f7830c0c5a80"
+    },
+    {
+      "path": "docs/iphone-duo-adaptation/workspace-rules.json",
+      "sha256": "fd1dfe58f22fdc42d1c45adcbad9aba4e7e2de2ede0f7a2b78ddad43acdb3302"
+    },
+    {
+      "path": "docs/iphone-duo-adaptation/workspace-rules.md",
+      "sha256": "be9e1a4d33a0cf1fb20083069b1f93b6469d2e8b6713d8d63683bc6f9be828d7"
+    },
+    {
+      "path": "docs/runtime.md",
+      "sha256": "110de92886c29c9f73f720a9294b2f38cc8d56df6453c46dfbe6fd522b2f96b5"
+    },
+    {
+      "path": "docs/runtime.zh-CN.md",
+      "sha256": "8b51473ed58c22e3c7cc68b85036da9016aec64c5bdf3df070d39280f4ee8a3a"
+    },
+    {
+      "path": "docs/workflows.md",
+      "sha256": "81afac11366382a20f7ef7c727be7a3add4f44beef3545786c60c668e8d6f3d4"
+    },
+    {
+      "path": "docs/workflows.zh-CN.md",
+      "sha256": "cd6110fdc645ebce08403aa809b113854c8025a5834614ade446f549b0e9f271"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/LICENSE",
+      "sha256": "53108e860ec099610ab25b5c6181633fd950c8a18724eb57609046fe692666ab"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/README.md",
+      "sha256": "bf3233d09d9d9a1d60a741af8ff7ed544253d13bf1042afef6da5bf9ddd28ef3"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/README.zh-CN.md",
+      "sha256": "29c43a584f2af3600a27f50910b42423ea1639bca51f6ae8b8ba64728bf3fa8f"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/SKILL.md",
+      "sha256": "f0c1fa922703b5ff6566b475efc0aa16b47a75e6811544d1ec40cd3589bce58e"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/agents/openai.yaml",
+      "sha256": "f2ac8c012d996d2be1c0db7643a815ed468eb781f7243cbad3db56311eea5463"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/assets/official-rules.json",
+      "sha256": "f7006a24fc4fe3f45716fd5ddc1a3c8ff8e3ab94db4df7ac524f23c2df6d0d8d"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/assets/project-conventions.imx.example.json",
+      "sha256": "8f8ad27ba0e613c942ecc5b8dfafa31208ed7ede985812c04b525921a998ca85"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/apple-frameworks.md",
+      "sha256": "f947c3eccc9a2893f3a397cda927df7ecbcacc171f9bc96142c02da6f318c286"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/build-web-apps.md",
+      "sha256": "dd2c342fa4bda88c48688f0a596faeea1e90fe508a264142ef4a26d3096ec530"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/flutter-adaptation.md",
+      "sha256": "0a21dd48ba02c2de1b1bb91797ff3c7fa7625aa1da840b11e00ffdfa957a1c96"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/frameworks.md",
+      "sha256": "d998b84a16ef1362ce8eaa8b3c57cfbc30c06aecfae2cf9628356e776cfb6419"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/html-prototype.md",
+      "sha256": "a9d4feccd7071d4b1be8ebd45dff8ece8e2204e43c4a3a60f2ab64dc3ad4b2f9"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/layout-analysis.md",
+      "sha256": "27b207fd0effd802564c9bff3e4d6cb75ebcfdecb4819f3d65f010602d331e51"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/official-basis.md",
+      "sha256": "40ee9ebf015310ea0668d42d5d1c17cca41f3b0cc13b19128a991a5a5d4f0297"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/project-conventions.md",
+      "sha256": "a2f2829f1accb987588c9db1e9b3704cf28e669a0fdd00a81507ea6065cb187c"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/react-native.md",
+      "sha256": "06b5ceff353b276592dbbcebd90fd8dc28db63ebedff81d8558e3dfbf5e4048d"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/validation.md",
+      "sha256": "3960573b5cedcf02f3d652139000e01982c62d0ea800ec72ee36ec9f2ca17953"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/webview-shells.md",
+      "sha256": "0ce7dc5b1e45c395bf857b039f39497d09d1ae906054a7f428899a5ffc9b5e9b"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/workspace-rules.md",
+      "sha256": "c766b163579843f06f57f597be46899d904d5331822cb84b4e97851dc0acc816"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/scripts/doctor.sh",
+      "sha256": "0448c9a23a3167f327c7386b7b0be707601fe5cffeed37a8082adb2f404c420d"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/scripts/workspace_rules.py",
+      "sha256": "b6c07bfa879090f94c07fbbedf23768361f4849286edc8151ebc14aa56812613"
+    },
+    {
+      "path": "tests/test_iphone_duo_adaptation.py",
+      "sha256": "aa8c155629bf4b84fd80309f0930cdad379c9f82dfc92e6f85ec3a1dec6fff4e"
+    }
+  ],
+  "external_bundle": {
+    "name": "duo-build-web-apps-evaluation",
+    "location": "Retained local output bundle outside this repository; links supplied in task delivery.",
+    "artifacts": [
+      {
+        "path": "workspace/README.md",
+        "sha256": "1d34fa625f02d4712b85a196a2e2f784cb2eaca4d8cc9ae5f627f02b6c371c8b"
+      },
+      {
+        "path": "workspace/prototype/index.html",
+        "sha256": "3f78f0b745297abedeec0358c60ed1248166acd534880b9cb53b28726047ecd0"
+      },
+      {
+        "path": "workspace/prototype/styles.css",
+        "sha256": "ffc598a2a4b080fc0c812bbdaf3b4e1022e5e820454dbf117afdd9799bdd01b5"
+      },
+      {
+        "path": "workspace/prototype/app.js",
+        "sha256": "9c0c924190d7e249bacd63668fefbeb9f4fdfb1fc96e5a3b7ecf6ad95d0549e1"
+      },
+      {
+        "path": "workspace/design/Baseline.md",
+        "sha256": "668e6c42b9b9bd206a63cc3a3a42b6412d6690cc581236a326ff765ab448111d"
+      },
+      {
+        "path": "workspace/design/Recommendations.md",
+        "sha256": "24e2b59bc94052e1317c4943bc7b1eaa7efd0d9484d1623fc5295de1f585220d"
+      },
+      {
+        "path": "workspace/design/Design.md",
+        "sha256": "cddb6350e7efa2efc447f31669ff169d4a53c87bd48b23e23af44bf86372fde7"
+      },
+      {
+        "path": "workspace/design/coverage-final.md",
+        "sha256": "98d99cbc0fab4b92ed93602d53275122e1c559edd286166aa9b4eb6b54fe843b"
+      },
+      {
+        "path": "workspace/evidence/Validation.md",
+        "sha256": "8c39dfcbf95203fcdf6e7d10bc0356c23ea7b7069cf2452c67924a7cc16ffa6e"
+      },
+      {
+        "path": "workspace/evidence/Visual-review.md",
+        "sha256": "98954bae25b7b78f31bc90cda148bee332a8791341de62999e0aecd42e747873"
+      },
+      {
+        "path": "workspace/evidence/Late-binding-deviation.md",
+        "sha256": "7ed1ccf72136b9ada8495706a9b5bd4d11ce1b10616246465d3bc0cd4aa78725"
+      },
+      {
+        "path": "workspace/evidence/design-freeze.json",
+        "sha256": "64d42c451c84265bdb7aca4a46f6a83a2d9d268091549e465c3f52d9ac5f6714"
+      },
+      {
+        "path": "workspace/evidence/completed-handoff-freeze.json",
+        "sha256": "3adbb6b3c175829e471a37dc74c8f74fa8c293a643ee53a340524e7cd2a9e0c0"
+      },
+      {
+        "path": "workspace/evidence/construction-reentry.json",
+        "sha256": "75458511246f5c97d9c810351afb3088228c51f6b8965bbf661162445ba424f2"
+      },
+      {
+        "path": "workspace/evidence/final-artifacts.json",
+        "sha256": "6f2566564ae82ee0c00195282df2259f74efd5f4b2419a26266b47b563ec29f8"
+      },
+      {
+        "path": "workspace/evidence/environment-verification.json",
+        "sha256": "4487b4dece671511d10b734888d7c434d64516b3870cb894bbe36e402ee8f65d"
+      },
+      {
+        "path": "workspace/evidence/Evidence-correction.md",
+        "sha256": "977809044e8e19472a9733e3dba1b4df5b2bc67fc5fb211128fc1fc11661583f"
+      },
+      {
+        "path": "review/acceptance.json",
+        "sha256": "f795eea27b50457fb793951991388b4161dde129c5627fce23905b04d47303ad"
+      },
+      {
+        "path": "review/input-manifest.json",
+        "sha256": "0542a73db308e54460d8618eb81b5905052822c85a3d21988d84d0a94751090f"
+      },
+      {
+        "path": "review/skill-manifest.json",
+        "sha256": "25b8e898a93d9a0bad1e76a9271db5114585610d7fecf447bb45582821d9181e"
+      },
+      {
+        "path": "review/discarded-attempt.json",
+        "sha256": "e745c0287550df0ec696096af8801e659aee46c02eb0d5d3630f683d48d53c18"
+      },
+      {
+        "path": "review/late-source-child-isolation.json",
+        "sha256": "ab7aa8f4f49c585e4bb0c0302c3def10e09efe8ed3d095b33f8f23bcab291bf1"
+      },
+      {
+        "path": "review/process-observations.json",
+        "sha256": "84d173dc415f9f4112d9b6625ef8ca2f2499a2e2b26058cdd6a8b2c8c9206233"
+      },
+      {
+        "path": "review/discovery.json",
+        "sha256": "ac46b71ea586b7e302f20a52b2f03205f19330f15fa33fe40ecf897d54525e2c"
+      },
+      {
+        "path": "review/english-migration.json",
+        "sha256": "864251ea2fe2bc1fe2f9b67032da14bd3e101c81f3f86abeefa2aa3e040c56e2"
+      },
+      {
+        "path": "review/narrow-scenario.json",
+        "sha256": "8773bbccfc96e8bfd31e87f9d11453a43a93fb190764c5057f7a9f90a1b3e929"
+      },
+      {
+        "path": "review/ledger-negative-checks.json",
+        "sha256": "77ee217ecb979e319e75e7bcb27d77bbe26f831f4124757d73d49f5ac38b8d43"
+      },
+      {
+        "path": "review/final-integrity.json",
+        "sha256": "4a2b24057ff0e6186b08c2ec538d1b5a28fafac6f738b848024a6e2a607931cf"
+      },
+      {
+        "path": "review/parent-visual-review.json",
+        "sha256": "9b327267f1bc917375fc2d29b3f24ed7cf0df8d6e96cc53a57a41c61ff4279d8"
+      },
+      {
+        "path": "review/iab-final-checks.json",
+        "sha256": "e9cc105446ab8af5c0dc319581f44fba979718d0eab14f78bdf1cdfc9758b838"
+      },
+      {
+        "path": "review/iab-final-preview.png",
+        "sha256": "c88bc6ab83ac4674c8bf51b598961335683567227301b0402d490246e432f1e2"
+      },
+      {
+        "path": "review/iab-skip-link-final.png",
+        "sha256": "14736643295732b8e9726be0c52e550c1f00c560c40267a32c596a02159ded10"
+      },
+      {
+        "path": "review/iab-skip-link-final.txt",
+        "sha256": "b18eb8f333c395892faca3c17ce7750735bb70b68dc36aaaea59ed4a8cfc2075"
+      },
+      {
+        "path": "review/browser/evaluate.cjs",
+        "sha256": "67ec4dec7495a4f1b0dc81e3789c294cecdfa93c65746cffd96c7e4ad3243d93"
+      },
+      {
+        "path": "review/browser/final/results.json",
+        "sha256": "26a6d40d9324748c9dbcbdee7f2274e53d2112b6c21ab487f6983414d04d7cc8"
+      },
+      {
+        "path": "review/browser/final/independent-review.md",
+        "sha256": "43d4d80364ba4816aa79379fb2824372ff9a179b403bd1907f6e98b925b7d28d"
+      },
+      {
+        "path": "review/browser/final/visual-comparison.md",
+        "sha256": "396b83f1df18172ccaaec156ba049c940b6ce99d0cb07bcb4bfb1200900bfb4a"
+      },
+      {
+        "path": "review/browser/final/capture-provenance.md",
+        "sha256": "9671dcabbd6deb74173621e98f3f73cf16502750d4bc6764352492e9ca9cd599"
+      },
+      {
+        "path": "review/browser/final/capture-final-hashes.json",
+        "sha256": "9c450fb810229b26272c54faf54d2ff2ee3c5dfd1d577777606f4c20e4cc2157"
+      },
+      {
+        "path": "review/browser/final/final-narrow-list.png",
+        "sha256": "3f8e77bab5ace5425c239fb795bc3e4ae531a6b3709b6ccdd3ec42244ec9fe22"
+      },
+      {
+        "path": "review/browser/final/final-expanded-detail.png",
+        "sha256": "7c2ce904b8d2caad784475ace991bae205d3d6a933222faa527b7cac2935584a"
+      },
+      {
+        "path": "review/browser/final/narrow390-editor-top.png",
+        "sha256": "5e750d1ed79c1273e85e4a8641939705146a7efc8feae963a6d1d18776d9e932"
+      },
+      {
+        "path": "review/browser/final/largetext390-settings.png",
+        "sha256": "df2d0b9e00cda45a3a321dc7b7383be8121188ce08fcee4c33f891886a474b52"
+      },
+      {
+        "path": "review/browser/final/final-delete-wide-short-verified.png",
+        "sha256": "77cc5a96b9f340ab9908af2d8d4fc417df286111286318b310f888c80c21f5ac"
+      }
+    ]
+  },
+  "command_log_hashes": {
+    "duo-builder-english-check-20261026.log": "42c19eac37570aed81792b9d160e14a01027829cc166d140bbc6d521548aa736",
+    "duo-builder-english-workspace-browser-20261026.log": "a276008fcfb344c26cb73530ed57b1eeae6536980117174db02822cf3b9086eb"
+  },
+  "limits": [
+    "One completed original synthetic fixture, not general model reliability",
+    "No real IMX or compiled iOS app",
+    "No native folding-region/bar/keyboard/bridge/hardware proof",
+    "No actual VoiceOver, native Full Keyboard Access or IME-composition acceptance",
+    "No package installation, account action, deployment, staging, commit or push"
+  ]
+}

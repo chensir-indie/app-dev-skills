@@ -11,6 +11,10 @@ Read only the maintenance material relevant to the change:
 
 Discover entrypoints with `python3 scripts/list_skills.py`. Keep the flat `skills/<name>/SKILL.md` layout and each installed skill self-contained; root maintenance documents are not runtime dependencies.
 
-When adding, renaming, removing or changing a skill's scope, synchronize its frontmatter, `agents/openai.yaml`, both standalone READMEs, both root README entries, references, doctor and affected tests/workspace configuration. Inspect the working tree for old names; do not maintain a second hardcoded skill list.
+Maintain skill instructions, references and discovery metadata in English for international distribution; follow CONTRIBUTING.md for localized guides, original-language evidence and legal-notice exceptions. Preserve the user's requested artifact language.
 
-For executable validator changes, add a failure fixture that demonstrates the problem. Run focused checks during iteration and `npm run check` before delivering collection/tool changes. For instruction-only changes, check documentation and review relevant routing scenarios; use the [recorded scenarios](docs/skill-routing-evaluation-2026-10-20.md) as examples, not proof of model execution.
+For Codex development, maintain this checkout as the single source and expose `skills/` through one `~/.agents/skills/app-dev-skills` symlink. Installation guidance must preserve existing edits and avoid maintained copies in `~/.codex/skills`; compatibility symlinks may point to the same source when existing tools require them, with discovery checked for duplicates.
+
+For skill additions, renames, removals or scope changes, follow the [synchronization requirements](CONTRIBUTING.md#instructions-and-documentation). For every change, use the [verification table](CONTRIBUTING.md#verification); recorded routing scenarios are examples, not proof of model execution.
+
+When maintaining or applying iPhone Duo adaptation, read the [workspace-rule contract](skills/iphone-duo-adaptation/references/workspace-rules.md) and this checkout's [materialized rule ledger](docs/iphone-duo-adaptation/workspace-rules.md). Keep every catalog rule accounted for; record app-specific agreements separately in `project_conventions`, maintain decisions and evidence in JSON, and regenerate its Markdown. Keep the Duo Skill and generated rule prose in English. Rule materialization alone does not prove an app has implemented or verified them.

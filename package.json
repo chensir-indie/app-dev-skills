@@ -2,7 +2,7 @@
   "name": "app-dev-skills",
   "version": "1.0.0",
   "private": true,
-  "description": "Agent skills for editable app prototypes and localized store artwork",
+  "description": "Agent skills for competitor analysis, editable app prototypes, iPhone layout adaptation, localized store artwork and staged Fastlane app publication",
   "license": "MIT",
   "engines": { "node": ">=22" },
   "workspaces": ["skills/*"],
@@ -11,7 +11,7 @@
     "doctor": "sh scripts/doctor.sh",
     "check:docs": "python3 scripts/check_collection.py && npm run check:docs -w app-store-cover-generator",
     "test": "python3 -m unittest discover -s tests -p 'test_*.py' && npm test --workspaces",
-    "test:browser": "npm run test:browser --workspaces",
+    "test:browser": "node --test tests/*.browser.cjs && npm run test:browser --workspaces",
     "check": "npm run doctor && npm run check:docs && npm test && npm run test:browser",
     "demo": "npm run demo -w app-store-cover-generator"
   }

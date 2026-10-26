@@ -1,6 +1,6 @@
 # Image to Layered HTML Prototype
 
-[简体中文](README.zh-CN.md) · [Agent instructions](SKILL.md)
+[Simplified Chinese](README.zh-CN.md) · [Agent instructions](SKILL.md)
 
 Turn approved UI images into editable HTML/CSS/SVG. Use this skill to rebuild a screenshot, turn an imagegen concept into an interactive prototype, repair a visual mismatch, or keep multiple pages consistent through shared tokens. Text, controls, panels and subjects remain independent layers.
 
@@ -26,13 +26,28 @@ Choose faithful reconstruction, active refinement or review only. Approved refer
 
 ## Install and invoke
 
-The Skills CLI installer requires Node.js 22.20+ and npm (the toolkit itself requires Node.js 22+):
+For Codex, prefer the [collection installation](https://github.com/chensir-indie/app-dev-skills#1-connect-codex-to-one-source-checkout): one symlink exposes every skill from the source checkout. If the collection is already linked, this skill needs no additional installation. To expose only this skill, first clone the repository outside discovery directories and set its absolute path below:
+
+```sh
+APP_DEV_SKILLS_DIR="${HOME}/src/app-dev-skills"
+CODEX_SKILL_LINK="${HOME}/.agents/skills/image-to-layered-html-prototype"
+mkdir -p "$(dirname "$CODEX_SKILL_LINK")"
+if [ -e "$CODEX_SKILL_LINK" ] || [ -L "$CODEX_SKILL_LINK" ]; then
+  printf '%s\n' 'Existing skill entry: inspect it before changing it.'
+else
+  ln -s "$APP_DEV_SKILLS_DIR/skills/image-to-layered-html-prototype" "$CODEX_SKILL_LINK"
+fi
+```
+
+Compare existing `~/.agents/skills` and `~/.codex/skills` entries with the source, preserve local edits, and move superseded copies outside discovery directories before migration. Maintain and update the source checkout directly. Open a new Codex session if discovery has not refreshed, then check that this skill resolves to the source `SKILL.md` only once. Shell examples support macOS/Linux and WSL.
+
+For other agents or a separate scope, [Skills CLI](https://github.com/vercel-labs/skills) needs Node.js 22.20+ and npm (the toolkit itself requires Node.js 22+):
 
 ```sh
 npx skills@latest add chensir-indie/app-dev-skills --skill image-to-layered-html-prototype
 ```
 
-Then ask your agent:
+Choose an agent/scope that does not duplicate the Codex link and preserve local edits before updating. Then ask your agent:
 
 > Use $image-to-layered-html-prototype to rebuild these approved UI images as editable HTML. Extract shared tokens, verify the layers and interactions with real browser screenshots, and report each page's visual status.
 
@@ -42,7 +57,7 @@ For an existing page:
 
 An agent can follow the design workflow without running this toolkit. Image generation comes from the agent environment and is optional when approved references already exist. Generated assets cannot recover hidden source pixels reliably.
 
-For directions or prompts only, the workflow ends with those artifacts and needs no rendering setup. Marketing covers belong to `app-store-cover-generator`; competitor research can supply evidence for the design brief. Read a relevant skill when available before guiding that work; a separate skill installation is not a prerequisite for discussing the next step.
+For directions or prompts only, the workflow ends with those artifacts and needs no rendering setup. Marketing covers belong to `app-store-cover-generator`; evidence-based competitor decisions belong to `app-competitor-analysis`. Read the relevant skill when available before guiding that work; a separate skill installation is not a prerequisite for discussing the next step.
 
 ## Environment check and setup
 

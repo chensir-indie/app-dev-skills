@@ -1,0 +1,4 @@
+interface:
+  display_name: "iPhone Duo Adaptation"
+  short_description: "Adapt and optimize existing iOS apps for iPhone Duo"
+  default_prompt: "Use $iphone-duo-adaptation to help adapt and optimize this existing app for iPhone Duo. Analyze its whole layout, use its original design as the primary reference, recommend the smallest necessary Apple HIG adaptations, and demonstrate the improvements in a complete stateful HTML prototype with named Duo environments, actual reference-matched device exteriors, calibrated display geometry and original/adapted comparisons, using the appropriate BUILD WEB APPS workflow and actual browser evidence."

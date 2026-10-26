@@ -1,0 +1,32 @@
+/* Authored design specifications and task-specific UX review. */
+.design-study,.ux-review{margin:32px 0 42px;border-top:1px solid var(--line,#dedfd9);padding-top:28px}
+.reader-app :is(.design-study,.ux-review){scroll-margin-top:var(--anchor-offset)}
+.design-study>header{display:flex;align-items:flex-start;justify-content:space-between;gap:24px}
+.design-study h3,.ux-review h3{font-size:1.5rem;letter-spacing:-.03em;margin:0 0 12px}
+.design-study header p,.ux-goal{font-size:1.1875rem;line-height:1.6;max-width:48em;margin:0 0 20px}
+.design-download{flex:none;border:1px solid #cbd5ce;border-radius:8px;padding:10px 14px;color:#28664f;font-size:0.9375rem;font-weight:600;white-space:nowrap}
+.design-boundary{font-size:0.9375rem;color:#5a625c;line-height:1.65;margin:0 0 26px;max-width:66em}
+.design-regions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 32px}
+.design-regions article{padding:20px 0;border-top:1px solid #e4e6df;min-width:0}
+.design-regions h4,.ux-priorities h4,.ux-finding h4{font-size:1.0625rem;margin:0 0 12px;line-height:1.5}
+.design-regions ul{padding-left:20px;margin:0 0 12px;font-size:0.9375rem;line-height:1.8}
+.design-regions p,.ux-priorities p,.ux-finding p{font-size:1rem;line-height:1.75;margin:8px 0 12px}
+.design-citations{display:inline-flex;flex-wrap:wrap;gap:8px;font-size:0.8125rem;line-height:1.5;color:#526458}
+.design-citations a{padding:2px 0;min-height:28px}
+.design-evidence{margin:10px 0}.design-evidence summary{font-size:0.875rem;color:#526458;cursor:pointer;min-height:28px}.design-evidence .design-citations{padding:8px 0;overflow-wrap:anywhere}
+.design-rules{margin-top:16px;border-top:1px solid #dce0d7;padding:16px 0}
+.design-rules summary,.ux-finding summary{font-size:0.9375rem;min-height:32px;cursor:pointer;font-weight:600}
+.design-rules dl,.ux-finding dl{margin:20px 0}
+.design-rules dl>div,.ux-finding dl>div{display:grid;grid-template-columns:130px minmax(0,1fr);gap:16px;padding:14px 0;border-top:1px solid #e5e7e0}
+.design-rules dt,.ux-finding dt{font-size:0.875rem;font-weight:600}
+.design-rules dd,.ux-finding dd{margin:0;font-size:0.9375rem;line-height:1.8;overflow-wrap:anywhere}
+.design-state{display:block;font-size:0.8125rem;color:#69736b;margin:8px 0}
+.ux-priorities{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:28px;margin:20px 0 30px}
+.ux-priorities article{border-top:2px solid #c8d6cb;padding:18px 0}
+.ux-finding{border-left:3px solid #637f6b;padding:0 0 0 24px;margin:26px 0;max-width:66em}
+.ux-judgment{color:#36523f}.ux-finding details{margin-top:14px}
+@media(max-width:800px){.design-study>header{flex-direction:column;gap:4px}.design-download{margin-bottom:20px}.design-regions,.ux-priorities{grid-template-columns:1fr;gap:0}.design-rules dl>div,.ux-finding dl>div{grid-template-columns:1fr;gap:6px}.ux-finding{padding-left:16px}.design-study header p,.ux-goal{font-size:1.125rem}}
+@media print{.design-regions{grid-template-columns:repeat(2,minmax(0,1fr))}.design-rules>*,.ux-finding details>*{display:block!important}.design-download{border:0}}
+.chapter-title .design-download{margin-left:auto}.design-study>header{display:block}
+.capability-cluster>header{display:block}.capability-cluster>header h5{margin:0}
+@media(max-width:600px){.chapter-title:has(.design-download){flex-wrap:wrap;align-items:flex-start}.chapter-title .design-download{margin:0}}

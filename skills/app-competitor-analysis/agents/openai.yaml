@@ -1,0 +1,4 @@
+interface:
+  display_name: "App Competitor Analysis"
+  short_description: "Evidence-based app UI, UX, technology and product analysis"
+  default_prompt: "Use $app-competitor-analysis to analyze these competitors, acquire the core evidence needed for the decision, and record attempts and remaining gaps. Deliver a separate HTML report per product with capability trees, task flows, screen relationships, technical data flows and full analysis, plus a detailed per-product Design.md and task-based UX review. Include a cross-product index for multiple competitors and use a portable directory with shared local assets by default."

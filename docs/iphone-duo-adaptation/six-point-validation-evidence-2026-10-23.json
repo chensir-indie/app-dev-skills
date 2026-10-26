@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-23",
+  "scope": "Six-point Skill/rule supplement; not a product prototype or IMX runtime acceptance.",
+  "source": {
+    "head": "7b7ced4936748141801cb957a806dbd5df890334",
+    "dirty": true,
+    "tracked_scope_diff_sha256": "9b0929de003d198c7266bb3a068a407f37d48f3c12522810d2c431c482ddbc3d",
+    "note": "Pre-existing unrelated working-tree changes retained; HEAD alone does not identify these uncommitted rule/tool files."
+  },
+  "catalog": {
+    "sha256": "1815550791a104c58adf768858820f147eacb69be632ce3da46eb3087585ba14",
+    "general_rules": 60,
+    "sources": 27,
+    "project_conventions": 1,
+    "general_statuses": {
+      "pending": 40,
+      "deferred": 20
+    },
+    "project_statuses": {
+      "verified": 1
+    },
+    "completion_scope": "Only the collection-maintenance scope convention is verified; target-App implementation remains unverified."
+  },
+  "files": [
+    {
+      "path": "AGENTS.md",
+      "sha256": "09da2d0c8929fe77c80c889484bb5301732eb7a98a7841d60f9104ed9933e2f8"
+    },
+    {
+      "path": "README.md",
+      "sha256": "2cd4a63571805defd4c4295fb6cc4b0b86da18ae4f341c11dc1b6452a700c66c"
+    },
+    {
+      "path": "README.zh-CN.md",
+      "sha256": "9b10e6420d168fa299ffcb860b51561f83bd1f6a6a9bff9fe8ff7848d80ef1c6"
+    },
+    {
+      "path": "SCOPE.md",
+      "sha256": "0742dcdc71b09f5d836937508167e5451d2bb0cb83a88c1965a29575a61e7cc9"
+    },
+    {
+      "path": "docs/iphone-duo-adaptation/workspace-rules.json",
+      "sha256": "2b7fc48b28cf4f78f8729277fd7201a148b39597d1110e16187070161fa9a509"
+    },
+    {
+      "path": "docs/iphone-duo-adaptation/workspace-rules.md",
+      "sha256": "df230fbe03988212f0dd23e2a61f9c4d30d1cacc102aea9e2232e3e106d3b665"
+    },
+    {
+      "path": "docs/workflows.md",
+      "sha256": "572706bc20d919b2852f4064efcdf9fcdad82b18f693cbe6d910e06915c383ee"
+    },
+    {
+      "path": "docs/workflows.zh-CN.md",
+      "sha256": "b782d07cebdd25d25634c4d0ed5cb5ef39cab7585dcd6733f25633c514a63c02"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/LICENSE",
+      "sha256": "53108e860ec099610ab25b5c6181633fd950c8a18724eb57609046fe692666ab"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/README.md",
+      "sha256": "8ab3dc7bc26f40c42c125d9ddbaa56b9d182d3d861422e646baa00ac32361858"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/README.zh-CN.md",
+      "sha256": "c27f97e2da09a9628e4150d8f5bb97256b5a4395fcc10e190040b5d8ab515dba"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/SKILL.md",
+      "sha256": "3de41ae56f5c8fd3eafe09c6c5c5fac1e114088a16496956da7ca2647bf7d2d3"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/agents/openai.yaml",
+      "sha256": "f865e4f218173d442464058c0cc08ef5a3d3af72700a8a4b97a09e20571555d8"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/assets/official-rules.json",
+      "sha256": "1815550791a104c58adf768858820f147eacb69be632ce3da46eb3087585ba14"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/assets/project-conventions.imx.example.json",
+      "sha256": "4c9cdde5a8a16019898a21444601848e6f27cbb163aca571264133c1d316bfea"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/flutter-adaptation.md",
+      "sha256": "14f2277ccd7e5173f9dd258ecf0b4e3cdeee04ff3dc747b4fcba1ebf83946c80"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/html-prototype.md",
+      "sha256": "9ba3f06346f255a0c113ac0b738f976355172b3e615800ef2a774ea1571b954f"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/layout-analysis.md",
+      "sha256": "e7bd7951300917c6bc24475007f5e134fdc54e077abc7a2a17e4c2f96b3d8004"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/official-basis.md",
+      "sha256": "5f499dc53938376d177fee3ce5450fc03012488a022520e231caf80167250d6e"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/project-conventions.md",
+      "sha256": "43fa36f9afa5dce83c1f958e3cded57ad7c545ed5244247e9e5717f65bbad50e"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/validation.md",
+      "sha256": "28ade6c1ff2a84193992d13e9ea48b928a043917e0cbdc4dda286061d3819375"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/references/workspace-rules.md",
+      "sha256": "ca3e4b051a0ba58b7f52f88b81bada5571b69f0e211e3dfff29ba9bf0ffef439"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/scripts/doctor.sh",
+      "sha256": "5566ec36e92c642649a79a0a233d5c1e02913935816349c1cf3f16725712d236"
+    },
+    {
+      "path": "skills/iphone-duo-adaptation/scripts/workspace_rules.py",
+      "sha256": "51b5bab53f7cc581f83c06f3c286f726de3496c174a8060c87d48858d5ce575e"
+    },
+    {
+      "path": "tests/test_iphone_duo_adaptation.py",
+      "sha256": "71fab6b723a1468ca87c20850ad23a995831dbd492238f672b4954950a2fa849"
+    }
+  ],
+  "checks": [
+    {
+      "command": "python3 -m unittest discover -s tests -p test_iphone_duo_adaptation.py",
+      "exit_code": 0,
+      "tests": 36
+    },
+    {
+      "command": "sh skills/iphone-duo-adaptation/scripts/doctor.sh",
+      "exit_code": 0
+    },
+    {
+      "command": "skill-creator/scripts/quick_validate.py skills/iphone-duo-adaptation",
+      "exit_code": 0
+    },
+    {
+      "command": "npm run check:docs",
+      "exit_code": 0,
+      "scope": "metadata and documentation/local paths; external URLs and anchors not checked"
+    },
+    {
+      "command": "workspace_rules.py render/check --workspace .",
+      "exit_code": 0,
+      "scope": "structural traceability only; no --complete claim"
+    },
+    {
+      "command": "Codex app-server initialize + skills/list(cwds=[workspace], forceReload=true)",
+      "enabled_canonical_collection_entries": 4,
+      "duplicates": 0,
+      "errors": []
+    },
+    {
+      "command": "git diff --check",
+      "exit_code": 0
+    },
+    {
+      "command": "PLAYWRIGHT_CHANNEL=chrome npm run check",
+      "exit_code": 1,
+      "unit_checks_passed": 328,
+      "root_browser_passed": 8,
+      "root_browser_total": 9,
+      "failure": "Existing competitor portrait-card bottom at 1000px viewport: -95.96875px (tests/competitor_html.browser.cjs:69)",
+      "log_sha256": "c8c2c17a0aa60a6113c0b612eefff9ef10a6f1c0fdd346125939d7a43d7e47a3",
+      "log_location": "/tmp/duo-six-check-20261023.log"
+    }
+  ],
+  "exclusions": [
+    "This manifest and the narrative validation document are excluded from file hashes to avoid circular identity.",
+    "No app-source edit, product HTML delivery, native build, account operation, release, staging, commit or push was performed."
+  ]
+}

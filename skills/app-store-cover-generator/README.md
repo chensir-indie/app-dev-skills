@@ -1,6 +1,6 @@
 # App Store Cover Generator
 
-[简体中文](README.zh-CN.md) · [Agent instructions](SKILL.md)
+[Simplified Chinese](README.zh-CN.md) · [Agent instructions](SKILL.md)
 
 Turn real app screenshots and a visual reference into editable, localized App Store covers. The toolkit exports native-size PNGs across your locale/device/slide matrix, contact sheets, file hashes and review records.
 
@@ -18,31 +18,28 @@ This skill produces marketing covers. For a clickable reconstruction of an app s
 
 ## Install and invoke
 
-From the app project, use the [Skills CLI](https://github.com/vercel-labs/skills), which requires Node.js **22.20+** and npm/npx (the bundled toolkit itself requires Node 22+):
+For Codex, use the [collection installation](https://github.com/chensir-indie/app-dev-skills#1-connect-codex-to-one-source-checkout) to expose every skill from one source checkout. If that collection is already linked, this skill is ready without another installation. To expose only this skill, clone the repository outside skill discovery directories, set the variable to that clone's absolute path, then create a symlink:
+
+```sh
+APP_DEV_SKILLS_DIR="${HOME}/src/app-dev-skills"
+CODEX_SKILL_LINK="${HOME}/.agents/skills/app-store-cover-generator"
+mkdir -p "$(dirname "$CODEX_SKILL_LINK")"
+if [ -e "$CODEX_SKILL_LINK" ] || [ -L "$CODEX_SKILL_LINK" ]; then
+  printf '%s\n' 'Existing skill entry: inspect it before changing it.'
+else
+  ln -s "$APP_DEV_SKILLS_DIR/skills/app-store-cover-generator" "$CODEX_SKILL_LINK"
+fi
+```
+
+Before migration, compare existing entries in `~/.agents/skills` and `~/.codex/skills` with the source, preserve local edits, and move superseded copies outside discovery directories. Maintain and update the source checkout; Codex reads it directly. Open a new session if discovery has not refreshed, and check that the skill resolves to the source `SKILL.md` only once. Shell examples support macOS/Linux and WSL.
+
+For other agents or a separate installation scope, [Skills CLI](https://github.com/vercel-labs/skills) requires Node.js **22.20+** and npm/npx (the toolkit itself requires Node 22+):
 
 ```sh
 npx skills@latest add chensir-indie/app-dev-skills --skill app-store-cover-generator
-# Global Codex installation instead:
-npx skills@latest add chensir-indie/app-dev-skills --skill app-store-cover-generator -a codex -g
 ```
 
-Choose the intended agent/scope. Open a new agent session if the skill is not discovered. Update a CLI installation with `npx skills@latest update app-store-cover-generator`; preserve local edits before updating.
-
-<details>
-<summary>Manual installation (also works without npx)</summary>
-
-With Git available, clone into a new directory and copy only this skill into a destination that does not exist:
-
-```sh
-git clone https://github.com/chensir-indie/app-dev-skills.git
-mkdir -p ~/.codex/skills
-test ! -e ~/.codex/skills/app-store-cover-generator && \
-  cp -R app-dev-skills/skills/app-store-cover-generator ~/.codex/skills/
-```
-
-Keep one installation method per agent/scope. Update the source clone and intentionally refresh the individual skill after reviewing local changes.
-
-</details>
+Choose the intended agent/scope without duplicating the Codex link. Preserve local edits before using `npx skills@latest update app-store-cover-generator` on a CLI installation.
 
 Minimum input: app/feature claims, real captures (or an explicitly requested concept), a reference or design direction, target locales and device dimensions, and the stage you want completed. Example:
 

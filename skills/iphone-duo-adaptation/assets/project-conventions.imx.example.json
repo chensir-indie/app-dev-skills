@@ -1,0 +1,149 @@
+{
+  "schema_version": 1,
+  "project": "IMX",
+  "usage": "Project-convention example. Merge project_conventions with existing contracts only for IMX or when the user explicitly adopts the relevant entries. Do not import automatically into other apps. pending does not mean remediated, executed or accepted.",
+  "basis": "User-supplied IMX iPhone Duo Adaptation Rules v1.0 dated 2026-10-23 and its six accepted supplements. This is Skill-collection maintenance, not a fresh inspection of IMX source, interfaces or accounts.",
+  "project_conventions": [
+    {
+      "id": "PROJECT-IMX-LAYOUT-SCOPE-001",
+      "title": "Whole-app baseline and this round's chat scope",
+      "origin": "project_contract",
+      "basis": "IMX v1.0 §1 scope, §3 control ownership, §10 current gaps; supplement 1.",
+      "applies_when": "When the user requests IMX Duo layout analysis or subsequent adaptation without separately expanding the current scope.",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "statement": "Inventory whole-app page relationships, global destinations, navigation hierarchy, fixed/scroll regions, shared components and narrow/wide/low-height evidence first. Detailed remediation concerns the conversation list, chat detail and composer, including their relationship with global navigation, keyboard and system regions. Calendar, Apps and other modules remain reachable and retain existing contracts; global inventory does not automatically authorize their redesign.",
+      "parent_rule_ids": [
+        "WORKFLOW-BASELINE-001",
+        "HIG-LAYOUT-001",
+        "HIG-NAVIGATION-001"
+      ],
+      "status": "pending",
+      "reason": "This example has not yet been adopted and bound to current evidence in the actual IMX workspace.",
+      "decision": "",
+      "targets": [],
+      "evidence": []
+    },
+    {
+      "id": "PROJECT-IMX-HTML-SCOPE-001",
+      "title": "Complete chat-adaptation prototype and explicit narrow endpoints",
+      "origin": "user_instruction",
+      "basis": "User-required whole-app layout analysis → adaptation recommendations → complete HTML prototype; IMX v1.0 rules-only scope statement; supplement 2.",
+      "applies_when": "When the requested IMX adaptation task enters design and prototype delivery.",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "statement": "A normal adaptation request completes all three stages for every scoped page, task and key state in interactive HTML, with actual browser and visual review before separately requested product implementation. Analysis retains whole-app relationships; the prototype covers complete conversation-list, chat-detail, composer and relevant navigation/overlay paths. Preserve relationships to destinations not redesigned or identify coverage gaps. Stop at an explicitly requested rules-only, analysis-only or advice-only endpoint. Native-bridge/device investigations may proceed in parallel and do not precede independent HTML work.",
+      "parent_rule_ids": [
+        "WORKFLOW-HTML-001",
+        "WORKFLOW-BASELINE-001"
+      ],
+      "status": "pending",
+      "reason": "This example produces no IMX prototype and does not expand current Skill maintenance into app implementation.",
+      "decision": "",
+      "targets": [],
+      "evidence": []
+    },
+    {
+      "id": "PROJECT-IMX-MESSAGE-GEOMETRY-001",
+      "title": "Message geometry and existing reading semantics",
+      "origin": "project_contract",
+      "basis": "IMX v1.0 C01, C03, C06, V01 and existing Markdown contracts; supplement 3.",
+      "applies_when": "When the relevant message types are confirmed in IMX and this adaptation changes message panes or presentation.",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "statement": "Use current chat-pane width to define bubble/body reading maximums and wrapping, local horizontal scrolling, ratios and placeholders for existing long links, code, tables, quotes, media and attachments. When delayed media, prepended history and resizing overlap, preserve logical reading anchors by message ID/content location and retain existing follow-bottom, read/unread and Markdown semantics. Specify only confirmed content types; examples do not authorize new product capabilities.",
+      "parent_rule_ids": [
+        "CONTENT-LAYOUT-001",
+        "FLUTTER-STATE-001",
+        "PRODUCT-LAYOUT-001"
+      ],
+      "status": "pending",
+      "reason": "Actual IMX content types, rendering contracts and asynchronous scrolling have not been inspected.",
+      "decision": "",
+      "targets": [],
+      "evidence": []
+    },
+    {
+      "id": "PROJECT-IMX-REGION-MODEL-001",
+      "title": "A shared explicit region model for input and overlays",
+      "origin": "project_contract",
+      "basis": "IMX v1.0 L01–L04, C04–C05, §9 pending capabilities; supplement 4.",
+      "applies_when": "When defining design or implementation contracts for IMX system regions, safe areas, keyboard and pane/overlay ownership.",
+      "phases": [
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "statement": "Record kind/id/frame/isActive, owning-view coordinates, units and update timing for regions, plus consumption ownership for panes, composer and overlays. Normalize coordinates before separately handling safe areas, keyboard and reserved regions. Do not expand frames twice when margins are included, or infer regions from a fixed 84pt inset, screen centerline or fixed fold ratio. Label HTML assumptions. Empty displayFeatures does not establish absence of iOS regions; actual bridging has separate native verification.",
+      "parent_rule_ids": [
+        "REGION-MODEL-001",
+        "DUO-RESERVED-001",
+        "FLUTTER-FEATURES-001",
+        "NATIVE-REGION-001"
+      ],
+      "status": "pending",
+      "reason": "IMX native region paths, coordinate conversion and actual update evidence have not been checked.",
+      "decision": "",
+      "targets": [],
+      "evidence": []
+    },
+    {
+      "id": "PROJECT-IMX-ACCESSIBLE-TASKS-001",
+      "title": "Complete existing chat tasks with assistive input",
+      "origin": "project_contract",
+      "basis": "IMX v1.0 I03–I05, C02, C04–C06, V03; supplement 5.",
+      "applies_when": "When conversation selection, message reading, editing, sending and overlay closing are in adaptation scope.",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "statement": "Use assistive reading and keyboard operation to complete conversation selection → reading → editing → sending under existing conditions → overlay close/back. Distinguish text-input/IME focus, keyboard-navigation focus, assistive-reading focus and selected conversation. When a pane disappears or is destroyed, choose a reasonable visible fallback; restore a modal's trigger or reasonable successor on close. Tasks remain complete with Reduce Motion. Preserve account permissions, read-only/send validation, conversation draft lifecycles and Chinese IME composition contracts. Record actual HTML DOM/keyboard/available-assistive-tool evidence; verify Flutter VoiceOver/Full Keyboard Access separately in native builds.",
+      "parent_rule_ids": [
+        "HIG-ACCESSIBILITY-001",
+        "HIG-ACCESSIBILITY-004",
+        "HIG-ACCESSIBILITY-005",
+        "FLUTTER-STATE-001"
+      ],
+      "status": "pending",
+      "reason": "This example has not executed actual IMX assistive tasks, sending or account operations.",
+      "decision": "",
+      "targets": [],
+      "evidence": []
+    },
+    {
+      "id": "PROJECT-IMX-EVIDENCE-001",
+      "title": "IMX acceptance bound to rules and exact artifacts",
+      "origin": "project_contract",
+      "basis": "IMX v1.0 §11 acceptance matrix, §12 later stages and rules-only scope statement; supplement 6.",
+      "applies_when": "When registering rules in IMX, delivering HTML or performing separately requested product implementation/acceptance.",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "statement": "Trace every rule to current evidence, decisions, Design/HTML/source locations and actual checks, with pass/fail/unverified/not-applicable states and reasons. Bind commit, uncommitted diff location/hash, date, environment and final HTML/resource identity. For product implementation also record app version/build, Flutter/Dart, Xcode/linked SDK, OS/device and runtime mode. Enter new pages through production navigation in integration_test; add Profile/Release smoke and applicable device checks for affected hardware paths. Keep demo entries, fixtures, HTML and actual account/app evidence separate. Defining rules does not establish interface remediation.",
+      "parent_rule_ids": [
+        "WORKFLOW-TRACEABILITY-001",
+        "NATIVE-VALIDATION-001"
+      ],
+      "status": "pending",
+      "reason": "This example has no IMX artifact, build or runtime acceptance evidence.",
+      "decision": "",
+      "targets": [],
+      "evidence": []
+    }
+  ]
+}

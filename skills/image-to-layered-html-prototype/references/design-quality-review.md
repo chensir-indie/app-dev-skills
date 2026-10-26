@@ -1,67 +1,67 @@
-# 设计质量评审与改进
+# Design quality review and improvement
 
-用于设计探索、用户要求的改进，以及重建后的实际页面评审。先在现有项目记录中写清工作意图：忠实复刻、主动优化或仅评审；这些是工作分支，不是新增 manifest 枚举。只读本次适用的章节，不为局部修复建立全套设计报告。
+Use for design exploration, requested improvements and review of actual reconstructed pages. Record the intent in the existing project record first: faithful reconstruction, active refinement or review only. These are workflow branches, not new manifest enum values. Read the applicable sections without producing a full design report for a local repair.
 
-## 1. 确定设计依据
+## 1. Establish the design basis
 
-先读项目已有设计规范、页面、组件和用户已选参考，再补一份简短的设计说明，沿用现有文件，不另立冲突的 DESIGN.md：
+Read existing project standards, pages, components and chosen references, then add a short design brief to existing files rather than creating a conflicting DESIGN.md:
 
-- 谁在什么场景完成什么任务；页面唯一的主要操作及成功反馈。
-- 必须保留的内容、品牌特征、导航与数据；允许调整的区域。
-- 视觉主角、阅读顺序、内容密度、留白策略与可观察的风格特征。
-- 主设计系统、适用平台、字体/图标来源、共享 tokens 和必要页面变体。
-- 验证的页面、状态、语言和视口；当前参考与源码身份。
+- Who completes which task in what context; the page's single primary action and success feedback.
+- Content, brand features, navigation and data to preserve; areas open to change.
+- Visual subject, reading order, density, whitespace strategy and observable style features.
+- Primary design system, target platform, font/icon provenance, shared tokens and necessary page variants.
+- Pages, states, languages and viewports to verify; current reference and source identity.
 
-“高级感”必须转成可检查的决定，例如“标题先于装饰进入视线，主操作和次操作有不同强调，正文不压在高频纹理上”。保留产品特征，不用统一的玻璃、渐变、大圆角、巨大标题或卡片堆叠代替设计判断；参考确实使用这些效果时准确实现，不反向套用禁用风格清单。
+Translate “premium” into inspectable decisions, such as “the heading is noticed before decoration, primary and secondary actions have different emphasis, and body text avoids busy texture.” Preserve product character. Uniform glass, gradients, large radii, giant headings or stacked cards do not replace design judgment; reproduce these accurately when the reference actually uses them rather than applying a reverse blacklist of styles.
 
-选主规范时按 [来源与适用边界](design-sources.md) 判断。项目已有规范优先；从零开始时，Apple 平台考虑 HIG，Android 考虑 Material，复杂 Web 业务考虑 Carbon 或 Ant Design。Flutter 是实现技术，不自动决定视觉风格。多平台共用品牌与语义 tokens，平台组件差异明确记录；不把几套组件外观随机拼接。
+Choose the primary standard using [sources and applicability](design-sources.md). Existing project standards come first. When starting from scratch, consider HIG for Apple, Material for Android, and Carbon or Ant Design for complex Web business interfaces. Flutter is an implementation technology, not an automatic visual-style choice. Share brand and semantic tokens across platforms and record component differences; do not randomly combine several component skins.
 
-忠实复刻中，认可图决定可见几何和样式；指南用于发现问题与补齐未知状态，不能覆盖已锁定的背板、字号、布局或选中态。若原图与可访问性冲突，分别记录还原结果和产品修订建议，不声称二者同时通过。用户已授权优化时，直接在该范围改稿和复核，不新增逐项审批；涉及明确要求保留的设计，保留原版并说明冲突。
+In faithful reconstruction, approved images determine visible geometry and styling. Guidelines identify issues and fill unknown states; they do not override frozen backplates, font sizes, layout or selected states. If the reference conflicts with accessibility, record fidelity results and proposed product revisions separately rather than claiming both pass. When improvement is authorized, edit and review within that scope without additional item-by-item approval. Preserve the original and explain conflicts with explicitly retained design requirements.
 
-## 2. 先诊断，再按影响顺序修复
+## 2. Diagnose first, then repair by impact
 
-查看实际产物：生成阶段看输出图；HTML 阶段打开页面、触发主要状态并截图。读 CSS 或描述图像不能替代看页面。先列最影响任务或观感的 3–5 个问题，按阻断操作、破坏层级/还原、局部细节排序；局部问题少于三项时按实际数量。只评审时交付问题、依据与建议后停止，不改文件。
+Inspect the actual artifact: generated images during generation; open pages, trigger primary states and capture them during HTML work. Reading CSS or describing an image cannot replace viewing the page. List the 3–5 issues with the greatest task/visual impact, ordered by blocked actions, broken hierarchy/fidelity and local detail. Use the actual number if fewer than three local issues exist. For review only, deliver issues, evidence and recommendations, then stop without editing.
 
-每项问题包含：页面/状态、截图或 ROI、相关 selector/源码位置（可获取时）、具体观察、用户影响、建议改法、验证方式。区分可测错误与审美判断，不使用没有依据的总分。
+Each issue includes page/state, screenshot or ROI, relevant selector/source location when available, concrete observation, user impact, proposed change and verification method. Distinguish measurable errors from aesthetic judgment; avoid unsupported overall scores.
 
-| 轮次 | 看什么 | 改什么与怎样验证 |
+| Pass | Inspect | Change and verify |
 | --- | --- | --- |
-| 层级与任务 | 第一眼看到什么、阅读顺序、主次操作、信息分组 | 优先处理竞争焦点、重复内容、模糊操作；缩略图看结构，全尺寸读内容，实际走主流程 |
-| 布局与比例 | 对齐锚点、组内/组间距离、主图可见面积、留白、滚动与安全区 | 改共享网格/间距或具体组件，不逐页堆补丁；复刻时按源图测量，不强制取整到任意间距尺度 |
-| 排版与颜色 | 字形、CJK fallback、字重、行高、折行、标题/正文层级、合成背景 | 先确认字体实际加载再调字号；以文字基线和可见字形对照，不只比 CSS 数字；检查真实内容与对比 |
-| 图标、形状与材质 | 同一图标家族、线宽、光学大小、各角轮廓、光照、阴影、遮挡 | 还原 SVG 路径和透明边界，校准主体与背板独立层；隐藏每层检查是否重复烘焙效果 |
-| 状态与适配 | selected/pressed/focus/disabled、长文本、空/错/加载、窄屏和键盘 | 按下节实际触发，修共享组件后复核所有消费者；无参考状态注明设计推导 |
-| 最后打磨 | 数字对齐、截断、描边、图标基线、滚动边缘、反馈时序 | 保存同环境前后截图，检查改善与回退；布局未稳定时不先做装饰动效 |
+| Hierarchy and task | First impression, reading order, primary/secondary actions and information groups | Address competing focal points, duplication and unclear actions first. Use thumbnails for structure, native size for content and an actual primary-flow walkthrough |
+| Layout and proportion | Alignment anchors, within/between-group spacing, main-image visible area, whitespace, scrolling and safe areas | Change shared grids/spacing or specific components rather than accumulating page patches. Measure the source for reconstruction instead of forcing values to an arbitrary spacing scale |
+| Typography and color | Glyphs, CJK fallback, weight, line height, wrapping, heading/body hierarchy and composited backgrounds | Verify fonts really load before changing size. Compare baselines and visible glyphs, not only CSS values; inspect actual content and contrast |
+| Icons, shapes and materials | Icon family, stroke, optical size, individual corners, lighting, shadows and occlusion | Restore SVG paths and alpha boundaries, calibrate subject/backplate as separate layers, and hide layers to detect duplicated baked-in effects |
+| States and adaptation | selected/pressed/focus/disabled, long copy, empty/error/loading, narrow layouts and keyboard | Trigger applicable cases below, check all consumers after shared-component repairs, and label designed/inferred states without references |
+| Final polish | Numeric alignment, truncation, borders, icon baselines, scroll edges and feedback timing | Save same-environment before/after captures and check improvements/regressions. Stabilize layout before decorative motion |
 
-每轮修改一个问题类别。复刻分支继续使用 [visual-convergence](visual-convergence.md) 的冻结阈值；主动优化分支用设计说明和前后证据判断改善，不用“与旧稿差异更小”衡量新设计。相同问题两轮无改善就重新判断字体、素材或结构原因，避免继续加效果。
+Change one issue category per iteration. Reconstruction continues using [visual-convergence](visual-convergence.md)'s frozen limits. Active refinement uses the design brief and before/after evidence; similarity to the old draft is not the measure of new-design quality. Reconsider font, asset or structure causes after two iterations without improvement rather than adding more effects.
 
-## 3. 完整性与 Web 质量
+## 3. Completeness and Web quality
 
-范围随页面实际功能选择：没有表单不凭空增加表单测试，没有暗色模式不扩展产品范围。对不适用项记录原因；未检查项保持未检查，不能计为通过。
+Select scope from actual page functionality: do not invent form tests when there is no form or add a dark mode outside product scope. Record reasons for not-applicable checks; untested items remain untested, not passed.
 
-- 内容：真实标题、中文/拉丁文混排、长名称、空内容、数量变化；支持相应语言时测试 RTL。选择换行、截断或展开时保证关键信息可获取，不靠缩小全局字体掩盖溢出。
-- 状态：加载、空、错误与重试、成功、禁用；选中态与按下态分别验证。弹层关闭后焦点和滚动位置合理恢复，导航能返回。
-- 输入：使用原生语义按钮/链接/标签，图标按钮有可访问名称；键盘能完成主要流程，焦点可见且不被固定底栏遮挡。不要给原生按钮额外重复绑定键盘点击。
-- 可读性：文字与实际合成背景核对；Web 文字对比按 WCAG 1.4.3，普通文字通常至少 4.5:1、大字 3:1，具体定义与例外见来源。渐变/图片背景检查最不利区域，不只抽一个像素。数值通过后仍目视检查细字。
-- 适配：基准视口先通过，再看窄/宽屏、文字放大和滚动；Web 检查 200% 文字缩放，检查适用的 320 CSS px 回流要求。固定像素参考稿不等于响应式产品已通过。
-- 点击：可见图形与 hit area 分开；Web WCAG 2.5.8 是 24 × 24 CSS px 或其规定例外，不是所有平台统一的 44 px。原生目标尺寸按目标平台现行指南；不能混用 pt、dp、CSS px。扩大点击区域不能重叠相邻操作。
-- 动效与资源：尊重减少动态效果偏好，反馈可中断；只加帮助理解状态的动效。图片预留布局空间；字体/图片加载后再截图，并实测加载过程是否跳动，不把性能优化选择写成所有页面通用处方。
+- Content: actual headings, mixed Chinese/Latin text, long names, empty content and varying counts; test RTL when supported. Wrapping, truncation or expansion must keep important information available; do not hide overflow by shrinking the global font.
+- States: loading, empty, error/retry, success and disabled. Check selected and pressed separately. Restore reasonable focus/scroll after closing dialogs and support back navigation.
+- Input: native semantic buttons, links and labels; accessible names on icon buttons. Complete the main flow with a keyboard, with visible focus unobscured by fixed bottom bars. Do not duplicate keyboard click handling on native buttons.
+- Readability: compare text against its actual composited background. Under Web WCAG 1.4.3, normal text generally needs 4.5:1 and large text 3:1; read definitions/exceptions in the source. Test the worst region of gradients/images rather than one sampled pixel. Inspect thin text visually even after numeric checks pass.
+- Adaptation: pass the baseline viewport first, then narrow/wide widths, text enlargement and scrolling. For Web, check 200% text scaling and applicable 320 CSS px reflow. A fixed-pixel reference does not establish responsive-product acceptance.
+- Targets: separate visible graphics from hit areas. Web WCAG 2.5.8 uses 24 × 24 CSS px or its specified exceptions, not a universal 44 px across platforms. Native targets follow current platform guidance; do not mix pt, dp and CSS px. Expanded hit areas must not overlap adjacent actions.
+- Motion and resources: respect reduced motion and allow interruption of feedback. Add motion only when it explains state. Reserve image space; capture after fonts/images load and observe actual layout shifts. Do not turn one performance choice into a prescription for every page.
 
-这些是重点检查，不等于完整 WCAG 合规审计。Web 代码审查可借助 Vercel 指南，但其风格建议与特定技术选择须按项目取舍；不要为“遵循指南”引入无关框架或改掉锁定文案。
+These focused checks are not a complete WCAG compliance audit. Vercel guidance may aid Web review, but choose style and technical recommendations in project context. Do not introduce unrelated frameworks or change locked copy merely to follow guidance.
 
-## 4. 证据与完成条件
+## 4. Evidence and completion
 
-沿用现有 `evidence/` 与验收记录；必要时补一个简短的 `design-review.md`，不用建立第二套机器 schema。记录格式：
+Reuse existing `evidence/` and acceptance records; add a short `design-review.md` if needed instead of a second machine schema. Record:
 
 ```text
-范围与意图：页面/状态；复刻 / 优化 / 仅评审
-依据：项目规范、主设计系统、参考路径与 SHA、允许改变的范围
-问题：编号；优先级；观察；任务影响；截图/ROI；selector 或 file:line
-修改：改动与理由；关联 token/组件；影响的其他页面
-复核：源码/素材身份；前后截图；浏览器/视口/DPR；触发的交互；实测结果
-结论：保留或回退；未完成项；下一步
+Scope and intent: page/state; reconstruction / refinement / review only
+Basis: project standard, primary design system, reference path/SHA, allowed changes
+Issue: id; priority; observation; task impact; screenshot/ROI; selector or file:line
+Change: modification/reason; related token/component; affected other pages
+Verification: source/asset identity; before/after images; browser/viewport/DPR; interactions; observed results
+Decision: retain or revert; unfinished checks; next action
 ```
 
-查看同视口、同状态的前后图：原生尺寸看字形和控件，缩略图看主次关系，局部放大看边缘与遮挡。缩略图只辅助层级判断，不能替代可读性或点击测试。每条“已改善”都指向观察，截图更新后同步记录对应源码/素材哈希。
+Inspect before/after images at the same viewport/state: native size for glyphs and controls, thumbnails for hierarchy, and enlarged crops for edges/occlusion. Thumbnails aid hierarchy only, not readability or target testing. Every improvement claim points to an observation; refreshed captures require corresponding source/asset hashes.
 
-分别报告：设计质量、参考还原、交互/适配的检查范围。仅评审不声称已修复；主动优化无认可参考时不声称一比一通过；完整重建仍须通过 [acceptance](acceptance.md) 的脚本和人工复核。重建中发现的设计建议单列，不自动改基准。只要求优化已有 HTML 时不强迫走 imagegen；要求新设计后完整重建时，保留旧参考，将选定新稿及采用依据另存并冻结，再走测量闭环，不能用新稿覆盖旧验收失败。
+Report design quality, reference fidelity and interaction/adaptation scope separately. Review-only does not claim fixes; refinement without an approved reference does not claim one-to-one acceptance. Full reconstruction still passes [acceptance](acceptance.md)'s scripts and manual review. List reconstruction-time design suggestions separately rather than changing the baseline automatically. Improving existing HTML does not require imagegen. When a new design followed by full reconstruction is requested, preserve the old reference, save and freeze the chosen new draft and its rationale separately, then measure and close the loop; do not overwrite old acceptance failures with a new draft.

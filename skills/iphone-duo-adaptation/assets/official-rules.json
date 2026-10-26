@@ -1,0 +1,1498 @@
+{
+  "schema_version": 1,
+  "checked_at": "2026-10-26",
+  "sources": [
+    {
+      "id": "APPLE-HIG-LAYOUT",
+      "title": "Apple HIG: Layout",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/layout",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-HIG-TABS",
+      "title": "Apple HIG: Tab bars",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/tab-bars",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-HIG-TOOLBARS",
+      "title": "Apple HIG: Toolbars",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/toolbars",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-HIG-TYPOGRAPHY",
+      "title": "Apple HIG: Typography",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/typography",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-HIG-ACCESSIBILITY",
+      "title": "Apple HIG: Accessibility",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/accessibility",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-DUO-PREPARE",
+      "title": "Apple: Prepare for iPhone Duo",
+      "url": "https://developer.apple.com/iphone-duo/prepare/",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "APPLE-HIG-DUO",
+      "title": "Apple HIG: Designing for iPhone Duo",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-HIG-DUO-MARKDOWN",
+      "title": "Apple HIG: Designing for iPhone Duo, Markdown",
+      "url": "https://developer.apple.com/design/human-interface-guidelines/designing-for-iphone-duo.md",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-DUO-BARS-TALK",
+      "title": "Apple Tech Talk: Raise the bar with iPhone Duo",
+      "url": "https://developer.apple.com/videos/play/tech-talks/111462/",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "APPLE-XCODE-APP-RESIZABILITY",
+      "title": "Apple App Resizability Skill; local export of 10 Skills verified with Xcode 27.1 (27A9275) on 2026-10-23, retrieval documented by Prepare for iPhone Duo",
+      "url": "https://developer.apple.com/iphone-duo/prepare/",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-ADAPTIVE-APPROACH",
+      "title": "Flutter: Adaptive approach",
+      "url": "https://docs.flutter.dev/ui/adaptive-responsive/general",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-ADAPTIVE-BEST-PRACTICES",
+      "title": "Flutter: Adaptive best practices",
+      "url": "https://docs.flutter.dev/ui/adaptive-responsive/best-practices",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-MEDIAQUERY",
+      "title": "Flutter API: MediaQuery",
+      "url": "https://api.flutter.dev/flutter/widgets/MediaQuery-class.html",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-SAFEAREA",
+      "title": "Flutter API: SafeArea",
+      "url": "https://api.flutter.dev/flutter/widgets/SafeArea-class.html",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-VIEWINSETS",
+      "title": "Flutter API: MediaQueryData.viewInsets",
+      "url": "https://api.flutter.dev/flutter/widgets/MediaQueryData/viewInsets.html",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-DISPLAYFEATURES",
+      "title": "Flutter API: MediaQueryData.displayFeatures",
+      "url": "https://api.flutter.dev/flutter/widgets/MediaQueryData/displayFeatures.html",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-DISPLAYFEATURE-SUBSCREEN",
+      "title": "Flutter API: DisplayFeatureSubScreen",
+      "url": "https://api.flutter.dev/flutter/widgets/DisplayFeatureSubScreen-class.html",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-SHOWDIALOG",
+      "title": "Flutter API: showDialog",
+      "url": "https://api.flutter.dev/flutter/material/showDialog.html",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-RESERVEDREGION",
+      "title": "Apple UIKit: UIView.ReservedRegion; own-view coordinate space in points, active state, kinds and margins",
+      "url": "https://developer.apple.com/documentation/uikit/uiview/reservedregion",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-RESERVEDREGION-FRAME",
+      "title": "Apple UIKit: UIView.ReservedRegion.frame; frame already includes margins",
+      "url": "https://developer.apple.com/documentation/uikit/uiview/reservedregion/frame",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-BUILD-MODES",
+      "title": "Flutter: Build modes; Debug, Profile and Release are distinct runtime configurations",
+      "url": "https://docs.flutter.dev/testing/build-modes",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "FLUTTER-INTEGRATION-TESTS",
+      "title": "Flutter: Check app functionality with an integration test; test tooling, not this collection's mandatory new-page policy",
+      "url": "https://docs.flutter.dev/testing/integration-tests",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "SKILL-LAYOUT-CONTRACT",
+      "title": "Collection workflow policy: whole-app layout baseline; not an Apple requirement",
+      "url": "../references/layout-analysis.md",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "SKILL-HTML-CONTRACT",
+      "title": "Collection workflow policy: complete HTML-prototype delivery gate; not an Apple requirement",
+      "url": "../references/html-prototype.md",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "SKILL-WORKSPACE-CONTRACT",
+      "title": "Collection workflow policy: per-rule ledger and general/project boundaries; not an Apple requirement",
+      "url": "../references/workspace-rules.md",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "SKILL-FLUTTER-CONTRACT",
+      "title": "Collection engineering policy: Flutter rich-content and region-model implementation; not an Apple/Flutter-prescribed implementation",
+      "url": "../references/flutter-adaptation.md",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "SKILL-VALIDATION-CONTRACT",
+      "title": "Collection/workspace validation policy: build identity, production-navigation integration, runtime modes and device acceptance; not an Apple-prescribed gate",
+      "url": "../references/validation.md",
+      "checked_at": "2026-10-23"
+    },
+    {
+      "id": "APPLE-DUO-TECHNOLOGY",
+      "title": "Apple: Preparing your app for iPhone Duo; SwiftUI and UIKit reserved-region entry points",
+      "url": "https://developer.apple.com/documentation/technologyoverviews/preparing-your-app-for-iphone-duo",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "APPLE-SWIFTUI-RESERVEDREGION",
+      "title": "Apple SwiftUI: ReservedRegion; occlusion and division, view coordinates in points, frame includes margins",
+      "url": "https://developer.apple.com/documentation/swiftui/reservedregion",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "RN-WINDOW",
+      "title": "React Native: useWindowDimensions; updates width, height, scale and fontScale with the window",
+      "url": "https://reactnative.dev/docs/usewindowdimensions",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "RN-SAFEAREAVIEW",
+      "title": "React Native: SafeAreaView; iOS 11 or later, padding styles on the component are ignored",
+      "url": "https://reactnative.dev/docs/safeareaview",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "RN-KEYBOARD",
+      "title": "React Native: KeyboardAvoidingView; behavior differs by platform and does not replace safe-area insets",
+      "url": "https://reactnative.dev/docs/keyboardavoidingview",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "EXPO-SAFE-AREA",
+      "title": "Expo: Safe areas; react-native-safe-area-context insets exclude the software keyboard",
+      "url": "https://docs.expo.dev/develop/user-interface/safe-areas/",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "MDN-ENV",
+      "title": "MDN: CSS env(); safe-area-inset-* values used by viewport-fit content",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/CSS/env",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "MDN-VIEWPORT",
+      "title": "MDN: viewport meta; viewport-fit=cover is required before env(safe-area-inset-*) can describe the display",
+      "url": "https://developer.mozilla.org/en-US/docs/Web/HTML/Reference/Elements/meta/name/viewport",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "SKILL-FRAMEWORKS",
+      "title": "Collection workflow policy: identify the iOS UI framework before applying its contract; not an Apple requirement",
+      "url": "../references/frameworks.md",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "SKILL-APPLE-FRAMEWORKS",
+      "title": "Collection engineering policy: SwiftUI/UIKit dimensions, safe areas and region queries; not an Apple-prescribed implementation",
+      "url": "../references/apple-frameworks.md",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "SKILL-RN",
+      "title": "Collection engineering policy: React Native windows, safe areas and keyboard; not a React Native-prescribed implementation",
+      "url": "../references/react-native.md",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "SKILL-WEBVIEW",
+      "title": "Collection engineering policy: separate WKWebView pages from native shells; not an implementation prescribed by shell vendors",
+      "url": "../references/webview-shells.md",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "SKILL-BUILDER-CONTRACT",
+      "title": "Collection workflow policy: preferred BUILD WEB APPS handoff and local HTML acceptance; not an Apple requirement",
+      "url": "../references/build-web-apps.md",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "APPLE-DUO-DESIGN-TALK",
+      "title": "Apple Tech Talk: Design for iPhone Duo; named poses, outside-edge controls and freely resizable layouts",
+      "url": "https://developer.apple.com/videos/play/tech-talks/111466/",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "SKILL-MIGRATION-CONTRACT",
+      "title": "Collection contract: original-design authority, minimal migration and named-pose review",
+      "url": "../references/migration-review.md",
+      "checked_at": "2026-10-26"
+    },
+    {
+      "id": "SKILL-DEVICE-PRESENTATION",
+      "title": "Collection contract: source-calibrated actual device exterior, display geometry and device-focused review; not official hardware specifications",
+      "url": "../references/device-presentation.md",
+      "checked_at": "2026-10-26"
+    }
+  ],
+  "rules": [
+    {
+      "id": "WORKFLOW-SOURCES-001",
+      "title": "Recheck sources for the target toolchain",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When adapting a target product using the source snapshots in this catalog.",
+      "statement": "This catalog contains general guidance maintained since 2026-10-23 and mainstream iOS UI-framework routing checked on 2026-10-26. Recheck current material relevant to the target framework during execution; distinguish source-check dates from actual product-validation dates.",
+      "workspace_action": "Record cited URLs, check dates, the target toolchain and changes from these snapshots in the workspace source register. Explicitly mark material that could not be rechecked.",
+      "verification": "Review the register for dates and the target environment, and compare conclusions with sources actually read. A date alone does not establish correctness.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE",
+        "APPLE-HIG-DUO",
+        "FLUTTER-ADAPTIVE-APPROACH",
+        "SKILL-FRAMEWORKS"
+      ]
+    },
+    {
+      "id": "WORKFLOW-BASIS-001",
+      "title": "Apply iPhone HIG before Duo-specific guidance",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When analyzing an existing app or designing its adapted prototype.",
+      "statement": "Analyze the whole app using general iPhone HIG, then apply Duo-specific guidance to dynamic changes. Follow whole-app layout analysis → adaptation recommendations → complete HTML prototype. This delivery order is collection workflow policy. SDK and native-export guidance supports parallel feasibility investigation or later implementation acceptance when needed.",
+      "workspace_action": "Cover hierarchy, navigation, typography and accessibility in the layout matrix first; add Duo transitions and native implementation conditions for relevant pages in Design.md.",
+      "verification": "Check that each page recommendation traces to current evidence and HIG, and that unrelated native SDK or export prerequisites have not blocked prototype work.",
+      "source_ids": [
+        "APPLE-HIG-LAYOUT",
+        "APPLE-HIG-DUO",
+        "APPLE-DUO-PREPARE",
+        "SKILL-HTML-CONTRACT"
+      ]
+    },
+    {
+      "id": "HIG-LAYOUT-001",
+      "title": "Preserve whole-app layout hierarchy and continuity",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "All in-scope pages and shared layout components.",
+      "statement": "Analyze and adjust information hierarchy, alignment, margins and use of available space. Preserve understandable layout continuity when space changes.",
+      "workspace_action": "Record current layouts and cross-page issues in the page matrix. Define shared layout rules in Design.md and apply them to the corresponding HTML components.",
+      "verification": "Inspect hierarchy, alignment, spacing and reflow in narrow, wide and low-height browser viewports, preserving actual interface evidence.",
+      "source_ids": [
+        "APPLE-HIG-LAYOUT"
+      ]
+    },
+    {
+      "id": "HIG-NAVIGATION-001",
+      "title": "Separate top-level destinations from content actions",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When an app has top-level navigation, a tab bar, toolbars or content actions.",
+      "statement": "Top-level destination navigation and actions on current content have different responsibilities and should be organized at their respective levels.",
+      "workspace_action": "Identify each entry as a destination or action in the navigation inventory, and repair shared navigation components that mix these roles in Design.md and HTML.",
+      "verification": "Walk through top-level entries and content actions in narrow and wide layouts, checking consistent roles, visible placement and results.",
+      "source_ids": [
+        "APPLE-HIG-TABS",
+        "APPLE-HIG-TOOLBARS"
+      ]
+    },
+    {
+      "id": "HIG-NAVIGATION-002",
+      "title": "Keep back and close behavior stable",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When pages, subordinate levels or temporary overlays offer back or close behavior.",
+      "statement": "Back and close must remain discoverable and operable after layout changes, maintaining an understandable navigation relationship.",
+      "workspace_action": "Record back, close and destination states in the page relationship map and Design.md; implement them in every corresponding HTML page and overlay.",
+      "verification": "Enter each page or overlay, change the available space, then use back or close and verify the visible result.",
+      "source_ids": [
+        "APPLE-HIG-TABS",
+        "APPLE-HIG-TOOLBARS"
+      ]
+    },
+    {
+      "id": "HIG-TOOLBARS-001",
+      "title": "Organize action groups and overflow",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When a page has multiple content actions or limited toolbar space.",
+      "statement": "Group actions by relationship and priority, and define clear overflow behavior when available space is insufficient.",
+      "workspace_action": "Record action groups, priorities and overflow rules in the action inventory; use the same rules for Design.md, HTML toolbars and menus.",
+      "verification": "Check primary-action reachability, grouping and meaningful results from overflow-menu actions at different available widths and heights.",
+      "source_ids": [
+        "APPLE-HIG-TOOLBARS"
+      ]
+    },
+    {
+      "id": "HIG-TYPOGRAPHY-001",
+      "title": "Reflow and retain content at larger text sizes",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "All text content, labels and interactive components containing text.",
+      "statement": "Establish a readable typographic hierarchy. Reflow or reduce columns at larger text sizes to preserve complete content rather than fixing text size to retain the original layout.",
+      "workspace_action": "Record the text hierarchy and large-text variants in Design.md. Add corresponding HTML reflow or column reduction and identify later native Dynamic Type checks.",
+      "verification": "Actually enlarge browser text or use the prototype large-text control. Check content completeness, reading order, reachable controls and reflow; browser results do not replace native acceptance.",
+      "source_ids": [
+        "APPLE-HIG-TYPOGRAPHY"
+      ]
+    },
+    {
+      "id": "HIG-ACCESSIBILITY-001",
+      "title": "Express accessible semantics",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "Page content, navigation and interactive controls.",
+      "statement": "Layouts and controls should express clear accessible semantics; HTML uses equivalents that can be verified in the browser.",
+      "workspace_action": "Record names, roles and states in component rules. Use appropriate semantic elements, accessible names and states in HTML. Collapsed or hidden panes and their controls must leave reading and focus order together.",
+      "verification": "Inspect the browser accessibility tree and keyboard or assistive-technology reading order before and after hiding panes, recording actual results. DOM attributes alone do not establish task completion with assistive technology or iOS VoiceOver acceptance.",
+      "source_ids": [
+        "APPLE-HIG-ACCESSIBILITY"
+      ]
+    },
+    {
+      "id": "HIG-ACCESSIBILITY-002",
+      "title": "Check contrast",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "Text, icons, controls and their visible states.",
+      "statement": "Adapted colors and hierarchy must maintain accessible contrast, using browser-checkable equivalents in HTML.",
+      "workspace_action": "Record foreground, background and state colors in shared visual rules, and repair the corresponding HTML components.",
+      "verification": "Measure contrast in the actual rendered colors and record the selected acceptance standard. Also review readability manually after material, layering and state changes.",
+      "source_ids": [
+        "APPLE-HIG-ACCESSIBILITY"
+      ]
+    },
+    {
+      "id": "HIG-ACCESSIBILITY-003",
+      "title": "Provide sufficient hit areas",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "Clickable, touchable or draggable components.",
+      "statement": "Interactive components need sufficient hit areas. Record the product acceptance dimensions separately and distinguish them from current HIG default and minimum values.",
+      "workspace_action": "Record hit areas and spacing in Design.md component specifications. Repair HTML interaction bounds and link the chosen product touch-target criterion.",
+      "verification": "Measure actual browser interaction bounds, inspect adjacent-target conflicts and operate the controls. Browser measurements are not native touch certification.",
+      "source_ids": [
+        "APPLE-HIG-ACCESSIBILITY"
+      ]
+    },
+    {
+      "id": "HIG-ACCESSIBILITY-004",
+      "title": "Honor Reduce Motion preferences",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When layout, navigation or content-state changes are animated.",
+      "statement": "Provide appropriate equivalent interaction under reduced-motion preferences, with HTML behavior verifiable in the browser.",
+      "workspace_action": "Define reduced-motion behavior in component-state rules and implement the media query or equivalent control in HTML. Include fold/unfold models, resizing, pane changes, overlays and scrolling while retaining understandable task outcomes and location cues.",
+      "verification": "Enable reduced motion in the browser, complete primary tasks and change dimensions or panes. Record reflow, animation changes, state continuity and usability. Verify actual native system-preference behavior separately during implementation.",
+      "source_ids": [
+        "APPLE-HIG-ACCESSIBILITY"
+      ]
+    },
+    {
+      "id": "HIG-ACCESSIBILITY-005",
+      "title": "Complete primary tasks with different input methods",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When the prototype includes interaction and input flows.",
+      "statement": "Adaptation must consider input methods and their accessibility. HTML implements equivalent interactions that the browser can verify.",
+      "workspace_action": "Define input, reading, actions and outcomes around the current app's primary tasks. Manage text-input/IME focus, keyboard-navigation focus and assistive-reading focus separately. Record their initial positions, order, visibility, fallback when a pane change removes a target, and entry/return targets for overlays. HTML implements browser-verifiable equivalents; native acceptance records VoiceOver and Full Keyboard Access.",
+      "verification": "Use keyboard and available browser assistive technology to complete primary tasks, enter and close overlays, and collapse panes during a task. Verify visible outcomes and each focus type separately. Use target-iOS VoiceOver and Full Keyboard Access for independent native acceptance only during native implementation; browser keyboard operation or input focus cannot substitute for assistive-reading focus or native evidence.",
+      "source_ids": [
+        "APPLE-HIG-ACCESSIBILITY",
+        "SKILL-VALIDATION-CONTRACT"
+      ]
+    },
+    {
+      "id": "PRODUCT-TOUCH-001",
+      "title": "Identify a 44-unit touch-target criterion as a product choice",
+      "kind": "product_choice",
+      "phases": [
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When the product adopts at least 44×44 logical design units for common prototype touch targets; otherwise record the chosen criterion and reason.",
+      "statement": "44×44 logical design units can be a product acceptance criterion. The HIG iOS/iPadOS table on the check date distinguishes a 44pt default from a 28pt minimum; do not describe 44pt as the absolute official minimum for every current context.",
+      "workspace_action": "Record the selected touch-target criterion, units, basis and exceptions in Design.md and apply it in HTML. Keep product choices separate from official guidance.",
+      "verification": "Review the source table and wording, then measure whether HTML interaction areas meet this product's chosen criterion.",
+      "source_ids": [
+        "APPLE-HIG-ACCESSIBILITY"
+      ]
+    },
+    {
+      "id": "ENGINEERING-UNITS-001",
+      "title": "Distinguish the HTML unit model from native measurement",
+      "kind": "engineering_constraint",
+      "phases": [
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When mapping or checking CSS pixels, logical design units or native points.",
+      "statement": "The relationship between CSS pixels and physical device points is a prototype model. Browser measurements cannot certify native capabilities or dimensions.",
+      "workspace_action": "State the HTML unit model in Design.md and validation records; separate browser results from later native measurements.",
+      "verification": "Check that prototype review tools and acceptance wording identify the model. Without native evidence, make no native certification claim; HTML may pass within its browser model. Check separate target-device evidence only when native implementation or acceptance is requested and a native conclusion is asserted.",
+      "source_ids": [
+        "APPLE-HIG-ACCESSIBILITY",
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "SDK-CAPABILITY-001",
+      "title": "Identify compatibility layouts for SDK 26 and earlier",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and the target app links the iOS 26 SDK or earlier. HTML work may retain this as a later native item.",
+      "statement": "The Prepare documentation on the check date describes compatibility layouts for this SDK tier. Do not claim the full dynamic-display behavior of later SDKs for this tier.",
+      "workspace_action": "Record the actual linked SDK, compatibility-layout impact and later implementation conditions in the capability matrix. The prototype may show a target design if its model status is clear.",
+      "verification": "Compare target-build SDK evidence with the relevant official documentation. For native work, observe actual layout in that build and target runtime.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "SDK-CAPABILITY-002",
+      "title": "Identify the dynamic-area limits of SDK 27",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and the target app links the iOS 27 SDK but has not adopted SDK 27.1 or later. HTML work may retain this as a later native item.",
+      "statement": "The Prepare documentation on the check date describes dynamic expansion with SDK 27 while still avoiding the right-side status-bar area.",
+      "workspace_action": "Record the available-area boundary for this SDK tier in the capability matrix. Separate the prototype target design from actual capabilities of that native build.",
+      "verification": "Check the linked SDK and source. During native acceptance, inspect actual window and status-bar areas in the relevant postures.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "SDK-CAPABILITY-003",
+      "title": "Identify the capabilities of SDK 27.1 and later",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and the target app links iOS SDK 27.1 or later. HTML work may retain this as a later native item.",
+      "statement": "The Prepare documentation on the check date describes further use of the full display area and native bar adaptation at this tier. This does not automatically establish Flutter custom-component capability.",
+      "workspace_action": "Record implementation responsibilities and pending checks separately for display area, native bars and Flutter custom bars in the capability matrix.",
+      "verification": "Check the linked SDK and actual native containers, then independently observe window areas and each bar category in native runtime.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "SDK-IDENTITY-001",
+      "title": "Check the native build's linked SDK and minimum deployment version",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and the target build's SDK capabilities or OS support range must be checked. HTML work does not require effective build settings.",
+      "statement": "The linked SDK and minimum deployment version are separate facts; neither determines the other.",
+      "workspace_action": "Record the linked SDK, minimum deployment version and evidence locations separately in the capability matrix. Point implementation advice to the relevant fields.",
+      "verification": "Inspect effective target-build settings and build evidence, checking that recommendations do not conflate the two versions.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "LAYOUT-WINDOW-001",
+      "title": "Lay out from the current view or window space",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When pages or shared components choose a layout based on space.",
+      "statement": "Use current view/window dimensions rather than fixed screen dimensions, orientation or device type to determine layout.",
+      "workspace_action": "Identify fixed-screen, orientation and device-type assumptions in the baseline. Define available-space rules in Design.md and respond to container dimensions in HTML.",
+      "verification": "Continuously change available HTML width and height, checking that layout follows the current container. Check actual view/window data separately only when native implementation or acceptance is requested.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "NATIVE-FLUTTER-001",
+      "title": "Distinguish native-bar guidance from Flutter custom-bar capability",
+      "kind": "engineering_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When analysis or recommendations concern Flutter custom bars, or when explaining Apple's automatic native-bar adaptation. A Flutter repository is not required for HTML work.",
+      "statement": "Apple's description of automatic native-bar adaptation does not establish that Flutter custom bars change automatically.",
+      "workspace_action": "Distinguish known native containers from Flutter custom bars in shared-component or capability notes. Record unknown component origins and native adaptation status; HTML shows the design only.",
+      "verification": "Review recommendations and prototype notes for accidental guarantees about Flutter custom bars. Without native evidence, retain unknown status and later checks; running Flutter is not required to finish HTML.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE",
+        "APPLE-DUO-BARS-TALK"
+      ]
+    },
+    {
+      "id": "DUO-CONTINUITY-001",
+      "title": "Preserve functions and state across displays",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the app folds, unfolds, changes display area or moves between available spaces.",
+      "statement": "Continue providing app functions across displays and preserve task state so layout changes do not interrupt the user's work.",
+      "workspace_action": "Record affected state and continuity rules in the state inventory and Design.md. Keep key task state across HTML space changes and register native acceptance items.",
+      "verification": "Change available space during primary HTML tasks, checking function reachability and recorded state. Independently validate actual display transitions only when native implementation or acceptance is requested.",
+      "source_ids": [
+        "APPLE-HIG-DUO",
+        "APPLE-HIG-DUO-MARKDOWN"
+      ]
+    },
+    {
+      "id": "DUO-HIERARCHY-001",
+      "title": "Expand hierarchy with space and control content movement",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When space changes affect navigation hierarchy, parallel content or content position.",
+      "statement": "Expand suitable hierarchy as space permits and control content movement to maintain understandable continuity. Choose the specific structure for the current app.",
+      "workspace_action": "Document hierarchy, retained elements and moved elements for each space in the layout matrix. Implement the decisions as HTML layout variants.",
+      "verification": "Compare content relationships and positions before and after space changes. Walk through core tasks and check that the current content remains locatable.",
+      "source_ids": [
+        "APPLE-HIG-DUO",
+        "APPLE-HIG-DUO-MARKDOWN"
+      ]
+    },
+    {
+      "id": "DUO-RESERVED-001",
+      "title": "Handle partially folded regions from actual data",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the target posture has a system reserved region or the prototype needs to simulate one.",
+      "statement": "For partial folding, arrange content by the system reserved-region kind and active state. A fixed occlusion is not present in every posture. UIKit ReservedRegion.frame uses coordinates of the queried view, in points, and already includes margins; consumers must not add them again.",
+      "workspace_action": "Record region sources, kinds, applicable postures and unknowns in the region matrix. Label the source or assumption for HTML simulation, document the model under REGION-MODEL-001, and apply appropriate avoidance or partitioning rules to custom components.",
+      "verification": "Check content and action reachability and model labeling with and without an HTML region. Check actual region data and runtime evidence only when native implementation or acceptance is requested and a platform-capability conclusion is asserted.",
+      "source_ids": [
+        "APPLE-HIG-DUO",
+        "APPLE-HIG-DUO-MARKDOWN",
+        "APPLE-RESERVEDREGION",
+        "APPLE-RESERVEDREGION-FRAME"
+      ]
+    },
+    {
+      "id": "DUO-CUSTOM-001",
+      "title": "Include custom components in adaptation",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the app uses custom navigation, tools, overlays or other custom-rendered components.",
+      "statement": "Duo adaptation also covers custom components; system-component behavior does not establish their adaptation.",
+      "workspace_action": "Inventory every relevant custom component in the shared-component matrix. Unify layout variants, region handling and state rules, reusing HTML components to apply them.",
+      "verification": "Check each HTML component in narrow, wide, low-height and relevant region models. Check actual custom-rendered components separately only when native implementation or acceptance is requested.",
+      "source_ids": [
+        "APPLE-HIG-DUO",
+        "APPLE-HIG-DUO-MARKDOWN"
+      ]
+    },
+    {
+      "id": "NATIVE-BARS-001",
+      "title": "Respect bar coordination in native navigation containers",
+      "kind": "apple_guidance",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and the target uses SwiftUI or UIKit navigation containers and SDKs to which the talk applies.",
+      "statement": "Native navigation containers coordinate bars. Check actual container and SDK applicability before selecting an implementation.",
+      "workspace_action": "Record native containers, SDK conditions and bar coordination in the capability matrix. Keep API changes within the authorized native implementation task.",
+      "verification": "Check container and SDK documentation, then observe coordinated bars in the target native build. Similar HTML arrangement remains a design model.",
+      "source_ids": [
+        "APPLE-DUO-BARS-TALK"
+      ]
+    },
+    {
+      "id": "NATIVE-BARS-002",
+      "title": "Limit horizontal/side-bar posture rules to their native context",
+      "kind": "apple_guidance",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and Duo bar-posture changes must be checked for applicable native containers and SDKs.",
+      "statement": "The talk's native bars are horizontal in inner portrait and use side bars in other relevant postures. This is not a general rule that all controls become vertical.",
+      "workspace_action": "Identify the corresponding containers, postures and bar changes in Design.md or the native capability matrix. Record the design rationale for Flutter and HTML placement separately.",
+      "verification": "Compare the talk with the target native containers in applicable postures, checking that bar guidance has not been expanded into a rule to turn all controls vertical.",
+      "source_ids": [
+        "APPLE-DUO-BARS-TALK"
+      ]
+    },
+    {
+      "id": "NATIVE-BARS-003",
+      "title": "Provide icons and titles to the system",
+      "kind": "apple_guidance",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and applicable native-bar APIs let the system choose presentation.",
+      "statement": "Provide icons and titles for native-bar actions so the system can choose presentation in applicable containers and SDKs.",
+      "workspace_action": "Record each action's icon and title in the action inventory and supply them in native implementation. HTML may illustrate equivalent design states.",
+      "verification": "Check action metadata and native presentation, ensuring actions remain identifiable across spaces. HTML attributes do not prove native API behavior.",
+      "source_ids": [
+        "APPLE-DUO-BARS-TALK"
+      ]
+    },
+    {
+      "id": "NATIVE-BARS-004",
+      "title": "Retain action groups and priorities when bars adapt",
+      "kind": "apple_guidance",
+      "phases": [
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When actions are rearranged as available space or bar shape changes. Native API behavior remains subject to container and SDK conditions.",
+      "statement": "Retain action grouping and priorities during rearrangement so primary and related actions remain understandable.",
+      "workspace_action": "Record shared cross-layout action groups and priorities in Design.md. HTML and later native implementation use the same action inventory.",
+      "verification": "Compare action grouping, priority and reachability across HTML variants. Run target-container checks separately only when native implementation or acceptance is requested.",
+      "source_ids": [
+        "APPLE-DUO-BARS-TALK",
+        "APPLE-HIG-TOOLBARS"
+      ]
+    },
+    {
+      "id": "NATIVE-INPUT-001",
+      "title": "Keep input accessories attached to the keyboard",
+      "kind": "apple_guidance",
+      "phases": [
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the app or prototype includes input accessories. HTML uses an explicitly labeled equivalent model; actual native behavior is checked only when requested and applicable container/SDK conditions are met.",
+      "statement": "The talk keeps input accessories with the keyboard. Design a coherent relationship between input, accessories and available content area.",
+      "workspace_action": "Record keyboard/accessory relationships in the input-state matrix and Design.md. Implement a labeled keyboard model in HTML and register actual keyboard acceptance for native work.",
+      "verification": "Check labeled HTML keyboard-model transitions, accessory relationships and input reachability. Validate real keyboard, accessory and dynamic-region behavior only in separately requested native implementation or acceptance.",
+      "source_ids": [
+        "APPLE-DUO-BARS-TALK"
+      ]
+    },
+    {
+      "id": "NATIVE-API-001",
+      "title": "Do not present SwiftUI or UIKit APIs as Dart APIs",
+      "kind": "engineering_constraint",
+      "phases": [
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When applying the native-bar talk to Flutter or HTML technical/design explanations.",
+      "statement": "The talk's APIs have native-container and SDK constraints. Establish Flutter or platform-bridge feasibility separately rather than copying native APIs into purported Dart APIs.",
+      "workspace_action": "Distinguish native capabilities, existing Flutter contracts, possible bridge needs and unknowns in technical notes. The prototype must not claim unverified Dart APIs are available.",
+      "verification": "Check platform ownership, container and SDK conditions against cited documentation. If the target Flutter repository is unavailable, retain concrete feasibility for later native verification without blocking HTML.",
+      "source_ids": [
+        "APPLE-DUO-BARS-TALK"
+      ]
+    },
+    {
+      "id": "NATIVE-RESIZABILITY-001",
+      "title": "Apply App Resizability checks within the native-code scope",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested, target Swift or Objective-C code needs review, and an Xcode-exported app-resizability/SKILL.md has been obtained. Otherwise retain the native-instruction gap.",
+      "statement": "Read the exported Skill and task-specific adjacent references. Check screen, orientation, idiom, scene lifecycle and asymmetric dynamic safe areas. Its bulk native-migration workflow does not automatically broaden a user-limited Flutter task.",
+      "workspace_action": "Record these five categories and evidence separately in the engineering checklist. Limit code-migration items to the user-authorized scope.",
+      "verification": "Check the exported entry and task references actually read, the code/build evidence for each category and task boundaries. Register a gap if the files were not obtained.",
+      "source_ids": [
+        "APPLE-XCODE-APP-RESIZABILITY"
+      ]
+    },
+    {
+      "id": "WORKFLOW-EXPORT-001",
+      "title": "Respect copyright boundaries for Apple exports",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When referring to or obtaining the Apple Skill supplied by local Xcode.",
+      "statement": "This repository does not copy or relicense Apple's exported Skill text. Preserve official links and actual task conclusions instead.",
+      "workspace_action": "Record native source locations, citations and necessary task conclusions only. Keep Apple's export at its retrieval location rather than treating it as relicensable prototype or Skill assets.",
+      "verification": "Review generated files and package contents for copied Apple Skill/reference text. Keep citations and task-conclusion provenance traceable.",
+      "source_ids": [
+        "APPLE-XCODE-APP-RESIZABILITY"
+      ]
+    },
+    {
+      "id": "WORKFLOW-EXPORT-002",
+      "title": "Optionally re-export using local command help",
+      "kind": "workflow_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested, the Apple Skill genuinely needs retrieval, and the local command is available. It is not an HTML-prototype prerequisite.",
+      "statement": "An actual export on 2026-10-23 with Xcode 27.1 (27A9275) produced 10 Skills. Before retrieving again, inspect xcodebuild -version, xcrun agent skills export --help and the destination, then use export --output-dir according to local help. Historical success does not establish availability on another machine or prescribe a fixed output count.",
+      "workspace_action": "Record local versions, command availability, export destination and actual results in the toolchain record. Select a destination outside the workspace when appropriate.",
+      "verification": "Inspect actual command output, destination state and generated results. Separate historical observations from evidence of this operation.",
+      "source_ids": [
+        "APPLE-XCODE-APP-RESIZABILITY",
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "WORKFLOW-EXPORT-003",
+      "title": "Select the native Skill from actual export contents",
+      "kind": "workflow_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and an Xcode export has produced material to read for that task.",
+      "statement": "The output may contain several Skills. Read the actual app-resizability/SKILL.md and its task references. Do not install the whole export directory into discovery or replace this Flutter workflow with it.",
+      "workspace_action": "Record the actual app-resizability entry and references read in the source register. Preserve the Flutter workflow entry and existing discovery configuration.",
+      "verification": "Check recorded paths against the actual export structure, confirming this task did not install an entire export directory or replace the Flutter Skill.",
+      "source_ids": [
+        "APPLE-XCODE-APP-RESIZABILITY"
+      ]
+    },
+    {
+      "id": "WORKFLOW-EXPORT-004",
+      "title": "Continue layout and HTML without a native export",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When Xcode Skill export is unavailable on the current machine or native instructions have not been obtained.",
+      "statement": "Whole-app layout analysis, recommendations and an HTML prototype can still be completed from official online sources. Record that native instructions were not obtained.",
+      "workspace_action": "Record export unavailability in validation/capability gaps and continue the layout matrix, Design.md and interactive HTML.",
+      "verification": "Check the missing item is explicit and has neither stopped independent design delivery early nor been misrepresented as native acceptance.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE",
+        "APPLE-HIG-DUO"
+      ]
+    },
+    {
+      "id": "NATIVE-CONFIG-001",
+      "title": "Check effective native configuration",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and target native configuration or its final behavior needs investigation.",
+      "statement": "Inspect target plist, xcconfig and effective build settings; a single source file cannot establish final behavior.",
+      "workspace_action": "Record target configuration files, inheritance and effective settings separately in the capability matrix, linking conclusions to evidence.",
+      "verification": "Cross-check target plist, xcconfig and effective settings. Add actual target-build runtime evidence when implementing native changes.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE",
+        "APPLE-XCODE-APP-RESIZABILITY"
+      ]
+    },
+    {
+      "id": "NATIVE-CONFIG-002",
+      "title": "Migrate scene and other native configuration in project context",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when native implementation or acceptance is requested and scene, launch-screen, orientation or full-screen configuration needs change.",
+      "statement": "Follow the target project and current official migration guidance, assessing each change. Generically deleting every restriction is not verification.",
+      "workspace_action": "Record current configuration, source, rationale and acceptance for each item in the native implementation plan. Execute only with product-implementation authorization.",
+      "verification": "Review each change for project-specific and official migration support, then verify the result in an effective build.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE",
+        "APPLE-XCODE-APP-RESIZABILITY"
+      ]
+    },
+    {
+      "id": "FLUTTER-CONTENT-001",
+      "title": "Separate shared content from presentation",
+      "kind": "flutter_contract",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the target UI framework is Flutter and the same task or content appears in different spatial layouts.",
+      "statement": "Distinguish shared content from presentation so adaptation variants use consistent content and task state.",
+      "workspace_action": "Identify content/presentation coupling in the baseline. Define shared content and layout variants in Design.md, reusing content and state models in HTML.",
+      "verification": "Check content consistency and current task/data state after changing HTML layout. Inspect actual state ownership separately only when Flutter app implementation or acceptance is requested.",
+      "source_ids": [
+        "FLUTTER-ADAPTIVE-APPROACH"
+      ]
+    },
+    {
+      "id": "FLUTTER-SPACE-001",
+      "title": "Use available view or local-layout space",
+      "kind": "flutter_contract",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When a Flutter page or local component chooses an adaptive layout; HTML shows equivalent design behavior.",
+      "statement": "Choose layout from current view or local available space using measurements appropriate to the actual layout owner.",
+      "workspace_action": "Record whether the view or local constraints own layout in the component matrix. Define corresponding responsive behavior for Design.md and HTML containers.",
+      "verification": "Change HTML whole-page and local-container dimensions independently and check responses. Check actual constraint/query sources separately only when Flutter app implementation or acceptance is requested.",
+      "source_ids": [
+        "FLUTTER-ADAPTIVE-APPROACH"
+      ]
+    },
+    {
+      "id": "FLUTTER-SPACE-002",
+      "title": "Do not substitute orientation or hardware type for space",
+      "kind": "flutter_contract",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the target UI framework is Flutter and existing layout chooses structure by orientation, device name or hardware type.",
+      "statement": "Orientation or hardware type cannot replace actual available-space decisions.",
+      "workspace_action": "Identify these conditions and affected pages in the baseline matrix. Explain the adaptation using available-space rules and implement them in HTML.",
+      "verification": "Test different widths, heights and local spaces in the same orientation, confirming layout does not merely follow device labels or orientation.",
+      "source_ids": [
+        "FLUTTER-ADAPTIVE-BEST-PRACTICES"
+      ]
+    },
+    {
+      "id": "FLUTTER-STATE-001",
+      "title": "Preserve list and app state",
+      "kind": "flutter_contract",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the target UI framework is Flutter and rebuilds, pane changes or resizing may lose list or app state.",
+      "statement": "Adaptive layout must preserve list state and app state.",
+      "workspace_action": "Record ownership and retention rules in the state matrix. For asynchronous content or history pagination, link CONTENT-LAYOUT-001 reading anchors and the project's existing follow-bottom policy. Preserve this state across HTML resizing and register Flutter acceptance items.",
+      "verification": "Resize during HTML list operations and primary tasks, checking defined list and app state. Check actual rebuild behavior separately only when Flutter app implementation or acceptance is requested.",
+      "source_ids": [
+        "FLUTTER-ADAPTIVE-BEST-PRACTICES"
+      ]
+    },
+    {
+      "id": "FLUTTER-MEDIAQUERY-001",
+      "title": "Honor current-view and property-rebuild contracts",
+      "kind": "flutter_contract",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when Flutter app implementation or acceptance is requested and actual layout/rebuild behavior of MediaQuery.sizeOf or similar queries needs inspection.",
+      "statement": "MediaQuery.sizeOf and related queries depend on the current view and rebuild for relevant property changes. Select and consume queries according to actual needs.",
+      "workspace_action": "Record query locations, consumed properties, owning views and rebuild behavior in the Flutter checklist, linking layout advice to these data sources.",
+      "verification": "Check target-version Flutter documentation and actual code, then observe components as properties change. HTML layout cannot verify Flutter's rebuild contract.",
+      "source_ids": [
+        "FLUTTER-MEDIAQUERY"
+      ]
+    },
+    {
+      "id": "FLUTTER-INSETS-001",
+      "title": "Handle system intrusions and keyboard obstruction separately",
+      "kind": "flutter_contract",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the target UI framework is Flutter and system regions or the keyboard affect content, input or overlays.",
+      "statement": "Handle system intrusions and keyboard obstruction separately; SafeArea and viewInsets have distinct responsibilities.",
+      "workspace_action": "Record system-intrusion and keyboard rules separately in region/input matrices. Simulate them independently in HTML; native Flutter implementation consumes actual contractual data.",
+      "verification": "Change the HTML system-region and keyboard models separately and check reachable input/actions. Check actual region and keyboard data separately only when Flutter app implementation or acceptance is requested.",
+      "source_ids": [
+        "FLUTTER-SAFEAREA",
+        "FLUTTER-VIEWINSETS"
+      ]
+    },
+    {
+      "id": "FLUTTER-INSETS-002",
+      "title": "Account for SafeArea adjusting descendant padding",
+      "kind": "flutter_contract",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when Flutter app implementation or acceptance is requested and actual components nest SafeArea or read padding in its subtree.",
+      "statement": "SafeArea adjusts descendant padding; do not treat a parent query as identical data for every descendant.",
+      "workspace_action": "Record SafeArea levels and inner/outer data reads in the shared-component checklist, explaining corresponding region-consumption responsibilities.",
+      "verification": "Inspect the component tree and target Flutter contract. Compare runtime padding and layout at relevant levels to find duplicate or missing avoidance.",
+      "source_ids": [
+        "FLUTTER-SAFEAREA"
+      ]
+    },
+    {
+      "id": "FLUTTER-FEATURES-001",
+      "title": "Do not infer iOS data from Android displayFeatures",
+      "kind": "flutter_contract",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When recommendations or HTML region models discuss the relationship between Duo iOS reserved regions and Flutter displayFeatures.",
+      "statement": "Documentation on the check date says displayFeatures is populated only on Android. That contract does not guarantee that Duo iOS reserved regions reach Flutter.",
+      "workspace_action": "Record iOS data status and evidence gaps in the capability matrix. Label assumptions in HTML region models and define later native data-verification or bridge-investigation tasks.",
+      "verification": "Recheck cited Flutter documentation and wording. Do not infer iOS capability from the Android contract, API presence or an empty list. Without target runtime data, retain unknown status; HTML may complete a labeled region model.",
+      "source_ids": [
+        "FLUTTER-DISPLAYFEATURES"
+      ]
+    },
+    {
+      "id": "FLUTTER-FEATURES-002",
+      "title": "Use anchor-selected subregions with valid display features",
+      "kind": "flutter_contract",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when Flutter app implementation or acceptance is requested, the target actually provides applicable display features, and DisplayFeatureSubScreen or showDialog anchor selection is used.",
+      "statement": "An anchor may choose a suitable subregion. The mechanism's existence does not establish that iOS provides applicable display-feature data.",
+      "workspace_action": "Record data prerequisites, anchor sources, target subregions and no-data behavior in overlay/platform capability matrices.",
+      "verification": "Check anchors and subregion selection on a target with actual feature data, recording iOS data verification separately. API availability is not data verification.",
+      "source_ids": [
+        "FLUTTER-DISPLAYFEATURE-SUBSCREEN",
+        "FLUTTER-SHOWDIALOG",
+        "FLUTTER-DISPLAYFEATURES"
+      ]
+    },
+    {
+      "id": "PRODUCT-LAYOUT-001",
+      "title": "Explain and test specific layout choices",
+      "kind": "product_choice",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When selecting two columns, a navigation rail, pixel breakpoints, a fixed center gap or another concrete layout strategy.",
+      "statement": "The listed guidance does not require every product to use two columns, a particular rail, pixel breakpoint or fixed center-gap width. These are engineering or product decisions; additional space alone does not authorize redesigning a working original page.",
+      "workspace_action": "For each selected strategy, record a project ID, current evidence, applicability, rationale and test plan in separate project conventions and Design.md. Link general-rule IDs and implement corresponding HTML components/variants. Keep business behavior, thresholds and current scope at project level.",
+      "verification": "Check the design against current app tasks in relevant spaces. Record browser results and unverified native conditions, ensuring product choices are not labeled official mandates.",
+      "source_ids": [
+        "APPLE-HIG-DUO",
+        "FLUTTER-ADAPTIVE-APPROACH",
+        "FLUTTER-ADAPTIVE-BEST-PRACTICES",
+        "SKILL-WORKSPACE-CONTRACT"
+      ]
+    },
+    {
+      "id": "SDK-BOUNDARY-001",
+      "title": "Separate SDK knowledge from target-build facts",
+      "kind": "engineering_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When recommendations or prototype notes mention SDK tiers, minimum deployment versions or unknown native implementation conditions.",
+      "statement": "The linked SDK differs from the minimum deployment version. This catalog's SDK tiers are knowledge from official sources; without target-build evidence, they do not identify the app's tier or establish its capabilities.",
+      "workspace_action": "Separate source knowledge, known target versions and unknown conditions in design/capability notes. HTML promises a design model only. Retain SDK-CAPABILITY-001/002/003 and SDK-IDENTITY-001 build checks for later native work.",
+      "verification": "Review version terminology and capability claims for knowledge/evidence separation. Without a native repository, Xcode or effective build settings, complete this boundary review by recording explicit unknowns and later native checks.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "NATIVE-BARS-BOUNDARY-001",
+      "title": "Limit native-bar guidance to its applicable design context",
+      "kind": "engineering_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When deriving Flutter or HTML layout recommendations from the native-bar talk.",
+      "statement": "Container coordination, horizontal bars in inner portrait, side bars in other relevant postures, and system selection of icons/titles depend on native containers and SDKs. They do not require every Flutter or HTML control to become vertical.",
+      "workspace_action": "Identify cited native-bar knowledge and its limits in Design.md. Record app-specific evidence and design choices for actual Flutter/HTML arrangement separately; retain native-presentation checks in NATIVE-BARS-001/002/003.",
+      "verification": "Review recommendations and actual HTML for native knowledge misrepresented as a universal control-layout mandate. This boundary review does not require running native containers.",
+      "source_ids": [
+        "APPLE-DUO-BARS-TALK"
+      ]
+    },
+    {
+      "id": "NATIVE-FLUTTER-002",
+      "title": "Measure Flutter custom bars in the target build",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when Flutter app implementation or acceptance is requested and the target includes Flutter custom navigation bars, toolbars or other custom bars.",
+      "statement": "Automatic native-bar adaptation cannot replace verification of Flutter custom bars. Check their states across spaces based on actual component origins.",
+      "workspace_action": "Confirm component origins, implementation responsibilities and layout states in the native-component matrix. Record acceptance evidence from the relevant Flutter build and link NATIVE-FLUTTER-001 capability boundaries.",
+      "verification": "Observe actual custom bars across spaces in the target Flutter build, checking action reachability and layout. HTML work may retain this as a later native check.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE",
+        "APPLE-DUO-BARS-TALK"
+      ]
+    },
+    {
+      "id": "NATIVE-EVIDENCE-001",
+      "title": "Do not infer final native behavior from one configuration file",
+      "kind": "engineering_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When baseline analysis or recommendations make engineering conclusions about plist, xcconfig, scenes, launch screens, orientation or full-screen settings.",
+      "statement": "A single source configuration does not establish final native behavior. Configuration conclusions require the target project, effective settings and current official migration guidance. Generically deleting all restrictions is not verification.",
+      "workspace_action": "Separate configuration observations, engineering inferences and verified facts in capability notes. Without target project/build evidence, record unknowns and retain effective-setting checks/migration for NATIVE-CONFIG-001/002.",
+      "verification": "Review evidence labels and scope of engineering conclusions. Do not present a single-file observation or generic deletion advice as a verified result; HTML work does not require a native project/build.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE",
+        "APPLE-XCODE-APP-RESIZABILITY"
+      ]
+    },
+    {
+      "id": "NATIVE-API-002",
+      "title": "Verify actual API paths during native work",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when Flutter app implementation or acceptance is requested and native-bar capabilities must become Flutter or platform-bridge code.",
+      "statement": "SwiftUI/UIKit APIs cannot be copied directly as Dart APIs. Confirm actual Flutter or bridge paths in real dependencies and the target runtime.",
+      "workspace_action": "Record API platform ownership, actual dependencies, container and SDK conditions. Implement the selected Flutter/bridge path and link NATIVE-API-001 knowledge boundaries.",
+      "verification": "Inspect actual APIs and dependencies; verify the path with compiling code and target runtime evidence. HTML work may retain this as a later native check.",
+      "source_ids": [
+        "APPLE-DUO-BARS-TALK"
+      ]
+    },
+    {
+      "id": "FLUTTER-FEATURES-003",
+      "title": "Verify display-feature data on target iOS",
+      "kind": "flutter_contract",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when Flutter app implementation or acceptance is requested and implementation depends on target-iOS reserved-region or display-feature data.",
+      "statement": "Check current Flutter documentation and actual target-iOS runtime data to establish whether data is supplied. Callable APIs, Android contracts, empty lists and HTML simulation cannot independently establish target-iOS capability.",
+      "workspace_action": "Record target Flutter/iOS versions, collection conditions, actual data and unknowns in the platform capability matrix. Link results to region/bridge decisions and FLUTTER-FEATURES-001.",
+      "verification": "Observe actual data on target iOS and check the official contract. Conclude only within evidence scope; HTML work may retain this as a later native check.",
+      "source_ids": [
+        "FLUTTER-DISPLAYFEATURES",
+        "FLUTTER-DISPLAYFEATURE-SUBSCREEN",
+        "FLUTTER-SHOWDIALOG"
+      ]
+    },
+    {
+      "id": "WORKFLOW-BASELINE-001",
+      "title": "Establish a complete whole-app layout baseline first",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When beginning existing-app analysis, or when existing analysis covers only isolated page differences.",
+      "statement": "First inventory known whole-app page relationships, navigation hierarchy, fixed/scroll regions, pane responsibilities, shared components and key states. Distinguish this global inventory from user-authorized redesign scope. This is collection analysis policy.",
+      "workspace_action": "For every page, record production entry, relationships, navigation/back behavior, fixed/scroll ownership, shared components, task states, and actual narrow/wide/low-height captures or explicit gaps. Label observations, code inferences, unknowns and whether the page is redesigned this round.",
+      "verification": "Check every known page/shared component has a record and each later prototype page traces to the baseline or a justified adaptation. Missing captures remain gaps; inventorying does not automatically expand redesign scope.",
+      "source_ids": [
+        "SKILL-LAYOUT-CONTRACT",
+        "SKILL-MIGRATION-CONTRACT"
+      ]
+    },
+    {
+      "id": "WORKFLOW-HTML-001",
+      "title": "Require complete interactive HTML and browser review by default",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "When the user requests app adaptation without explicitly limiting the endpoint to analysis or recommendations.",
+      "statement": "Follow whole-app layout analysis → adaptation recommendations → complete HTML prototype. Cover all pages, primary tasks and key states in the current scope, and deliver after actual browser and visual review. This order and HTML gate are collection workflow policy. Investigate native feasibility in parallel when useful; product implementation/native acceptance follows its own authorization.",
+      "workspace_action": "Map the baseline, individual recommendations and Design.md to reachable HTML entries, primary tasks and key states. Check actual narrow/wide/low-height browser layouts and record screenshots, interaction results and visual review. Register native feasibility questions and simulated capabilities separately.",
+      "verification": "Walk the scope matrix and inspect reflow, continuity and visual quality. Without a browser, retain HTML source but mark acceptance incomplete. Missing Xcode, native bridges or hardware does not block independent analysis/design/HTML work, and HTML success does not establish native support.",
+      "source_ids": [
+        "SKILL-HTML-CONTRACT",
+        "SKILL-LAYOUT-CONTRACT",
+        "SKILL-VALIDATION-CONTRACT",
+        "SKILL-MIGRATION-CONTRACT"
+      ]
+    },
+    {
+      "id": "CONTENT-LAYOUT-001",
+      "title": "Define rich-content layout and reading continuity from actual pane width",
+      "kind": "engineering_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the target actually contains rich text/Markdown, long links, code blocks, tables, quotations, images, video or attachments. Cover only confirmed content types.",
+      "statement": "For each existing rich-content type, define readable maximums, wrapping, local scrolling and media ratios/scaling from current pane/container width. Preserve content meaning and primary actions. Maintain the reading position and project-selected follow-bottom policy when asynchronous loading, history pagination and resizing overlap. These are engineering/product implementation agreements.",
+      "workspace_action": "In Design.md, record parent constraints, readable width, long-link wrapping, local code/table horizontal scrolling, quote/attachment layout, media placeholders/ratios and loading states. Record content IDs, reading anchors, pagination compensation and when to follow the end versus retain position. Demonstrate real task semantics and controllable asynchronous data in HTML.",
+      "verification": "Change page and pane widths while combining long content, larger text, delayed media and prepended history. Check no page-wide horizontal overflow, accessible content/actions and stable reading anchors. Verify actual Flutter async/scroll implementation separately during native work.",
+      "source_ids": [
+        "SKILL-FLUTTER-CONTRACT",
+        "SKILL-HTML-CONTRACT",
+        "FLUTTER-ADAPTIVE-APPROACH",
+        "FLUTTER-ADAPTIVE-BEST-PRACTICES"
+      ]
+    },
+    {
+      "id": "REGION-MODEL-001",
+      "title": "Define region data and update contracts explicitly",
+      "kind": "engineering_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When design/prototype consumes or simulates system reserved regions, or models data for a later platform bridge.",
+      "statement": "The region model explicitly contains kind, id, frame, isActive, owning view/container coordinates, units and update timing. Separate real platform data from design assumptions. Field mapping and propagation are collection engineering documentation requirements, not an Apple-prescribed Flutter bridge schema.",
+      "workspace_action": "Record kind meaning, ID scope/lifecycle, frame source view and local-coordinate conversion, responsibility for point/Flutter-logical-pixel/CSS-pixel conversion, active state and sampling/update/clear policies. State that Apple frames already include margins to prevent double avoidance. Label HTML assumptions and retain bridge availability for verification.",
+      "verification": "Cover absent regions, active/inactive regions, offset local containers and resizing in HTML. Check consistent coordinates/units and no duplicated margins. An empty Flutter displayFeatures list does not establish absence of iOS regions; retain actual API/bridge checks in NATIVE-REGION-001.",
+      "source_ids": [
+        "SKILL-FLUTTER-CONTRACT",
+        "APPLE-RESERVEDREGION",
+        "APPLE-RESERVEDREGION-FRAME",
+        "FLUTTER-DISPLAYFEATURES"
+      ]
+    },
+    {
+      "id": "WORKFLOW-TRACEABILITY-001",
+      "title": "Trace each rule to evidence and maintain project conventions separately",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When materializing this general catalog in a target workspace or updating an existing ledger.",
+      "statement": "Each general-rule ID needs applicability, current evidence, decisions, landing locations, checks and actual evidence. Distinguish Apple guidance, Flutter contracts, collection workflow and project conventions. App-specific business semantics, scope, thresholds and tradeoffs belong in separate project conventions rather than cross-app general rules.",
+      "workspace_action": "Use JSON binding reason/decision/targets/evidence to link baselines, Design.md, HTML/CSS/JS, later source locations and validation records. Project conventions use independent PROJECT- IDs, project provenance and workspace-relative paths; parent_rule_ids links general rules and decision explains adoption. Evidence records input/output identity, date, actual environment, executed results and incomplete items. Hash frozen prototype files/resources. Before the first prototype implementation, populate applicability/reasons, specific decisions and design/planned targets for every rule, plus adopted project conventions; verification may remain pending. Freeze the ledger JSON/Markdown with baseline, design and input hashes. A merely initialized empty-binding ledger is not a completed design handoff.",
+      "verification": "Trace any applicable rule to current evidence, pages/components, HTML behavior and an executed check. Confirm plans are not presented as results or project-specific behavior as official/cross-app mandates. Bind native evidence to exact build identity under NATIVE-VALIDATION-001. Independently inspect the frozen pre-implementation bindings and artifact chronology. Keep any late-binding deviation visible and re-enter design/construction QA after completing the handoff; do not backdate it.",
+      "source_ids": [
+        "SKILL-WORKSPACE-CONTRACT",
+        "SKILL-VALIDATION-CONTRACT",
+        "SKILL-MIGRATION-CONTRACT"
+      ]
+    },
+    {
+      "id": "NATIVE-REGION-001",
+      "title": "Measure actual region mapping and bridge updates",
+      "kind": "engineering_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when product implementation or native acceptance is requested and custom target-app layout actually needs native region data or a Flutter platform bridge.",
+      "statement": "Use REGION-MODEL-001 to verify actual data paths, coordinate mapping, unit conversion and change propagation in the current SDK/Flutter dependencies. UIKit region values use queried-view coordinates and frame already includes margins. Flutter's Android-only displayFeatures population contract does not establish iOS region presence/absence or bridge operation.",
+      "workspace_action": "Record the actual queried view, API availability, kind/id/frame/isActive, raw units/conversion, collection/update timing and no-region/inactive clearing or fallback. Check target iOS/Flutter runtime data and custom-component consumption ownership.",
+      "verification": "In the target build, cover view offsets, local reflow, partial overlap/out-of-view frames, active-state changes and no data. Verify conversion, layout, callbacks and no repeated margins, saving actual data and interface evidence. Verify hardware-dependent differences on corresponding devices; HTML simulation cannot replace this item.",
+      "source_ids": [
+        "APPLE-RESERVEDREGION",
+        "APPLE-RESERVEDREGION-FRAME",
+        "FLUTTER-DISPLAYFEATURES",
+        "SKILL-FLUTTER-CONTRACT",
+        "SKILL-VALIDATION-CONTRACT"
+      ]
+    },
+    {
+      "id": "NATIVE-VALIDATION-001",
+      "title": "Bind native build identity and verify production navigation/runtime modes",
+      "kind": "workflow_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "Only when Flutter product-code implementation or native app acceptance is requested.",
+      "statement": "Bind native evidence to exact source, build and environment. New user-facing pages need production-route integration_test acceptance; device-sensitive paths need narrow regression and Profile or Release smoke checks, with hardware verification where behavior differs. These are collection/workspace delivery policies. Flutter documentation provides mode/tool contracts, not an Apple mandate for this testing policy.",
+      "workspace_action": "For each check, record commit, clean/dirty state and diff location/hash, app version/build, Flutter/Dart, Xcode/linked SDK, OS/device, Debug/Profile/Release mode, command and result. Use stable ValueKey/Semantics to enter new pages through production navigation; verify landmarks, a primary interaction, visible outcome/back/close and registration in the existing runner. Native tasks cover primary VoiceOver/Full Keyboard Access tasks, pane changes and overlay focus restoration.",
+      "verification": "Confirm evidence matches the actual build. Run narrow integration/regression and applicable Profile or Release smoke checks. Check debug-only/assert-only production APIs across Debug/Profile/Release; use short-circuit kDebugMode guards where needed rather than kReleaseMode. Missing required device/integration evidence remains incomplete. A technically blocked new page requires explicit user acceptance of a follow-up arrangement under project policy; do not independently claim completion.",
+      "source_ids": [
+        "SKILL-VALIDATION-CONTRACT",
+        "FLUTTER-BUILD-MODES",
+        "FLUTTER-INTEGRATION-TESTS"
+      ]
+    },
+    {
+      "id": "FRAMEWORK-ROUTE-001",
+      "title": "Identify the framework that renders the interface first",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When starting adaptation, analysis or later product implementation.",
+      "statement": "Use repository evidence to identify the actual UI-rendering framework and version before reading its contract. SwiftUI, UIKit, Flutter, React Native/Expo and WKWebView interfaces such as Capacitor, Cordova, Ionic, uni-app and Taro have separate contracts. For Kotlin/Compose Multiplatform, .NET MAUI and Unity, identify the framework and continue general HIG/HTML work without borrowing another framework's APIs. Separate rendering layers, native hosts and plugins in hybrid projects. If identity is unknown, retain unknown status and use general guidance/HTML only.",
+      "workspace_action": "Record framework, version-source files, entries and hybrid layers in the baseline matrix. Mark another framework's exclusive rules not_applicable with the identified framework as the reason; not doing work is not inapplicability.",
+      "verification": "Check that framework identity points to manifests, project files or entry source. Ensure SwiftUI tasks do not inherit Flutter testing gates, Flutter tasks do not receive SwiftUI APIs, and React Native/web shells are not described as having verified iOS reserved regions.",
+      "source_ids": [
+        "SKILL-FRAMEWORKS",
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "FRAMEWORK-APPLE-001",
+      "title": "Adapt SwiftUI and UIKit using current-view space",
+      "kind": "apple_guidance",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the target interface is rendered by SwiftUI or UIKit, including Swift and Objective-C.",
+      "statement": "Read current view/window dimensions or SwiftUI GeometryReader/onGeometryChange and refresh on size changes. Do not choose layout from UIScreen.main, startup caches, device orientation, userInterfaceIdiom or known-model size tables. Read scale from traitCollection.displayScale or the displayScale environment, and create windows through scenes. Handle all safe-area edges separately. System containers avoid reserved regions; custom layouts query them when needed. SwiftUI uses GeometryProxy.reservedRegions with occlusion versus division; UIKit uses UIView.reservedRegions. Frames use queried-view coordinates in points and include margins. A division is active only while partially folded. Consult target-SDK documentation; HTML only simulates labeled assumptions.",
+      "workspace_action": "Identify main-screen dimensions, orientation/idiom conditions and custom-component region needs in the layout matrix. Design.md and HTML use current-container dimensions; native implementation records queried views, kind, activity and coordinates. Apply the exported Apple Skill to Swift/Objective-C migration under NATIVE-RESIZABILITY-001; otherwise retain the export gap.",
+      "verification": "Check narrow, wide, low-height and threshold sizes to ensure layout no longer follows orientation/model tables. During native work, use the target SDK to check that reservedRegions includes only intersecting regions and margins are not added twice. HTML success does not establish API operation in the actual project.",
+      "source_ids": [
+        "APPLE-DUO-PREPARE",
+        "APPLE-DUO-TECHNOLOGY",
+        "APPLE-SWIFTUI-RESERVEDREGION",
+        "APPLE-RESERVEDREGION",
+        "APPLE-RESERVEDREGION-FRAME",
+        "SKILL-APPLE-FRAMEWORKS"
+      ]
+    },
+    {
+      "id": "FRAMEWORK-RN-001",
+      "title": "Adapt React Native using live window measurements",
+      "kind": "engineering_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When React Native renders the target interface, including Expo.",
+      "statement": "Use useWindowDimensions or an equivalent maintained subscription that updates with window/font changes, rather than long-lived startup Dimensions caches. Use the project's actual safe-area source. Built-in SafeAreaView covers iOS 11 and later and ignores style padding. Expo/React Navigation use react-native-safe-area-context, whose insets exclude the keyboard. Handle the keyboard separately with KeyboardAvoidingView or the existing project approach, avoiding duplicate safe-area padding. Checked React Native documentation has no equivalent iOS reserved-region interface; retain fold-region avoidance as unverified until native-module/device evidence exists. Validate native navigation bars and JS custom headers separately.",
+      "workspace_action": "Record actual dependencies/versions for window measurement, safe-area libraries, keyboard handling and navigation containers. Design.md and HTML use live window dimensions and all four inset edges. Check JS layout and the iOS host separately during native work.",
+      "verification": "Change window dimensions, font scale and keyboard state, checking for stale measurements, duplicated insets and long content expanding the page. Without a reserved-region module, do not describe simulated folding as system-region delivery to React Native.",
+      "source_ids": [
+        "RN-WINDOW",
+        "RN-SAFEAREAVIEW",
+        "RN-KEYBOARD",
+        "EXPO-SAFE-AREA",
+        "SKILL-RN",
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "FRAMEWORK-WEB-001",
+      "title": "Adapt WKWebView interfaces to the visual viewport",
+      "kind": "engineering_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype",
+        "native_implementation"
+      ],
+      "applies_when": "When the visible interface is HTML/CSS in WKWebView, including Capacitor, Cordova, Ionic, uni-app, Taro or a custom shell.",
+      "statement": "Use current visual-viewport/container dimensions rather than startup screen.width caches or one-time system-info calls. Use env(safe-area-inset-*) for the four edges only when viewport-fit=cover is effective. Keyboard, status-bar and native shell safe areas form another layer; page CSS and native handling must not pad the same edge twice. CSS receives no iOS reserved region without a verified bridge delivering it. Check native shell portions under the UIKit contract.",
+      "workspace_action": "Record viewport configuration, safe-area CSS, width caches, keyboard/status-bar plugins and boundaries between shell and page projects. Implement page layout directly in HTML; label native shell regions as assumptions or separate gaps.",
+      "verification": "Check narrow, wide, low-height and keyboard states for page-wide horizontal overflow or duplicated top/bottom spacing. Without bridge data, folded regions remain unverified. Record browser-page and WKWebView-host results separately.",
+      "source_ids": [
+        "MDN-ENV",
+        "MDN-VIEWPORT",
+        "SKILL-WEBVIEW",
+        "APPLE-DUO-PREPARE"
+      ]
+    },
+    {
+      "id": "FRAMEWORK-IMPL-001",
+      "title": "Use the identified framework's implementation and test workflow",
+      "kind": "workflow_constraint",
+      "phases": [
+        "native_implementation"
+      ],
+      "applies_when": "When the user explicitly requests product-code adaptation or device acceptance.",
+      "statement": "Implement and validate with the identified framework's project, runner and tests. Flutter integration_test, Apple's exported App Resizability checks, React Native host builds and WebView shell/page checks do not substitute for one another. Verify plugins/bridges in the final host shipped in the app. Without a framework implementation contract, obtain evidence for its own layout APIs rather than rewriting it as another framework.",
+      "workspace_action": "Record framework, version, commands, build type, simulator/device and unexecuted checks. Enter new pages through that app's production navigation.",
+      "verification": "Compare commands and entry paths with the framework contract. Flutter results do not establish SwiftUI acceptance, and a browser prototype does not establish WKWebView-shell or physical-device acceptance.",
+      "source_ids": [
+        "SKILL-FRAMEWORKS",
+        "SKILL-VALIDATION-CONTRACT",
+        "APPLE-XCODE-APP-RESIZABILITY"
+      ]
+    },
+    {
+      "id": "WORKFLOW-BUILDER-001",
+      "title": "Prefer BUILD WEB APPS for the HTML-prototype stage",
+      "kind": "workflow_constraint",
+      "phases": [
+        "html_prototype"
+      ],
+      "applies_when": "When the requested endpoint includes a complete interactive HTML prototype.",
+      "statement": "After whole-app layout analysis and adaptation recommendations, prefer the actual BUILD WEB APPS workflow to implement the agreed prototype. It consumes the established app evidence, design and coverage contract. This is collection policy, not an Apple requirement; it does not imply that the builder is installed or that a build passes Duo acceptance.",
+      "workspace_action": "Discover and read the real builder Skill, record its source/version/path/hash and pass the frozen baseline, recommendations, Design.md, rule/project-convention IDs, page/state coverage and continuity requirements. Preserve the current app's identity and complete all scoped tasks. Deliver editable source, runnable HTML/assets and browser/visual evidence. Installation, account setup and deployment are separate scopes; use local-only work for prototype delivery. If the actual builder cannot be obtained, record that boundary and use an equivalent available local workflow without claiming BUILD WEB APPS executed. Choose the actual existing-design refinement/testing route for minimal migration, using original App captures and components as the primary reference. Use the creation/concept route only when a new visual surface is within scope; supplementary generated concepts cannot silently replace the original design authority.",
+      "verification": "Check recorded builder identity and actual execution against the handoff. Open the final artifact in a real browser, walk all scoped pages and primary tasks, exercise continuous resizing/input/overlays and inspect final screenshots. Record failures, repairs and remaining gaps separately. A plugin name, successful build or deployment alone does not establish prototype completeness or visual quality.",
+      "source_ids": [
+        "SKILL-BUILDER-CONTRACT",
+        "SKILL-HTML-CONTRACT",
+        "SKILL-VALIDATION-CONTRACT",
+        "SKILL-MIGRATION-CONTRACT"
+      ]
+    },
+    {
+      "id": "WORKFLOW-MINIMAL-001",
+      "title": "Migrate the whole app with the smallest necessary design changes",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "Adapting an existing app unless the user explicitly authorizes a broader redesign.",
+      "statement": "Treat actual original-app screens, shared components, tokens, content and behavior as the design authority. Preserve a working structure and use the smallest change that resolves an evidenced size, inset, reachability, continuity or accessibility problem. This is the collection's migration policy and the user's default intent, not an Apple-mandated visual style.",
+      "workspace_action": "Extract the original visual/component baseline and classify each affected element as retain, necessary adaptation or separately optional change. Record exact before/after behavior, reason, source and affected pages. Keep the original page stack when usable; extra width alone does not require split view, new icons, new controls, rewritten copy, restyling or business changes. Match original and adapted screenshots at the same page/state/viewport, with justified exceptions.",
+      "verification": "Inspect actual original/adapted image pairs and code-native shared tokens/components. Verify every in-scope page and task still works across applicable environments, each visual/behavioral difference has a reason, and optional enhancements were not promoted to required migration.",
+      "source_ids": [
+        "SKILL-MIGRATION-CONTRACT",
+        "SKILL-LAYOUT-CONTRACT",
+        "APPLE-HIG-LAYOUT",
+        "APPLE-HIG-DUO"
+      ]
+    },
+    {
+      "id": "WORKFLOW-POSES-001",
+      "title": "Expose named Duo environments in one stateful review prototype",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "A default Duo adaptation prototype or an explicitly requested multi-form review is in scope. Respect documented app orientation/platform exceptions.",
+      "statement": "Show applicable outer-display orientations, inner portrait/landscape, side-by-side app-left/app-right contexts and partial-fold book/tabletop/standing examples through external review controls. Keyboard, text scaling, dialogs and overlays are stress states, not physical poses. This review contract is collection policy; it does not require a separate product design for each pose or certify native behavior.",
+      "workspace_action": "Maintain a source-backed pose/context matrix with status, review viewport, size-class assumptions, bar edge/axis, optional active-region data and native unknowns. Numeric review dimensions and configured curve rectangles are explicitly assumptions unless measured or officially sourced; do not invent hardware sizes, camera regions or a universal center hinge. Keep one persistent running App instance and shared state; actual local viewport/container changes drive reflow. Preserve original components and container ownership; text/compound controls and keyboard accessories retain applicable exceptions.",
+      "verification": "Select every applicable named context and inspect actual viewport/container dimensions, navigation edge/axis, primary actions, input/overlay ownership and no global overflow. Switch modes during editing/reading and verify route, selection, draft/selection and semantic anchor continuity. Test configured region updates, inactive/absent data and unsupported capabilities honestly. Save same-page/state original/adapted comparisons; ordinary browser resize or a decorative device frame alone does not prove multi-pose or native acceptance.",
+      "source_ids": [
+        "SKILL-MIGRATION-CONTRACT",
+        "SKILL-HTML-CONTRACT",
+        "APPLE-DUO-DESIGN-TALK",
+        "APPLE-DUO-BARS-TALK",
+        "APPLE-HIG-DUO"
+      ]
+    },
+    {
+      "id": "WORKFLOW-DEVICE-001",
+      "title": "Match the actual device exterior and calibrated display geometry",
+      "kind": "workflow_constraint",
+      "phases": [
+        "layout_analysis",
+        "adaptation_recommendations",
+        "html_prototype"
+      ],
+      "applies_when": "A Duo prototype includes device presentation, especially when actual Device Hub, simulator or official device appearance and dimensions are requested.",
+      "statement": "Use identified actual device references and independently sourced display geometry for the shell, screen aperture, visible cutouts/buttons and supported posture views. Separate Closed, PartiallyOpen and Open physical states from orientation and app-window arrangements. Preserve original app design inside a device-focused review surface with secondary diagnostics. This is prototype-presentation policy, not an Apple hardware specification or native acceptance claim.",
+      "workspace_action": "Record source identities and hashes, posture/orientation, display raster/logical size and scale, measured exterior/aperture landmarks, capture zoom/perspective, CSS mapping and uncertainty in the frozen design handoff. Use actual assets or reference-measured shell geometry; keep unsupported views pending and label assumptions. Apply magnification to shell and app together without changing the logical app viewport. Maintain shared task state and current comparison views; put diagnostics, raw geometry and stress controls in a collapsed inspector.",
+      "verification": "Compare actual final device crops/landmarks against the identified reference, verify live app viewport dimensions and state across posture/rotation, and review shell fidelity, original-app adaptation, interaction and review usability independently. Functional counts or decorative silhouettes alone cannot establish real-device matching; retain unresolved calibration and native/hardware gaps explicitly.",
+      "source_ids": [
+        "SKILL-DEVICE-PRESENTATION",
+        "SKILL-MIGRATION-CONTRACT",
+        "SKILL-HTML-CONTRACT",
+        "SKILL-VALIDATION-CONTRACT"
+      ]
+    }
+  ]
+}

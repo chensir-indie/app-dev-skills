@@ -18,31 +18,28 @@
 
 ## 安装与调用
 
-在 App 项目目录使用 [Skills CLI](https://github.com/vercel-labs/skills)。该安装工具要求 Node.js **22.20+** 和 npm/npx；本 Skill 附带的工具本身要求 Node 22+：
+Codex 使用[合集安装方式](https://github.com/chensir-indie/app-dev-skills#1-connect-codex-to-one-source-checkout)，从一个源码目录发现所有技能。已有合集链接时，本技能直接可用，无需再次安装。若只需要本技能，先把仓库克隆到技能发现目录之外，将变量设为该仓库的绝对路径，再建立软链接：
+
+```sh
+APP_DEV_SKILLS_DIR="${HOME}/src/app-dev-skills"
+CODEX_SKILL_LINK="${HOME}/.agents/skills/app-store-cover-generator"
+mkdir -p "$(dirname "$CODEX_SKILL_LINK")"
+if [ -e "$CODEX_SKILL_LINK" ] || [ -L "$CODEX_SKILL_LINK" ]; then
+  printf '%s\n' '技能入口已存在，请检查后再调整。'
+else
+  ln -s "$APP_DEV_SKILLS_DIR/skills/app-store-cover-generator" "$CODEX_SKILL_LINK"
+fi
+```
+
+迁移前，将 `~/.agents/skills` 和 `~/.codex/skills` 中已有入口与源码比较，保存本地修改，再把淘汰的副本移到技能发现目录之外。后续只维护和更新源码仓库，Codex 直接读取它。发现尚未刷新时开启新会话，确认本技能只出现一次且解析到源码 `SKILL.md`。以上 shell 示例适用于 macOS/Linux 和 WSL。
+
+其他 Agent 或独立范围可使用 [Skills CLI](https://github.com/vercel-labs/skills)，安装器需要 Node.js **22.20+** 和 npm/npx；工具本身要求 Node 22+：
 
 ```sh
 npx skills@latest add chensir-indie/app-dev-skills --skill app-store-cover-generator
-# 如需全局安装到 Codex，改用：
-npx skills@latest add chensir-indie/app-dev-skills --skill app-store-cover-generator -a codex -g
 ```
 
-选择目标 Agent 和安装范围。未发现 Skill 时新开一个 Agent 会话。通过 CLI 安装的副本可用 `npx skills@latest update app-store-cover-generator` 更新；更新前保留本地修改。
-
-<details>
-<summary>手动安装（没有 npx 时也可使用）</summary>
-
-已有 Git 时，克隆到新目录，并仅将本 Skill 复制到尚不存在的目标目录：
-
-```sh
-git clone https://github.com/chensir-indie/app-dev-skills.git
-mkdir -p ~/.codex/skills
-test ! -e ~/.codex/skills/app-store-cover-generator && \
-  cp -R app-dev-skills/skills/app-store-cover-generator ~/.codex/skills/
-```
-
-同一 Agent、同一范围使用一种安装方式。更新源仓库后，先审阅本地修改，再主动同步对应 Skill 子目录。
-
-</details>
+选择不与 Codex 链接重复的 Agent 和范围。CLI 安装可用 `npx skills@latest update app-store-cover-generator` 更新；先保存本地修改。
 
 最小输入：应用与有依据的功能说明、真实截图（或明确要求制作概念）、参考图或设计方向、目标语言与设备尺寸、期望完成的阶段。例如：
 

@@ -1,16 +1,16 @@
 # Flutter handoff
 
-仅在分层 HTML 的视觉、交互验收通过后作为 Flutter 迁移基准。
+Use the layered HTML as the Flutter migration baseline only after its visual and interaction acceptance passes.
 
 | HTML | Flutter |
-|---|---|
-| CSS 背景/材质 | DecoratedBox / Gradient / 明确的滤镜 |
-| SVG 背板 | CustomPainter 或已有 SVG 能力 |
-| 独立植物、照片 | Image.asset / 实际业务图片 |
-| DOM 文字 | Text + 经校准语义 TextStyle |
-| 语义按钮/导航 | 现有共享控件、Semantics、ValueKey |
-| 布局约束 | LayoutBuilder / SafeArea / Stack / Flex |
+| --- | --- |
+| CSS background/material | DecoratedBox / Gradient / explicit filters |
+| SVG backplate | CustomPainter or existing SVG support |
+| Separate plant/photo assets | Image.asset / actual product images |
+| DOM text | Text with calibrated semantic TextStyle |
+| Semantic buttons/navigation | Existing shared controls, Semantics, ValueKey |
+| Layout constraints | LayoutBuilder / SafeArea / Stack / Flex |
 
-禁止将整屏参考图打包为应用 UI。系统栏由设备负责；静态校准稿中的假时钟不是生产状态栏。
-先映射 CSS px 到 logical px，再校准字体、safe area、材质与图像采样差异。固定画布只用于基准验证，生产使用约束布局支持长文本与系统字号。
-原型数据只作为测试 fixture；遵守目标仓库的新页面集成测试和设备验证要求，不把 HTML 截图当 Flutter 真机证明。
+Do not package the full-screen reference as app UI. System bars belong to the device; a fake clock in a static calibration draft is not a production status bar.
+Map CSS px to logical px, then calibrate fonts, safe areas, materials and image-sampling differences. Fixed canvases are for baseline verification; use constraint-based production layouts for long copy and system text sizes.
+Prototype data is a test fixture. Follow the target repository's new-page integration-test and device-validation requirements; HTML screenshots are not Flutter physical-device evidence.

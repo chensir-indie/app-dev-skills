@@ -1,111 +1,95 @@
 # App Dev Skills
 
-**把设计参考变成可编辑页面，再制作多语言商店封面。**
+**面向 App 研究、可编辑原型、布局适配与商店交付的可复用 Agent 技能。**
 
-[English](README.md) · [选择技能](#选择技能) · [快速开始](#快速开始) · [环境支持](docs/runtime.zh-CN.md) · [贡献指南](CONTRIBUTING.md)
+[English](README.md) · [选择技能](#选择技能) · [开始使用](#开始使用) · [文档导航](docs/README.zh-CN.md) · [贡献指南](CONTRIBUTING.md)
 
-[![Checks](https://github.com/chensir-indie/app-dev-skills/actions/workflows/check.yml/badge.svg)](https://github.com/chensir-indie/app-dev-skills/actions/workflows/check.yml)
-[![MIT License](https://img.shields.io/badge/license-MIT-193d34)](LICENSE)
+[![检查](https://github.com/chensir-indie/app-dev-skills/actions/workflows/check.yml/badge.svg)](https://github.com/chensir-indie/app-dev-skills/actions/workflows/check.yml)
+[![MIT 许可](https://img.shields.io/badge/license-MIT-193d34)](LICENSE)
 
-这是一个可独立安装的 **Agent 技能与配套脚本合集**。按手头材料和目标选择入口；两个技能都能单独使用，无须走完整条流程。
+把截图、产品问题与现有 App 项目变成可以检查的成果：有证据的研究报告、可编辑界面、多语言商店素材，以及精确的发布记录。按当前目标选用一个技能即可，无须走完整条流程。
+
+`skills/` 下的每个目录都可独立安装，包含自身指令、参考、检查工具和许可证。技能通过你的 Agent 与已有工具运行；安装本身不会提供模型服务、媒体生成器或移动开发工具链。
 
 ## 选择技能
 
 | 你现在有什么 | 技能与使用说明 | 交付什么 |
 | --- | --- | --- |
+| 竞品截图、录屏、官方资料或已授权分析的文件 | [App Competitor Analysis](skills/app-competitor-analysis/README.zh-CN.md) · [Agent 指令](skills/app-competitor-analysis/SKILL.md) | 每个竞品独立 HTML 与详细 Design.md、带证据的 UI/UX 和功能树/任务流/页面关系/数据流，以及跨竞品索引 |
 | 待探索的设计问题、已认可截图或待评审/优化的页面 | [Image to Layered HTML Prototype](skills/image-to-layered-html-prototype/README.zh-CN.md) · [Agent 指令](skills/image-to-layered-html-prototype/SKILL.md) | 按所选分支交付概念/提示词、设计评审/优化，或可编辑 HTML/CSS/SVG、素材、设计标准与浏览器对比 |
+| 使用 SwiftUI、UIKit、Flutter、React Native 或 WKWebView 壳、需要适配 iPhone Duo 或动态窗口的 iOS 应用 | [iPhone Duo Adaptation](skills/iphone-duo-adaptation/README.zh-CN.md) · [Agent 指令](skills/iphone-duo-adaptation/SKILL.md) | 全 App 布局分析、全量规则账本、保留原设计的最小必要适配，以及展示具名 Duo 形态和浏览器对比的完整 HTML 原型 |
 | 真实 App 截图、视觉参考、目标语言和尺寸 | [App Store Cover Generator](skills/app-store-cover-generator/README.zh-CN.md) · [Agent 指令](skills/app-store-cover-generator/SKILL.md) | 可编辑封面、语言 × 设备 × 页面 PNG 矩阵、联系表与哈希/审查记录 |
+| 现有 App，以及打包、上传 TestFlight、商店资料更新或后续发布阶段的明确需求 | [App Publish Skill](skills/app-publish-skill/README.zh-CN.md) · [Agent 指令](skills/app-publish-skill/SKILL.md) | 项目自有 Fastlane 编排、精确源码与产物证据、回执即停的 TestFlight 上传，以及分别限定范围的元信息、截图、验收和提审流程 |
 
-```text
-产品简报 → 设计方向或图片提示词
-                       ↓ 用户要求重建时继续
-认可设计图 → 分层原型与视觉证据
-                       ↓ App 实现与设备测试
-真实 App 截图 → 多语言封面与导出审查
-```
-
-原型不代表 App 已交付；素材导出不代表已经上传或发布。每个阶段分别保留证据与完成标准。
-
-开始或推荐流程前，先读取对应的 `SKILL.md`。各分支何时完成、阶段之间传哪些产物，见[工作流与交接](docs/workflows.zh-CN.md)。本地 checkout 可运行 `python3 scripts/list_skills.py` 查看实际入口，不会安装内容；自动化使用时追加 `--json`。
-
-## 快速开始
-
-### 1. 安装需要的技能
-
-使用 [Skills CLI](https://github.com/vercel-labs/skills)（需要 Node.js 22.20+）查看远程可用技能，再选择安装：
-
-```sh
-npx skills@latest add chensir-indie/app-dev-skills --list
-npx skills@latest add chensir-indie/app-dev-skills --skill image-to-layered-html-prototype
-```
-
-制作商店素材时替换为 `app-store-cover-generator`；重复 `--skill` 可同时安装两项。按提示选择 Agent，全局安装到 Codex 时追加 `-a codex -g`。远程安装使用已发布版本；尚未推送的修改请从本地目录安装。
-
-<details>
-<summary>手动安装到 Codex，包括没有 Node.js 的环境</summary>
-
-在技能发现目录之外克隆仓库，再复制单个技能：
-
-```sh
-git clone https://github.com/chensir-indie/app-dev-skills.git
-mkdir -p ~/.codex/skills
-# 仅在目标目录尚不存在时复制。
-test ! -e ~/.codex/skills/image-to-layered-html-prototype && \
-  cp -R app-dev-skills/skills/image-to-layered-html-prototype ~/.codex/skills/
-```
-
-其他技能使用同样方式。保留完整的 `SKILL.md`、脚本、参考和素材；更新前保留本地修改。同一 Agent、同一安装范围只用一种方式，合集根目录不能当作单个 skill 安装。如果 Agent 尚未发现技能，开启新会话再调用。
-
-</details>
-
-### 2. 提供材料并调用
-
-选择对应示例，把范围替换为自己的实际需求：
-
-**还原界面**
-
-```text
-用 $image-to-layered-html-prototype 还原这些已认可截图中的全部页面。
-文字、背板、图标与素材独立可编辑，重点校准字体、轮廓和遮挡。
-提供真实浏览器截图、局部差异与尚未通过的项目。
-```
-
-**制作商店封面**
-
-```text
-用 $app-store-cover-generator，根据这些真实 App 截图与视觉参考制作六张封面。
-覆盖英文、简体中文、日文以及指定的手机/平板尺寸。
-先匹配一个母版，再扩展矩阵、导出并审查。
-```
-
-### 3. 执行脚本前检查环境
-
-安装技能只会添加指令和文件，Python 与浏览器依赖另行配置。在**已安装的技能目录**运行：
-
-```sh
-sh scripts/doctor.sh
-```
-
-检查会列出缺少的运行时、依赖包或浏览器支持，给出修复命令，并在必要条件未满足时以失败状态退出；不会自动安装。浏览器工具需要 Node.js 22+、npm 与 Playwright；分层原型的图像和结构检查还需要 Python 3.9+ 及文档列出的依赖包。只做概念设计时可以先推进设计部分。
-
-具体安装、按任务检查和第一条工具命令见各技能 README。维护此仓库时，先按[仓库环境说明](docs/runtime.zh-CN.md)完成配置，再运行 `npm run check`。
+执行前读取对应的 `SKILL.md`。只完成某个阶段、修复现有项目或判断交付是否完整时，参阅[工作流与交接](docs/workflows.zh-CN.md)。
 
 ## 输出示例
 
-![英文、中文、阿拉伯文在手机与平板上的示例封面导出联系表](skills/app-store-cover-generator/docs/demo-contact.png)
+![合成 App 封面示例的真实导出联系表：英文、中文、阿拉伯文，包含手机和平板尺寸](skills/app-store-cover-generator/docs/demo-contact.png)
 
-这是内置原创示例的真实工具导出；App UI 为合成示例，翻译为草稿。封面工具提供 50 个语言区域预设与自定义渲染目标，产品文案及商店适用性仍须审查，详见[模板合同](skills/app-store-cover-generator/references/template-contract.md)。
+这是内置封面工具的真实导出。App UI 为合成示例，翻译为草稿；工具提供 50 个语言区域预设与自定义渲染目标，生产文案和商店适用性仍须审查。[查看封面指南](skills/app-store-cover-generator/README.zh-CN.md)。
 
-## 下一步
+## 开始使用
 
-- [环境配置与故障支持](docs/runtime.zh-CN.md)：缺 Python/Node/依赖包/浏览器时如何修复，独立安装和仓库安装的区别、平台支持与定向检查。
-- [贡献指南](CONTRIBUTING.md)：独立打包规则、测试和安全样例。
-- [工作流与交接](docs/workflows.zh-CN.md)：选择分支、判断完成、把证据带入下一阶段。
-- [范围](SCOPE.md)与[共用术语](GLOSSARY.md)：维护边界；[mattpocock/skills 对照报告](docs/mattpocock-skills-comparison-2026-10-20.md)记录来源、取舍和落地结果。
-- [原型设计质量评审](skills/image-to-layered-html-prototype/references/design-quality-review.md)：选择一套主规范，按层级、布局与排版改进，用真实截图评审，保留忠实复刻边界。
-- [原型设计标准](skills/image-to-layered-html-prototype/references/design-system.md)：几何、图层和组件合同。素材、字体缺失可能阻止逐像素一致，需要保留实际差异。
-- [封面本地化](skills/app-store-cover-generator/references/localization.md)：翻译、字体与 RTL。生成图片为可选能力，使用 Agent 环境已有工具及其访问条件。
+### 1. 让 Codex 直接读取一个源码目录
 
-本仓库沿用 `chensir-indie/app-store-cover-generator` 的 Git 历史。旧克隆应更新 remote，工具工作目录改为 `skills/app-store-cover-generator`；旧版整仓库 skill 安装需要迁移到单个子目录，迁移前保留本地修改。
+把仓库保存在技能发现目录之外，通过一个软链接暴露 `skills/`。以下适用于 macOS、Linux 或 WSL 的**首次安装**：
 
-代码、文档与原创示例素材使用 [MIT](LICENSE)；用户截图、生成素材和第三方字体另有权利边界，见[第三方声明](THIRD_PARTY_NOTICES.md)。
+```sh
+APP_DEV_SKILLS_DIR="${HOME}/src/app-dev-skills"
+mkdir -p "$(dirname "$APP_DEV_SKILLS_DIR")"
+git clone https://github.com/chensir-indie/app-dev-skills.git "$APP_DEV_SKILLS_DIR"
+```
+
+已有 checkout 时，把 `APP_DEV_SKILLS_DIR` 设为它的绝对路径，跳过克隆。先检查 `~/.agents/skills` 和 `~/.codex/skills` 中的合集及单技能安装，保留本地修改，并把被替换的副本移到这两个发现目录之外。
+
+```sh
+CODEX_SKILLS_DIR="${HOME}/.agents/skills"
+mkdir -p "$CODEX_SKILLS_DIR"
+if [ -e "$CODEX_SKILLS_DIR/app-dev-skills" ] || [ -L "$CODEX_SKILLS_DIR/app-dev-skills" ]; then
+  printf '%s\n' 'Existing app-dev-skills entry: inspect it before changing it.'
+else
+  ln -s "$APP_DEV_SKILLS_DIR/skills" "$CODEX_SKILLS_DIR/app-dev-skills"
+fi
+```
+
+命令保留已有入口，包括断开的链接。必要时新开 Codex 会话，确认每个技能只出现一次，并解析到此 checkout。以后直接维护源码，新增技能会随合集一起发现。[完整安装、迁移与其他 Agent](docs/getting-started.zh-CN.md#安装与发现验证)。
+
+### 2. 提供材料并调用
+
+例如，附上已认可的截图，然后提出请求：
+
+```text
+用 $image-to-layered-html-prototype 将这些已认可页面还原成可编辑的 HTML/CSS/SVG。
+保留原设计与交互，提供真实浏览器截图、测量差异和未完成项。交付说明使用中文。
+```
+
+说明材料、范围、交付语言与结束阶段。技能指令和发现元数据使用英文，中文指南及原文证据保留；交付语言由你的需求决定。[复制适合任务的示例](docs/getting-started.zh-CN.md#任务示例)。
+
+### 3. 执行脚本前检查环境
+
+在所选技能目录运行 `sh scripts/doctor.sh`。它会报告缺失依赖和修复命令，不自动安装。按该技能 README 配置所需环境。阅读和规划无需提前装齐渲染工具；开发合集或运行完整检查时，再配置全套仓库环境。
+
+[环境要求与故障排查](docs/runtime.zh-CN.md) · [完成首次任务](docs/getting-started.zh-CN.md#完成首次任务)
+
+## 怎样判断完成
+
+- **研究：**结论可追溯到证据，技术推断与缺失观察明确标注。
+- **原型：**提供可编辑源码和真实浏览器检查。原生应用实现与设备验收属于后续阶段。Duo 适配保留原应用设计，默认交付整体布局分析 → 建议 → 完整 HTML 原型；它不是 Apple 官方 App Resizability Skill。
+- **素材：**导出、本地化检查与视觉审查覆盖所需矩阵；导出不代表已上传商店。
+- **发布：**遵循应用当前发布合同与请求终点。TestFlight 上传在精确产物取得 Apple 成功回执后结束；处理、测试者访问、审核和公开可用分别核验。
+
+详细边界见[范围](SCOPE.md)、[共用术语](GLOSSARY.md)和[工作流](docs/workflows.zh-CN.md)。
+
+## 文档与贡献
+
+- [文档导航](docs/README.zh-CN.md)：用户指南、技术合同与注明日期的验证记录。
+- [贡献指南](CONTRIBUTING.md)：仓库结构、独立打包、语言约定与验证要求。
+- [问题反馈](CONTRIBUTING.md#questions-and-bug-reports)：排查入口和可复现问题所需信息。
+- [安全报告](SECURITY.md)：如何报告漏洞并保护私有数据。
+
+## 许可与来源
+
+合集原创代码、文档与示例素材使用 [MIT](LICENSE)。另行安装的依赖与用户提供的素材保留各自条款，详见[第三方声明](THIRD_PARTY_NOTICES.md)。
+
+本仓库沿用 `chensir-indie/app-store-cover-generator` 的 Git 历史。旧克隆与复制安装可按[迁移指南](docs/getting-started.zh-CN.md#更新与迁移)处理。

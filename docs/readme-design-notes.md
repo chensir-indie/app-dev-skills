@@ -11,4 +11,6 @@ Our application: a concise value statement, skill input/output comparison, concr
 
 Root READMEs provide selection and direct execution-contract links. Standalone READMEs provide installation and first-use support. `SKILL.md` defines the agent's branch and execution contract; detailed schemas stay in local references. The [workflow guide](workflows.md) covers stage handoffs without making standalone skills depend on collection files.
 
-The workflow SVG is original documentation artwork. The screenshot contact sheet is an existing, actual export of the original synthetic starter. Neither is presented as proof of image-to-HTML pixel identity.
+The screenshot contact sheet is an actual export of the original synthetic starter. It demonstrates the cover output format, not production translation quality or image-to-HTML pixel identity.
+
+Current documentation ownership is defined in [Contributing](../CONTRIBUTING.md#instructions-and-documentation). This note records editorial provenance rather than adding maintenance steps.

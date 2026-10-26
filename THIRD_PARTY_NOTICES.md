@@ -1,5 +1,7 @@
 # Third-party notices
 
+## Example assets and runtime dependencies
+
 The starter SVG, synthetic UI and preview image are original examples distributed under the repository MIT license. No commercial device mockups, app screenshots or third-party fonts are bundled.
 
 Runtime dependencies (installed separately through npm):

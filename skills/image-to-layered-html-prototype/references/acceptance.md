@@ -1,4 +1,4 @@
-# 浏览器证据与最终检查
+# Browser evidence and final checks
 
 Python scripts require Pillow; skill format validator separately requires PyYAML. Reuse an available runtime; do not silently change project dependencies.
 
@@ -66,12 +66,12 @@ For text, button and important panel/icon layers, `referenceBounds` must be meas
       "reference":"reference/source.png",
       "actual":"evidence/native-home.png",
       "checks":{
-        "assetIdentity":{"status":"passed","observation":"主体叶形、盆器和裁切与参考对应"},
-        "background":{"status":"passed","observation":"色场、纹理与装饰的位置已按叠加图核对"},
-        "typography":{"status":"passed","observation":"逐行核对字形、颜色、基线、字重及换行"},
-        "contours":{"status":"passed","observation":"背板曲线、叶缘、圆角及图标轮廓已核对"},
-        "layerOrder":{"status":"passed","observation":"植物、背板、文字与投影的遮挡顺序已核对"},
-        "controls":{"status":"passed","observation":"按钮尺寸、选中态、图标及交互反馈已核对"}
+        "assetIdentity":{"status":"passed","observation":"Subject leaf shapes, pot and crop correspond to the reference"},
+        "background":{"status":"passed","observation":"Color field, texture and decoration positions checked against the overlay"},
+        "typography":{"status":"passed","observation":"Glyphs, color, baselines, weight and wrapping checked line by line"},
+        "contours":{"status":"passed","observation":"Backplate curves, leaf edges, corners and icon contours checked"},
+        "layerOrder":{"status":"passed","observation":"Plant, backplate, text and shadow occlusion order checked"},
+        "controls":{"status":"passed","observation":"Button dimensions, selected state, icons and interaction feedback checked"}
       }
     }]
   },
@@ -99,7 +99,7 @@ For text, button and important panel/icon layers, `referenceBounds` must be meas
   "artifacts":[{"path":"index.html","sha256":"actual hash"}]
 }
 ```
-`manualReview` 不是一句“看起来差不多”。对每个 `state-matrix.json` 状态，`reference` 必须与该状态的锁定原图一致，`actual` 必须指向同一状态已采集的浏览器基准截图。六类检查都要有具体观察；无法确认时填 `pending` 并在 `unresolved` 说明原因，不得凭字符串 `passed` 越过门槛。脚本验证记录的完整性与截图绑定，人工仍须实际打开原图、截图、叠加图和图层证明；脚本无法验证观察内容是否诚实。
+`manualReview` requires more than “looks close enough.” For every `state-matrix.json` state, `reference` must match its locked source image and `actual` must point to the captured browser baseline for that same state. All six categories require concrete observations. Use `pending` and explain uncertainty in `unresolved` when a check cannot be confirmed; a `passed` string cannot bypass the gate. Scripts check record completeness and screenshot binding. The reviewer must still open the source, capture, overlay and layer proofs; scripts cannot verify that observations are truthful.
 Example tolerances are starting points, not a universal fidelity definition. Before implementation freeze per-state limits in design-tokens.json.validationLimits and per-state region arrays in validationRegions (both keyed by state id), copy them into acceptance, and explain their basis. Strict pixel identity uses zero channel threshold, MAE and changed-pixel ratio. Keep zero-threshold raw report even when allowing documented rasterization tolerance.
 For a user-requested one-to-one reconstruction, do not choose limits after seeing the current error or call generous limits "pixel exact". Set a demanding full-image target and tighter critical ROIs from the reference and expected rasterization variation, then let the validator fail until the implementation meets them. Any later change to the target is a new, explicitly documented acceptance decision, not an implementation shortcut.
 Cover title, backplate, subject, buttons and navigation ROIs, not only an easy blank background. Do not exclude major UI.

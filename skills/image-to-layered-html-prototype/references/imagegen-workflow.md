@@ -1,69 +1,69 @@
-# 从 imagegen 到可重建的设计
+# From imagegen to a reconstructable design
 
-## 选择入口
+## Choose the entry point
 
-先按请求确定终点：仅要方向或提示词，交付后即止；只要参考图，实际生成、查看并交付图片后即止；要求完整 HTML 原型，才继续参考测量、素材保存、HTML 核对与全套页面步骤。
+Determine the requested endpoint first. For directions or prompts only, deliver them and stop. For a reference image only, actually generate, inspect and deliver the image, then stop. Continue to reference measurement, asset preservation, HTML comparison and complete page workflows only when a full HTML prototype is requested.
 
-完整重建已有认可设计图时，保存原图、尺寸与 SHA，直接测量；只有主体缺失或背景含 UI 时才编辑相应素材。需要新图时，先从用户目标确定页面、主要任务、视觉主角、主操作、内容密度和语言，再出图。用户已经选过的方向不再重复询问。
+If an approved design already exists for full reconstruction, preserve its original image, dimensions and SHA and measure it directly. Edit assets only when a subject is missing or the background contains UI. When a new image is needed, establish page, primary task, visual subject, main action, density and language from the user goal before generation. Do not reconfirm an already chosen direction.
 
-调用实际可用的 imagegen 工具前读取对应技能。编辑本地图片先查看图片，使用工具支持的引用机制；透明素材必须请求透明背景。仅生成工作流文档或 skill 时不需要真的消耗一次出图。
+Read the actual available imagegen tool's skill before invoking it. Inspect local images before editing and use its supported reference mechanism. Request transparent backgrounds for transparent assets. Writing workflow documentation or a skill does not require spending an image-generation call.
 
-需要新设计或优化时，先按 [设计质量评审](design-quality-review.md) 确定主规范、视觉阅读顺序和主次操作。已有认可图的忠实复刻不重选风格。仅做现有 HTML 优化时直接改源码并浏览器复核，imagegen 不是前提。
+For new design or refinement, establish the primary standard, reading order and action hierarchy using [design quality review](design-quality-review.md). Faithful reconstruction of an approved image does not reselect the style. Existing-HTML refinement edits source and verifies in a browser directly; imagegen is not a prerequisite.
 
-## 设计图提示词模板
+## Design-image prompt template
 
-把方括号替换为具体内容；不要将模板文字发送给生成工具。
-
-```text
-设计 [产品] 的 [页面与状态]。这是供 HTML 实现的正视界面稿。
-画布比例 [W:H]，内容语言 [语言]，准确文案 [文本列表]。
-主要任务 [任务]，主操作 [动作]，视觉主角 [对象]。
-继承所附已选参考的 [色场/排版/材质/组件关系]。
-主设计规范 [项目规范或选定系统]，核心 tokens [字体/颜色/间距角色]。
-视觉层级 [第一焦点、第二焦点、辅助信息]；主次操作强调 [具体差别]。
-内容顺序 [顺序]；布局重点 [锚点、大小关系、留白]。
-明确图层：背景、装饰、背板、主体、文字、控件、导航。
-主体在 [哪些图层] 前；背板轮廓为 [实际形状描述]。
-导航包含 [项目、选中项、图标与文案排列]。
-只输出一张完整正视界面，不添加手持手机、透视边框或展示板。
-保持文字区域清楚、按钮状态明确，避免背景纹理影响识读。
-```
-
-新设计生成后按设计说明检查主角、阅读顺序、主次操作、布局节奏和可读性；优先修最影响设计的几项，不因图有渐变或玻璃就判定优质。锁定稿的重建误差不得靠整页重生成消除。
-
-生成后实际查看字形、内容截断、按钮和遮挡；生成的“中文字”可能是错误字形，不能当作正确文案源。用于 HTML 时保留像素参考，并在 copy table 记录用户期望的正确文字；若两者冲突，明确该区域是文案纠错，不声称逐像素一致。工具请求的尺寸不一定是输出尺寸，保存时读取实际宽高。
-
-## 主体提取提示词模板
+Replace bracketed placeholders with actual content; do not send template text to the generation tool.
 
 ```text
-从参考图重建并单独输出 [主体]，透明背景。
-保留可见轮廓、数量、姿态、视角、比例、材质、颜色和光照方向。
-删除所有文字、图标、按钮、背板和背景；不要带入这些 UI 的像素。
-只补全被遮挡而确实需要的部分，不重新设计可见主体。
-保持主体完整，边缘干净，无白色描边，无裁断。
+Design [product]'s [page and state] as a front-facing UI reference for HTML implementation.
+Canvas ratio [W:H], content language [language], exact copy [text list].
+Primary task [task], primary action [action], focal subject [object].
+Inherit the attached chosen reference's [color field/typography/material/component relationships].
+Primary design standard [project standard or chosen system], core tokens [font/color/spacing roles].
+Visual hierarchy [first focus, second focus, supporting information]; primary/secondary emphasis [specific difference].
+Content order [order]; layout priorities [anchors, size relationships, whitespace].
+Explicit layers: background, decoration, backplate, subject, text, controls, navigation.
+Place the subject in front of [layers]; backplate contour [actual shape description].
+Navigation includes [items, selected item, icon/text arrangement].
+Output one complete front-facing interface, without a hand holding a phone, perspective bezel or presentation board.
+Keep text regions legible and button states clear; background texture must not impede reading.
 ```
 
-这是生成式重建，不是无损抠图。核对植物叶片、产品部件、花盆、视角和阴影；有漂移就保持待修复。不要因工具返回成功就认为资产相同。
+After generating a new design, check subject, reading order, action hierarchy, rhythm and readability against the brief. Repair the most consequential issues first. A gradient or glass effect alone does not establish quality. Full-page regeneration cannot erase reconstruction errors against a locked draft.
 
-## 背景清理提示词模板
+Actually inspect glyphs, truncation, buttons and occlusion after generation. Generated Chinese text may contain invalid glyphs and is not authoritative copy. For HTML, preserve the pixel reference and record intended correct text in the copy table. If they conflict, label the region as a copy correction rather than claiming pixel identity. Requested dimensions may differ from output dimensions; read actual width/height when saving.
+
+## Subject extraction prompt template
 
 ```text
-以参考图为基础，仅保留/恢复底层背景。
-移除主体、所有 UI 文字、图标、按钮、导航、信息背板。
-保留原有背景色场、光照方向、纹理尺度与装饰位置。
-移除区域自然补全，不增加新的主体、文字或装饰。
+Reconstruct and output only [subject] from the reference, on a transparent background.
+Preserve the visible contour, count, pose, viewpoint, proportions, material, colors and lighting direction.
+Remove all text, icons, buttons, backplates and background; carry none of their UI pixels into the asset.
+Complete only occluded parts that are actually needed; do not redesign the visible subject.
+Keep the subject whole with clean edges, no white fringe and no clipping.
 ```
 
-背景纹理可用独立位图；可表达为渐变或矢量的几何优先使用 CSS/SVG。若玻璃背板在浏览器中再次模糊，素材中不要已经烘焙同一背板、阴影或模糊，否则产生双重效果。独立投影同理，明确由资产还是 CSS/SVG 负责。
+This is generative reconstruction, not lossless matting. Check leaves, product parts, pot, viewpoint and shadows. Drift remains pending repair; a successful tool response does not prove asset identity.
 
-## 资产检查与追溯
+## Background cleanup prompt template
 
-以下追溯与 HTML 核对用于完整重建；方向、提示词和单独参考图在上述终点交付。
+```text
+Use the reference to retain/restore only the underlying background.
+Remove the subject and all UI text, icons, buttons, navigation and information backplates.
+Preserve the original color field, lighting direction, texture scale and decoration positions.
+Fill removed regions naturally, adding no new subjects, text or decorations.
+```
 
-对每次生成记录：用途、参考图 SHA、实际 prompt、工具实际返回的模型/设置（未提供则写 unknown）、输出文件与 SHA、固有尺寸、透明通道、可见 alpha 边界、版本和采用原因。不编造 seed 或内部设置。文件保存到原型的 assets 中，不依赖临时会话附件路径。
+Background texture may use an independent bitmap. Prefer CSS/SVG for geometry expressible as gradients or vectors. If a glass backplate is blurred again in the browser, its asset must not already bake in that same backplate, shadow or blur, which would duplicate the effect. Likewise, assign each shadow explicitly to either an asset or CSS/SVG.
 
-先在白底、深底、目标背景检查透明边缘，再放入真实 HTML；对比主体和背景 ROI。每轮只换一个变量，保留旧资产和前一轮截图；整页重生成会改变布局，不能作为校准 HTML 的捷径。
+## Asset checks and traceability
 
-## 全套页面
+The following traceability and HTML comparisons apply to full reconstruction. Directions, prompts and standalone reference images end at their endpoints above.
 
-要求完整多页原型时，冻结已认可的代表页作为风格来源，先提取共享标准，再把具体内容和状态用于其他页的生成。不要要求一次图像生成同时产出多张小到无法测量的页面。概览拼图只作浏览，每页仍保存独立原图。生成状态、HTML 实现状态和视觉验收状态分别记录，不能把“全套出图”写成“全套实现”。
+For every generation, record purpose, reference SHA, actual prompt, the model/settings actually returned by the tool (`unknown` if absent), output path/SHA, intrinsic dimensions, alpha channel, visible alpha bounds, version and reason for adoption. Do not invent seeds or internal settings. Save files in the prototype's assets directory rather than depending on temporary conversation attachments.
+
+Check transparency against white, dark and target backgrounds before placing the asset in actual HTML; compare subject/background ROIs. Change one variable per iteration and preserve prior assets/captures. Full-page regeneration changes layout and is not a shortcut for HTML calibration.
+
+## Complete page sets
+
+For a complete multi-page prototype, freeze an approved representative page as the style source, extract shared standards, then use actual page content/states to generate the other pages. Do not ask a single generation to produce many pages too small to measure. Collages aid browsing only; retain a separate original for each page. Track generation, HTML implementation and visual acceptance separately. Generating all images does not mean implementing all pages.

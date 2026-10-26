@@ -1,20 +1,20 @@
-# 验收快速检查
+# Acceptance quick check
 
-本表用于重建分支；仅评审或主动优化按 [设计质量评审](design-quality-review.md) 的完成条件，不为无参考页面伪造像素通过。
+Use this checklist for reconstruction. Review-only or active refinement follows [design quality review](design-quality-review.md); do not fabricate pixel acceptance for pages without references.
 
-- 工作意图、主设计规范与允许改动范围明确；复刻稿未被审美建议悄悄重设计。
-- 真实页面已检查阅读顺序、主次操作、布局节奏、字体与图标一致性；问题有区域/组件和复核证据。
-- 适用的键盘、焦点、长文案、加载/空/错、文字缩放和减少动态效果已实测；不适用与未检查分别记录。
+- The intent, primary design standard and allowed changes are explicit; aesthetic suggestions have not silently redesigned a faithful reconstruction.
+- Inspect the actual page's reading order, primary/secondary actions, layout rhythm, typography and icon consistency; issues have region/component references and review evidence.
+- Exercise applicable keyboard, focus, long-copy, loading/empty/error, text-resizing and reduced-motion behavior. Record not applicable separately from untested.
 
-- 参考整图仅用于对照；页面文字、控件、背板独立可编辑。
-- 全部关键元素有 selector、测量值与实际 DOM 几何，无遮挡/隐藏文字冒充可编辑。
-- 字体、颜色、间距、各角圆角、背板轮廓、图标、导航排列逐项对比。
-- 图片语义与植物名相符；主体透明边缘通过深浅底检查。
-- 主体与背板遮挡正确，隐藏图片后 UI 依然完整。
-- 浏览器截图来自当前源码；字体和图像已加载，尺寸与 DPR 关系一致。
-- 全屏与重点 ROI 差异均保留，threshold=0 原始误差不得丢弃。
-- `one_to_one` 固定上限与冻结的页面阈值都通过；每个文字/按钮/主体/重要背板或图标由相应角色的 ROI 覆盖，不能把角色名称贴在无关区域。
-- 以原生尺寸逐项对照：背景明暗与纹理、植物叶片轮廓/孔洞/盆器比例、异形背板路径及遮挡、字形字重和行基线、图标形状/描边、底栏与选中态。任何肉眼明显的错配保留 `pending`，即使平均误差低于上限。
-- `diagnose_visual.py` 的最差 ROI/局部块已逐项修复并重截；没有通过阈值的区域不能只写入遗留问题就结束“完成复刻”任务。
-- 交互可见且可返回；尺寸/长文案适配有实测证据。
-- 文件齐全、脚本通过、视觉通过分别报告；关键差异未通过不能说完成。
+- Full references are comparison-only; page text, controls and backplates remain independently editable.
+- Every important element has a selector, measurements and actual DOM geometry. Hidden/occluded text does not masquerade as editable UI.
+- Compare fonts, colors, spacing, individual corner radii, backplate contours, icons and navigation arrangement.
+- Image semantics match plant names; inspect subject transparency against light and dark backgrounds.
+- Subject/backplate occlusion is correct, and the UI remains complete when images are hidden.
+- Browser captures come from current source after fonts/images load, with consistent dimensions and DPR mapping.
+- Keep full-screen and important ROI diffs, including threshold-0 raw error.
+- Both `one_to_one` fixed ceilings and frozen page limits pass. Matching-role ROIs cover each text/button/subject/important panel or icon; do not attach role names to unrelated areas.
+- Compare at native size: background light/texture; leaf contours, holes and pot proportions; irregular backplate paths and occlusion; glyphs, weight and baselines; icon shape/stroke; bottom navigation and selection. Any obvious visible mismatch stays `pending`, even below average-error ceilings.
+- Repair each worst ROI/local block from `diagnose_visual.py` and recapture. Listing failed regions as remaining issues does not complete a request to finish reconstruction.
+- Interactions have visible outcomes and return paths; size/long-copy adaptation has actual evidence.
+- Report file completeness, script results and visual acceptance separately. Critical failed differences prevent a completion claim.

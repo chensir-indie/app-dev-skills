@@ -1,13 +1,13 @@
-# 素材提取与轮廓重建
+# Asset extraction and contour reconstruction
 
-参考截图不是分层源文件，但可以测量可见形状并拟合。未知的遮挡区域允许推断；推断应集中在不可见区域，而不是随意改可见轮廓。
+A screenshot is not a layered source file, but its visible shapes can be measured and fitted. Infer unknown occluded regions only where needed; inference is not permission to change visible contours arbitrarily.
 
-1. 查找同一生成任务的独立素材。对照叶片数量、盆器形状、拍摄视角和阴影，文件名相似不等于同一资产。非同源代用图仅用于布局调试；最终截图仍使用它会使该资产及所在 ROI 的视觉验收保持 `pending`。
-2. 若仅有扁平图，先定位照片/主体的源坐标与边缘。按当前 imagegen 工具约束提取透明主体，提示保持叶片、盆器、视角和比例，去掉全部文字、背板、按钮和背景。独立背景同样不能含 UI。不得自动把整图当成果。
-3. 核对透明图在白、深色与目标背景上的白边、绿边、孔洞、半透明像素。记录 alpha bounds 和 sourceCrop。缩放以可见边界为准，不能仅根据 PNG 文件宽高对齐。
-4. 被遮挡的边界标 inferred；生成工具改变了可见叶形，则记录不匹配并继续修正。不要把提取失败描述成“源文件不存在，所以无法做 HTML”。
-5. 背板沿可见轮廓标锚点：曲率转折、斜边起止、台阶、各角切点。统一 SVG viewBox、记录 Bézier 控制点，闭合路径。分别绘制填充、描边、阴影；植物通常在背板前，文字在二者之上，按实际遮挡修正。
-6. 图标独立矢量重绘，检查 stroke-width、linecap、linejoin 与 optical size。心形不能换成叶形，相机不能用 emoji。
-7. 背景先采样无遮挡色块并拟合渐变，再加独立纹理与叶影。渐变角度、停靠点、透明度来自对比迭代，不拿一段泛用绿色渐变代替原图。
+1. Look for separate assets from the same generation task. Compare leaf counts, pot shape, viewpoint and shadows; similar filenames do not establish identity. An unrelated substitute is for layout debugging only. If it remains in the final capture, that asset and its ROI stay visually `pending`.
+2. If only a flattened image exists, locate source coordinates and edges for the photo/subject. Extract a transparent subject under the actual imagegen tool's constraints, preserving leaves, pot, viewpoint and proportions while removing all text, backplates, buttons and background. Independent background assets must also be UI-free. Do not treat the whole image as the extracted result.
+3. Inspect white/green fringes, holes and translucent pixels against white, dark and target backgrounds. Record alpha bounds and sourceCrop. Scale to visible boundaries, not merely PNG dimensions.
+4. Mark occluded boundaries `inferred`. If generation changes visible leaf shapes, record the mismatch and continue repairing it. Do not describe failed extraction as “the source file is missing, so HTML cannot be made.”
+5. Mark backplate anchors along visible contours: curvature changes, sloped-edge endpoints, steps and corner tangencies. Use one SVG viewBox, record Bézier control points and close the path. Draw fill, stroke and shadow separately. Plants are usually in front of the backplate and text above both; follow actual occlusion.
+6. Redraw icons as independent vectors, checking stroke-width, linecap, linejoin and optical size. A heart cannot become a leaf, and an emoji cannot replace a camera icon.
+7. Sample unobstructed background color areas and fit the gradient before adding separate texture and leaf shadows. Derive angle, stops and opacity through comparison iterations instead of substituting a generic green gradient.
 
-每个资产记录来源、原文件 hash、处理方式、源裁剪坐标、固有尺寸、alpha bounds、目标矩形、object-position、轮廓差异。测量是对可见截图的观测；字体源参数与生成工具内部参数仍可能未知。
+For each asset record provenance, original hash, processing, source crop, intrinsic dimensions, alpha bounds, target rectangle, object-position and contour differences. Measurements observe the visible screenshot; original font parameters and generation internals may remain unknown.

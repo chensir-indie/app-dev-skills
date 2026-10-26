@@ -1,0 +1,555 @@
+{
+  "title": "Example notes research",
+  "date": "2026-10-20",
+  "lang": "en",
+  "summary": "Original synthetic example showing the delivery contract; not a real competitor study.",
+  "products": [
+    {
+      "id": "example-notes",
+      "name": "Example Notes",
+      "category": "Offline capture",
+      "platform": "iOS",
+      "identity": "example.notes",
+      "version": "unknown",
+      "tagline": "Capture a thought and return to it later.",
+      "verdict": "Test whether interruption recovery preserves the user's work before adding organization features.",
+      "scope": "Original fixture. No competitor screenshots, code, claims or runtime results.",
+      "coverage": [
+        {
+          "dimension": "ui",
+          "status": "missing",
+          "detail": "No screenshot supplied"
+        },
+        {
+          "dimension": "interaction",
+          "status": "partial",
+          "detail": "Synthetic task description only"
+        },
+        {
+          "dimension": "technology",
+          "status": "missing",
+          "detail": "No implementation evidence"
+        },
+        {
+          "dimension": "business",
+          "status": "out_of_scope",
+          "detail": "Not part of the fixture"
+        }
+      ],
+      "sources": [
+        {
+          "id": "E1",
+          "title": "Original task fixture",
+          "kind": "concept",
+          "date": "2026-10-20",
+          "locator": "This original example",
+          "context": "Synthetic input, not an app observation"
+        }
+      ],
+      "sections": [
+        {
+          "id": "overview",
+          "title": "Product and user task",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "The hypothetical task is to capture one thought and find it after an interruption.",
+              "status": "Concept",
+              "sources": [
+                "E1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "ui",
+          "title": "UI style and hierarchy",
+          "blocks": [
+            {
+              "type": "callout",
+              "text": "No pixels are available. Inspect the capture screen and resumed draft before describing style or visual priority.",
+              "status": "Evidence gap",
+              "sources": [
+                "E1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "interaction",
+          "title": "Core flow and states",
+          "blocks": [
+            {
+              "type": "flow",
+              "items": [
+                {
+                  "title": "Start a draft",
+                  "detail": "Hypothesized task entry"
+                },
+                {
+                  "title": "Write and leave",
+                  "detail": "Interruption boundary"
+                },
+                {
+                  "title": "Return",
+                  "detail": "Verify recovered content"
+                }
+              ],
+              "status": "Proposed test, not runtime",
+              "sources": [
+                "E1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "technology",
+          "title": "Technology and data flow",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Memory, disk and server persistence are distinct candidate mechanisms. A cold restart without network would help distinguish them; no mechanism is established here.",
+              "status": "Hypothesis",
+              "sources": [
+                "E1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "business",
+          "title": "Business and constraints",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Account and payment constraints are outside this synthetic task; do not invent pricing.",
+              "status": "Out of scope"
+            }
+          ]
+        },
+        {
+          "id": "strengths",
+          "title": "Strengths and tradeoffs",
+          "blocks": [
+            {
+              "type": "table",
+              "columns": [
+                "Potential benefit",
+                "Cost or uncertainty"
+              ],
+              "rows": [
+                [
+                  "Immediate capture",
+                  "Discoverability and recovery remain untested"
+                ]
+              ],
+              "sources": [
+                "E1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "decisions",
+          "title": "Adopt, adapt, defer",
+          "blocks": [
+            {
+              "type": "list",
+              "items": [
+                "Adopt a visible draft recovery state if interruption tests reveal uncertainty.",
+                "Defer more organization controls until capture and return work reliably."
+              ],
+              "status": "Recommendation",
+              "sources": [
+                "E1"
+              ]
+            }
+          ]
+        },
+        {
+          "id": "validation",
+          "title": "Unknowns and next observations",
+          "blocks": [
+            {
+              "type": "paragraph",
+              "text": "Create a draft offline, interrupt the app, reopen it, and compare the recovered text. Record device, build, timings and storage outcome.",
+              "status": "Unexecuted test",
+              "sources": [
+                "E1"
+              ]
+            }
+          ]
+        }
+      ],
+      "visuals": {
+        "features": {
+          "title": "Capture, preserve, retrieve",
+          "summary": "An explicit product model for a fictional note app. Capabilities outside the task remain unknown.",
+          "modules": [
+            {
+              "label": "Capture",
+              "features": [
+                {
+                  "id": "new",
+                  "label": "Start a note",
+                  "detail": "Proposed entry to the capture task.",
+                  "col": 0,
+                  "row": 0,
+                  "status": "inferred",
+                  "sources": [
+                    "E1"
+                  ]
+                },
+                {
+                  "id": "write",
+                  "label": "Write text",
+                  "detail": "Text is the primary working object.",
+                  "col": 0,
+                  "row": 0,
+                  "status": "inferred",
+                  "sources": [
+                    "E1"
+                  ]
+                }
+              ]
+            },
+            {
+              "label": "Continuity",
+              "features": [
+                {
+                  "id": "draft",
+                  "label": "Draft recovery",
+                  "detail": "Test whether interrupted work is retained.",
+                  "col": 0,
+                  "row": 0,
+                  "status": "inferred",
+                  "sources": [
+                    "E1"
+                  ]
+                },
+                {
+                  "id": "storage",
+                  "label": "Durable storage",
+                  "detail": "Implementation and storage boundary are unknown.",
+                  "col": 0,
+                  "row": 0,
+                  "status": "unknown",
+                  "sources": []
+                }
+              ]
+            },
+            {
+              "label": "Retrieve",
+              "features": [
+                {
+                  "id": "open",
+                  "label": "Reopen a note",
+                  "detail": "Return to the same thought after interruption.",
+                  "col": 0,
+                  "row": 0,
+                  "status": "inferred",
+                  "sources": [
+                    "E1"
+                  ]
+                },
+                {
+                  "id": "search",
+                  "label": "Search and folders",
+                  "detail": "These capabilities were not supplied.",
+                  "col": 0,
+                  "row": 0,
+                  "status": "unknown",
+                  "sources": []
+                }
+              ]
+            }
+          ],
+          "priority": {
+            "scope": "Write a note and recover it after interruption",
+            "rationale": "Writing and recovery close this task; search serves a separate revisit task.",
+            "core": [
+              "write",
+              "draft",
+              "open"
+            ],
+            "supporting": [
+              "new",
+              "storage"
+            ],
+            "extension": [
+              "search"
+            ],
+            "sources": [
+              "E1"
+            ]
+          }
+        },
+        "journey": {
+          "title": "Interruption and recovery",
+          "summary": "Original synthetic task model; all relationships are hypotheses, not observed app behavior.",
+          "nodes": [
+            {
+              "id": "start",
+              "label": "Start draft",
+              "detail": "Begin a thought.",
+              "col": 0,
+              "row": 0,
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "id": "edit",
+              "label": "Write text",
+              "detail": "Edit the working draft.",
+              "col": 1,
+              "row": 0,
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "id": "leave",
+              "label": "Interrupt",
+              "detail": "Leave before explicit save.",
+              "col": 1,
+              "row": 1,
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "id": "return",
+              "label": "Return",
+              "detail": "Compare recovered text.",
+              "col": 0,
+              "row": 1,
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "from": "start",
+              "to": "edit",
+              "label": "Create",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "from": "edit",
+              "to": "leave",
+              "label": "Background",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "from": "leave",
+              "to": "return",
+              "label": "Reopen",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "from": "return",
+              "to": "edit",
+              "label": "Continue",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            }
+          ],
+          "focus": {
+            "title": "Write, interrupt and recover",
+            "rationale": "Follow the recovery path; retain the return-to-edit loop separately.",
+            "path": [
+              "start",
+              "edit",
+              "leave",
+              "return"
+            ],
+            "sources": [
+              "E1"
+            ]
+          }
+        },
+        "screens": {
+          "title": "Proposed screen relationships",
+          "summary": "Original synthetic task model; all relationships are hypotheses, not observed app behavior.",
+          "nodes": [
+            {
+              "id": "home",
+              "label": "Notes list",
+              "detail": "Hypothetical task entry.",
+              "col": 0,
+              "row": 0,
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "id": "editor",
+              "label": "Editor",
+              "detail": "Working draft, not a UI reconstruction.",
+              "col": 1,
+              "row": 0,
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "id": "recovery",
+              "label": "Recovery state",
+              "detail": "Actual presentation is unknown.",
+              "col": 1,
+              "row": 1,
+              "status": "unknown",
+              "sources": []
+            }
+          ],
+          "edges": [
+            {
+              "from": "home",
+              "to": "editor",
+              "label": "New or open",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "from": "editor",
+              "to": "recovery",
+              "label": "Interrupted",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "from": "recovery",
+              "to": "editor",
+              "label": "Restore?",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            }
+          ]
+        },
+        "dataflow": {
+          "title": "Persistence boundary to investigate",
+          "summary": "Original synthetic task model; all relationships are hypotheses, not observed app behavior.",
+          "nodes": [
+            {
+              "id": "input",
+              "label": "Text input",
+              "detail": "User data starts in an editor.",
+              "col": 0,
+              "row": 0,
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "id": "memory",
+              "label": "Memory buffer",
+              "detail": "One possible transient state.",
+              "col": 1,
+              "row": 0,
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "id": "disk",
+              "label": "Local disk",
+              "detail": "Needs cold-restart evidence.",
+              "col": 1,
+              "row": 1,
+              "status": "unknown",
+              "sources": []
+            },
+            {
+              "id": "reopen",
+              "label": "Recovered text",
+              "detail": "Compare with original input.",
+              "col": 0,
+              "row": 1,
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            }
+          ],
+          "edges": [
+            {
+              "from": "input",
+              "to": "memory",
+              "label": "Edit",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "from": "memory",
+              "to": "disk",
+              "label": "Persist?",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            },
+            {
+              "from": "disk",
+              "to": "reopen",
+              "label": "Read?",
+              "status": "inferred",
+              "sources": [
+                "E1"
+              ]
+            }
+          ],
+          "contract": {
+            "focus": [
+              "input",
+              "memory",
+              "disk",
+              "reopen"
+            ],
+            "roles": {
+              "input": "input",
+              "memory": "state",
+              "disk": "state",
+              "reopen": "output"
+            },
+            "boundary": {
+              "title": "Memory changes and durable recovery are separate",
+              "detail": "The screenshot establishes editing; disk writing and recovery remain hypotheses or gaps in this synthetic example.",
+              "sources": [
+                "E1"
+              ]
+            }
+          }
+        }
+      }
+    }
+  ]
+}
