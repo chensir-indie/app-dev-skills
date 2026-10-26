@@ -6,6 +6,40 @@ Coordinate local mobile packaging and staged store delivery with the project's F
 
 This package coordinates publication; the cover-generation skill or existing project artwork tools can produce editable artwork. A standalone design request does not need the whole release workflow.
 
+## Input → workflow → output
+
+![Release workflow illustration connecting source identity, local packaging, artifact inspection and stage evidence](docs/workflow.svg)
+
+*Illustrative evidence record. It contains no real version, upload result or provider receipt.*
+
+### Prepare the input
+
+| Input | What to provide |
+| --- | --- |
+| Project | Trusted app repository, current release contract and existing build/Fastlane adapter. |
+| Intent | Platform, track, intended source/features and exact endpoint: build, TestFlight upload, listing work or a later stage. |
+| Environment | Local toolchain and approved signing/credential configuration. Refer to secret paths; never paste secret values into a report. |
+| Live identity | Authorized store access for a fresh baseline. A stale version in a README is not a candidate identity. |
+
+### Follow a TestFlight upload task
+
+| Step | Work performed | Inspectable result |
+| --- | --- | --- |
+| 1. Discover | Read the actual project contract, wrappers and Fastlane lanes; check relevant tools. | Adapter/toolchain diagnosis and exact authorized endpoint. |
+| 2. Freeze | Read the fresh store baseline, choose the candidate under the project policy and verify the clean pushed source. | Intent, baseline time, commit, version/build, platform and track. |
+| 3. Build locally | Use project-owned signing and build lanes after required preflight and tests. | Local archive/IPA and build evidence. |
+| 4. Inspect | Inspect final package identity, contents, signing/configuration and required assets/data; hash the actual file. | Artifact checks and SHA-256 tied to the frozen source. |
+| 5. Upload and record | Upload through the project's receipt-boundary Fastlane path; retain the exact successful Apple receipt. | `uploaded` for that artifact/version/build; stop the upload task here. |
+
+### Read the delivery record
+
+The result identifies the completed stage, source commit, package/bundle ID, version/build, artifact path and hash, provider receipt when applicable, check results and unresolved gates. The repository's own record format is retained; [the evidence contract](references/evidence-contract.md) describes the bundled offline helpers.
+
+For metadata-only work, expect localized field/file diffs, previews, the exact allowlist and bound review for an existing candidate, without inventing a binary rebuild. Android uses local packaging and authenticated Chrome Play Console for the authorized store stage; do not apply the Apple upload route to Android.
+
+**Done means:** the requested terminal stage has direct evidence. A successful TestFlight receipt means `uploaded`; processing, provider-valid, tester distribution, installability, review and public availability remain distinct. No screenshot in this guide proves a store delivery. [Read-only readiness](#read-only-readiness-and-offline-helpers) can be checked without a live upload.
+
+
 ## Inputs and outputs
 
 Provide the app repository, platform/track and requested endpoint. Existing session authorization remains valid. The workflow discovers project contracts and adapters, records exact source/artifact identity, completes the authorized stage, and reports the remaining gates.

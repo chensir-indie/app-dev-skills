@@ -1,0 +1,72 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800" role="img" aria-labelledby="title desc">
+<title id="title">iPhone Duo Adaptation: input to output</title>
+<desc id="desc">Original workflow illustration, with synthetic UI. Inputs: Existing app + current UI evidence; Framework, pages and primary tasks; Design constraints + review contexts. Stages: Inventory app; Bind rules; Build prototype; Review states. Output: Layout analysis · rule ledger · interactive HTML. No device or provider verification is implied.</desc>
+<g font-family="Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="1440" height="800" rx="0" fill="#f4f5ee" stroke="none"/>
+<rect x="0" y="0" width="1440" height="10" rx="0" fill="#163d33" stroke="none"/>
+<text x="48" y="53" font-size="18" fill="#5c7067" font-weight="600">APP DEV SKILLS   /   03</text>
+<text x="48" y="111" font-size="44" fill="#163d33" font-weight="700">iPhone Duo Adaptation</text>
+<text x="48" y="151" font-size="22" fill="#5c7067" font-weight="400">Preserve the app. Make each adaptation reviewable.</text>
+<rect x="48" y="193" width="634" height="360" rx="18" fill="#e7ecdf" stroke="none"/>
+<text x="76" y="238" font-size="17" fill="#5c7067" font-weight="700">START WITH</text>
+<rect x="76" y="263" width="28" height="28" rx="14" fill="#163d33" stroke="none"/>
+<text x="85" y="283" font-size="16" fill="white" font-weight="600">1</text>
+<text x="120" y="285" font-size="22" fill="#163d33" font-weight="400">Existing app + current UI evidence</text>
+<rect x="76" y="326" width="28" height="28" rx="14" fill="#163d33" stroke="none"/>
+<text x="85" y="346" font-size="16" fill="white" font-weight="600">2</text>
+<text x="120" y="348" font-size="22" fill="#163d33" font-weight="400">Framework, pages and primary tasks</text>
+<rect x="76" y="389" width="28" height="28" rx="14" fill="#163d33" stroke="none"/>
+<text x="85" y="409" font-size="16" fill="white" font-weight="600">3</text>
+<text x="120" y="411" font-size="22" fill="#163d33" font-weight="400">Design constraints + review contexts</text>
+<text x="76" y="510" font-size="20" fill="#5c7067" font-weight="400">Your materials set the scope and the stopping point.</text>
+<rect x="730" y="219" width="178" height="294" rx="20" fill="white" stroke="#d6dfd3"/>
+<text x="748" y="253" font-size="14" fill="#5c7067" font-weight="600">FIELD NOTES</text>
+<rect x="748" y="271" width="142" height="38" rx="8" fill="#163d33" stroke="none"/>
+<text x="760" y="296" font-size="17" fill="white" font-weight="600">Morning walk</text>
+<text x="750" y="343" font-size="21" fill="#163d33" font-weight="600">A quieter start</text>
+<rect x="750" y="365" width="138" height="6" rx="3" fill="#d6dfd3" stroke="none"/>
+<rect x="750" y="383" width="120" height="6" rx="3" fill="#d6dfd3" stroke="none"/>
+<rect x="750" y="401" width="138" height="6" rx="3" fill="#d6dfd3" stroke="none"/>
+<rect x="750" y="419" width="102" height="6" rx="3" fill="#d6dfd3" stroke="none"/>
+<rect x="750" y="465" width="90" height="28" rx="8" fill="#d4ee95" stroke="none"/>
+<text x="762" y="485" font-size="14" fill="#163d33" font-weight="600">Save draft</text>
+<text x="748" y="548" font-size="18" fill="#5c7067" font-weight="400">Original layout</text>
+<rect x="952" y="209" width="420" height="310" rx="24" fill="#163d33" stroke="none"/>
+<rect x="965" y="222" width="394" height="284" rx="16" fill="white" stroke="none"/>
+<rect x="977" y="236" width="137" height="256" rx="8" fill="#f4f5ee" stroke="none"/>
+<text x="988" y="264" font-size="13" fill="#163d33" font-weight="600">FIELD NOTES</text>
+<rect x="986" y="285" width="119" height="37" rx="6" fill="#d4ee95" stroke="none"/>
+<text x="995" y="308" font-size="12" fill="#163d33" font-weight="400">Morning walk</text>
+<rect x="986" y="332" width="119" height="37" rx="6" fill="#e6ebdf" stroke="none"/>
+<text x="995" y="355" font-size="12" fill="#163d33" font-weight="400">Weekend ideas</text>
+<rect x="986" y="379" width="119" height="37" rx="6" fill="#e6ebdf" stroke="none"/>
+<text x="995" y="402" font-size="12" fill="#163d33" font-weight="400">Reading list</text>
+<text x="1136" y="269" font-size="22" fill="#163d33" font-weight="600">Morning walk</text>
+<text x="1136" y="308" font-size="16" fill="#163d33" font-weight="400">A quieter start</text>
+<rect x="1136" y="330" width="190" height="6" rx="3" fill="#d6dfd3" stroke="none"/>
+<rect x="1136" y="348" width="165" height="6" rx="3" fill="#d6dfd3" stroke="none"/>
+<rect x="1136" y="366" width="190" height="6" rx="3" fill="#d6dfd3" stroke="none"/>
+<rect x="1136" y="384" width="145" height="6" rx="3" fill="#d6dfd3" stroke="none"/>
+<rect x="1136" y="442" width="91" height="30" rx="8" fill="#d4ee95" stroke="none"/>
+<text x="1147" y="463" font-size="14" fill="#163d33" font-weight="400">Save draft</text>
+<text x="975" y="548" font-size="18" fill="#5c7067" font-weight="400">Same task · preserved draft</text>
+<rect x="48" y="592" width="315" height="66" rx="12" fill="white" stroke="#d6dfd3"/>
+<text x="67" y="633" font-size="20" fill="#5c7067" font-weight="600">01</text>
+<text x="109" y="633" font-size="22" fill="#163d33" font-weight="600">Inventory app</text>
+<text x="368" y="632" font-size="25" fill="#5c7067" font-weight="400">›</text>
+<rect x="391" y="592" width="315" height="66" rx="12" fill="white" stroke="#d6dfd3"/>
+<text x="410" y="633" font-size="20" fill="#5c7067" font-weight="600">02</text>
+<text x="452" y="633" font-size="22" fill="#163d33" font-weight="600">Bind rules</text>
+<text x="711" y="632" font-size="25" fill="#5c7067" font-weight="400">›</text>
+<rect x="734" y="592" width="315" height="66" rx="12" fill="white" stroke="#d6dfd3"/>
+<text x="753" y="633" font-size="20" fill="#5c7067" font-weight="600">03</text>
+<text x="795" y="633" font-size="22" fill="#163d33" font-weight="600">Build prototype</text>
+<text x="1054" y="632" font-size="25" fill="#5c7067" font-weight="400">›</text>
+<rect x="1077" y="592" width="315" height="66" rx="12" fill="white" stroke="#d6dfd3"/>
+<text x="1096" y="633" font-size="20" fill="#5c7067" font-weight="600">04</text>
+<text x="1138" y="633" font-size="22" fill="#163d33" font-weight="600">Review states</text>
+<text x="48" y="707" font-size="17" fill="#5c7067" font-weight="700">DELIVER</text>
+<text x="178" y="707" font-size="25" fill="#163d33" font-weight="600">Layout analysis · rule ledger · interactive HTML</text>
+<text x="48" y="766" font-size="16" fill="#5c7067" font-weight="400">WORKFLOW ILLUSTRATION · SYNTHETIC UI · NOT A PRODUCT VALIDATION OR PROVIDER RECEIPT</text>
+</g>
+</svg>

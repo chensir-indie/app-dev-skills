@@ -1,6 +1,6 @@
 # iPhone Duo Adaptation
 
-[Agent workflow](SKILL.md) · [Compatibility documentation entry](README.zh-CN.md)
+[Agent workflow](SKILL.md) · [Simplified Chinese](README.zh-CN.md)
 
 The goal is to **help adapt and optimize an existing application for iPhone Duo**. Identify its UI framework, then follow **whole-app layout analysis → adaptation recommendations → complete HTML prototype** to make the necessary improvements concrete and reviewable while preserving the original design.
 
@@ -9,6 +9,42 @@ Supported UI frameworks are SwiftUI, UIKit in Swift or Objective-C, Flutter, Rea
 This is a community workflow, not Apple's exported Skill. It distinguishes official guidance, framework contracts, engineering inferences, product choices and actual test results. A split layout or navigation rail is a choice to evaluate against your task.
 
 The original app is the primary design reference. Default to the smallest changes needed to migrate all existing pages and tasks: preserve working hierarchy, styling, tokens, components, copy and behavior. Record retain/adapt/change decisions and compare the same original/adapted page and state. Extra space alone does not require a split view, new toolbar, new icons, restyling or business features. See the [minimal migration and pose-review contract](references/migration-review.md).
+
+## Input → workflow → output
+
+![Duo workflow illustration: original narrow notes UI and an illustrative wider view preserving the same draft](docs/workflow.svg)
+
+*Conceptual HTML layout illustration with synthetic UI. The wider arrangement is an example choice, not a mandatory split view, device specification or native-device result.*
+
+### Prepare the input
+
+| Input | What to provide |
+| --- | --- |
+| Current app | Repository or runnable UI, current captures/recordings and known framework. Identify inaccessible pages. |
+| Coverage | All known pages, navigation, shared components and primary tasks; include drafts, overlays and return paths. |
+| Design constraints | Original tokens, copy and components to preserve; record any explicitly authorized design changes. |
+| Review context | Available device/simulator references, target contexts, output language and requested stopping point. Assumptions remain labeled. |
+
+### Follow one complete task
+
+Example: adapt a notes app while preserving its list, editor and draft. The selected note and unsaved text must survive switching applicable review contexts.
+
+| Step | Work performed | Inspectable result |
+| --- | --- | --- |
+| 1. Inventory | Identify the framework and inspect every known page/task against the original app. | Layout baseline, coverage matrix and retain/adapt/change decisions. |
+| 2. Bind and freeze | Assess every catalog rule; record applicable decisions, planned targets and project conventions before construction. | Populated JSON ledger, generated Markdown, design recommendations and a frozen handoff. |
+| 3. Construct | Use the discovered BUILD WEB APPS route when available; retain editable local source and record any fallback. | Complete interactive HTML with original-design continuity and real primary tasks. |
+| 4. Exercise | Switch applicable outer/inner orientations, app-left/app-right and partial-fold contexts; inspect keyboard, text and overlays. | Browser captures, same-state original/adapted comparisons and state-continuity records. |
+| 5. Reconcile | Link actual evidence to rule IDs, fix mismatches and report deferred native-only work. | Checked ledger, reviewed prototype and explicit limits. |
+
+### What the delivery contains
+
+The app workspace contains `docs/iphone-duo-adaptation/workspace-rules.json` and its generated `.md` by default, the layout/design analysis, editable `index.html` with relative assets, and actual browser evidence. The project may choose a different recorded prototype folder; there is no required production framework conversion.
+
+Open the delivered local prototype, run a primary task, switch the review context and confirm that selection, draft and relevant scroll state survive. Compare the same page/state to its original capture. Review controls belong outside the app UI. Follow [workspace rules](#materialize-every-rule-in-the-app-workspace) for ledger commands and [runtime](#runtime-and-evidence) for setup.
+
+**Done means:** the default HTML scope covers the app and has actual interaction/visual evidence, with every catalog rule accounted for. Ledger checks establish record integrity; HTML cannot establish native reserved-region support or physical-device acceptance. An explicitly analysis-only task stops before construction.
+
 
 ## Provide the current app
 
@@ -78,7 +114,7 @@ sh scripts/doctor.sh
 
 The read-only default preflight checks Python 3.9+ for the standard-library workspace-rule tool and installs nothing. Use `sh scripts/doctor.sh --scope instructions` for reading without Python. It does **not** test browsers, HTML quality, a UI-framework toolchain, Xcode or a device. This package bundles no rendering runtime. Build and review the HTML with the agent's available browser tools or the project's existing tooling; browser and visual checks remain pending if unavailable. Xcode and a Duo device are not prerequisites for layout analysis or HTML creation.
 
-Skill instructions, invocation metadata, references, catalog/example prose and generated rule Markdown are maintained in English. Product UI copy and localization still follow the target app and the user's requested language. The legacy `README.zh-CN.md` entry is retained for packaging/link compatibility and points to this English documentation.
+Skill instructions, invocation metadata, references, catalog/example prose and generated rule Markdown are maintained in English. Product UI copy and localization still follow the target app and the user's requested language. The localized `README.zh-CN.md` explains the user-facing workflow in Chinese; the agent instructions and generated rule prose remain English.
 
 The [official basis](references/official-basis.md) records sources, SDK distinctions and how to optionally export Apple's Skill. SwiftUI and UIKit read reserved regions from the current view. Flutter's documented `displayFeatures` support must be checked for iOS before claiming the same data. React Native and page CSS do not receive that region unless the project has a verified bridge. Simulated sizes and Android foldable data do not establish Duo platform support.
 

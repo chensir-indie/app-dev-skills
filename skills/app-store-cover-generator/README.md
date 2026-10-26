@@ -4,6 +4,44 @@
 
 Turn real app screenshots and a visual reference into editable, localized App Store covers. The toolkit exports native-size PNGs across your locale/device/slide matrix, contact sheets, file hashes and review records.
 
+## Input → workflow → output
+
+![Cover workflow illustration from app captures and a brief to a coordinated set of editable covers](docs/workflow.svg)
+
+*Illustrative covers with fictional UI; the actual bundled toolkit export appears below.*
+
+### Prepare the input
+
+| Input | What to provide |
+| --- | --- |
+| App content | Real captures, evidenced feature claims and approved copy; label concept-only work explicitly. |
+| Art direction | Visual reference, brand palette, font/asset rights and any approved master cover. |
+| Export matrix | Exact locale IDs, device slot/dimensions, slide IDs/order and intended destination. |
+| Existing work | Current project, configuration and approval history when requesting fixes. |
+
+### Follow one complete task
+
+Example request: “Use these real captures and this reference. Create three editable slides in en-US and zh-Hans at the supplied phone and tablet dimensions. Inspect all 12 images and deliver locally.” The matrix is 2 locales × 2 targets × 3 slides; dimensions remain project inputs.
+
+| Step | Work performed | Inspectable result |
+| --- | --- | --- |
+| 1. Freeze | Confirm claims, capture provenance, story order, locales and dimensions. | Brief and exact target matrix. |
+| 2. Match | Render one representative cover and compare its composition, type and crop with the chosen reference. | Editable master and recorded visual differences. |
+| 3. Expand | Adapt localized copy and layout deliberately, including long text and RTL where requested. | Complete configured source matrix. |
+| 4. Export | Render native-size PNGs into a fresh output directory, then verify assets, geometry and file integrity. | PNGs, contact sheets, manifest/hashes and automated results. |
+| 5. Inspect | Inspect every contact sheet and native PNG; fix cells, export again and bind review to final hashes. | Reviewed delivery with remaining translation/rights/eligibility limits. |
+
+### See and use the actual output
+
+![Actual synthetic toolkit export contact sheet with English, Chinese and Arabic phone and tablet covers](docs/demo-contact.png)
+
+*Real toolkit export using synthetic app UI and draft translations. The sample illustrates localization and layout variants; it does not establish production translation approval or current store-slot eligibility.*
+
+Open contact sheets to compare the matrix, then inspect full-size PNGs. Edit the source project's HTML/CSS, media and `project.json`; re-export after changes because the earlier review is bound to the old export. PNGs are delivery files, not the editable source. Use [initialize, preview, export and review commands](references/template-contract.md#commands). The starter is a scaffold: replace its synthetic UI with your app's actual captures.
+
+**Done means:** the requested cells are exported, checked and visually reviewed, with source and bound evidence included. A contact sheet is not an upload asset; store upload is a separate endpoint. Direction-only requests end with the concept.
+
+
 ## Choose your starting point
 
 | You have | Ask for | Result |

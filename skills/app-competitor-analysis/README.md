@@ -9,6 +9,44 @@ A detailed interface pass also delivers a source-linked `Design.md` per competit
 
 The generated reader uses a visual product-study layout: a searchable left library, broad evidence cover, URL-addressable analysis views and continuous reading, image-led collection and distinct capability/task/technical compositions. Visual redesign requests include actual reference / old / new HTML comparisons; shared layout changes apply to the complete requested set. See [report design](references/report-design.md) for the concrete reference-to-layout rules and rendered review loop; source images and documented crops remain independently inspectable.
 
+## Input → workflow → output
+
+![Competitor analysis workflow: source material, research stages and a report reader illustration](docs/workflow.svg)
+
+*Workflow illustration with fictional products. The real renderer example is shown below.*
+
+### Prepare the input
+
+| Input | What makes it useful |
+| --- | --- |
+| Decision brief | Name your app, target user task and the decision this research should change. |
+| Competitor inventory | List every requested app, platform and known version; identify the full set versus a sample. |
+| Evidence | Attach original screenshots, recordings and official links with source/date/state. Supply authorized packages only when technical analysis needs them. |
+| Delivery scope | Name dimensions, output language, sharing restrictions and any narrow stopping point. |
+
+### Follow one complete task
+
+Example: compare how two note apps recover an interrupted draft before deciding whether to add autosave to your own app.
+
+| Step | Work performed | Inspectable result |
+| --- | --- | --- |
+| 1. Scope and acquire | Define an equivalent task; inspect available sources and pursue consequential gaps through authorized routes. | App inventory, evidence IDs, acquisition attempts and coverage gaps. |
+| 2. Reconstruct | Trace entry, edits, interruption, recovery and completion; inspect visible UI and supported mechanisms. | Feature, task, screen and data maps; UI elements and UX records. |
+| 3. Reason | Separate observations, official claims, static findings and hypotheses; compare alternatives and tradeoffs. | Evidence-linked findings, adopt/adapt/defer decisions and checks that could reverse them. |
+| 4. Author and render | Write structured records, then generate the complete reading bundle. | One HTML per app, an index and, for a detailed UI pass, `design/<product-id>/Design.md`. |
+| 5. Review | Open the actual report; exercise search, app switching, chapter links and source links; inspect desktop and phone layouts. | Browser/visual observations, remaining gaps and the complete requested set. |
+
+### Open and use the delivery
+
+Open `index.html`, select an app, read the relevant view and follow evidence IDs back to their sources. Keep `assets/` beside the reports for offline reading. Use the design document for interface decisions; carry hypotheses into the next implementation task as hypotheses.
+
+![Actual browser capture of the bundled synthetic Example Notes report](docs/report-example.png)
+
+*Actual Chrome capture of `assets/report-bundle.example.json` rendered on 2026-10-27. Example Notes and its findings are synthetic; this shows the reader, not research on a real competitor. Reproduce it with [Run the helpers](#run-the-helpers). The minimal fixture does not demonstrate every detailed Design.md field.*
+
+**Done means:** every requested competitor is covered, material conclusions have evidence or explicit uncertainty, and the delivered reader has been inspected. A renderer exit or an audit alone does not establish analytical quality.
+
+
 ## Start with your question
 
 | What you have | Where the analysis starts |

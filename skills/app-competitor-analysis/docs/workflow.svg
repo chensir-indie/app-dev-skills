@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="800" viewBox="0 0 1440 800" role="img" aria-labelledby="title desc">
+<title id="title">App Competitor Analysis: input to output</title>
+<desc id="desc">Original workflow illustration, with synthetic UI. Inputs: Product question + competitor list; Screenshots, recordings, official sources; Authorized artifacts when relevant. Stages: Scope + acquire; Analyze + map; Synthesize; Render + inspect. Output: HTML reports · Design.md · linked evidence. No device or provider verification is implied.</desc>
+<g font-family="Arial, Helvetica, sans-serif">
+<rect x="0" y="0" width="1440" height="800" rx="0" fill="#f4f5ee" stroke="none"/>
+<rect x="0" y="0" width="1440" height="10" rx="0" fill="#163d33" stroke="none"/>
+<text x="48" y="53" font-size="18" fill="#5c7067" font-weight="600">APP DEV SKILLS   /   01</text>
+<text x="48" y="111" font-size="44" fill="#163d33" font-weight="700">App Competitor Analysis</text>
+<text x="48" y="151" font-size="22" fill="#5c7067" font-weight="400">Evidence you can inspect. Decisions you can explain.</text>
+<rect x="48" y="193" width="634" height="360" rx="18" fill="#e7ecdf" stroke="none"/>
+<text x="76" y="238" font-size="17" fill="#5c7067" font-weight="700">START WITH</text>
+<rect x="76" y="263" width="28" height="28" rx="14" fill="#163d33" stroke="none"/>
+<text x="85" y="283" font-size="16" fill="white" font-weight="600">1</text>
+<text x="120" y="285" font-size="22" fill="#163d33" font-weight="400">Product question + competitor list</text>
+<rect x="76" y="326" width="28" height="28" rx="14" fill="#163d33" stroke="none"/>
+<text x="85" y="346" font-size="16" fill="white" font-weight="600">2</text>
+<text x="120" y="348" font-size="22" fill="#163d33" font-weight="400">Screenshots, recordings, official sources</text>
+<rect x="76" y="389" width="28" height="28" rx="14" fill="#163d33" stroke="none"/>
+<text x="85" y="409" font-size="16" fill="white" font-weight="600">3</text>
+<text x="120" y="411" font-size="22" fill="#163d33" font-weight="400">Authorized artifacts when relevant</text>
+<text x="76" y="510" font-size="20" fill="#5c7067" font-weight="400">Your materials set the scope and the stopping point.</text>
+<rect x="730" y="193" width="642" height="360" rx="18" fill="white" stroke="#d6dfd3"/>
+<rect x="730" y="193" width="153" height="360" rx="18" fill="#e8ede1" stroke="none"/>
+<text x="750" y="230" font-size="16" fill="#163d33" font-weight="700">APP STUDIES</text>
+<rect x="746" y="252" width="120" height="30" rx="6" fill="white" stroke="none"/>
+<text x="757" y="272" font-size="13" fill="#5c7067" font-weight="400">Search apps</text>
+<text x="752" y="318" font-size="15" fill="#163d33" font-weight="600">Field Notes</text>
+<text x="752" y="356" font-size="15" fill="#163d33" font-weight="400">Pocket Journal</text>
+<text x="752" y="394" font-size="15" fill="#163d33" font-weight="400">Daily Pages</text>
+<text x="906" y="239" font-size="29" fill="#163d33" font-weight="600">From observation</text>
+<text x="906" y="275" font-size="29" fill="#163d33" font-weight="600">to product decisions</text>
+<rect x="904" y="307" width="135" height="136" rx="10" fill="#f4f5ee" stroke="none"/>
+<text x="916" y="333" font-size="12" fill="#5c7067" font-weight="600">CAPABILITIES</text>
+<rect x="921" y="351" width="92" height="14" rx="4" fill="#d4ee95" stroke="none"/>
+<rect x="928" y="376" width="80" height="14" rx="4" fill="#c5d4bf" stroke="none"/>
+<rect x="935" y="401" width="68" height="14" rx="4" fill="#c5d4bf" stroke="none"/>
+<rect x="1053" y="307" width="135" height="136" rx="10" fill="#f4f5ee" stroke="none"/>
+<text x="1065" y="333" font-size="12" fill="#5c7067" font-weight="600">TASK FLOW</text>
+<rect x="1070" y="351" width="92" height="14" rx="4" fill="#d4ee95" stroke="none"/>
+<rect x="1077" y="376" width="80" height="14" rx="4" fill="#c5d4bf" stroke="none"/>
+<rect x="1084" y="401" width="68" height="14" rx="4" fill="#c5d4bf" stroke="none"/>
+<rect x="1202" y="307" width="135" height="136" rx="10" fill="#f4f5ee" stroke="none"/>
+<text x="1214" y="333" font-size="12" fill="#5c7067" font-weight="600">TECHNOLOGY</text>
+<rect x="1219" y="351" width="92" height="14" rx="4" fill="#d4ee95" stroke="none"/>
+<rect x="1226" y="376" width="80" height="14" rx="4" fill="#c5d4bf" stroke="none"/>
+<rect x="1233" y="401" width="68" height="14" rx="4" fill="#c5d4bf" stroke="none"/>
+<text x="906" y="482" font-size="21" fill="#163d33" font-weight="600">Evidence → finding → decision</text>
+<text x="906" y="517" font-size="18" fill="#5c7067" font-weight="400">HTML reader + Design.md + source links</text>
+<rect x="48" y="592" width="315" height="66" rx="12" fill="white" stroke="#d6dfd3"/>
+<text x="67" y="633" font-size="20" fill="#5c7067" font-weight="600">01</text>
+<text x="109" y="633" font-size="22" fill="#163d33" font-weight="600">Scope + acquire</text>
+<text x="368" y="632" font-size="25" fill="#5c7067" font-weight="400">›</text>
+<rect x="391" y="592" width="315" height="66" rx="12" fill="white" stroke="#d6dfd3"/>
+<text x="410" y="633" font-size="20" fill="#5c7067" font-weight="600">02</text>
+<text x="452" y="633" font-size="22" fill="#163d33" font-weight="600">Analyze + map</text>
+<text x="711" y="632" font-size="25" fill="#5c7067" font-weight="400">›</text>
+<rect x="734" y="592" width="315" height="66" rx="12" fill="white" stroke="#d6dfd3"/>
+<text x="753" y="633" font-size="20" fill="#5c7067" font-weight="600">03</text>
+<text x="795" y="633" font-size="22" fill="#163d33" font-weight="600">Synthesize</text>
+<text x="1054" y="632" font-size="25" fill="#5c7067" font-weight="400">›</text>
+<rect x="1077" y="592" width="315" height="66" rx="12" fill="white" stroke="#d6dfd3"/>
+<text x="1096" y="633" font-size="20" fill="#5c7067" font-weight="600">04</text>
+<text x="1138" y="633" font-size="22" fill="#163d33" font-weight="600">Render + inspect</text>
+<text x="48" y="707" font-size="17" fill="#5c7067" font-weight="700">DELIVER</text>
+<text x="178" y="707" font-size="25" fill="#163d33" font-weight="600">HTML reports · Design.md · linked evidence</text>
+<text x="48" y="766" font-size="16" fill="#5c7067" font-weight="400">WORKFLOW ILLUSTRATION · SYNTHETIC UI · NOT A PRODUCT VALIDATION OR PROVIDER RECEIPT</text>
+</g>
+</svg>

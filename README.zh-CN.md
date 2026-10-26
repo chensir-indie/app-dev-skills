@@ -1,8 +1,10 @@
 # App Dev Skills
 
+![App Dev Skills — From evidence to delivery](docs/assets/app-dev-skills-cover.png)
+
 **面向 App 研究、可编辑原型、布局适配与商店交付的可复用 Agent 技能。**
 
-[English](README.md) · [选择技能](#选择技能) · [开始使用](#开始使用) · [文档导航](docs/README.zh-CN.md) · [贡献指南](CONTRIBUTING.md)
+[English](README.md) · [选择技能](#选择技能) · [图文流程](#看看每个技能会交付什么) · [开始使用](#开始使用) · [文档导航](docs/README.zh-CN.md) · [贡献指南](CONTRIBUTING.md)
 
 [![检查](https://github.com/chensir-indie/app-dev-skills/actions/workflows/check.yml/badge.svg)](https://github.com/chensir-indie/app-dev-skills/actions/workflows/check.yml)
 [![MIT 许可](https://img.shields.io/badge/license-MIT-193d34)](LICENSE)
@@ -23,11 +25,49 @@
 
 执行前读取对应的 `SKILL.md`。只完成某个阶段、修复现有项目或判断交付是否完整时，参阅[工作流与交接](docs/workflows.zh-CN.md)。
 
-## 输出示例
+## 看看每个技能会交付什么
 
-![合成 App 封面示例的真实导出联系表：英文、中文、阿拉伯文，包含手机和平板尺寸](skills/app-store-cover-generator/docs/demo-contact.png)
+封面为 AI 生成的品牌概念图。以下区分工具实际输出与流程示意；每份指南均包含输入清单、逐步流程、示例任务、交付物和验收方式。点击图片可进入对应使用指南。
 
-这是内置封面工具的真实导出。App UI 为合成示例，翻译为草稿；工具提供 50 个语言区域预设与自定义渲染目标，生产文案和商店适用性仍须审查。[查看封面指南](skills/app-store-cover-generator/README.zh-CN.md)。
+### 01 · 竞品分析：把证据变成可追溯的产品判断
+
+截图、录屏、产品问题 → 证据分析与四类地图 → 每个 App 的 HTML、详细 Design.md 和总索引。
+
+[![竞品分析工具实际渲染的合成 Example Notes 报告](skills/app-competitor-analysis/docs/report-example.png)](skills/app-competitor-analysis/README.zh-CN.md#输入--流程--交付)
+
+真实渲染器输出，研究内容为合成样例。[查看输入、完整流程和复现命令 →](skills/app-competitor-analysis/README.zh-CN.md#输入--流程--交付)
+
+### 02 · 分层 HTML：从认可的画面到可编辑界面
+
+参考图、页面状态与素材 → 独立测量、分层实现、交互与视觉比对 → 可编辑源码、图层合同和浏览器证据。
+
+[![分层原型流程与独立图层示意](skills/image-to-layered-html-prototype/docs/workflow.svg)](skills/image-to-layered-html-prototype/README.zh-CN.md#输入--流程--交付)
+
+合成 UI 流程示意，非已验收还原案例。[查看输入、完整流程和使用方法 →](skills/image-to-layered-html-prototype/README.zh-CN.md#输入--流程--交付)
+
+### 03 · iPhone Duo：保留原设计，验证适配后的任务
+
+当前 App、全部页面与设计约束 → 布局分析、逐条规则决策、HTML 构建 → 完整交互原型、台账和同状态对照。
+
+[![Duo 适配流程：原始界面与保留任务状态的宽屏示意](skills/iphone-duo-adaptation/docs/workflow.svg)](skills/iphone-duo-adaptation/README.zh-CN.md#输入--流程--交付)
+
+布局概念示意，非设备规格或真机验证。[查看输入、完整流程和验收方法 →](skills/iphone-duo-adaptation/README.zh-CN.md#输入--流程--交付)
+
+### 04 · 商店封面：从一张母版到完整多语言矩阵
+
+真实 App 截图、视觉参考与语言/尺寸 → 母版匹配、本地化、导出与逐张评审 → HTML/CSS、PNG、联系表和绑定评审。
+
+[![封面工具真实导出的多语言合成 UI 联系表](skills/app-store-cover-generator/docs/demo-contact.png)](skills/app-store-cover-generator/README.zh-CN.md#输入--流程--交付)
+
+真实工具导出，UI 为合成示例，译文为草稿；内置 50 种语言预设。[查看输入、完整流程和导出方法 →](skills/app-store-cover-generator/README.zh-CN.md#输入--流程--交付)
+
+### 05 · 应用发布：每个交付阶段都有准确证据
+
+项目、平台/轨道与授权终点 → 实时基线、本地构建、最终制品检查 → 源码/制品身份及对应阶段记录。
+
+[![发布流程及源码、制品、阶段证据示意](skills/app-publish-skill/docs/workflow.svg)](skills/app-publish-skill/README.zh-CN.md#输入--流程--交付)
+
+证据结构示意，非实际上传回执。[查看输入、完整流程和完成边界 →](skills/app-publish-skill/README.zh-CN.md#输入--流程--交付)
 
 ## 开始使用
 

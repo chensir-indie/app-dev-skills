@@ -4,6 +4,40 @@
 
 Turn approved UI images into editable HTML/CSS/SVG. Use this skill to rebuild a screenshot, turn an imagegen concept into an interactive prototype, repair a visual mismatch, or keep multiple pages consistent through shared tokens. Text, controls, panels and subjects remain independent layers.
 
+## Input → workflow → output
+
+![Layered reconstruction workflow showing a reference screen decomposed into text, controls, panels and art](docs/workflow.svg)
+
+*Original illustration with synthetic UI; it is not a measured reconstruction or a passing visual comparison.*
+
+### Prepare the input
+
+| Input | What to provide |
+| --- | --- |
+| Design authority | Approved original images for every page/state, or an explicit request to develop a concept first. |
+| Rendering context | Known viewport, language, fonts, assets, fixture content and required interactions. Unknown values stay identified. |
+| Scope | Faithful reconstruction, authorized redesign, review only, or repair of existing HTML. For repairs, include the working source. |
+| Acceptance | Requested pages/states, fidelity expectations and locked design constraints. |
+
+### Follow one complete task
+
+Example request: “Rebuild these approved list, detail and editor screens. Keep typography and spacing; make selecting a note, editing, saving and returning work. Deliver editable HTML and evidence for all three screens.”
+
+| Step | Work performed | Inspectable result |
+| --- | --- | --- |
+| 1. Lock | Freeze reference hashes, page/state inventory and acceptance limits. Preserve existing source and before captures for repairs. | Traceable baseline and state/acceptance contract. |
+| 2. Measure | Measure source geometry and visible glyphs independently of the implementation. | Tokens, geometry/typography tables and layer manifest. |
+| 3. Rebuild | Implement separate text, controls, panels and assets; connect primary actions and return paths. | HTML/CSS/JS and individually editable layers. |
+| 4. Compare | Trigger each real state; capture the current source; compare reference, actual, overlay and raw diff. | Browser captures, layer-toggle proofs and regional findings. |
+| 5. Converge | Repair failed regions, rerun validation and inspect each requested page. | Separate editability, fidelity, interaction and adaptation statuses. |
+
+### What the delivery contains
+
+Open the delivered `index.html` using its recorded local preview route. Keep its assets beside it. Edit a title as text, toggle an art layer, then repeat the primary task to verify that the interface is actually editable and interactive. The handoff includes original references, tokens, `layer-manifest.json`, render/state contracts, measurements and `evidence/` captures/diffs; exact supporting filenames follow the linked schemas.
+
+Use the commands in [Shortest working path](#shortest-working-path) to inventory, capture and validate. A capture's state argument labels evidence; it does not navigate into that state. **Done means:** every requested page meets its frozen checks and visual review. A full-screen image with clickable hotspots is not an editable reconstruction. Native implementation is a later handoff.
+
+
 ## Choose your starting point
 
 | You have | Provide | Result |
