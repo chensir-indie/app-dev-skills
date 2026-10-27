@@ -40,86 +40,46 @@ Once installed, attach your material or project path and use a request below. Sp
 
 ## Install
 
-Choose your tool below. Install the complete skill folder, including its scripts, references and assets. Keep the source checkout for updates.
-
-First clone once (or use your existing checkout). The terminal commands below are for macOS/Linux; use them in WSL only when the agent runs in that same WSL environment. Continue in the same terminal.
-
-```sh
-APP_DEV_SKILLS_DIR="$HOME/src/app-dev-skills"
-# Already cloned? Set the existing path above and skip git clone.
-mkdir -p "$(dirname "$APP_DEV_SKILLS_DIR")"
-git clone https://github.com/chensir-indie/app-dev-skills.git "$APP_DEV_SKILLS_DIR"
-```
+Requires [Node.js 22.20+](https://nodejs.org/en/download) with npm/npx. Run your tool's command from the project folder, select the skills you need and keep the **Project** installation scope.
 
 <details>
 <summary><b>Claude Code</b></summary>
 
-Link one selected skill for all local projects:
-
 ```sh
-APP_DEV_SKILL="iphone-duo-adaptation" # Choose a name from the table.
-APP_DEV_SKILL_LINK="$HOME/.claude/skills/$APP_DEV_SKILL"
-mkdir -p "$(dirname "$APP_DEV_SKILL_LINK")"
-if [ -e "$APP_DEV_SKILL_LINK" ] || [ -L "$APP_DEV_SKILL_LINK" ]; then
-  printf '%s\n' 'Already exists: inspect it; existing files are preserved.'
-else
-  ln -s "$APP_DEV_SKILLS_DIR/skills/$APP_DEV_SKILL" "$APP_DEV_SKILL_LINK"
-fi
+npx skills add chensir-indie/app-dev-skills -a claude-code
 ```
-
-Start a new session and type `/iphone-duo-adaptation`, or describe the task. Change the name above to install another skill. [Claude Code skill directories](https://code.claude.com/docs/en/skills#choose-where-skills-load).
 
 </details>
 
 <details>
 <summary><b>Codex</b></summary>
 
-Link the full collection once. If this checkout is already connected, skip this step.
-
 ```sh
-APP_DEV_SKILL_LINK="$HOME/.agents/skills/app-dev-skills"
-mkdir -p "$(dirname "$APP_DEV_SKILL_LINK")"
-if [ -e "$APP_DEV_SKILL_LINK" ] || [ -L "$APP_DEV_SKILL_LINK" ]; then
-  printf '%s\n' 'Already exists: inspect it; existing files are preserved.'
-else
-  ln -s "$APP_DEV_SKILLS_DIR/skills" "$APP_DEV_SKILL_LINK"
-fi
+npx skills add chensir-indie/app-dev-skills -a codex
 ```
-
-Start a new session and select a skill with `$`, for example `$iphone-duo-adaptation`. Keep one collection link; do not also install individual copies in `~/.codex/skills`. [Codex skill discovery](https://developers.openai.com/codex/skills).
 
 </details>
 
 <details>
 <summary><b>Cursor</b></summary>
 
-Local Cursor also reads `~/.agents/skills/`. If you installed the collection for Codex, reuse that installation; otherwise run:
-
 ```sh
-APP_DEV_SKILL_LINK="$HOME/.agents/skills/app-dev-skills"
-mkdir -p "$(dirname "$APP_DEV_SKILL_LINK")"
-if [ -e "$APP_DEV_SKILL_LINK" ] || [ -L "$APP_DEV_SKILL_LINK" ]; then
-  printf '%s\n' 'Already exists: inspect it; existing files are preserved.'
-else
-  ln -s "$APP_DEV_SKILLS_DIR/skills" "$APP_DEV_SKILL_LINK"
-fi
+npx skills add chensir-indie/app-dev-skills -a cursor
 ```
-
-Start a new session, type `/` and select the skill. Avoid duplicate installations in `.cursor/skills` or `.claude/skills` when the same skill is already discovered. This setup is for local agents; cloud sessions need their own skills. [Cursor skill directories](https://cursor.com/docs/skills).
 
 </details>
 
 <details>
 <summary><b>WorkBuddy</b></summary>
 
-1. Open **Experts · Skills · Connectors → Skills → Add skill → Upload skill**.
-2. Select one complete folder from the checkout, such as `skills/iphone-duo-adaptation`. Import the skill folder, not the whole repository or just `SKILL.md`.
-3. Confirm it appears and is enabled under **Installed**, then ask WorkBuddy to use that skill by name.
+```sh
+npx skills add chensir-indie/app-dev-skills -a universal
+```
 
-You can also download and extract the repository ZIP from GitHub's **Code → Download ZIP** without a terminal. Reimport from the source after updates. [WorkBuddy import guide](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market).
+Then open **Skills → Add skill → Upload skill** in WorkBuddy and select the generated `.agents/skills/<skill-name>` folder. [Import guide](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market).
 
 </details>
 
-Check that each selected skill appears once. Tool installation does not install rendering or mobile build dependencies; the agent checks those when the task needs them.
+Start a new chat and use a request above. Already installed? Skip reinstalling. For global Claude Code, Codex or Cursor installation, add `-g` to the command.
 
 [Troubleshooting](docs/runtime.md) · [Contributing](CONTRIBUTING.md) · [MIT](LICENSE)
