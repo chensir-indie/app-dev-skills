@@ -2,41 +2,7 @@
 
 [简体中文](README.zh-CN.md)
 
-Use these skills to research competing apps, rebuild interfaces, adapt layouts, create store covers, or build and upload an app. Choose the task below, then give your agent the materials it needs.
-
-## Choose a skill
-
-| Task | Skill | Result |
-| --- | --- | --- |
-| Research competitors | [app-competitor-analysis](skills/app-competitor-analysis/SKILL.md) | Reports and recommendations for your product |
-| Rebuild or refine UI | [image-to-layered-html-prototype](skills/image-to-layered-html-prototype/SKILL.md) | Editable HTML and browser comparisons |
-| Adapt for iPhone Duo | [iphone-duo-adaptation](skills/iphone-duo-adaptation/SKILL.md) | Layout analysis, adaptation advice and an interactive prototype |
-| Create localized store covers | [app-store-cover-generator](skills/app-store-cover-generator/SKILL.md) | Editable covers and PNGs |
-| Build or upload an app | [app-publish-skill](skills/app-publish-skill/SKILL.md) | Local build files and receipts for the requested stage |
-
-## Output previews
-
-**Competitor analysis: HTML report**
-
-![Example Notes report with research navigation and a four-step journey map](skills/app-competitor-analysis/docs/report-example.png)
-
-Browser screenshot of a report built with fictional Example Notes data.
-
-**Store covers: multiple languages and devices**
-
-![English, Chinese and Arabic store covers for iPhone and iPad](skills/app-store-cover-generator/docs/demo-contact.png)
-
-Exported covers made with synthetic app screens and draft translations.
-
-## Use
-
-After installation, attach your materials or provide a project path, then adapt one of the requests below. Say what you want and where the work should stop. The agent will read the skill instructions and check the tools it needs. Include your preferred output language in the request.
-
-- `Use the app-competitor-analysis skill to compare these apps for [product question]. Deliver per-app HTML reports and a comparison index; mark evidence gaps.`
-- `Use the image-to-layered-html-prototype skill to rebuild these screenshots as editable HTML. Preserve the design and primary interactions; include browser comparisons.`
-- `Use the iphone-duo-adaptation skill to analyze [project path] for iPhone Duo. Recommend minimal layout changes and create a complete interactive HTML prototype.`
-- `Use the app-store-cover-generator skill with these screenshots and copy to create editable covers and PNGs for [locales and device sizes].`
-- `Use the app-publish-skill skill to build and upload [project path] to TestFlight. Stop at Apple's upload receipt.`
+Skills for competitor research, editable interfaces, iPhone Duo adaptation, store covers, and local app builds/uploads. Install the skills, give your agent a task, then use the examples below to see what they produce.
 
 ## Install
 
@@ -80,6 +46,72 @@ Open the same project folder in WorkBuddy and start a new task. The command inst
 
 </details>
 
-Start a new chat and use one of the requests above. You can skip installation if the skills are already installed. To use them across projects in Claude Code, Codex or Cursor, add `-g` to the command.
+Start a new chat in the same project and use one of the requests below. You can skip installation if the skills are already installed. To use them across projects in Claude Code, Codex or Cursor, add `-g` to the command.
+
+## How to use
+
+1. Open your app project in your agent and start a new chat after installation.
+2. Name the skill and supply the input: screenshots, competitor links, approved designs, or a project path.
+3. State the result you need, your preferred output language, and where the work should stop. The agent reads the skill and checks the tools needed for that task.
+
+Choose a task and copy its request, replacing the bracketed inputs:
+
+| Task and skill | Copyable request |
+| --- | --- |
+| [Research competitors](skills/app-competitor-analysis/SKILL.md) | Use the app-competitor-analysis skill to compare [apps and evidence] for [product question]. Deliver per-app HTML reports and a comparison index in English; mark evidence gaps. |
+| [Rebuild or refine UI](skills/image-to-layered-html-prototype/SKILL.md) | Use the image-to-layered-html-prototype skill to rebuild [attached screenshots] as editable HTML. Preserve the design and primary interactions; include browser comparisons. |
+| [Adapt for iPhone Duo](skills/iphone-duo-adaptation/SKILL.md) | Use the iphone-duo-adaptation skill to analyze [project path] for iPhone Duo. Recommend minimal layout changes and create a complete interactive HTML prototype. |
+| [Create store covers](skills/app-store-cover-generator/SKILL.md) | Use the app-store-cover-generator skill with [screenshots and copy] to create editable covers and PNGs for [locales and device sizes]. |
+| [Build or upload an app](skills/app-publish-skill/SKILL.md) | Use the app-publish-skill skill to build and upload [project path] to TestFlight. Stop at Apple's upload receipt. |
+
+Installation adds the skill instructions. Rendering, browser checks, and mobile builds may need additional tools; follow the agent's environment check or the [runtime guide](docs/runtime.md) for the selected task.
+
+## Usage examples and results
+
+These two examples use bundled synthetic materials and actual generated previews. They demonstrate the output format, not findings about a real competitor or store-approved artwork. The paths in the requests below assume a checkout of this repository; for an installed skill, provide its actual directory instead.
+
+### Example 1: Turn competitor research into a readable HTML report
+
+**Input:** the bundled [Example Notes research bundle](skills/app-competitor-analysis/assets/report-bundle.example.json), containing fictional app analysis and task flows.
+
+**Request:**
+
+```text
+Use the app-competitor-analysis skill with
+skills/app-competitor-analysis/assets/report-bundle.example.json
+to generate a linked HTML report in ./output/competitor-demo.
+Keep the synthetic-data labels and evidence gaps. Include the report index
+and visual maps, and open the generated report to check its layout and navigation.
+Do not add findings about real apps.
+```
+
+**Result:** a portable HTML report folder with an index, research chapters, evidence-linked maps, and shared local assets. For your own study, supply competitor links/screenshots and a product question; the agent must gather and author the analysis before rendering it.
+
+![Example Notes report with research navigation and a four-step journey map](skills/app-competitor-analysis/docs/report-example.png)
+
+Actual browser screenshot of the fictional Example Notes report. [View full-size image](skills/app-competitor-analysis/docs/report-example.png).
+
+### Example 2: Create store covers for several languages and devices
+
+**Input:** the bundled [cover starter](skills/app-store-cover-generator/assets/starter/) and its synthetic app screens. The preview below shows English, Chinese, and Arabic across iPhone and iPad layouts.
+
+**Request:**
+
+```text
+Use the app-store-cover-generator skill to create a demo cover project
+in ./output/store-cover-demo using the bundled starter and synthetic screens.
+Create English, Simplified Chinese, and Arabic variants for iPhone and iPad.
+Keep headings editable and label all translations as drafts.
+Deliver HTML/CSS source, exported PNGs, and contact sheets;
+check text overflow and Arabic right-to-left layout. Do not upload to a store.
+```
+
+**Result:** editable cover source, PNGs for the requested language/device combinations, and contact sheets for review. For your own app, replace the synthetic screens with real captures and supply approved copy and target dimensions.
+
+![English, Chinese and Arabic store covers for iPhone and iPad](skills/app-store-cover-generator/docs/demo-contact.png)
+
+Actual exported covers using synthetic app screens and draft translations. [View full-size image](skills/app-store-cover-generator/docs/demo-contact.png).
+
+To explore the bundled cover demo locally, follow the [repository setup](docs/runtime.md#set-up-the-repository), run `npm run demo`, and open the URL printed in the terminal. Stop the preview with Ctrl+C.
 
 [Troubleshooting](docs/runtime.md) · [Contributing](CONTRIBUTING.md) · [MIT](LICENSE)

@@ -2,7 +2,7 @@
 
 [简体中文](workflows.zh-CN.md)
 
-Use this guide when changing what a skill does or how it hands work to another skill. To choose and use a skill, start with the [catalog](../README.md#choose-a-skill).
+Use this guide when changing what a skill does or how it hands work to another skill. To choose and use a skill, start with the [catalog](../README.md#how-to-use).
 
 | Skill | Default result | Limits |
 | --- | --- | --- |
