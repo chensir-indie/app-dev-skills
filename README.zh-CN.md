@@ -32,38 +32,94 @@
 
 安装后，附上材料或项目路径，选择下面的示例提需求。说明目标和结束阶段即可；Agent 会读取指令、检查所需环境。需要中文产物时，在请求中说明。
 
-- `用 $app-competitor-analysis 分析这些竞品，回答［产品问题］。输出各应用 HTML 报告与对比索引，标明证据缺口。`
-- `用 $image-to-layered-html-prototype 把这些截图还原成可编辑 HTML，保留原设计与主要交互，提供浏览器对比。`
-- `用 $iphone-duo-adaptation 分析［项目路径］的 iPhone Duo 适配，以最小布局改动给出建议并制作完整交互 HTML 原型。`
-- `用 $app-store-cover-generator 根据这些截图和文案，制作［语言和设备尺寸］的可编辑商店封面与 PNG。`
-- `用 $app-publish-skill 将［项目路径］打包上传 TestFlight，拿到 Apple 上传回执后结束。`
+- `用 app-competitor-analysis 技能 分析这些竞品，回答［产品问题］。输出各应用 HTML 报告与对比索引，标明证据缺口。`
+- `用 image-to-layered-html-prototype 技能 把这些截图还原成可编辑 HTML，保留原设计与主要交互，提供浏览器对比。`
+- `用 iphone-duo-adaptation 技能 分析［项目路径］的 iPhone Duo 适配，以最小布局改动给出建议并制作完整交互 HTML 原型。`
+- `用 app-store-cover-generator 技能 根据这些截图和文案，制作［语言和设备尺寸］的可编辑商店封面与 PNG。`
+- `用 app-publish-skill 技能 将［项目路径］打包上传 TestFlight，拿到 Apple 上传回执后结束。`
 
 ## 安装
 
-已连接本仓库的 Codex 无需重复安装。
+选择你使用的工具。安装完整技能目录，保留其中的脚本、参考文档和资源；后续统一在源码目录更新。
 
-<details>
-<summary>首次安装或迁移时展开</summary>
-
-### 连接一个源码目录
+先克隆一次，已有仓库直接使用原路径。以下终端命令适用于 macOS/Linux；只有 Agent 也运行在同一个 WSL 环境时才在 WSL 执行。后续命令在同一终端运行。
 
 ```sh
-APP_DEV_SKILLS_DIR="${HOME}/src/app-dev-skills"
-# Skip cloning if you already have a checkout; set its path above.
+APP_DEV_SKILLS_DIR="$HOME/src/app-dev-skills"
+# Already cloned? Set the existing path above and skip git clone.
 mkdir -p "$(dirname "$APP_DEV_SKILLS_DIR")"
 git clone https://github.com/chensir-indie/app-dev-skills.git "$APP_DEV_SKILLS_DIR"
-mkdir -p "$HOME/.agents/skills"
-if [ -e "$HOME/.agents/skills/app-dev-skills" ] || [ -L "$HOME/.agents/skills/app-dev-skills" ]; then
-  printf '%s\n' 'Existing entry: preserve edits and inspect before changing it.'
+```
+
+<details>
+<summary><b>Claude Code</b></summary>
+
+选择一个技能，链接后可在本机所有项目中使用：
+
+```sh
+APP_DEV_SKILL="iphone-duo-adaptation" # Choose a name from the table.
+APP_DEV_SKILL_LINK="$HOME/.claude/skills/$APP_DEV_SKILL"
+mkdir -p "$(dirname "$APP_DEV_SKILL_LINK")"
+if [ -e "$APP_DEV_SKILL_LINK" ] || [ -L "$APP_DEV_SKILL_LINK" ]; then
+  printf '%s\n' 'Already exists: inspect it; existing files are preserved.'
 else
-  ln -s "$APP_DEV_SKILLS_DIR/skills" "$HOME/.agents/skills/app-dev-skills"
+  ln -s "$APP_DEV_SKILLS_DIR/skills/$APP_DEV_SKILL" "$APP_DEV_SKILL_LINK"
 fi
 ```
 
-适用于 macOS/Linux/WSL。已有源码时修改路径并跳过 clone。维护源码，通过一个软链接发现技能，不向 `~/.codex/skills` 复制。迁移前保存修改，将重复副本移出发现目录；必要时新开 Codex 会话，确认每个技能只出现一次。其他 Agent 保留所选技能完整目录并加载 `SKILL.md`。
-
-只安装单个技能时，将上方命令中的链接源改为 `skills/<name>`，链接位置改为 `~/.agents/skills/<name>`。合集与单技能安装二选一，确保每个技能只被发现一次。
+新开会话，输入 `/iphone-duo-adaptation` 或直接描述任务。安装其他技能时替换上方名称。[Claude Code 技能目录](https://code.claude.com/docs/en/skills#choose-where-skills-load)。
 
 </details>
+
+<details>
+<summary><b>Codex</b></summary>
+
+通过一个链接安装整个合集。已连接本仓库时跳过此步。
+
+```sh
+APP_DEV_SKILL_LINK="$HOME/.agents/skills/app-dev-skills"
+mkdir -p "$(dirname "$APP_DEV_SKILL_LINK")"
+if [ -e "$APP_DEV_SKILL_LINK" ] || [ -L "$APP_DEV_SKILL_LINK" ]; then
+  printf '%s\n' 'Already exists: inspect it; existing files are preserved.'
+else
+  ln -s "$APP_DEV_SKILLS_DIR/skills" "$APP_DEV_SKILL_LINK"
+fi
+```
+
+新开会话，通过 `$` 选择技能，例如 `$iphone-duo-adaptation`。保留一个合集链接，不再向 `~/.codex/skills` 安装单独副本。[Codex 技能发现](https://developers.openai.com/codex/skills)。
+
+</details>
+
+<details>
+<summary><b>Cursor</b></summary>
+
+本地 Cursor 也读取 `~/.agents/skills/`。已为 Codex 安装合集时直接复用，否则运行：
+
+```sh
+APP_DEV_SKILL_LINK="$HOME/.agents/skills/app-dev-skills"
+mkdir -p "$(dirname "$APP_DEV_SKILL_LINK")"
+if [ -e "$APP_DEV_SKILL_LINK" ] || [ -L "$APP_DEV_SKILL_LINK" ]; then
+  printf '%s\n' 'Already exists: inspect it; existing files are preserved.'
+else
+  ln -s "$APP_DEV_SKILLS_DIR/skills" "$APP_DEV_SKILL_LINK"
+fi
+```
+
+新开会话，输入 `/` 选择技能。已发现同名技能时，不再向 `.cursor/skills` 或 `.claude/skills` 重复安装。以上适用于本地 Agent；云端会话需要单独配置技能。[Cursor 技能目录](https://cursor.com/docs/skills)。
+
+</details>
+
+<details>
+<summary><b>WorkBuddy</b></summary>
+
+1. 打开 **专家·技能·连接器 → 技能 → 添加技能 → 上传技能**。
+2. 选择仓库内的一个完整技能文件夹，例如 `skills/iphone-duo-adaptation`。导入技能目录，不选整个仓库或单独的 `SKILL.md`。
+3. 在「已安装」中确认技能存在且已启用，然后直接说「用 iphone-duo-adaptation 技能……」。
+
+不使用终端也可以在 GitHub 点击 **Code → Download ZIP**，解压后选择对应技能文件夹。源码更新后重新导入。[WorkBuddy 导入说明](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)。
+
+</details>
+
+确认每个所选技能只出现一次。安装技能不会安装渲染或移动应用构建依赖；Agent 会在任务需要时检查环境。
 
 [环境排查](docs/runtime.zh-CN.md) · [贡献](CONTRIBUTING.md) · [MIT](LICENSE)
