@@ -13,7 +13,7 @@ Use the setup reference linked from the selected `SKILL.md`, or [runtime support
 
 ## Instructions and documentation
 
-Keep selection, copyable requests and installation in the bilingual root README. Do not add per-skill READMEs; keep necessary setup in existing local references. Put execution order and completion gates in `SKILL.md`; disclose detailed branch contracts through local references. Avoid duplicate walkthroughs, documentation indexes and dated cleanup reports.
+Keep selection, copyable requests and installation in the bilingual root README. Do not add per-skill READMEs; keep necessary setup in existing local references. Put execution order and completion gates in `SKILL.md`; disclose detailed branch contracts through local references. Keep useful output previews visible on both homepages; preserve their source/rights notices and distinguish examples from real app evidence. Avoid duplicate walkthroughs, documentation indexes and dated cleanup reports.
 
 Use English for instructions/references/metadata and align bilingual guides. Preserve the user's output language, original-language evidence and legal notices. Retain required evidence and license files; remove obsolete explanations and repair their callers.
 
@@ -27,7 +27,7 @@ For additions, renames, removals or scope changes, synchronize folder/frontmatte
 | Validation code | Failure fixture for the original problem, focused tests, then `npm run check` |
 | Other tool/package changes | Relevant focused tests, then `npm run check` |
 
-See [runtime support](docs/runtime.md#focused-verification) for setup. For changed instructions, inspect wrong-skill requests, existing-project repair, narrow endpoints and missing capabilities; report expected behavior and limitations in the task/PR. Static scenarios are not live agent tests. Automated checks do not replace visual or provider evidence. Tests use local synthetic fixtures, without publishing.
+See [runtime support](docs/runtime.md#focused-verification) for setup. For changed instructions, inspect wrong-skill requests, existing-project repair, narrow endpoints and missing capabilities; report expected behavior and limitations in the task/PR. Static scenarios are not live agent tests. Automated checks do not replace visual or provider evidence. Tests use local synthetic fixtures, without publishing. Isolate browser fixtures and close servers even when browser startup fails; record validators must not fabricate reviewer judgments or treat automated checks as visual approval.
 
 ## Submit the change
 

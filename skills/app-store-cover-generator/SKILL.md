@@ -16,7 +16,6 @@ Produce editable covers for the chosen app. HTML/CSS owns localizable words and 
 | Direction or prompt | [Art direction](references/art-direction.md) | Requested concept or prompt |
 | Build or refine covers | Workflow below | Editable source and reviewed export matrix |
 | Audit existing covers | [Quality gates](references/quality-gates.md) | Render/source findings for exact affected cells; authorized fixes |
-| Maintain this skill | [Contributing](CONTRIBUTING.md) | Isolated fixtures and relevant checks; change a consuming app only when requested |
 | Upload or publish | [Delivery](references/delivery.md) | Separately authorized destination and terminal stage |
 
 Choose by the requested artifact. For a clickable app screen, first read the available `image-to-layered-html-prototype` SKILL.md before guiding that work; if unavailable, explain the scope without requiring a new tool. Concept-only requests stop at the requested concept or prompt and need no rendering setup.

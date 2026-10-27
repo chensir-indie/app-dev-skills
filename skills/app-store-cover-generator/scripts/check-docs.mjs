@@ -4,7 +4,7 @@ import { readFile, readdir, access } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 const root = fileURLToPath(new URL("../", import.meta.url));
-const files = ["SKILL.md", "CONTRIBUTING.md", "THIRD_PARTY_NOTICES.md"];
+const files = ["SKILL.md", "THIRD_PARTY_NOTICES.md"];
 for (const dir of ["references", "docs"]) {
   for (const entry of await readdir(path.join(root, dir)))
     if (entry.endsWith(".md")) files.push(`${dir}/${entry}`);

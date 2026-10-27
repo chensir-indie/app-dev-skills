@@ -23,17 +23,17 @@ From an independently installed skill, run `sh scripts/doctor.sh` inside that sk
 
 The catalog and full doctor discover `skills/*/SKILL.md` in the current checkout. A targeted `--skill` check dispatches directly to that skill's shell bootstrap, so a Node-only skill can be checked without installing collection Python first. Collection validation separately rejects incomplete skill folders and missing documentation entries.
 
-### Adaptation tools and browser evidence
+### Skill-specific setup
 
-iPhone Duo Adaptation's workspace-rule helpers require Python 3.9+ and only the standard library. Its default doctor checks that runtime; `--scope instructions` remains available for reading without Python. It bundles no renderer; collection metadata is checked separately. The HTML stage prefers [BUILD WEB APPS](../skills/iphone-duo-adaptation/references/build-web-apps.md) through its discovered actual contract, recording installed/upstream-source use or an honest fallback. Its builder/browser capabilities are checked at execution time rather than added as mandatory Python-preflight dependencies. Keep local editable output and design/functional/visual evidence; hosting is separate. HTML acceptance uses the agent's available browser or the target environment and requires actual rendered and interaction checks; doctor success cannot substitute for them. Layout analysis and HTML authoring can proceed without Xcode, a simulator, a device, or the UI framework's toolchain. That framework's toolchain and device checks apply to separately requested product implementation; without them, native Duo behavior remains unverified.
+| Task | Required environment and setup |
+| --- | --- |
+| Competitor report helpers | Python 3.9+ standard library; [renderer setup](../skills/app-competitor-analysis/references/html-delivery.md#reusable-renderer) |
+| Editable HTML captures | Python, Node and a browser; [capture setup](../skills/image-to-layered-html-prototype/references/render-contract.md#environment-check-and-setup) |
+| Store cover exports | Node and a browser; [export setup](../skills/app-store-cover-generator/references/template-contract.md#environment-check-and-setup) |
+| iPhone Duo workspace rules | Python 3.9+ standard library; [rule helper](../skills/iphone-duo-adaptation/references/workspace-rules.md). Layout/HTML work needs no Xcode; browser acceptance requires a browser. |
+| App publication | Python 3.9+ for offline helpers; [project toolchain setup](../skills/app-publish-skill/references/fastlane-setup.md) for builds/uploads. From the skill directory, add `--project /path/to/app --platform ios` or `android` to doctor. |
 
-### Publication tools and project runtimes
-
-App Publish Skill's candidate-proposal and file-hash helpers require Python 3.9+ and only the standard library. Its default doctor checks the installed package and Python. From that skill directory, `sh scripts/doctor.sh --project /path/to/app` also runs Ruby/Bundler version checks, `bundle check`, and the project's `bundle exec fastlane --version`, or checks an existing standalone Fastlane setup with an unpinned-runtime warning. Use `--fastlane-dir /path/to/app/ios/fastlane` when multiple or monorepo entries require an explicit project-local choice. These checks do not install, authenticate, build or upload; use the [setup and recovery guide](../skills/app-publish-skill/references/fastlane-setup.md) for missing dependencies. A passing doctor does not validate store baselines, credentials, signing identities, artifact contents or publication authority. Native iOS needs the project's macOS/Xcode and signing; Flutter adds its pinned SDK, React Native/Expo adds its pinned JavaScript/native setup, and native Android uses its Gradle/JDK setup. Check only tools required by the selected adapter; native iOS does not require Flutter. Android delivery uses authenticated Chrome Play Console. Preserve project-owned version pins and wrappers; the skill bundles no Fastlane or mobile toolchain.
-
-### What the doctor establishes
-
-Checks are local and read-only: no downloads, package installs, privileged commands or credential access. Browser checks launch and close a blank headless browser. A nonzero status means a required check failed; follow the repair and rerun the same check. A successful preflight proves environment readiness, not visual quality, evidence accuracy or completion of your task.
+Doctor does not install, authenticate, build or upload. Browser checks launch a blank headless browser. Follow reported repairs and rerun the same command; success proves environment readiness, not artifact quality or task acceptance.
 
 ## Set up the repository
 
@@ -50,7 +50,7 @@ npx playwright install chromium
 npm run check
 ```
 
-Use `npm ci` in a repository checkout with its lockfile. Use the setup reference linked from the selected `SKILL.md` when installing only one skill. The optional [Skills CLI installer](https://github.com/vercel-labs/skills) requires Node.js 22.20+; the bundled toolkit runtime remains Node.js 22+. Python imports are checked in the active interpreter: installing into another Python environment will not repair the current one. Activate the same virtual environment in each new terminal.
+Use `npm ci` in a repository checkout with its lockfile. Use the setup reference linked from the selected `SKILL.md` when installing only one skill. Python imports are checked in the active interpreter: installing into another Python environment will not repair the current one. Activate the same virtual environment in each new terminal.
 
 ## Repair a failed check
 

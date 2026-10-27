@@ -89,7 +89,7 @@ node scripts/review.mjs check /tmp/my-covers-output-01 /tmp/my-covers-review.jso
 
 To customize, edit the copied project, not installed skill assets. Initializer/exporter refuse existing targets. The server binds to loopback and serves only the selected project. Output must be a fresh directory outside the source. Missing packages and browser-launch errors include repair commands; a browser-launch failure happens before output creation. Later rendering failures retain an incomplete report: inspect it, fix the cause and choose a new output directory. Source edits during export require a fresh export. External requests and failed local assets fail even when a browser fallback appears usable; store approved local artwork/fonts with provenance.
 
-For development checks, read [Contributing](../CONTRIBUTING.md).
+When changing the toolkit, run `npm run check` from this skill directory; it checks documentation, unit tests and browser fixtures. Use isolated synthetic fixtures and close servers after failures. Automated checks do not establish visual approval.
 
 ## Output
 

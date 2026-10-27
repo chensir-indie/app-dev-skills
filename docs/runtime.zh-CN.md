@@ -23,17 +23,17 @@ sh scripts/doctor.sh --skill app-store-cover-generator
 
 目录命令与完整 doctor 从当前 checkout 的 `skills/*/SKILL.md` 发现技能。`--skill` 定向检查直接进入对应技能的 shell 入口，因此只需要 Node 的技能不必先安装合集 Python。集合校验另行检查不完整的技能目录及缺失的文档入口。
 
-### 适配工具与浏览器证据
+### 各技能环境
 
-iPhone Duo Adaptation 的工作区规则工具需要 Python 3.9+，仅使用标准库；默认 doctor 检查该运行时，`--scope instructions` 可用于无 Python 的阅读场景。本包不带渲染器，合集元数据另行检查。HTML 阶段优先使用已发现并读取实际合同的 [BUILD WEB APPS](../skills/iphone-duo-adaptation/references/build-web-apps.md)，记录安装／上游源码执行或明确的替代流程。构建与浏览器能力在执行时核对，不新增为 Python preflight 硬依赖；保留本地可编辑产物及设计／功能／视觉证据，托管另按任务范围处理。HTML 验收使用 Agent 可用浏览器或目标环境，必须实际渲染和检查交互，doctor 通过不能替代这些证据。布局分析与 HTML 制作无需 Xcode、模拟器、真机或界面框架工具链；已识别框架的工具链和设备检查属于后续另行请求的产品实现，缺少这些证据时原生 Duo 行为保持未验证。
+| 任务 | 所需环境与配置说明 |
+| --- | --- |
+| 竞品报告辅助工具 | Python 3.9+ 标准库；[渲染器配置](../skills/app-competitor-analysis/references/html-delivery.md#reusable-renderer) |
+| 可编辑 HTML 截图 | Python、Node 和浏览器；[截图环境](../skills/image-to-layered-html-prototype/references/render-contract.md#environment-check-and-setup) |
+| 商店封面导出 | Node 和浏览器；[导出环境](../skills/app-store-cover-generator/references/template-contract.md#environment-check-and-setup) |
+| iPhone Duo 工作区规则 | Python 3.9+ 标准库；[规则工具](../skills/iphone-duo-adaptation/references/workspace-rules.md)。布局与 HTML 工作不需要 Xcode；浏览器验收需要浏览器。 |
+| 应用发布 | 离线辅助工具需要 Python 3.9+；构建／上传使用[项目工具链](../skills/app-publish-skill/references/fastlane-setup.md)。在技能目录运行 doctor 时追加 `--project /path/to/app --platform ios` 或 `android`。 |
 
-### 发布工具与项目运行环境
-
-App Publish Skill 的候选版本提案与文件哈希辅助工具需要 Python 3.9+，只使用标准库。默认 doctor 检查已安装包和 Python；在该技能目录运行 `sh scripts/doctor.sh --project /path/to/app`，还会实际检查 Ruby/Bundler 版本、`bundle check` 和项目 `bundle exec fastlane --version`；已有 standalone 配置则检查其可运行版本并提示未锁定。monorepo 或多个入口需要时追加 `--fastlane-dir /path/to/app/ios/fastlane`，明确选择项目内目录。检查不安装、不认证、不构建、不上传；缺依赖时按 [安装与恢复指南](../skills/app-publish-skill/references/fastlane-setup.md) 处理。doctor 通过不能证明商店基线、凭据、签名身份、产物内容或发布授权。原生 iOS 需要项目自身的 macOS/Xcode 与签名；Flutter 增加固定 SDK，React Native/Expo 增加固定 JavaScript/native 环境，原生 Android 使用其 Gradle/JDK。只检查所选 adapter 真正依赖的工具，原生 iOS 不要求 Flutter。Android 交付通过已认证 Chrome Play Console。保留项目固定版本与包装脚本，技能不自带 Fastlane 或移动工具链。
-
-### doctor 能证明什么
-
-检查只读、本地执行，不下载、不安装、不执行提权命令，也不读取凭据。浏览器检查会启动并关闭空白的无头浏览器。非零退出表示必要条件未满足，按提示修复后重跑同一命令。检查通过只说明环境可运行，不代表视觉、证据真实性或任务验收通过。
+doctor 不安装、认证、构建或上传；浏览器检查会启动空白无头浏览器。按提示修复并重跑同一命令；通过只说明环境可运行，不代表产物质量或任务验收通过。
 
 ## 配置完整仓库
 
@@ -50,7 +50,7 @@ npx playwright install chromium
 npm run check
 ```
 
-仓库 checkout 使用带锁文件的 `npm ci`；只安装单个 skill 时，使用其 `SKILL.md` 链接的环境说明。可选的 [Skills CLI 安装器](https://github.com/vercel-labs/skills)需要 Node.js 22.20+，内置工具运行要求仍为 Node.js 22+。Python 包必须安装到当前检查所用的解释器中；装到另一个 Python 环境不会解决当前问题。每次开启新终端都要重新激活对应虚拟环境。
+仓库 checkout 使用带锁文件的 `npm ci`；只安装单个 skill 时，使用其 `SKILL.md` 链接的环境说明。Python 包必须安装到当前检查所用的解释器中；装到另一个 Python 环境不会解决当前问题。每次开启新终端都要重新激活对应虚拟环境。
 
 ## 按缺项修复
 
