@@ -1,5 +1,7 @@
 # App Dev Skills
 
+![App Dev Skills — From evidence to delivery](docs/assets/app-dev-skills-cover.png)
+
 [简体中文](README.zh-CN.md)
 
 Skills for competitor research, editable interfaces, iPhone Duo adaptation, store covers, and local app builds/uploads. Install the skills, give your agent a task, then use the examples below to see what they produce.

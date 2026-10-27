@@ -1,5 +1,7 @@
 # App Dev Skills
 
+![App Dev Skills — 从证据到交付](docs/assets/app-dev-skills-cover.png)
+
 [English](README.md)
 
 这套技能可以帮你分析竞品、还原界面、适配 iPhone Duo、制作商店封面，以及在本地打包和上传应用。先安装，再把任务交给 Agent，最后通过下方案例了解实际产物。
