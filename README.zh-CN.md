@@ -14,6 +14,20 @@
 | 制作多语言商店封面 | [app-store-cover-generator](skills/app-store-cover-generator/SKILL.md) | 可编辑封面与 PNG |
 | 打包或上传应用 | [app-publish-skill](skills/app-publish-skill/SKILL.md) | 本地制品与指定阶段回执 |
 
+## 产物预览
+
+**竞品分析：HTML 报告**
+
+![Example Notes 竞品报告，包含研究导航和四步用户旅程图](skills/app-competitor-analysis/docs/report-example.png)
+
+基于虚构 Example Notes 数据生成的报告，图片为实际浏览器截图。
+
+**商店封面：多语言、多设备**
+
+![英语、中文和阿拉伯语的 iPhone 与 iPad 商店封面](skills/app-store-cover-generator/docs/demo-contact.png)
+
+使用示例应用界面和翻译草稿，由工具实际导出。
+
 ## 使用
 
 安装后，附上材料或项目路径，选择下面的示例提需求。说明目标和结束阶段即可；Agent 会读取指令、检查所需环境。需要中文产物时，在请求中说明。
