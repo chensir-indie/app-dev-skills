@@ -1,6 +1,6 @@
 # Runtime setup and support
 
-[简体中文](runtime.zh-CN.md) · [Documentation](README.md) · [Collection overview](../README.md)
+[简体中文](runtime.zh-CN.md) · [Collection overview](../README.md)
 
 Install instructions and runtime dependencies separately. Reading references, planning a teardown or writing a concept does not require all the rendering tools. Run a preflight for the task you are actually about to execute.
 

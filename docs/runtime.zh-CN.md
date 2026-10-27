@@ -1,6 +1,6 @@
 # 环境配置与故障支持
 
-[English](runtime.md) · [文档导航](README.zh-CN.md) · [合集说明](../README.zh-CN.md)
+[English](runtime.md) · [合集说明](../README.zh-CN.md)
 
 技能指令与脚本依赖分别安装。阅读参考、竞品研究和概念设计不需要提前装齐全部渲染工具；准备执行哪个任务，就检查对应环境。
 

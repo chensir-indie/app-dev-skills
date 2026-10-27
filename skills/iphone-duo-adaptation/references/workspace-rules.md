@@ -65,7 +65,7 @@ Each project convention contains:
 | `parent_rule_ids` | Existing general-rule IDs; may be empty for independent business agreements, without inventing Apple provenance |
 | `status`, `reason`, `decision`, `targets`, `evidence` | The same state, reasons, decisions, planned/actual workspace targets, and executed-evidence boundaries as a general binding |
 
-General rich-content width, anchors, and task continuity can map to IMX messages. IMX sending, read status, draft lifetime, and calendar redesign boundaries remain project conventions. Register known attributable agreements only; do not prepopulate business obligations for an unidentified app or rewrite project choices into the general catalog.
+General layout and continuity rules can inform a messaging app; sending, read status, draft lifetime and redesign boundaries remain project conventions. Register known attributable agreements only; do not prepopulate business obligations for an unidentified app or rewrite project choices into the general catalog.
 
 Read project Agent instructions and add a **conditional short pointer** in the existing `AGENTS.md` or equivalent: during Duo adaptation, read the generated rules and design contract. Preserve existing instructions and avoid copying the entire catalog into that entrypoint or imposing Duo policy on unrelated work. When the user prohibits file writes, provide structured unmaterialized records and gaps without claiming workspace materialization.
 

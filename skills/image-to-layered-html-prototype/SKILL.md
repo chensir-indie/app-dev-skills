@@ -1,79 +1,75 @@
 ---
 name: image-to-layered-html-prototype
-description: Rebuild approved app UI images as editable layered HTML/CSS/SVG, or repair an existing reconstruction with measured reference geometry and browser comparisons. Also supports UI direction, scoped design critique and refinement, prompt-only requests, shared design systems, multi-page prototypes and optional Flutter handoff.
+description: Rebuild approved app images as editable HTML/CSS/SVG or repair their fidelity; also supports UI concepts, prompts, scoped design reviews and refinement, multi-page design systems and optional Flutter handoff.
 ---
 
 # Image to Layered HTML Prototype
 
-Choose the concept, full reconstruction or existing-page repair branch that matches the request. Full reconstruction delivers an editable, interactive HTML prototype with visual review for every page: DOM text, visible semantic controls, CSS/SVG backplates, and separate photo/subject assets. Reconstruction defaults to `layered_rebuild`. A one-to-one request raises the fidelity requirement; full-screen images, UI slices, Canvas or transparent hotspots cannot replace a layered implementation.
+Choose the requested branch. Full reconstruction defaults to `layered_rebuild`: editable DOM text, visible semantic controls, CSS/SVG backplates and separate photo/subject assets. A one-to-one request raises fidelity; full-screen images, UI slices, Canvas or transparent hotspots cannot replace editable layers.
 
 ## Choose the starting point
 
-| User goal and input | Start here | Completion boundary |
-| --- | --- | --- |
-| UI directions, prompts or reference images only | Follow [imagegen-workflow](references/imagegen-workflow.md) to deliver the requested directions, prompts or inspected images | The requested concept artifact; no automatic HTML reconstruction |
-| Complete prototype with only a product direction | Generate, inspect and lock a front-facing UI image using the imagegen workflow, then continue below | Layered HTML with per-page acceptance |
-| Complete prototype with approved images | Lock and measure the references directly, preserving the approved direction | Layered HTML with per-page acceptance |
-| Repair existing HTML against reference images | Preserve source, assets and interactions; save before screenshots and inventory the implementation, then add independent reference measurements and necessary contracts | The requested repair, refreshed evidence and actual acceptance status |
-| Review or improve an existing page | Inspect it using [design quality review](references/design-quality-review.md), select the primary standard and identify issues; review-only does not edit, while authorized refinement proceeds directly | The requested review, or improved pages, before/after captures and interaction checks; no automatic full reconstruction |
-| Multiple page references | Freeze the complete page inventory; close the loop page by page by default, or use the two-stage process below when all drafts are requested first | Per-page status for every requested page |
+| Request | Action and endpoint |
+| --- | --- |
+| Directions, prompts or reference images only | Follow [imagegen workflow](references/imagegen-workflow.md); stop at the requested concept artifact |
+| Full prototype from a product direction | Generate, inspect and lock a front-facing UI reference, then follow steps 1–5 |
+| Full prototype from approved images | Preserve the approved direction and follow steps 1–5 |
+| Fidelity repair of existing HTML | Preserve source/assets/interactions, save before captures and inventory the page; apply the relevant steps below |
+| Design review or refinement | Follow [design quality review](references/design-quality-review.md); review-only does not edit, authorized refinement delivers changes and before/after checks without an automatic full pixel contract |
+| Multiple references | Freeze every page; accept page by page unless the user requests all drafts first |
 
-Distinguish **faithful reconstruction, active refinement and review only**. Approved images and one-to-one requests default to reconstruction. Interpret “improve” in context: it may mean correcting reconstruction errors or changing the design, and does not itself unlock frozen constraints. For exploration or active refinement, read [design quality review](references/design-quality-review.md); when selecting the primary design system or optional tools, read [sources and applicability](references/design-sources.md). Preserve the project's existing standards; use other guidance to fill gaps rather than mixing several component styles. Steps 1–5 apply to full reconstruction and corresponding repairs. End review-only or local refinement at its requested endpoint without requiring a full pixel contract.
+Distinguish faithful reconstruction from active refinement. “Improve” does not unlock frozen design constraints. For exploration/refinement, select one primary standard using [design sources](references/design-sources.md), preserving project conventions. If the goal is store artwork or competitor analysis, read the available corresponding skill's actual `SKILL.md` before routing; its absence need not block useful scoped work.
 
-If the real goal is store covers or competitor analysis, first read the actual `SKILL.md` for the available `app-store-cover-generator` or `app-competitor-analysis` skill and route by the goal. If unavailable, explain the relevant scope without making installation a prerequisite to useful work.
+Before dependent scripts, run `sh scripts/doctor.sh` from this skill directory (`--scope python` or `--scope browser` as appropriate). Follow [setup](README.md#environment-check-and-setup) for repairs. Concepts/prompts need no rendering environment; continue independent work while dependent checks remain `pending`.
 
-Before dependency-backed scripts, run `sh scripts/doctor.sh` in this skill directory. Use `--scope python` for Python checks or `--scope browser` for browser operations; checks are read-only and do not install. Follow their output and [environment setup](README.md#environment-check-and-setup) to repair and rerun. Preserve drafts and continue independent design work while script and visual acceptance remain `pending`. Direction-only and prompt-only tasks do not require a rendering environment.
-
-For existing HTML entering reconstruction or fidelity repair, first preserve the original source and before screenshot. Add `data-artboard` to the existing target artboard root if absent, retaining its layout rather than creating another wrapper. Inventory it, then continue to step 1 to complete the contracts:
+For an existing reconstruction, preserve its source and before screenshot, add `data-artboard` to the existing root if absent, then run:
 
 ```sh
 node scripts/inventory_page.cjs /absolute/path/to/page
 ```
 
-This requires `index.html`, `reference/source.png` and the target root's `[data-artboard]`. It produces implementation inventory and actual screenshots, not reference coordinates, contracts or acceptance results.
+It requires `index.html`, `reference/source.png` and `[data-artboard]`. Its DOM inventory/captures do not supply independent reference measurements or acceptance.
 
 ## 1. Freeze the reference and acceptance target
 
-Save the full-resolution, front-facing reference, SHA-256, page/state, language and fixture data. Detail crops aid measurement; the full image remains the baseline. Lock image pixels, CSS pixels, DPR and the actual browser environment using [render-contract](references/render-contract.md).
+Record full-resolution reference/SHA, page/state, language and fixture data. Lock image/CSS pixels, DPR and browser environment using [render contract](references/render-contract.md); retain the full reference even when measuring crops.
 
-Establish the required tokens and components using [design-system](references/design-system.md). **Before implementation**, freeze `one_to_one` limits and named role ROIs using [acceptance](references/acceptance.md#one-to-one-visual-standard). Preserve the non-relaxable ceilings; do not erase failures by loosening limits, changing the baseline or excluding major UI.
+Before implementation, establish [design tokens/components](references/design-system.md) and freeze `one_to_one` [limits and role ROIs](references/acceptance.md#one-to-one-visual-standard). Keep fixed ceilings and the baseline unchanged when checks fail. For multiple pages, freeze `expected-pages.json` from the complete reference set.
 
-Completion: the reference, state and acceptance target are traceable. For multiple pages, freeze `expected-pages.json` from all references so batch checks can detect omitted pages.
+**Gate:** reference identity, states and acceptance targets are traceable.
 
 ## 2. Measure independently and establish contracts
 
-Measure the source image independently using [reference-geometry](references/reference-geometry.md), then compare with the DOM. The initial inventory of an existing page cannot replace source-image measurement. For text, buttons and important panels/icons, `referenceBounds` is the target layout box derived from the source image; `bounds` is the implementation box. Record text's visible glyphs separately as `referenceInkBounds`, with a method and evidence bound to the original SHA. OCR ink boxes are not CSS line boxes, and automatically copied DOM values are not source measurements.
+Use [reference geometry](references/reference-geometry.md) to measure the source image before comparing with DOM geometry. Keep `referenceBounds` (source layout box), `bounds` (implementation box) and text `referenceInkBounds` (visible glyphs) distinct, with methods/evidence bound to the source SHA. OCR ink is not a CSS line box; copied DOM values are not source measurements.
 
-Use [geometry-contract](references/geometry-contract.md), [typography-contract](references/typography-contract.md) and [layer-manifest](references/layer-manifest.md) to establish geometry/typography tables and unique selectors covering all visible text and controls.
+Apply [geometry](references/geometry-contract.md), [typography](references/typography-contract.md) and [layer manifest](references/layer-manifest.md) contracts to all visible text and controls, using unique selectors.
 
-Completion: implementation and reference measurements have distinct, clear provenance, and contracts cover every visible layer.
+**Gate:** complete layer contracts and independently attributable reference/implementation measurements.
 
 ## 3. Reconstruct assets and layered HTML
 
-Calibrate important subjects, backgrounds, fonts and irregular contours using [asset-audit](references/asset-audit.md) and [reconstruction](references/reconstruction.md), then implement independent layers and visible interactions using [html-css-contract](references/html-css-contract.md). Prefer original assets. If missing, extract or reconstruct a single asset and record provenance and uncertainty. `inferred` does not excuse a visible failure; approximate subjects are for structural debugging only.
+Apply [asset audit](references/asset-audit.md), [reconstruction](references/reconstruction.md) and [HTML/CSS contract](references/html-css-contract.md). Prefer original assets; extract or reconstruct missing individual assets with provenance and uncertainty. Approximate subjects can support structural debugging but not visual acceptance.
 
-Place new assets in the actual HTML and capture browser A/B comparisons in the same environment, checking the full image and asset ROIs. Without a complete contract, use `compare_candidate.py`; once contracts exist, use `compare_iteration.py` with frozen ROIs. See [visual-convergence](references/visual-convergence.md). An A/B improvement is not acceptance.
+Place assets in the real HTML and compare actual browser A/B captures at full-image and asset-ROI scale. Use `compare_candidate.py` before contracts exist, then `compare_iteration.py` with frozen ROIs; follow [visual convergence](references/visual-convergence.md). Improvement alone is not acceptance.
 
-Completion: text can be edited, subject/backplate/shadow can be hidden independently, and primary interactions produce visible outcomes with return/close behavior. Keep adaptation evidence for the baseline, smaller/larger screens and long copy.
+**Gate:** independently editable/hideable layers, visible primary interactions with return/close behavior, and adaptation evidence for baseline, smaller/larger screens and long copy.
 
 ## 4. Capture and converge
 
-Read the capture requirements in [acceptance](references/acceptance.md) and the repair loop in [visual-convergence](references/visual-convergence.md). After fonts load and images decode, fix data, clock, scrolling and animation, then capture screenshots, DOM and hash receipts from the current source:
+Follow [acceptance](references/acceptance.md) and [visual convergence](references/visual-convergence.md). Wait for fonts/images; stabilize data, clock, scroll and animation. Capture current-source screenshots, DOM and hash receipts:
 
 ```sh
 node scripts/capture_native.cjs /absolute/path/to/prototype playwright home
 python3 scripts/diagnose_visual.py /absolute/path/to/prototype --state home
 ```
 
-`state-id` labels evidence; it **does not trigger the state**. Activate dialogs, forms, selections and routes in the same browser session, verify their landmarks, then capture. Defaults are `file://` and DPR=1. Implement other policies explicitly through the render contract; the script does not apply every environment field automatically.
+The state ID **labels evidence; it does not activate the state**. Trigger and verify routes/dialogs/forms/selections in the same browser session before capture. Defaults are `file://` and DPR=1; implement other render-contract policies explicitly.
 
-Retain current-source reference/actual pairs, overlays, threshold-0 raw diffs and layer-toggle proofs. Repair subject, background and fonts before detail, guided by failing ROIs and worst local blocks. Change one cause category per iteration; keep the before capture and compare regressions. If the same category fails to improve for two consecutive iterations, change the asset or measurement/reconstruction method.
+Keep reference/actual pairs, overlays, threshold-0 raw diffs and layer-toggle proofs. Repair assets/background/fonts before details, one cause category per iteration, checking regressions. After two non-improving iterations in one category, change the asset or measurement/rendering method. Enforce acceptance's exact local limits: at least 75% ROI union, 80% matching-role coverage for key layers and required layer centers; full-image averages do not replace local checks.
 
-The ROI union must cover at least 75% of the reference, with matching-role ROIs covering at least 80% of key layers. Centers of text/buttons and layers occupying at least 1% of the page must also be covered. Full-image means cannot replace local contour, typography or control limits; use acceptance's exact fields and fixed ceilings.
+Inspect [design quality](references/design-quality-review.md) without relaxing frozen limits or applying unrequested redesign. Record concrete observations for asset identity, background, typography, contours, layering and controls in `manualReview.states[]`.
 
-After capture, inspect hierarchy, typography, icons/materials and edge states using the applicable [design quality review](references/design-quality-review.md) checks. Fix fidelity errors directly and list out-of-scope design suggestions separately. Design review cannot replace frozen pixel limits, and accessibility checks do not establish visual acceptance.
-
-Completion: every requested state has an actual trigger and current capture, and frozen numeric limits pass. Inspect reference, actual, overlay, raw diff and layer proofs; record concrete observations for asset identity, background, typography, contours, layering and controls in `manualReview.states[]`. Obvious mismatches remain `pending`.
+**Gate:** every requested state has a real trigger/current capture, frozen numeric checks pass and visual inspection finds no unresolved mismatch.
 
 ## 5. Accept and deliver each page
 
@@ -82,10 +78,8 @@ python3 scripts/validate_manifest.py /absolute/path/to/prototype/layer-manifest.
 python3 scripts/validate_prototype.py /absolute/path/to/prototype
 ```
 
-Mark `passed` only when strict validation and manual visual review both pass. `--structure-only` is diagnostic; file presence, hash receipts and numeric success each establish only their own scope. Report separate evidence for editability, visual fidelity, interactions and adaptation. Continue repairing unresolved critical differences. If assets/tools are a real limitation, list the exact missing items, attempts, errors and failed checks.
+Mark `passed` only when strict validation **and** manual visual review pass. `--structure-only`, file/hash presence and numeric success establish only their own scope. Report editability, fidelity, interactions and adaptation separately. Repair critical differences; for actual blockers, record missing items, attempts, errors and failed checks.
 
-Apply the same gate to every page. Any page `pending` leaves the batch `pending`. For batch checks and draft triage, see [multi-page progress](references/visual-convergence.md#multi-page-progress). When the user requests all drafts first, deliver separate HTML, editable text, semantic controls, independent assets and native-size captures for all references; check resources, interactions and dimensions. Then complete contracts, measurements and strict acceptance per page. A draft is not visual acceptance; continue other feasible pages while one page is temporarily blocked.
+Apply the gate to every page; any pending page leaves the batch pending. For all-drafts-first requests, follow [multi-page progress](references/visual-convergence.md#multi-page-progress): deliver editable drafts, separate assets and native captures for every reference, then finish measurements/contracts and strict acceptance per page. Continue feasible pages while another is blocked.
 
-Deliver source, separate assets, references, tokens, manifests, render configuration, state matrix, measurement tables, interaction map and `evidence/` following [design-system](references/design-system.md) and [acceptance](references/acceptance.md). Read [flutter-mapping](references/flutter-mapping.md) only for a requested Flutter handoff.
-
-For later handoff, link the existing files and include the goal/next action, chosen reference path/SHA, pages/states, source entrypoints, all four acceptance statuses and failed checks. Prototype captures remain prototype evidence; store materials depicting real app UI require separate actual-app captures.
+Deliver source, assets, references, tokens, manifests, render configuration, state matrix, measurement tables, interaction map and evidence under the [design-system](references/design-system.md) and [acceptance](references/acceptance.md) contracts. Read [Flutter mapping](references/flutter-mapping.md) only for that handoff. Link existing files with next goal, reference SHA, pages/states, entrypoints, four acceptance statuses and failed checks. Prototype captures remain distinct from actual app captures for store materials.

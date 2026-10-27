@@ -6,7 +6,7 @@ If existing HTML lacks contracts, preserve original source and before screenshot
 
 ## 1. Resolve decisive assets first
 
-Before fine typography work, inspect dominant subjects, photos, texture and decoration. Compare reference and candidate side by side: leaf/object count, visible contours, holes, perspective, lighting, crop, shadows and alpha edges. **Semantic similarity is not asset identity.** Prefer separate assets from the same generation when available. Otherwise use imagegen extraction/editing under [reconstruction.md](reconstruction.md), preserving the untouched reference. If visible extracted contours remain wrong, reconstruct again or change methods rather than placing a merely similar plant over the page.
+Before fine typography work, inspect dominant subjects, photos, texture and decoration. Compare reference and candidate side by side: object count, visible contours, holes, perspective, lighting, crop, shadows and alpha edges. **Semantic similarity is not asset identity.** Prefer separate assets from the same generation when available. Otherwise use imagegen extraction/editing under [reconstruction.md](reconstruction.md), preserving the untouched reference. If visible extracted contours remain wrong, reconstruct again or change methods rather than placing a merely similar subject over the page.
 
 Place candidate photos/subjects in actual HTML layers and capture both page versions with the same browser/viewport. Do not compare a raw asset directly to a full-page reference. Without complete page contracts, use `scripts/compare_candidate.py` for local A/B:
 
@@ -38,7 +38,7 @@ python3 scripts/diagnose_visual.py /path/to/prototype --state <state-id> \
 
 Nonzero exit means at least one frozen visual metric failed. The report ranks regions by excess MAE × ROI area and includes worst 128px blocks, changed-pixel ratio, edge disagreement and mean `actual - reference` RGB. Ranking prioritizes the largest affected areas; overlapping ROI errors cannot simply be added. Numbers locate differences, not their layer causes. Inspect reference, actual, overlay, heatmap and isolated-layer captures. Keep threshold-0 raw diffs rather than only tolerance-filtered results.
 
-Contour difference independently affects each ROI's result. Inspect irregular backplates, plant edges, buttons and icons separately in contour overlays; similar mean colors must not conceal wrong shapes.
+Contour difference independently affects each ROI's result. Inspect irregular backplates, subject edges, buttons and icons separately in contour overlays; similar mean colors must not conceal wrong shapes.
 
 ## 3. Repair one cause category at a time
 

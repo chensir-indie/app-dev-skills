@@ -30,7 +30,7 @@ Extract the existing visual/component contract before proposing new layouts. A w
 
 Where the app can run, capture narrow/wide/low-height views representing every layout family, including important input, overlay, and scrolling states. Record app/build identity when available, window and local pane sizes, text scale, and source. If the current app fails at a layout, retain the actual failure or evidence gap; save adapted captures separately. Source inspection can locate problems and infer uncaptured branches, but does not become a runtime observation. Screenshots alone support visible-layout analysis; keep navigation, state, and dynamic behavior unknown where evidence is missing.
 
-Record global inventory scope separately from the current redesign scope. Modules explicitly excluded from redesign still need their navigation and layout relationships documented. Inventory does not automatically authorize redesign. Message, calendar, and editing behavior for apps such as IMX belongs in [project conventions](project-conventions.md).
+Record global inventory scope separately from the current redesign scope. Modules explicitly excluded from redesign still need their navigation and layout relationships documented. Inventory does not automatically authorize redesign. Message, calendar, and editing behavior belongs in [project conventions](project-conventions.md).
 
 ## Use technical scans to explain layout
 

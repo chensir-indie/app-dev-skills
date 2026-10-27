@@ -33,7 +33,7 @@ Create separate layer-manifest entries for background, texture, decoration, back
 
 For backplates, record top steps, sloped-edge endpoints, curvature changes, corner tangencies, the closed path, fill/stroke/shadow. Measure visible segments and label subject-occluded portions inferred. Do not replace an irregular contour with a rectangle merely because it is easier in CSS.
 
-Position plants using visible alpha bounds. Large transparent PNG margins mean the same width can produce different apparent scale. Record intrinsic size, alpha bounds and the target visible rectangle, then calibrate object-fit/object-position.
+Position cutout subjects using visible alpha bounds. Large transparent PNG margins mean the same width can produce different apparent scale. Record intrinsic size, alpha bounds and the target visible rectangle, then calibrate object-fit/object-position.
 
 Keep navigation hierarchy, visual occlusion layers and DOM implementation hierarchy distinct and explicit.
 
@@ -54,7 +54,7 @@ Record visible dimensions and target sizes separately; expanded hit areas must n
 
 ## 4. Pages and states
 
-In page-map.md, list navigation hierarchy, entry/exit, primary actions and target routes. Bind each reference state through state-matrix.json. Home, lists, details, settings, forms and dialogs belong only when requested; completeness is not permission to add product features.
+In page-map.md, list navigation hierarchy, entry/exit, primary actions and target routes. Bind each reference state through [state-matrix.json](state-matrix.md). Home, lists, details, settings, forms and dialogs belong only when requested; completeness is not permission to add product features.
 
 Pixel-compare states with user references. Necessary loading/empty/error/permission states without references reuse component standards and are labeled designed/inferred. Assess their usability and style consistency without inventing source images or claiming reference comparison passed. The current strict validator requires referenced states; put unreferenced supplemental states in supplemental-states.md with interaction evidence, not in the reference-comparison state table as if references existed.
 

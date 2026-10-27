@@ -24,7 +24,7 @@ It also lists visible DOM text nodes and semantic controls that no layer selecto
 Capture before/after pairs for:
 - withoutImages: hide subject/photo only; UI text, panels, buttons must remain.
 - textEdited: temporarily change a visible heading, screenshot, restore.
-- layerToggle: hide panel while retaining plant, then restore; inspect intersection pixels.
+- layerToggle: hide panel while retaining the subject, then restore; inspect intersection pixels.
 - interaction: trigger primary action; show its visible result and test return/close.
 - responsive: baseline versus another width or long text; inspect overflow/overlap.
 
@@ -48,7 +48,7 @@ Set `design-tokens.json.fidelityProfile` to `one_to_one` before implementation. 
 | DOM geometry difference | 2 CSS px | inherited from page |
 | Normalized edge-disagreement ratio (1 px tolerance) | — | 0.15 |
 
-Edge disagreement is the fraction of reference and actual edge pixels that have no counterpart within 1 px, divided by their combined edge count. Dividing by the full ROI area would hide a badly misplaced thin contour. These bounds reject obviously wrong renderings; they do **not** certify literal pixel identity. A literal one-to-one claim needs zero-difference evidence, or a precise account of unavoidable browser/rasterization differences. A different plant, a rectangular substitute for an irregular panel, wrong glyphs/icons, wrong z-order, or a composited UI screenshot remains a failure even if the numeric bounds pass. Keep the threshold-0 raw diff for review.
+Edge disagreement is the fraction of reference and actual edge pixels that have no counterpart within 1 px, divided by their combined edge count. Dividing by the full ROI area would hide a badly misplaced thin contour. These bounds reject obviously wrong renderings; they do **not** certify literal pixel identity. A literal one-to-one claim needs zero-difference evidence, or a precise account of unavoidable browser/rasterization differences. A different subject, a rectangular substitute for an irregular panel, wrong glyphs/icons, wrong z-order, or a composited UI screenshot remains a failure even if the numeric bounds pass. Keep the threshold-0 raw diff for review.
 
 Give each ROI a `role`: `background`, `subject`, `panel`, `typography`, `controls`, `icon`, or `decoration`. Text layers require a `typography` ROI; buttons require `controls`; subject/photo rasters require `subject`; layers marked `visualRole: panel` or `visualRole: icon` require the corresponding ROI. The union of ROIs with the matching role must cover at least 80% of that layer's visible bounding box. Annotate irregular panels and important icons with `visualRole` in the layer manifest. Use tight local boxes for these roles rather than letting a full-page ROI stand in for contour and typography review.
 
@@ -66,10 +66,10 @@ For text, button and important panel/icon layers, `referenceBounds` must be meas
       "reference":"reference/source.png",
       "actual":"evidence/native-home.png",
       "checks":{
-        "assetIdentity":{"status":"passed","observation":"Subject leaf shapes, pot and crop correspond to the reference"},
+        "assetIdentity":{"status":"passed","observation":"Subject shape, proportions and crop correspond to the reference"},
         "background":{"status":"passed","observation":"Color field, texture and decoration positions checked against the overlay"},
         "typography":{"status":"passed","observation":"Glyphs, color, baselines, weight and wrapping checked line by line"},
-        "contours":{"status":"passed","observation":"Backplate curves, leaf edges, corners and icon contours checked"},
+        "contours":{"status":"passed","observation":"Backplate curves, subject edges, corners and icon contours checked"},
         "layerOrder":{"status":"passed","observation":"Plant, backplate, text and shadow occlusion order checked"},
         "controls":{"status":"passed","observation":"Button dimensions, selected state, icons and interaction feedback checked"}
       }
@@ -107,5 +107,5 @@ Each state in state-matrix.json needs evidence. Geometry/text may differ across 
 
 artifacts includes index.html, manifests, tokens, render config, all runtime CSS/JS/SVG/fonts, DOM reports, capture receipts, baseline and proof screenshots. Also hash runtime images via asset-manifest.json. If source or evidence changes, recapture and regenerate hashes. Hashes detect staleness only; they do not prove authenticity.
 
-Four outcomes: structure passed/pending; visual passed/pending; interaction passed/pending; adaptation passed/pending. Filename presence never means visual passed. An unresolved wrong plant, wrong icon or panel contour is a failure even with low global error.
+Four outcomes: structure passed/pending; visual passed/pending; interaction passed/pending; adaptation passed/pending. Filename presence never means visual passed. An unresolved wrong subject, wrong icon or panel contour is a failure even with low global error.
 For multi-screen sets, run `python3 scripts/validate_batch.py /path/to/pages --out /path/to/pages/batch-acceptance.json`. It executes the strict validator on every directory with `index.html`, fails closed on missing evidence, and exits nonzero until every page passes. Keep the JSON result beside the review index. An index, contact sheet or average MAE is navigation/progress evidence, never a substitute for a page's source image, DOM audit, ROI report and rendered screenshot.

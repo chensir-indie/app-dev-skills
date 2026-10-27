@@ -18,10 +18,6 @@ Use a stable `PROJECT-` ID and provide a title, `origin`, attributable local `ba
 
 Project conventions have a separate Markdown section and participate in ordinary and completion checks. Do not hide them in an unchecked annotation. Old ledgers without the array remain compatible as an empty array. After adding entries, run `render` then `check` under the [workspace-rule contract](workspace-rules.md).
 
-## Boundaries of the IMX example
+## Apply only the target project's conventions
 
-The [IMX example](../assets/project-conventions.imx.example.json) separately registers the chat-specific parts of the six-point review: current layout/prototype scope, message geometry, region modeling, accessible tasks, and engineering evidence. It derives from the user-supplied IMX v1.0 text and is not a renewed review of real source or UI.
-
-Merge relevant entries only when the target is IMX or the user explicitly adopts them, after reading existing project agreements. Do not import them into unrelated apps. Retain the confirmed redesign scope and existing business contracts; an example mentioning rich messages, sending, or overlays does not authorize adding those capabilities. A Skill/rules-maintenance task does not authorize IMX UI changes, real-account operations, or release.
-
-For other apps, derive conventions from their own baseline and user constraints and reference applicable general IDs. A ledger's `verified` status applies only to its declared check scope. Keep HTML, Skill-maintenance checks, and actual app acceptance as separate evidence.
+Derive conventions from the app's baseline, user constraints and existing agreements. Register only adopted decisions; examples and another app's business rules are not defaults. Keep unfinished conventions pending. A verified ledger entry applies only to its declared check scope, not to unrelated apps or later native acceptance.

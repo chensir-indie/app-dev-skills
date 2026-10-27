@@ -123,17 +123,17 @@ class DuoWorkspaceRulesTests(unittest.TestCase):
             if rule["kind"] == "flutter_contract":
                 self.assertIn("Flutter", rule["applies_when"], rule["id"])
 
-    def test_imx_example_can_be_adopted_explicitly_but_is_not_imported_by_init(self):
+    def test_project_convention_can_be_adopted_explicitly_but_is_not_imported_by_init(self):
         rules.run("init", self.workspace)
         ledger = json.loads(self.json_path.read_text())
         self.assertEqual(ledger["project_conventions"], [])
-        example = json.loads((SKILL / "assets/project-conventions.imx.example.json").read_text())
-        ledger["project_conventions"] = example["project_conventions"]
+        convention = fixture_project_convention(parent_rule_ids=["WORKFLOW-HTML-001"])
+        ledger["project_conventions"] = [convention]
         self.assertTrue(all(entry["status"] == "pending" for entry in ledger["project_conventions"]))
         self.save(ledger)
         rules.run("render", self.workspace)
         rules.run("check", self.workspace)
-        self.assertIn("PROJECT-IMX-LAYOUT-SCOPE-001", self.md_path.read_text())
+        self.assertIn(convention["id"], self.md_path.read_text())
 
     def test_malformed_json_shapes_fail_cli_without_tracebacks_or_partial_output(self):
         standalone = self.base / "standalone"
