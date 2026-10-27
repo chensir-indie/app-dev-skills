@@ -4,7 +4,11 @@
 
 [简体中文](README.zh-CN.md)
 
-Skills for competitor research, editable interfaces, iPhone Duo adaptation, store covers, and local app builds/uploads. Install the skills, give your agent a task, then use the examples below to see what they produce.
+**App Dev Skills is a coordinated suite of agent skills for the app development workflow**, covering key stages from competitor research and interface prototyping to device adaptation, store artwork, and local builds/uploads.
+
+Competitor research → Editable interface prototypes → iPhone Duo adaptation → Store covers → Local builds and uploads
+
+Use the skills together as your project progresses, or install an individual skill for the stage you need. Give your agent a task with the relevant inputs and desired result; the examples below show what each skill produces.
 
 ## Install
 
