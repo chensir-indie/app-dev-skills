@@ -2,22 +2,26 @@
 
 ## Questions and bug reports
 
-Use the setup reference linked from the selected `SKILL.md`, or [runtime support](docs/runtime.md) for environment failures. Report the skill, revision, command/request, expected/actual result and sanitized doctor output in [Issues](https://github.com/chensir-indie/app-dev-skills/issues). For visual failures include the reference, browser and viewport. Report vulnerabilities through GitHub private reporting when available; otherwise request a private channel without posting secrets or exploit details.
+For setup problems, start with the reference linked from the selected `SKILL.md` or the [runtime support guide](docs/runtime.md). When opening an [issue](https://github.com/chensir-indie/app-dev-skills/issues), include the skill and revision, the command or request, what you expected, what happened, and doctor output with sensitive information removed. For visual problems, also include the reference image, browser and viewport.
+
+Report vulnerabilities through GitHub private reporting when available. Otherwise, ask for a private channel before sharing secrets or exploit details.
 
 ## Package and source rules
 
-- Use the flat `skills/<name>/SKILL.md` layout. Each package owns its references, assets, scripts, dependencies and license; local runtime links stay inside it.
-- Maintain one source checkout and the Codex collection symlink. Preserve local edits; compatibility paths may be symlinks to that source, with one discovered entry per skill.
-- Add a skill only for a recurring task with distinct inputs, actions and an observable result. Explain overlap, runtime needs and independent installation. Product-specific credentials, account mappings and release history belong in product workspaces.
-- Each skill has a read-only `scripts/doctor.sh` with actionable repairs and a nonzero exit for missing required tools. Keep root/standalone lockfiles aligned. Test absent/old runtimes with fixtures, not by removing host installations.
+- Use the flat `skills/<name>/SKILL.md` layout. Keep each package's references, assets, scripts, dependencies and license together. Local runtime links must stay within the package.
+- Maintain one source checkout and expose it through the Codex collection symlink. Preserve local edits. Compatibility paths may link to the same source, but discovery must return only one entry per skill.
+- Add a skill when a recurring task has distinct inputs, actions and an observable result. Explain how it overlaps with existing skills, which tools it needs and how to install it independently. Keep product credentials, account mappings and release history in the relevant product workspace.
+- Give each skill a read-only `scripts/doctor.sh` that explains how to repair failures and exits with a nonzero status when required tools are missing. Keep the root and standalone lockfiles consistent. Use fixtures to test missing or older runtimes; leave the host's installations in place.
 
 ## Instructions and documentation
 
-Keep selection, copyable requests and installation in the bilingual root README. Do not add per-skill READMEs; keep necessary setup in existing local references. Put execution order and completion gates in `SKILL.md`; disclose detailed branch contracts through local references. Keep useful output previews visible on both homepages; preserve their source/rights notices and distinguish examples from real app evidence. Avoid duplicate walkthroughs, documentation indexes and dated cleanup reports.
+Use the English and Chinese root READMEs to help readers choose a skill, copy a request and install it. Keep setup instructions in each skill's existing references; do not add per-skill READMEs. Put execution order and completion requirements in `SKILL.md`, with detailed conditions for each workflow in its local references.
 
-Use English for instructions/references/metadata and align bilingual guides. Preserve the user's output language, original-language evidence and legal notices. Retain required evidence and license files; remove obsolete explanations and repair their callers.
+Keep useful output previews visible on both homepages. Preserve source and rights notices, and label examples so readers can distinguish them from real app evidence. Avoid duplicate walkthroughs, documentation indexes and dated cleanup reports.
 
-For additions, renames, removals or scope changes, synchronize folder/frontmatter, `agents/openai.yaml`, both root catalogs, references, doctor and affected tests/configuration. Keep metadata types valid and the exact `$skill-name` token in default prompts. Search for stale names and links.
+Write instructions, references and metadata in English, and keep bilingual guides consistent. Preserve the user's requested output language, evidence in its original language and legal notices. Retain required evidence and license files. When removing obsolete explanations, update anything that links to or relies on them.
+
+When adding, renaming or removing a skill, or changing its scope, update the folder and frontmatter, `agents/openai.yaml`, both root catalogs, references, doctor, and affected tests and configuration. Check metadata types and preserve the exact `$skill-name` token in default prompts. Search for old names and broken links.
 
 ## Verification
 
@@ -27,8 +31,10 @@ For additions, renames, removals or scope changes, synchronize folder/frontmatte
 | Validation code | Failure fixture for the original problem, focused tests, then `npm run check` |
 | Other tool/package changes | Relevant focused tests, then `npm run check` |
 
-See [runtime support](docs/runtime.md#focused-verification) for setup. For changed instructions, inspect wrong-skill requests, existing-project repair, narrow endpoints and missing capabilities; report expected behavior and limitations in the task/PR. Static scenarios are not live agent tests. Automated checks do not replace visual or provider evidence. Tests use local synthetic fixtures, without publishing. Isolate browser fixtures and close servers even when browser startup fails; record validators must not fabricate reviewer judgments or treat automated checks as visual approval.
+See [runtime support](docs/runtime.md#focused-verification) for setup. When changing instructions, review requests that name the wrong skill, repairs to existing projects, requests that stop at an earlier stage, and cases where tools are unavailable. Describe the expected behavior and limits in the task or PR. Label a review of written scenarios as such; it does not establish how a live agent behaves.
+
+Use local synthetic fixtures for tests and do not publish from them. Isolate browser fixtures and close servers even if browser startup fails. Automated checks still need the relevant visual or provider evidence. Validators must not invent reviewer judgments or report an automated pass as visual approval.
 
 ## Submit the change
 
-Explain the problem, resulting behavior, checks actually run and limitations. Preserve unrelated edits. Exclude credentials, private paths, customer data and unlicensed fixtures; retain applicable licenses. Ordinary documentation cleanup needs no new historical report.
+Explain the problem, what the change does, which checks you ran and what remains unverified. Preserve unrelated edits. Keep credentials, private paths, customer data and unlicensed fixtures out of the change, and retain applicable licenses. Routine documentation cleanup does not need a separate historical report.

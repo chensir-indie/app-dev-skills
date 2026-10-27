@@ -2,35 +2,35 @@
 
 [简体中文](README.zh-CN.md)
 
-Skills for app research, interface reconstruction, layout adaptation, store covers and publication. Pick a task, provide your material and ask your agent.
+Use these skills to research competing apps, rebuild interfaces, adapt layouts, create store covers, or build and upload an app. Choose the task below, then give your agent the materials it needs.
 
 ## Choose a skill
 
 | Task | Skill | Result |
 | --- | --- | --- |
-| Research competitors | [app-competitor-analysis](skills/app-competitor-analysis/SKILL.md) | Reports and product decisions |
+| Research competitors | [app-competitor-analysis](skills/app-competitor-analysis/SKILL.md) | Reports and recommendations for your product |
 | Rebuild or refine UI | [image-to-layered-html-prototype](skills/image-to-layered-html-prototype/SKILL.md) | Editable HTML and browser comparisons |
-| Adapt for iPhone Duo | [iphone-duo-adaptation](skills/iphone-duo-adaptation/SKILL.md) | Layout analysis, advice and interactive prototype |
+| Adapt for iPhone Duo | [iphone-duo-adaptation](skills/iphone-duo-adaptation/SKILL.md) | Layout analysis, adaptation advice and an interactive prototype |
 | Create localized store covers | [app-store-cover-generator](skills/app-store-cover-generator/SKILL.md) | Editable covers and PNGs |
-| Build or upload an app | [app-publish-skill](skills/app-publish-skill/SKILL.md) | Local artifacts and stage receipts |
+| Build or upload an app | [app-publish-skill](skills/app-publish-skill/SKILL.md) | Local build files and receipts for the requested stage |
 
 ## Output previews
 
-**Competitor analysis — HTML report**
+**Competitor analysis: HTML report**
 
 ![Example Notes report with research navigation and a four-step journey map](skills/app-competitor-analysis/docs/report-example.png)
 
-Actual browser capture using fictional Example Notes data.
+Browser screenshot of a report built with fictional Example Notes data.
 
-**Store covers — multiple languages and devices**
+**Store covers: multiple languages and devices**
 
 ![English, Chinese and Arabic store covers for iPhone and iPad](skills/app-store-cover-generator/docs/demo-contact.png)
 
-Actual export using synthetic app screens and draft translations.
+Exported covers made with synthetic app screens and draft translations.
 
 ## Use
 
-Once installed, attach your material or project path and use a request below. Specify the goal and stopping point; the agent reads the instructions and checks the required tools.
+After installation, attach your materials or provide a project path, then adapt one of the requests below. Say what you want and where the work should stop. The agent will read the skill instructions and check the tools it needs. Include your preferred output language in the request.
 
 - `Use the app-competitor-analysis skill to compare these apps for [product question]. Deliver per-app HTML reports and a comparison index; mark evidence gaps.`
 - `Use the image-to-layered-html-prototype skill to rebuild these screenshots as editable HTML. Preserve the design and primary interactions; include browser comparisons.`
@@ -40,7 +40,7 @@ Once installed, attach your material or project path and use a request below. Sp
 
 ## Install
 
-Requires [Node.js 22.20+](https://nodejs.org/en/download) with npm/npx. Run your tool's command from the project folder, select the skills you need and keep the **Project** installation scope.
+Install [Node.js 22.20+](https://nodejs.org/en/download), which includes npm/npx. From your project folder, run the command for your agent, select the skills you need and keep the **Project** installation scope.
 
 <details>
 <summary><b>Claude Code</b></summary>
@@ -76,10 +76,10 @@ npx skills add chensir-indie/app-dev-skills -a cursor
 npx skills add chensir-indie/app-dev-skills -a universal
 ```
 
-Open the same project folder in WorkBuddy and start a new task. [Tencent Cloud lists `.agents/skills/` as a project skill directory](https://developer.cloud.tencent.com/techpedia/2610), matching this command’s output. If your client does not discover the skills, [import](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market) the generated `.agents/skills/<skill-name>` folder as a fallback.
+Open the same project folder in WorkBuddy and start a new task. The command installs to [`.agents/skills/`, a project skill directory listed by Tencent Cloud](https://developer.cloud.tencent.com/techpedia/2610). If WorkBuddy does not find the skills, [import](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market) the generated `.agents/skills/<skill-name>` folder.
 
 </details>
 
-Start a new chat and use a request above. Already installed? Skip reinstalling. For global Claude Code, Codex or Cursor installation, add `-g` to the command.
+Start a new chat and use one of the requests above. You can skip installation if the skills are already installed. To use them across projects in Claude Code, Codex or Cursor, add `-g` to the command.
 
 [Troubleshooting](docs/runtime.md) · [Contributing](CONTRIBUTING.md) · [MIT](LICENSE)

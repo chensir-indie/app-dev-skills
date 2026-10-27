@@ -1,12 +1,12 @@
-# iPhone Duo Adaptation validation — 2026-10-23
+# iPhone Duo adaptation validation: 2026-10-23
 
-The initial packaging and scenarios below describe the first revision. The later layout-first revision at the end supersedes its default endpoint; it does not retroactively turn those earlier audit/implementation checks into HTML prototype evidence.
+The packaging and scenarios below describe the first revision. Later sections record the change to a layout-first workflow and HTML delivery. Earlier audit and implementation checks retain their original scope; they provide no evidence for that later HTML output.
 
 ## Scope and provenance
 
-Added [iphone-duo-adaptation](../skills/iphone-duo-adaptation/SKILL.md) to the canonical `skills/` collection. The draft referenced in the request was unavailable in this machine's external home-directory path; this package was reconstructed from the supplied scope and newly checked official sources, not imported from that draft. No product app, release workflow or discovery symlink was changed. Existing unrelated working-tree changes were preserved; nothing was committed or pushed.
+This revision added [iphone-duo-adaptation](../skills/iphone-duo-adaptation/SKILL.md) to the canonical `skills/` collection. The draft named in the request was unavailable at the external home-directory path on this machine, so the package was built from the supplied scope and newly checked official sources. No product app, release workflow or discovery symlink changed. Unrelated working-tree changes were preserved, and nothing was committed or pushed.
 
-This skill starts from a Flutter app's layout/state implementation and ends at an audit, plan, or authorized adaptation with runtime evidence. It complements visual reconstruction, which starts from an approved reference. It adds no Node/Python dependency or npm workspace. The standalone shell preflight explicitly does not certify an iOS toolchain.
+In this first revision, the skill started from a Flutter app's layout and state implementation and delivered an audit, a plan, or an authorized adaptation with runtime evidence. Visual reconstruction remained a separate workflow starting from an approved reference. The addition required no new Node/Python dependency or npm workspace. Its standalone shell preflight did not certify an iOS toolchain.
 
 Apple source checks:
 
@@ -15,7 +15,7 @@ Apple source checks:
 - The exported `app-resizability/SKILL.md` was read with SHA-256 `c4ec32340d4a20c7af97784dc0128f517ea3e7922da087b2c32cf0758e4f6472`. Its native Swift/Objective-C scope is separate from this original Flutter workflow. No Apple Skill text was vendored or relicensed.
 - Flutter's [displayFeatures contract](https://api.flutter.dev/flutter/widgets/MediaQueryData/displayFeatures.html) was checked: the documented list is populated only on Android. The package requires target-version evidence before claiming iOS reserved-region handling. No Flutter/iOS bridge or product adaptation was exercised.
 
-## Packaging and actual discovery
+## Packaging and discovery
 
 | Check | Result and limits |
 | --- | --- |
@@ -29,9 +29,9 @@ Apple source checks:
 
 Discovery used a temporary stdio app-server with `initialize`, then `skills/list` for this checkout. The existing collection symlink remained intact. Standalone installation links to the same source and preserves earlier edits; no second maintained installation was created.
 
-## Independent forward checks
+## Independent agent checks
 
-Three agents started with no inherited chat history. Each received the candidate Skill path and a realistic task, with read-only repository access and no product mutation. These were actual agent runs against supplied snippets or briefs, not app runtime tests. Requests did not provide the intended answer.
+Three agents started without inherited chat history. Each received the candidate skill path, a realistic task and read-only repository access. They worked from supplied snippets or briefs without changing a product. The requests did not reveal the intended answer. These runs tested agent behavior; they did not run an app.
 
 | Scenario | Actual behavior | Judgment and limits |
 | --- | --- | --- |
@@ -39,7 +39,7 @@ Three agents started with no inherited chat history. Each received the candidate
 | One-page camera plan only, Linux/no Xcode or Apple export/devices, professional-mode orientation constraint and no universal two-column layout | Produced a reviewable plan without installing tools or editing files. Retained product constraints, kept gallery structure optional, separated generic, simulator and hardware checks, marked runtime results pending | Missing capabilities did not block planning; hypothetical environment was not presented as measured product evidence |
 | Pure Objective-C single-view defect; one file, no scene/plist migration | Rejected the Flutter Skill as the active route, proposed current view bounds in layoutSubviews, kept scope narrow and described unexecuted checks | Correct wrong-skill routing and scope preservation; no native file supplied or modified |
 
-Responses were reviewed for branch choice, unintended edits, product-choice overreach, unsupported platform claims and fabricated completion. All three stayed within the supplied request. This does not establish broad model reliability or completion of an app's Duo adaptation.
+The review checked whether each agent chose the right workflow, avoided unintended edits, respected product decisions, and supported its platform and completion claims. All three stayed within the supplied request. These results do not establish general model reliability or completion of an app's Duo adaptation.
 
 ## Collection checks and unrelated failure
 
@@ -51,15 +51,15 @@ Ran `PLAYWRIGHT_CHANNEL=chrome npm run check` using installed Chrome **155.0.805
 - The same failure reproduced in an isolated temporary directory containing only the existing competitor skill and browser test, with existing npm dependencies linked. It contained no Duo skill or changed collection documents. The competitor renderer/test were not modified.
 - The root browser failure stopped the npm chain. Separately ran `PLAYWRIGHT_CHANNEL=chrome npm run test:browser --workspaces`: **13/13 cover browser tests and prototype DOM checks passed**.
 
-Full collection `npm run check` remains **failed**, with a reproducible competitor-image layout issue outside this addition's scope. New Skill packaging, discovery and behavioral checks passed. No result here certifies physical-device acceptance, store upload or release.
+The full collection `npm run check` failed on a reproducible competitor-image layout issue outside this addition's scope. The new skill's packaging, discovery and behavior checks passed. Physical-device acceptance, store upload and release were not verified.
 
 ## Layout-first revision after user clarification
 
-The user clarified the core responsibility: first analyze the current application's overall layout, then recommend adaptation consistent with official iPhone guidance, and finally deliver a complete, high-quality HTML prototype. The Skill now requires that sequence by default. Only an explicit narrower request may stop at analysis or advice. Flutter source implementation and native/device acceptance are later requested stages, not substitutes or prerequisites for HTML.
+The user clarified the intended workflow: analyze the current app's overall layout, recommend adaptations based on official iPhone guidance, then deliver a complete HTML prototype that meets the quality requirements. That became the default sequence. An explicit request for analysis or advice can still stop earlier. Flutter implementation and native or device acceptance require later requests; they neither replace nor block HTML delivery.
 
-Updated the entrypoint, description, default prompt, standalone READMEs, scope, collection READMEs, workflows, runtime guidance and doctor wording. Added self-contained [layout analysis](../skills/iphone-duo-adaptation/references/layout-analysis.md) and [HTML prototype](../skills/iphone-duo-adaptation/references/html-prototype.md) contracts. Validation now separates default browser/visual acceptance from optional native implementation checks. Rechecked Apple layout, tabs, toolbars, typography, accessibility and Duo guidance on the date above; official rules and product choices remain distinct.
+This revision updated the entrypoint, description, default prompt, standalone READMEs, scope, collection READMEs, workflows, runtime guidance and doctor wording. It added self-contained requirements for [layout analysis](../skills/iphone-duo-adaptation/references/layout-analysis.md) and the [HTML prototype](../skills/iphone-duo-adaptation/references/html-prototype.md). Validation separates browser and visual acceptance from optional native implementation checks. Apple guidance on layout, tabs, toolbars, typography, accessibility and Duo was rechecked on the date above, with official rules distinguished from product choices.
 
-Current checks:
+Checks for this revision:
 
 - Skill Creator validation, collection documentation/local links, the two standalone preflight tests and `git diff --check` passed.
 - Actual Codex `skills/list` with force reload returned four enabled collection skills once each from canonical sources. The discovered Duo description included both whole-app analysis and final HTML delivery.
@@ -67,23 +67,23 @@ Current checks:
 - An independent reader reviewed the updated entrypoint, references and bilingual documentation for early-stop branches or conflicting completion criteria; no substantive contradiction was found.
 - An independent forward run received an explicit analysis/advice-only request describing five camera-app screens, with Linux and no Xcode/browser. It covered all five, retained the professional-camera orientation exception, avoided universal two-column design, cited current Apple sources and reported unexecuted checks. It did not write HTML, change code, install tools or claim runtime acceptance. This validates the narrow-endpoint and missing-capability branches, not the default HTML result.
 
-The default branch was also executed independently against an original synthetic five-page notes-app snapshot, with a deletion-confirmation layer. The evaluator captured all current layouts, wrote whole-app analysis and source-linked decisions, then produced editable HTML/CSS/JS covering Notes, Detail, Edit/New, Search, Settings and confirmation. Twelve browser task groups passed in Chrome 155.0.8059.86, with zero console exceptions or failed resources and 47 actual screenshots (8 current, 39 prototype). The parent inspected final wide/narrow and enlarged-text evidence. The input hash remained unchanged. These are synthetic prototype observations, not product or native-device acceptance; this run preceded the workspace-materialization addition below.
+An independent run also exercised the default workflow using an original synthetic five-page notes-app snapshot with a deletion-confirmation layer. The evaluator captured every current layout, analyzed the whole app, and recorded decisions with their sources. It then produced editable HTML/CSS/JS for Notes, Detail, Edit/New, Search, Settings and confirmation. Twelve browser task groups passed in Chrome 155.0.8059.86, with zero console exceptions or failed resources and 47 screenshots (8 current, 39 prototype). The supervising agent inspected the final wide, narrow and enlarged-text evidence. The input hash stayed unchanged. This run verified the synthetic prototype before the workspace-rule addition below; it did not verify a product or native device.
 
-## Complete workspace-rule materialization
+## Recording the full rule catalog in the workspace
 
-The user subsequently required every rule, specification and recommendation in official-basis.md to be formatted and applied in the workspace. Its complete original content was normalized into [one canonical catalog](../skills/iphone-duo-adaptation/assets/official-rules.json); official-basis.md now routes to that catalog and the self-contained workspace contract instead of maintaining a second prose rule set.
+The user then asked for every rule, specification and recommendation in official-basis.md to be recorded in a consistent format and applied in the workspace. All of its original content was moved into [one canonical catalog](../skills/iphone-duo-adaptation/assets/official-rules.json). The original document points to that catalog and the workspace contract, removing the need to maintain a second prose rule set.
 
-- **53 rules, 18 source records**: all original 47 IDs retained; six necessary split rules separate design/evidence boundaries from native checks. Eighteen rules belong only to explicitly requested native implementation/acceptance. HTML tasks retain these records with reasons rather than requiring Xcode or inventing native verification.
-- Materialized this checkout's [Markdown rules](iphone-duo-adaptation/workspace-rules.md) and [JSON ledger](iphone-duo-adaptation/workspace-rules.json), and added a conditional pointer in AGENTS.md. Ordinary structural check passed with **35 pending and 18 native-deferred** bindings. This checkout maintains skills, not a target product app; it does not claim these rules have already been applied to app pages.
-- The standalone Python 3.9+ standard-library helper supports init/render/check and a stricter completion mode. It checks full catalog coverage, immutable snapshot identity, project statuses, real relative targets/evidence, Markdown synchronization and workspace boundaries. Init preserves existing outputs; render preserves JSON annotations; unsupported/old/missing runtimes have explicit diagnostics.
-- **24 focused tests passed**, including actual bundled-catalog compatibility, omitted/duplicate/unknown rule IDs, edited or stale standards, stale Markdown, missing evidence, path and symlink escapes, overwrite prevention, interrupted pair creation and standalone installation.
+- The catalog contained 53 rules and 18 source records. It retained all original 47 IDs and split six rules to separate design and evidence requirements from native checks. Eighteen rules apply only to explicitly requested native implementation or acceptance. HTML tasks retain those records with reasons for deferral, without requiring Xcode or inventing native verification.
+- This checkout's [Markdown rules](iphone-duo-adaptation/workspace-rules.md) and [JSON ledger](iphone-duo-adaptation/workspace-rules.json) were generated, with a conditional pointer added to AGENTS.md. The structural check passed with 35 pending and 18 native-deferred bindings. The checkout maintains skills and contains no target app, so this result does not establish implementation on app pages.
+- The standalone helper uses the Python 3.9+ standard library and supports init, render, check and a stricter completion mode. It checks full catalog coverage, unchanged snapshot identity, project statuses, actual relative targets and evidence, Markdown synchronization, and workspace boundaries. Init preserves existing outputs; render preserves JSON annotations. Missing, older or unsupported runtimes produce explicit diagnostics.
+- All 24 focused tests passed. They cover bundled-catalog compatibility, omitted, duplicate or unknown rule IDs, edited or stale standards, stale Markdown, missing evidence, path and symlink escapes, overwrite prevention, interrupted pair creation, and standalone installation.
 - Re-ran the full collection check: doctor/docs and **316 unit checks passed** (189 root Python, 44 Node, 83 prototype Python). The same existing competitor browser image-card failure remains, with 8/9 root browser tests passing. No unrelated renderer or browser fixture was changed.
 
-The helper validates record integrity; it cannot certify semantic HIG compliance, visual quality or native support. Target-app work must bind every applicable rule to its own design, HTML and actual evidence before passing the completion gate.
+The helper checks whether records are complete and consistent. HIG compliance, visual quality and native support need separate review. Before a target app passes completion checks, every applicable rule must point to that app's design, HTML and actual evidence.
 
 ## Six-point supplement and project-convention separation
 
-The user accepted six additions from the IMX rule review and requested them in both the Skill and workspace rules, retaining **whole-app layout analysis → adaptation recommendations → complete HTML prototype**. This revision changes the Skill and rule tooling; it does not adapt or run the actual IMX app.
+The user accepted six additions from the IMX rule review and asked to include them in both the skill and workspace rules. The workflow still moves from whole-app layout analysis to adaptation recommendations and a complete HTML prototype. This revision changed the skill and rule tools without adapting or running the IMX app.
 
 | Accepted point | Reusable rule and contract | Project boundary |
 | --- | --- | --- |
@@ -94,11 +94,13 @@ The user accepted six additions from the IMX rule review and requested them in b
 | Accessible tasks | HIG-ACCESSIBILITY-001/004/005; main tasks, hidden-target fallback, modal return and Reduce Motion | Separate text/IME, keyboard-navigation and assistive-reading focus. IMX select/read/edit/send/close tasks retain its permissions, send conditions and draft ownership |
 | Traceable evidence and build identity | WORKFLOW-TRACEABILITY-001 and native-only NATIVE-VALIDATION-001; per-rule evidence, source/artifact identity, production-navigation integration and affected Profile/Release paths | HTML, fixtures, Skill-maintenance checks and actual native/account acceptance are separate evidence scopes |
 
-The catalog now has **60 rules and 27 source records**, retaining all previous 53 IDs and adding seven. Twenty rules are native-only. Apple and Flutter primary sources were checked for the region facts and build/test contracts; `SKILL-*` source records identify local collection contracts, not Apple requirements. Source-relative paths resolve from the catalog's `assets/` directory.
+The catalog grew to 60 rules and 27 source records, retaining all previous 53 IDs and adding seven. Twenty rules apply only to native work. Apple and Flutter primary sources were checked for region behavior and build and test requirements. The `SKILL-*` source records identify local collection requirements separately from Apple's. Source-relative paths resolve from the catalog's `assets/` directory.
 
-At that revision, the [project-convention contract](../skills/iphone-duo-adaptation/references/project-conventions.md) and six-point IMX example were self-contained. The project-specific fixture was subsequently removed from the distributed skill; generic explicit-adoption testing now covers this behavior. IMX examples start pending and are adopted only for the relevant project or an explicit user choice. They are not imported by init. This checkout's generated ledger retains **40 pending and 20 native-deferred general bindings**, plus one separately verified **collection-maintenance scope** convention. That convention only verifies this rule update and its boundary; it is not App, HTML or native acceptance. All existing bindings and top-level workspace annotations were preserved during catalog reconciliation. Overall completion checking is intentionally not passed for a target app that is absent.
+At that revision, the [project-convention contract](../skills/iphone-duo-adaptation/references/project-conventions.md) and six-point IMX example were self-contained. The project-specific fixture was later removed from the distributed skill; generic tests now cover explicit adoption. IMX examples start pending and are adopted only for the relevant project or when the user explicitly chooses them. Init does not import them.
 
-The helper now validates and renders optional `project_conventions` independently, including provenance, unique PROJECT- IDs, valid general-parent IDs and the same status/path/evidence/completion gates. Old ledgers without the array remain compatible. Failure fixtures first exposed the unsupported project records (84 failing subcases and one error); after implementation, **36 focused tests pass**, including explicit adoption of the real bundled IMX example and init's refusal to import it automatically.
+This checkout's generated ledger retained 40 pending and 20 native-deferred general bindings, plus one separately verified collection-maintenance scope convention. That convention verifies the rule update and its scope only. It does not establish app, HTML or native acceptance. Catalog reconciliation preserved every existing binding and top-level workspace annotation. With no target app in this checkout, overall completion remains unverified.
+
+The helper validates and renders optional `project_conventions` separately. It checks provenance, unique PROJECT- IDs and valid general-parent IDs, then applies the same status, path, evidence and completion requirements as for general rules. Old ledgers without the array remain compatible. Failure fixtures first exposed the unsupported project records with 84 failing subcases and one error. After implementation, 36 focused tests passed, including explicit adoption of the bundled IMX example and init's refusal to import it automatically.
 
 Final checks on this revision:
 
@@ -108,11 +110,11 @@ Final checks on this revision:
 - Independent read-only review confirmed the three-stage endpoint, general/project separation, non-blocking native boundary and project-validator gates. It identified the missing distinction between the three focus types; the catalog and implementation/validation contracts were corrected before final checks.
 - `PLAYWRIGHT_CHANNEL=chrome npm run check` passed doctor/docs and **328 unit checks** (201 root Python, 44 cover Node, 83 prototype Python). Root browser tests remain **8/9**, failing the same existing `tests/competitor_html.browser.cjs:69` portrait-card assertion at a 1000px screen (`-95.96875px`). The existing unrelated failure still prevents the full npm chain from passing; no competitor renderer or browser fixture was modified in this supplement.
 
-No new product HTML was requested in this rules-maintenance task. Earlier synthetic HTML results remain scoped to that earlier run; they were not rerun or relabeled as current IMX acceptance. No product source, account, release, staging, commit or push action was performed. The [revision evidence manifest](iphone-duo-adaptation/six-point-validation-evidence-2026-10-23.json) binds the six-point revision's checked files as recorded on 2026-10-23. It excludes itself and this narrative to avoid a circular hash. Later edits are outside that manifest.
+This rules-maintenance task did not request new product HTML. The earlier synthetic HTML results still describe that run; they were not rerun and do not establish current IMX acceptance. No product source, account, release, staging, commit or push action was performed. The [revision evidence manifest](iphone-duo-adaptation/six-point-validation-evidence-2026-10-23.json) identifies the files checked for the six-point revision on 2026-10-23. It excludes itself and this narrative to avoid a circular hash. Later edits are outside that manifest.
 
-## Framework routing revision — 2026-10-26
+## Framework routing revision: 2026-10-26
 
-The skill now identifies the UI framework before applying an implementation contract. SwiftUI, UIKit, Flutter, React Native/Expo, and WKWebView shells (Capacitor, Cordova, Ionic, uni-app, Taro) have separate references and catalog rules. Compose Multiplatform, .NET MAUI, and Unity are recognized only so their APIs are not borrowed from another framework. The default endpoint remains whole-app layout analysis, HIG-linked recommendations, and a complete HTML prototype. This section is a desk review of the instructions, not a live model run or a product adaptation.
+The skill identifies the UI framework before choosing its implementation requirements. SwiftUI, UIKit, Flutter, React Native/Expo, and WKWebView shells (Capacitor, Cordova, Ionic, uni-app, Taro) have separate references and catalog rules. It also recognizes Compose Multiplatform, .NET MAUI, and Unity to avoid applying another framework's APIs to them. The default workflow still delivers whole-app layout analysis, recommendations linked to HIG, and a complete HTML prototype. The scenarios below were reviewed against the written instructions; no live model or product adaptation was run for this section.
 
 | Scenario | Expected behavior | Instruction |
 | --- | --- | --- |

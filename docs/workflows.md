@@ -2,16 +2,16 @@
 
 [简体中文](workflows.zh-CN.md)
 
-Maintainer reference: use this when changing skill responsibilities or handoffs. Users can invoke a skill directly from the [catalog](../README.md#choose-a-skill).
+Use this guide when changing what a skill does or how it hands work to another skill. To choose and use a skill, start with the [catalog](../README.md#choose-a-skill).
 
-| Skill | Default endpoint | Boundary |
+| Skill | Default result | Limits |
 | --- | --- | --- |
-| Competitor analysis | Evidence-linked reports and product recommendations | Inferences remain labeled; analysis does not approve a design |
-| Layered HTML | Editable pages and browser comparisons | Concepts/reviews may stop earlier; prototype captures are not real app captures |
-| iPhone Duo | Whole-app analysis → recommendations → complete HTML prototype | Explicit advice-only scope ends earlier; native implementation/device acceptance is separate |
-| Store covers | Editable source and reviewed locale/device/slide exports | Export does not authorize upload |
-| App publication | The requested local or provider stage | Exact TestFlight upload receipt ends upload work; processing, distribution, review and public release remain separate |
+| Competitor analysis | Reports with supporting evidence and product recommendations | Label inferences. Analysis does not approve a design. |
+| Layered HTML | Editable pages and browser comparisons | Concept or review requests may stop earlier. Label prototype screenshots separately from real app screenshots. |
+| iPhone Duo | Whole-app analysis, recommendations, then a complete HTML prototype | Stop earlier for an explicit advice-only request. Native implementation and device acceptance are separate stages. |
+| Store covers | Editable source and reviewed exports for each language, device and slide | Permission to export does not include permission to upload. |
+| App publication | The local or provider stage the user requested | For a TestFlight upload, stop at the receipt for the exact artifact, version and build. Verify processing, distribution, review and public release separately. |
 
-The selected `SKILL.md` owns execution and acceptance. For cross-stage work, pass existing artifact paths/hashes, source/state context, observed versus inferred findings, completed checks and remaining gaps. Preserve prior decisions and authorization; handoffs do not add approval steps.
+Follow the selected `SKILL.md` for execution and acceptance. When handing work to the next stage, include existing artifact paths and hashes, their source and current state, findings with observations and inferences clearly distinguished, completed checks, and remaining gaps. Carry forward prior decisions and authorization without adding approval steps.
 
-Duo's catalog, populated pre-implementation handoff, project conventions and browser evidence remain governed by its [workspace-rule contract](../skills/iphone-duo-adaptation/references/workspace-rules.md). This collection's ledger is maintenance evidence, not target-app acceptance.
+For Duo, follow the [workspace-rule contract](../skills/iphone-duo-adaptation/references/workspace-rules.md) for the full rule catalog, the completed handoff before implementation, project conventions and browser evidence. This collection's ledger records skill maintenance. Acceptance of a target app requires that app's own evidence.

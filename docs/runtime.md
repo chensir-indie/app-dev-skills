@@ -2,7 +2,7 @@
 
 [简体中文](runtime.zh-CN.md) · [Collection overview](../README.md)
 
-Install instructions and runtime dependencies separately. Reading references, planning a teardown or writing a concept does not require all the rendering tools. Run a preflight for the task you are actually about to execute.
+Installing a skill gives you its instructions; its scripts may need additional tools. You can read references, plan a competitor analysis or develop a concept before installing the rendering tools. Check the environment for the task you are about to run.
 
 ## Choose the check
 
@@ -19,9 +19,9 @@ sh scripts/doctor.sh --skill image-to-layered-html-prototype
 sh scripts/doctor.sh --skill app-store-cover-generator
 ```
 
-From an independently installed skill, run `sh scripts/doctor.sh` inside that skill. Its `SKILL.md` and linked setup reference document narrower scopes. The shell entry can explain a missing runtime before trying to run Python or Node. `npm run doctor` is a convenience only when Node/npm already work.
+If you installed a skill independently, run `sh scripts/doctor.sh` from its directory. See its `SKILL.md` and linked setup reference for more specific checks. The shell script checks for missing runtimes before trying to run Python or Node. You can also use `npm run doctor` if Node/npm already work.
 
-The catalog and full doctor discover `skills/*/SKILL.md` in the current checkout. A targeted `--skill` check dispatches directly to that skill's shell bootstrap, so a Node-only skill can be checked without installing collection Python first. Collection validation separately rejects incomplete skill folders and missing documentation entries.
+The catalog command and full doctor find skills through `skills/*/SKILL.md` in the current checkout. With `--skill`, doctor runs that skill's shell script directly. A skill that only needs Node can therefore be checked without installing Python for the collection. Collection validation also checks for incomplete skill folders and missing documentation entries.
 
 ### Skill-specific setup
 
@@ -33,11 +33,11 @@ The catalog and full doctor discover `skills/*/SKILL.md` in the current checkout
 | iPhone Duo workspace rules | Python 3.9+ standard library; [rule helper](../skills/iphone-duo-adaptation/references/workspace-rules.md). Layout/HTML work needs no Xcode; browser acceptance requires a browser. |
 | App publication | Python 3.9+ for offline helpers; [project toolchain setup](../skills/app-publish-skill/references/fastlane-setup.md) for builds/uploads. From the skill directory, add `--project /path/to/app --platform ios` or `android` to doctor. |
 
-Doctor does not install, authenticate, build or upload. Browser checks launch a blank headless browser. Follow reported repairs and rerun the same command; success proves environment readiness, not artifact quality or task acceptance.
+Doctor checks your environment without installing tools, signing in, building or uploading. Its browser check launches a blank headless browser. Follow any repair instructions and rerun the same command. A pass means the required tools are available; artifact quality and task acceptance need their own checks.
 
 ## Set up the repository
 
-Use a POSIX shell on macOS, Linux or Windows through WSL. Full collection checks require **Node.js 22+, npm, Python 3.9+ available as `python3`, Pillow, PyYAML and Playwright Chromium**. Individual skills can need less. Optional Swift/Vision OCR is macOS-only and does not gate the portable pipeline. Mobile packaging has the selected project's separate platform requirements.
+Use a POSIX shell on macOS or Linux, or WSL on Windows. To run all collection checks, you need Node.js 22+, npm, Python 3.9+ available as `python3`, Pillow, PyYAML and Playwright Chromium. Individual skills may need fewer tools. Optional Swift/Vision OCR runs only on macOS; the portable workflow works without it. Mobile packaging also needs the selected project's platform tools.
 
 From the repository root:
 
@@ -50,7 +50,7 @@ npx playwright install chromium
 npm run check
 ```
 
-Use `npm ci` in a repository checkout with its lockfile. Use the setup reference linked from the selected `SKILL.md` when installing only one skill. Python imports are checked in the active interpreter: installing into another Python environment will not repair the current one. Activate the same virtual environment in each new terminal.
+Use `npm ci` with the repository's lockfile. If you are installing only one skill, follow the setup reference linked from its `SKILL.md`. Install Python packages into the environment that runs the checks, and activate that same virtual environment in each new terminal. Packages installed into another environment will not fix an import error here.
 
 ## Repair a failed check
 
@@ -66,13 +66,13 @@ Use `npm ci` in a repository checkout with its lockfile. Use the setup reference
 | Existing Chrome should be used | Set `PLAYWRIGHT_CHANNEL=chrome` for both the doctor and capture/export command, for example `PLAYWRIGHT_CHANNEL=chrome sh scripts/doctor.sh`. Chrome must already be installed; preserve the actual browser version in evidence. |
 | Downloads fail or the host is managed | Keep the diagnostic output, check your network/package-registry policy, and ask the environment owner to provide the named runtime/package. Do not repeatedly rerun a failing workflow or change security settings. |
 
-Native PowerShell does not execute the POSIX bootstrap. Use WSL for the documented shell/npm checks; a custom Windows workflow may run the `.py`/`.mjs` helpers directly, but is not covered by the collection's shell test path.
+On Windows, use WSL for the documented shell/npm checks; native PowerShell cannot run the POSIX startup script. You may adapt a Windows workflow to run the `.py`/`.mjs` helpers directly, but the collection's shell tests do not cover that setup.
 
 ## Continue when one capability is unavailable
 
-Continue research, source inspection or concept work that does not need the failed tool. Keep the dependent capture/render/check step pending and report the missing capability. An alternative browser or inspection tool is useful only if it can produce the same required evidence. A missing runtime does not justify fabricated screenshots or an unverified acceptance result.
+Continue research, source inspection or concept work that does not need the unavailable tool. Report what is missing and leave any dependent capture, render or check step pending. You can use another browser or inspection tool if it produces the required evidence. Never fill the gap with fabricated screenshots or claim that an unverified result passed.
 
-When requesting support, include the command, working directory, operating system, active interpreter/version, doctor output and failed scope. Remove private paths and sensitive project content before sharing publicly. Never include tokens, cookies, signing files or account credentials.
+When asking for help, include the command, working directory, operating system, active interpreter and version, doctor output, and the check that failed. Remove private paths and sensitive project content before sharing publicly. Do not include tokens, cookies, signing files or account credentials.
 
 ## Focused verification
 
@@ -85,4 +85,4 @@ npm run test:browser
 npm run demo
 ```
 
-Run only the relevant scopes during iteration; run `npm run check` before delivering collection/tooling changes. The demo uses synthetic UI. CI checks this repository and does not package or upload mobile apps.
+While working, run the checks relevant to your change. Run `npm run check` before delivering changes to the collection or its tools. The demo uses synthetic UI, and CI checks only this repository; it does not package or upload mobile apps.
