@@ -21,7 +21,7 @@ Read [evidence-model.md](references/evidence-model.md). Pin product/platform, ve
 
 Prefer supplied material and authorized acquisition. Missing device access limits runtime conclusions but permits screenshot/static analysis. For consequential gaps, follow [evidence acquisition](references/evidence-acquisition.md): define closure proof, acquire and inspect, reconcile, update reports/maps and recheck. Record actual attempts and distinguish unattempted, partial and concretely blocked questions. Text extraction cannot close a pixel/runtime question. Keep private artifacts out of the skill package; acquisition does not authorize purchases, protection bypasses or private-data uploads.
 
-Record selected methods as completed, partial or not run using [the workbook](assets/research-workbook.md). Participant studies, runtime comparisons and cohort measurements need actual data; unknown measures remain null. Before bundled scripts, run `sh scripts/doctor.sh` and use its reported Python interpreter. For failures, follow [helper setup](README.md#run-the-helpers), continue independent research and keep dependent work pending.
+Record selected methods as completed, partial or not run using [the workbook](assets/research-workbook.md). Participant studies, runtime comparisons and cohort measurements need actual data; unknown measures remain null. Before bundled scripts, run `sh scripts/doctor.sh` and use its reported Python interpreter. For failures, follow [helper setup](references/html-delivery.md#reusable-renderer), continue independent research and keep dependent work pending.
 
 ## 3. Analyze only the needed dimensions
 

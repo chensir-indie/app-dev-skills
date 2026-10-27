@@ -21,7 +21,7 @@ sh scripts/doctor.sh
 sh scripts/doctor.sh --project "$PROJECT_ROOT" --platform ios
 ```
 
-Default doctor checks only the package and Python. `--project` performs actual Ruby/Bundler/Fastlane checks. Use it only against a trusted project because Bundler evaluates its Gemfile/configuration. For multiple adapters or a monorepo, explicitly select the **directory containing Fastfile**:
+Bundled helpers require Python 3.9+ with no pip packages; app builds need the project toolchain. Default doctor checks only the package and Python. `--project` performs actual Ruby/Bundler/Fastlane checks. Use it only against a trusted project because Bundler evaluates its Gemfile/configuration. For multiple adapters or a monorepo, explicitly select the **directory containing Fastfile**:
 
 ```sh
 sh scripts/doctor.sh --project "$PROJECT_ROOT" --platform ios \

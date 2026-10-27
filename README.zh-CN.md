@@ -6,24 +6,23 @@
 
 ## 选择技能
 
-| 你想做什么 | Skill | 用法与产物 |
+| 你想做什么 | Skill | 产物 |
 | --- | --- | --- |
-| 分析竞品 | [app-competitor-analysis](skills/app-competitor-analysis/SKILL.md) | [报告与产品建议](skills/app-competitor-analysis/README.zh-CN.md) |
-| 还原或优化界面 | [image-to-layered-html-prototype](skills/image-to-layered-html-prototype/SKILL.md) | [可编辑 HTML 与浏览器对比](skills/image-to-layered-html-prototype/README.zh-CN.md) |
-| 适配 iPhone Duo | [iphone-duo-adaptation](skills/iphone-duo-adaptation/SKILL.md) | [布局分析、建议与交互原型](skills/iphone-duo-adaptation/README.zh-CN.md) |
-| 制作多语言商店封面 | [app-store-cover-generator](skills/app-store-cover-generator/SKILL.md) | [可编辑封面与 PNG](skills/app-store-cover-generator/README.zh-CN.md) |
-| 打包或上传应用 | [app-publish-skill](skills/app-publish-skill/SKILL.md) | [本地制品与指定阶段回执](skills/app-publish-skill/README.zh-CN.md) |
+| 分析竞品 | [app-competitor-analysis](skills/app-competitor-analysis/SKILL.md) | 报告与产品建议 |
+| 还原或优化界面 | [image-to-layered-html-prototype](skills/image-to-layered-html-prototype/SKILL.md) | 可编辑 HTML 与浏览器对比 |
+| 适配 iPhone Duo | [iphone-duo-adaptation](skills/iphone-duo-adaptation/SKILL.md) | 布局分析、建议与交互原型 |
+| 制作多语言商店封面 | [app-store-cover-generator](skills/app-store-cover-generator/SKILL.md) | 可编辑封面与 PNG |
+| 打包或上传应用 | [app-publish-skill](skills/app-publish-skill/SKILL.md) | 本地制品与指定阶段回执 |
 
 ## 使用
 
-安装后，在 Codex 中附上截图、文件或项目路径，直接输入：
+安装后，附上材料或项目路径，选择下面的示例提需求。说明目标和结束阶段即可；Agent 会读取指令、检查所需环境。需要中文产物时，在请求中说明。
 
-```text
-用 $image-to-layered-html-prototype 把这些截图还原成可编辑 HTML，
-保留原设计与主要交互，提供浏览器对比。交付说明使用中文。
-```
-
-各技能用法页提供可复制示例。说明目标和结束阶段即可；Agent 会按任务读取指令、检查所需环境。
+- `用 $app-competitor-analysis 分析这些竞品，回答［产品问题］。输出各应用 HTML 报告与对比索引，标明证据缺口。`
+- `用 $image-to-layered-html-prototype 把这些截图还原成可编辑 HTML，保留原设计与主要交互，提供浏览器对比。`
+- `用 $iphone-duo-adaptation 分析［项目路径］的 iPhone Duo 适配，以最小布局改动给出建议并制作完整交互 HTML 原型。`
+- `用 $app-store-cover-generator 根据这些截图和文案，制作［语言和设备尺寸］的可编辑商店封面与 PNG。`
+- `用 $app-publish-skill 将［项目路径］打包上传 TestFlight，拿到 Apple 上传回执后结束。`
 
 ## 安装
 
@@ -48,6 +47,8 @@ fi
 ```
 
 适用于 macOS/Linux/WSL。已有源码时修改路径并跳过 clone。维护源码，通过一个软链接发现技能，不向 `~/.codex/skills` 复制。迁移前保存修改，将重复副本移出发现目录；必要时新开 Codex 会话，确认每个技能只出现一次。其他 Agent 保留所选技能完整目录并加载 `SKILL.md`。
+
+只安装单个技能时，将上方命令中的链接源改为 `skills/<name>`，链接位置改为 `~/.agents/skills/<name>`。合集与单技能安装二选一，确保每个技能只被发现一次。
 
 </details>
 

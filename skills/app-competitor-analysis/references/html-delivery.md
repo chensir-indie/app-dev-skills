@@ -64,6 +64,8 @@ When the user reports shallow analysis, challenge the main product model against
 
 ## Reusable renderer
 
+[Example preview](../docs/report-example.png): an actual Chrome capture of the original synthetic `assets/report-bundle.example.json`, generated on 2026-10-27. The example and image use [MIT](../LICENSE); host-system fonts are rendered, not redistributed as font files.
+
 The standard-library renderer consumes **authored analysis**; it does not infer findings from a ledger or discover missing evidence. Start with [the original example bundle](../assets/report-bundle.example.json), replace its synthetic content, and run from the skill directory:
 
 ```sh
@@ -71,7 +73,7 @@ sh scripts/doctor.sh
 python3 scripts/render_reports.py path/to/report-bundle.json --output path/to/new-report-folder --format linked
 ```
 
-Use the Python command reported by the doctor (`python3` or `python`). Missing or unsupported Python blocks rendering, while evidence research can continue; follow [setup and retry guidance](../README.md#run-the-helpers). The helper needs Python 3.9+ and no third-party packages. Keep browser review pending if browser access is unavailable.
+Use the Python command reported by the doctor (`python3` or `python`). Missing or unsupported Python blocks rendering, while evidence research can continue; activate or install Python 3.9+ and rerun doctor before retrying. The helper needs Python 3.9+ and no third-party packages. Keep browser review pending if browser access is unavailable.
 
 The CLI defaults to `--format linked`: per-product HTML, a searchable/filterable index, content-addressed local images/CSS/JS in `assets/`, and a hash manifest. Keep and zip the entire folder. Shared resources can be cached across reports, and HTML editors/previews avoid large inline base64 strings. `--format standalone` explicitly embeds resources into each HTML for single-file exchange. The Python `render_bundle` API retains its historical standalone default for compatibility; pass `delivery_format="linked"` for the normal reading bundle. Use an empty/new output directory; the renderer refuses to overwrite existing work. No network requests occur during rendering. Its completion message proves generation, not source truth or browser quality.
 

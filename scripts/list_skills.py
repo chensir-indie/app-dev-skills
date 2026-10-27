@@ -22,8 +22,6 @@ def main():
         entries.append({
             'name': entry.parent.name,
             'entrypoint': str(folder / 'SKILL.md'),
-            'guide': str(folder / 'README.md'),
-            'guide_zh': str(folder / 'README.zh-CN.md'),
             'doctor': str(folder / 'scripts/doctor.sh'),
         })
     if not entries:
@@ -33,8 +31,8 @@ def main():
         print(json.dumps(entries, ensure_ascii=False, indent=2))
     else:
         for entry in entries:
-            print('{}\n  Read: {}\n  Guide: {} | {}\n  Check: sh {}'.format(
-                entry['name'], entry['entrypoint'], entry['guide'], entry['guide_zh'], entry['doctor']))
+            print('{}\n  Read: {}\n  Check: sh {}'.format(
+                entry['name'], entry['entrypoint'], entry['doctor']))
         print('\nPaths are relative to {}. Read the selected SKILL.md before choosing its workflow.'.format(root))
     return 0
 

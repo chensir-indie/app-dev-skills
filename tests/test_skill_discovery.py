@@ -51,6 +51,9 @@ class SkillDiscoveryTests(unittest.TestCase):
         self.assertEqual([entry['name'] for entry in entries], ['new-workflow'])
         self.assertEqual(entries[0]['entrypoint'], 'skills/new-workflow/SKILL.md')
         self.assertEqual(entries[0]['doctor'], 'skills/new-workflow/scripts/doctor.sh')
+        for key, value in entries[0].items():
+            if key != 'name':
+                self.assertTrue((self.root / value).is_file(), value)
 
     def test_catalog_fails_instead_of_reporting_an_empty_success(self):
         shutil.rmtree(self.root / 'skills')

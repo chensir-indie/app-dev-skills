@@ -19,7 +19,7 @@ sh scripts/doctor.sh --skill image-to-layered-html-prototype
 sh scripts/doctor.sh --skill app-store-cover-generator
 ```
 
-From an independently installed skill, run `sh scripts/doctor.sh` inside that skill. Its README documents narrower scopes. The shell entry can explain a missing runtime before trying to run Python or Node. `npm run doctor` is a convenience only when Node/npm already work.
+From an independently installed skill, run `sh scripts/doctor.sh` inside that skill. Its `SKILL.md` and linked setup reference document narrower scopes. The shell entry can explain a missing runtime before trying to run Python or Node. `npm run doctor` is a convenience only when Node/npm already work.
 
 The catalog and full doctor discover `skills/*/SKILL.md` in the current checkout. A targeted `--skill` check dispatches directly to that skill's shell bootstrap, so a Node-only skill can be checked without installing collection Python first. Collection validation separately rejects incomplete skill folders and missing documentation entries.
 
@@ -50,7 +50,7 @@ npx playwright install chromium
 npm run check
 ```
 
-Use `npm ci` in a repository checkout with its lockfile. Use the selected skill README's standalone setup when installing only one skill. The optional [Skills CLI installer](https://github.com/vercel-labs/skills) requires Node.js 22.20+; the bundled toolkit runtime remains Node.js 22+. Python imports are checked in the active interpreter: installing into another Python environment will not repair the current one. Activate the same virtual environment in each new terminal.
+Use `npm ci` in a repository checkout with its lockfile. Use the setup reference linked from the selected `SKILL.md` when installing only one skill. The optional [Skills CLI installer](https://github.com/vercel-labs/skills) requires Node.js 22.20+; the bundled toolkit runtime remains Node.js 22+. Python imports are checked in the active interpreter: installing into another Python environment will not repair the current one. Activate the same virtual environment in each new terminal.
 
 ## Repair a failed check
 
@@ -60,7 +60,7 @@ Use `npm ci` in a repository checkout with its lockfile. Use the selected skill 
 | `venv` or `ensurepip` missing | Install your distribution's Python venv/pip package (for example `python3-venv` on Debian/Ubuntu), then recreate `.venv`. |
 | Node/npm missing or Node below 22 | Install Node.js 22+ with npm using the [official download options](https://nodejs.org/en/download); reopen the terminal. Without Node, use manual skill installation to read/use instructions first. |
 | Pillow/PyYAML cannot import | Activate `.venv`; run `python -m pip install -r skills/image-to-layered-html-prototype/requirements.txt`. Avoid system-wide pip installation. |
-| Playwright/pngjs missing | From the repository root run `npm ci`; for a standalone copy use its README's `npm install` instructions. |
+| Playwright/pngjs missing | From the repository root run `npm ci`; for an independently installed skill with `package.json`, run `npm install` in its directory. |
 | Chromium executable missing | After npm dependencies are installed, run `npx playwright install chromium` from the package/repository that owns them. |
 | Browser OS libraries missing on Linux | Run `npx playwright install --with-deps chromium` where authorized; this may require system-administrator access. If unavailable, use a supported host for capture and keep browser verification pending. |
 | Existing Chrome should be used | Set `PLAYWRIGHT_CHANNEL=chrome` for both the doctor and capture/export command, for example `PLAYWRIGHT_CHANNEL=chrome sh scripts/doctor.sh`. Chrome must already be installed; preserve the actual browser version in evidence. |

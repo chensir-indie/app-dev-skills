@@ -15,7 +15,7 @@ docs/iphone-duo-adaptation/workspace-rules.md
 
 JSON is the project ledger containing a complete catalog snapshot and rule bindings. Markdown is generated from that JSON, with separate general-rule and project-convention sections. To use an established artifact directory, pass a workspace-relative `--output-dir`, such as `.scratch/iphone-duo-adaptation`. Ordinary product tasks write there, not back into the installed Skill.
 
-From the Skill source directory, replace the target path:
+The helper requires Python 3.9+ with no pip packages. Layout analysis and HTML work need no Xcode or device; browser acceptance requires an available browser. From the Skill source directory, replace the target path:
 
 ```sh
 sh scripts/doctor.sh

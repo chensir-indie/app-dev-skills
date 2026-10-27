@@ -19,7 +19,7 @@ sh scripts/doctor.sh --skill image-to-layered-html-prototype
 sh scripts/doctor.sh --skill app-store-cover-generator
 ```
 
-独立安装的技能，在该技能目录运行 `sh scripts/doctor.sh`；更小的检查范围见该技能 README。shell 入口会先判断运行时是否存在，避免连 Python/Node 都没有时直接执行失败。`npm run doctor` 仅在 Node/npm 已可运行时作为快捷入口。
+独立安装的技能，在该技能目录运行 `sh scripts/doctor.sh`；更小的检查范围见该技能 `SKILL.md` 链接的环境说明。shell 入口会先判断运行时是否存在，避免连 Python/Node 都没有时直接执行失败。`npm run doctor` 仅在 Node/npm 已可运行时作为快捷入口。
 
 目录命令与完整 doctor 从当前 checkout 的 `skills/*/SKILL.md` 发现技能。`--skill` 定向检查直接进入对应技能的 shell 入口，因此只需要 Node 的技能不必先安装合集 Python。集合校验另行检查不完整的技能目录及缺失的文档入口。
 
@@ -50,7 +50,7 @@ npx playwright install chromium
 npm run check
 ```
 
-仓库 checkout 使用带锁文件的 `npm ci`；只安装单个 skill 时，使用其 README 的独立安装说明。可选的 [Skills CLI 安装器](https://github.com/vercel-labs/skills)需要 Node.js 22.20+，内置工具运行要求仍为 Node.js 22+。Python 包必须安装到当前检查所用的解释器中；装到另一个 Python 环境不会解决当前问题。每次开启新终端都要重新激活对应虚拟环境。
+仓库 checkout 使用带锁文件的 `npm ci`；只安装单个 skill 时，使用其 `SKILL.md` 链接的环境说明。可选的 [Skills CLI 安装器](https://github.com/vercel-labs/skills)需要 Node.js 22.20+，内置工具运行要求仍为 Node.js 22+。Python 包必须安装到当前检查所用的解释器中；装到另一个 Python 环境不会解决当前问题。每次开启新终端都要重新激活对应虚拟环境。
 
 ## 按缺项修复
 
@@ -60,7 +60,7 @@ npm run check
 | 缺 `venv` 或 `ensurepip` | 安装系统发行版对应的 Python venv/pip 包，例如 Debian/Ubuntu 的 `python3-venv`，再创建虚拟环境。 |
 | Node/npm 缺失或 Node 低于 22 | 按 [Node.js 官方安装选项](https://nodejs.org/en/download)配置 Node.js 22+ 与 npm，重开终端。没有 Node 时也可以先手动安装并阅读技能。 |
 | Pillow/PyYAML 无法导入 | 激活 `.venv`，执行 `python -m pip install -r skills/image-to-layered-html-prototype/requirements.txt`，避免往系统 Python 全局安装。 |
-| 缺 Playwright/pngjs | 在仓库根目录运行 `npm ci`；独立副本按其 README 执行 `npm install`。 |
+| 缺 Playwright/pngjs | 在仓库根目录运行 `npm ci`；独立安装的技能若含 `package.json`，在其目录执行 `npm install`。 |
 | 找不到 Chromium 可执行文件 | npm 依赖安装完成后，在对应包/仓库目录运行 `npx playwright install chromium`。 |
 | Linux 缺浏览器系统库 | 在有权限的环境运行 `npx playwright install --with-deps chromium`，可能需要系统管理员权限；无法安装时换到受支持主机采集，浏览器验证保持待完成。 |
 | 希望使用现有 Chrome | 对 doctor 和截图/导出命令同时设置 `PLAYWRIGHT_CHANNEL=chrome`，例如 `PLAYWRIGHT_CHANNEL=chrome sh scripts/doctor.sh`。主机须已安装 Chrome，证据中记录实际版本。 |

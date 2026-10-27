@@ -20,7 +20,7 @@ Choose the requested branch. Full reconstruction defaults to `layered_rebuild`: 
 
 Distinguish faithful reconstruction from active refinement. “Improve” does not unlock frozen design constraints. For exploration/refinement, select one primary standard using [design sources](references/design-sources.md), preserving project conventions. If the goal is store artwork or competitor analysis, read the available corresponding skill's actual `SKILL.md` before routing; its absence need not block useful scoped work.
 
-Before dependent scripts, run `sh scripts/doctor.sh` from this skill directory (`--scope python` or `--scope browser` as appropriate). Follow [setup](README.md#environment-check-and-setup) for repairs. Concepts/prompts need no rendering environment; continue independent work while dependent checks remain `pending`.
+Before dependent scripts, run `sh scripts/doctor.sh` from this skill directory (`--scope python` or `--scope browser` as appropriate). Follow [setup](references/render-contract.md#environment-check-and-setup) for repairs. Concepts/prompts need no rendering environment; continue independent work while dependent checks remain `pending`.
 
 For an existing reconstruction, preserve its source and before screenshot, add `data-artboard` to the existing root if absent, then run:
 

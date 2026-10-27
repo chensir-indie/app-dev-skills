@@ -18,7 +18,7 @@ except ImportError:
     sys.exit('Missing PyYAML. Activate your virtual environment and run: python -m pip install -r {}\nThen rerun: sh {} --scope collection.'.format(shlex.quote(str(root / 'skills/image-to-layered-html-prototype/requirements.txt')), shlex.quote(str(root / 'scripts/doctor.sh'))))
 
 IGNORED = {'node_modules', '.git', '.venv', '__pycache__', 'exports', '.test-output'}
-READMES = ('README.md', 'README.zh-CN.md')
+ROOT_READMES = ('README.md', 'README.zh-CN.md')
 SLUG = re.compile(r'[a-z0-9]+(?:-[a-z0-9]+)*\Z')
 
 
@@ -254,7 +254,7 @@ def check(root):
                 errors.append(f'{skill.name}: invalid invocation metadata (nonempty string fields, short_description 25-64 characters and exact ${skill.name} token required)')
         except (OSError, UnicodeError, yaml.YAMLError) as exc:
             errors.append(f'{skill.name}: invalid invocation metadata: {exc}')
-        for name in ('LICENSE', *READMES):
+        for name in ('LICENSE',):
             if not (skill / name).is_file():
                 errors.append(f'{skill.name}: missing standalone {name}')
         if not (skill / 'scripts/doctor.sh').is_file():
@@ -296,7 +296,7 @@ def check(root):
                 errors.append(f'{doc.relative_to(root)}: link outside skill {link}')
             elif target != root and root not in target.parents:
                 errors.append(f'{doc.relative_to(root)}: link outside collection {link}')
-    for name in READMES:
+    for name in ROOT_READMES:
         doc = root / name
         if not doc.is_file():
             errors.append(f'{name}: missing collection README')

@@ -13,3 +13,23 @@ An imagegen reference may have no source browser. Compare against frozen pixels 
 
 A desktop preview may uniformly scale the whole artboard, but update its wrapper dimensions too, preventing transform-induced blank space and horizontal scrolling.
 Record compact / baseline / wide and long-copy adaptation tests separately. Uniformly shrinking the canvas is not responsive acceptance.
+
+## Environment check and setup
+
+Run from this skill directory. Capture needs Python 3.9+, Node.js 22+, npm, Playwright and a browser; measurement/validation additionally uses Pillow and PyYAML. Concepts need no rendering setup.
+
+```sh
+sh scripts/doctor.sh
+# For a standalone installation when dependencies are missing:
+python3 -m venv .venv
+. .venv/bin/activate
+python -m pip install -r requirements.txt
+npm install
+npx --no-install playwright install chromium
+sh scripts/doctor.sh
+```
+
+In a collection checkout use `npm ci` at the repository root instead of standalone `npm install`. Use `--scope python` or `--scope browser` for narrower checks. Python is needed in both scopes. Installed Chrome can be selected with `PLAYWRIGHT_CHANNEL=chrome` for doctor and capture. Use macOS/Linux or WSL; follow doctor output for missing runtimes and browser libraries. Keep dependent acceptance pending until repaired.
+
+
+[Asset and dependency notices](../THIRD_PARTY_NOTICES.md).

@@ -43,7 +43,7 @@ To use an existing Next/React template, adapt its export route and selectors or 
 
 ## Environment check and setup
 
-Run from the **skill source directory**, not a generated cover project. In a linked Codex collection, this is `skills/app-store-cover-generator` inside the source checkout, exposed through `~/.agents/skills/app-dev-skills/app-store-cover-generator`. A single-skill link or another installer may use a different discovery path; see [installation](../README.md). The bootstrap requires POSIX `sh` (macOS/Linux; use [WSL](https://learn.microsoft.com/windows/wsl/install) on Windows). It also works via an absolute path from any working directory:
+Run from the **skill source directory**, not a generated cover project. In a linked Codex collection, this is `skills/app-store-cover-generator` inside the source checkout, exposed through `~/.agents/skills/app-dev-skills/app-store-cover-generator`. A single-skill link or another installer may use a different discovery path. The bootstrap requires POSIX `sh` (macOS/Linux; use [WSL](https://learn.microsoft.com/windows/wsl/install) on Windows). It also works via an absolute path from any working directory:
 
 ```sh
 sh scripts/doctor.sh
@@ -102,3 +102,5 @@ The verifier checks an export against its own manifest, not a trusted external s
 `npm run demo` serves a temporary project with all 50 App Store locale presets; Ctrl+C closes the server and removes the temporary files. `node scripts/init.mjs NEW_PROJECT --locales app-store` creates a persistent copy. A selected comma-separated preset list is also accepted. Without `--locales`, the initializer keeps the lightweight three-locale selection.
 
 The optional `demo` metadata labels sample copy as draft and records intentional regional wording reuse. It is informational; it grants no translation approval. Real product expansion continues to use `locales.mjs add` and leaves missing translations empty.
+
+[Example export](../docs/demo-contact.png) · [Asset and dependency notices](../THIRD_PARTY_NOTICES.md).

@@ -33,7 +33,7 @@ if args.project is None and (args.fastlane_dir is not None or args.platform is n
     parser.error('--fastlane-dir and --platform require --project')
 root = Path(args.script_dir).resolve().parent
 failures = []
-for relative in ('SKILL.md', 'LICENSE', 'README.md', 'README.zh-CN.md',
+for relative in ('SKILL.md', 'LICENSE',
                  'agents/openai.yaml', 'scripts/release_evidence.py',
                  'references/fastlane-build-testflight.md',
                  'references/fastlane-setup.md',

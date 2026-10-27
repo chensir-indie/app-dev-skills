@@ -30,6 +30,20 @@ class CollectionTests(unittest.TestCase):
     def test_standalone_skill_passes(self):
         self.assertEqual(checker.check(self.root), [])
 
+    def test_standalone_skill_does_not_require_readmes(self):
+        for name in ('README.md', 'README.zh-CN.md'):
+            (self.skill / name).unlink()
+        self.assertEqual(checker.check(self.root), [])
+
+    def test_collection_still_requires_both_readmes(self):
+        for name in ('README.md', 'README.zh-CN.md'):
+            with self.subTest(name=name):
+                path = self.root / name
+                original = path.read_text()
+                path.unlink()
+                self.assertTrue(any(f'{name}: missing collection README' in e for e in checker.check(self.root)))
+                path.write_text(original)
+
     def test_broken_relative_link_fails(self):
         (self.skill / 'guide.md').unlink()
         self.assertTrue(any('broken link' in e for e in checker.check(self.root)))
@@ -58,7 +72,7 @@ class CollectionTests(unittest.TestCase):
         self.assertTrue(any('README.zh-CN.md' in e and 'SKILL.md' in e for e in checker.check(self.root)))
 
     def test_required_standalone_files_are_checked_individually(self):
-        for name in ('LICENSE', 'README.md', 'README.zh-CN.md', 'scripts/doctor.sh'):
+        for name in ('LICENSE', 'scripts/doctor.sh'):
             with self.subTest(name=name):
                 path = self.skill / name
                 original = path.read_text()

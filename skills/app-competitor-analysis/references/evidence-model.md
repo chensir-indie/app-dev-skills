@@ -59,6 +59,6 @@ Static sources additionally need `artifact_sha256` (64 hex characters). Local so
 
 Technology inferences require `alternatives` (a nonempty array) and `verification` (the distinguishing test). A measured claim additionally uses `measurement` with `unit`, `n`, `conditions` and `method`, and must have runtime evidence. A source's known version must match an observed/static claim's version. Split claims spanning revisions instead of hiding the mismatch with “latest”.
 
-Before running `audit_evidence.py`, run `sh scripts/doctor.sh` from the skill directory and use the Python command it reports. The audit uses only the Python 3.9+ standard library. If no compatible interpreter is available, follow [setup guidance](../README.md#run-the-helpers); a readable ledger and source inspection can continue while the automated audit remains pending.
+Before running `audit_evidence.py`, run `sh scripts/doctor.sh` from the skill directory and use the Python command it reports. The audit uses only the Python 3.9+ standard library. If no compatible interpreter is available, follow [setup guidance](html-delivery.md#reusable-renderer); a readable ledger and source inspection can continue while the automated audit remains pending.
 
 `audit_evidence.py` checks these structural conditions, IDs, cross-product joins and declared coverage. It cannot determine whether a screenshot was viewed, whether a function is reachable, whether text supports a claim, or whether a recommendation is good. Review those manually with the evaluation rubric.
