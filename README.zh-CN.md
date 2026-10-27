@@ -76,7 +76,7 @@ npx skills add chensir-indie/app-dev-skills -a cursor
 npx skills add chensir-indie/app-dev-skills -a universal
 ```
 
-再到 WorkBuddy 的 **技能 → 添加技能 → 上传技能**，导入当前项目下的 `.agents/skills/<skill-name>` 文件夹。[官方导入说明](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)。
+在 WorkBuddy 中选择同一项目目录并新建任务。[腾讯云列出的项目技能目录 `.agents/skills/`](https://developer.cloud.tencent.com/techpedia/2610) 与此命令的安装位置一致。若当前客户端未识别，再[导入](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market)生成的 `.agents/skills/<skill-name>` 文件夹。
 
 </details>
 

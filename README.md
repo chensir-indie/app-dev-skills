@@ -76,7 +76,7 @@ npx skills add chensir-indie/app-dev-skills -a cursor
 npx skills add chensir-indie/app-dev-skills -a universal
 ```
 
-Then open **Skills → Add skill → Upload skill** in WorkBuddy and select the generated `.agents/skills/<skill-name>` folder. [Import guide](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market).
+Open the same project folder in WorkBuddy and start a new task. [Tencent Cloud lists `.agents/skills/` as a project skill directory](https://developer.cloud.tencent.com/techpedia/2610), matching this command’s output. If your client does not discover the skills, [import](https://www.workbuddy.cn/docs/workbuddy/From-Beginner-to-Expert-Guide/Function-Description/Skills-Market) the generated `.agents/skills/<skill-name>` folder as a fallback.
 
 </details>
 
